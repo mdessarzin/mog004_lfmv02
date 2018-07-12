@@ -1,0 +1,8 @@
+{
+  "name": "MOG003_LFM",
+  "app_id": "74b8ab5b",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
