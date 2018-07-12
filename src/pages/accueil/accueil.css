@@ -1,0 +1,8 @@
+page-accueil ion-card.ng-enter-stagger {
+  -webkit-animation-delay: 200ms;
+  animation-delay: 200ms;
+  /* override to make sure it's not inherited from other styles */
+  -webkit-animation-duration: 0;
+  animation-duration: 0; }
+page-accueil .scroll-content {
+  margin-bottom: 0px !important; }

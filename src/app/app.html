@@ -1,1 +1,26 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-split-pane when="md" no-border>
+<ion-menu [content]="mainContent" type="3d" class="fullWidthMenu" persistent="true" [content]="content" (ionClose)="collapseMenuOptions()" >
+  <ion-header>
+		<ion-toolbar color="primary">
+			<ion-title>Menu</ion-title>
+		</ion-toolbar>
+	</ion-header>
+<ion-content style="background-color: #333333;">
+
+		<!-- Side Menu -->
+		<side-menu-content [settings]="sideMenuSettings" [options]="options" (selectOption)="selectOption($event)"></side-menu-content>
+
+	</ion-content>
+
+	<ion-footer  style="border-top: 0px solid #29B7C2;">	
+
+		  <ion-toolbar color="menulight"  no-border>
+			 <button ion-button icon-left clear (tap)="whatsapp()" style="color: #b5b5b5;">
+				 <ion-icon name="logo-whatsapp" style="color: #b5b5b5;">&nbsp;</ion-icon>
+				 Envoyer un WhatsApp
+			  </button>
+		  </ion-toolbar>
+	</ion-footer>
+</ion-menu>
+<ion-nav #mainContent #content main swipeBackEnabled="false" [root]="rootPage"></ion-nav>
+</ion-split-pane>

@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{title}}</ion-title>
+	  	  <ion-buttons end>
+      <button ion-button icon-only (click)="share()">
+        <ion-icon name="md-share"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+	
+</ion-header>
+
+<ion-content>
+<ion-slides *ngIf='!postsLoading'>
+	<ion-slide>
+		<ion-spinner name="crescent"></ion-spinner>
+	</ion-slide>
+</ion-slides>
+<div id="iframe-container" style="overflow: auto; -webkit-overflow-scrolling: touch;">
+<iframe [src]="trustedPostUrl" id="remotedata" (load)="resize()" (tap)="resize()" (load)="loadclose()" width="100%" height="1000" frameborder="0"></iframe>
+</div>
+
+	<!--
+ <ion-grid>
+  <ion-row>
+		<ion-col>
+			 <h1>{{title}}</h1>
+		</ion-col>
+  </ion-row>
+  <ion-row>
+		<ion-col>
+		  	<img data-src="{{image}}" style="background-color: #BCBBBB;" />
+		</ion-col>
+  </ion-row>
+	  <ion-row>
+		<ion-col>
+		  	          <div [innerHTML]="text"></div>
+		</ion-col>
+  </ion-row>
+</ion-grid>	
+-->
+	
+</ion-content>

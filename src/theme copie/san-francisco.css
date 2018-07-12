@@ -1,0 +1,24 @@
+@font-face {
+  font-family: San Francisco;
+  src: url(../assets/fonts/San-Francisco/SF-Pro-Display-Thin.otf) format("opentype");
+  font-weight: 100; }
+@font-face {
+  font-family: San Francisco;
+  src: url(../assets/fonts/San-Francisco/SF-Pro-Display-Light.otf) format("opentype");
+  font-weight: 300; }
+@font-face {
+  font-family: San Francisco;
+  src: url(../assets/fonts/San-Francisco/SF-Pro-Display-Regular.otf) format("opentype");
+  font-weight: 400; }
+@font-face {
+  font-family: San Francisco;
+  src: url(../assets/fonts/San-Francisco/SF-Pro-Display-Medium.otf) format("opentype");
+  font-weight: 500; }
+@font-face {
+  font-family: San Francisco;
+  src: url(../assets/fonts/San-Francisco/SF-Pro-Display-Bold.otf) format("opentype");
+  font-weight: 700; }
+@font-face {
+  font-family: San Francisco;
+  src: url(../assets/fonts/San-Francisco/SF-Pro-Display-Black.otf) format("opentype");
+  font-weight: 900; }
