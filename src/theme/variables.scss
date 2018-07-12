@@ -39,8 +39,8 @@ $colors: (
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #000000,
-  menulight:  #333333,
-  menudark:   #252525,
+  menulight:  #ffffff,
+  menudark:   #f6f6f6,
 );
 
 $toolbar-ios-background: #833177;
@@ -65,7 +65,7 @@ $refresher-icon-color: #833177;
 
 //MENU
 $active-color: map-get($colors, primary);
-$font-color: #fff;
+$font-color: #333;
 $background-light-color: map-get($colors, menulight);
 $background-dark-color: map-get($colors, menudark);
 
