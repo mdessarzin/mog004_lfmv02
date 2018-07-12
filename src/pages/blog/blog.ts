@@ -88,7 +88,7 @@ update(refresher) {
 				this.pagination = 1;
 			}
 
-			this.http.get('https://www.radiolac.ch/wp-json/mog/v1/get_data?type=post&taxonomy=category&term_id='+this.navParams.get('key')+'&per_page=20&page='+this.pagination).map(res => res.json()).subscribe(data => {
+			this.http.get('https://www.lfm.ch/wp-json/mog/v1/get_data?type=post&taxonomy=category&term_id='+this.navParams.get('key')+'&per_page=20&page='+this.pagination).map(res => res.json()).subscribe(data => {
 			  //  this.posts = data;
 				console.log(this.posts);
 				if (refresher) {

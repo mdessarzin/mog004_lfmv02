@@ -131,7 +131,7 @@ export class MyApp {
 			
 			setInterval(() => {      
 						$.ajaxSetup({ cache: false });
-						$.getJSON('https://www.mediaone-digital.ch/cache/radiolac.json', function(data){
+						$.getJSON('https://www.mediaone-digital.ch/cache/lfm.json', function(data){
 								localStorage.setItem("songArtist",data.live[0].interpret);
 								localStorage.setItem("songTitle",data.live[0].title);
 								localStorage.setItem("songCover",data.live[0].imageURL);
@@ -178,26 +178,26 @@ export class MyApp {
 		
 		this.options.push({
 			iconName: 'ios-contacts',
-			displayName: 'Politique',
+			displayName: 'Actualité',
 			//badge: ArrayObservable.of('NEW'),
 			component: BlogPage,
-			key: '39',
+			key: '10',
 			header: true
 		});
 		this.options.push({
 			iconName: 'ios-stats',
-			displayName: 'Economie',
+			displayName: 'Emissions',
 			//badge: ArrayObservable.of('NEW'),
 			component: BlogPage,
-			key: '40',
+			key: '163',
 			header: true
 		});
 		this.options.push({
 			iconName: 'ios-people',
-			displayName: 'Culture et Société',
+			displayName: 'People',
 			//badge: ArrayObservable.of('NEW'),
 			component: BlogPage,
-			key: '23',
+			key: '18',
 			header: true
 		});
 		this.options.push({
@@ -205,7 +205,7 @@ export class MyApp {
 			displayName: 'Sport',
 			//badge: ArrayObservable.of('NEW'),
 			component: BlogPage,
-			key: '19',
+			key: '23',
 			header: true
 		});
 		
