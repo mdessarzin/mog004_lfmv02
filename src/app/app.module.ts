@@ -36,7 +36,7 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics';
 localStorage.setItem("player", "stop");
 localStorage.setItem("firstclickonplayer", "oui");
 
-Pro.init('813edd26', {
+Pro.init('74b8ab5b', {
   appVersion: '0.0.1'
 })
 

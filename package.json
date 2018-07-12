@@ -92,7 +92,13 @@
       "cordova-plugin-file-transfer": {},
       "cordova-plugin-advanced-http": {},
       "onesignal-cordova-plugin": {},
-      "cordova-plugin-inappbrowser": {}
+      "cordova-plugin-inappbrowser": {},
+      "cordova-plugin-ionic": {
+        "APP_ID": "74b8ab5b",
+        "CHANNEL_NAME": "Production",
+        "UPDATE_METHOD": "auto",
+        "WARN_DEBUG": "false"
+      }
     },
     "platforms": [
       "browser",
