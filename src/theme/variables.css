@@ -4,7 +4,7 @@ Error: File to import not found or unreadable: ionic.globals.
          /Applications/Adobe Dreamweaver CC 2018/Configuration/SassFrameworks/bourbon
          /Applications/Adobe Dreamweaver CC 2018/Configuration/SassFrameworks/neat
          /Applications/Adobe Dreamweaver CC 2018/Configuration/SassFrameworks/base
-        on line 15 of /Users/matthieudessarzin/Documents/Projets/MOG002_RadioLac/src/theme/variables.scss
+        on line 15 of /Users/matthieudessarzin/Documents/Projets/MOG003_LFM/src/theme/variables.scss
 
 10: // rtl styles in your app. For more info, please see:
 11: // http://ionicframework.com/docs/theming/rtl-support/
@@ -19,7 +19,7 @@ Error: File to import not found or unreadable: ionic.globals.
 20: // To customize the look and feel of this app, you can override
 
 Backtrace:
-/Users/matthieudessarzin/Documents/Projets/MOG002_RadioLac/src/theme/variables.scss:15
+/Users/matthieudessarzin/Documents/Projets/MOG003_LFM/src/theme/variables.scss:15
 /Applications/Adobe Dreamweaver CC 2018/Adobe Dreamweaver CC 2018.app/Contents/Resources/gems/rubygems/gems/sass-3.5.3/lib/sass/tree/import_node.rb:67:in `rescue in import'
 /Applications/Adobe Dreamweaver CC 2018/Adobe Dreamweaver CC 2018.app/Contents/Resources/gems/rubygems/gems/sass-3.5.3/lib/sass/tree/import_node.rb:45:in `import'
 /Applications/Adobe Dreamweaver CC 2018/Adobe Dreamweaver CC 2018.app/Contents/Resources/gems/rubygems/gems/sass-3.5.3/lib/sass/tree/import_node.rb:28:in `imported_file'
@@ -56,4 +56,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: ionic.globals.\A        Load paths:\A          /Applications/Adobe Dreamweaver CC 2018/Configuration/SassFrameworks/bourbon\A          /Applications/Adobe Dreamweaver CC 2018/Configuration/SassFrameworks/neat\A          /Applications/Adobe Dreamweaver CC 2018/Configuration/SassFrameworks/base\A         on line 15 of /Users/matthieudessarzin/Documents/Projets/MOG002_RadioLac/src/theme/variables.scss\A \A 10: // rtl styles in your app. For more info, please see:\A 11: // http://ionicframework.com/docs/theming/rtl-support/\A 12: $app-direction: ltr;\A 13: \A 14: \A 15: @import \"ionic.globals\";\A 16: \A 17: \A 18: // Shared Variables\A 19: // --------------------------------------------------\A 20: // To customize the look and feel of this app, you can override"; }
+  content: "Error: File to import not found or unreadable: ionic.globals.\A        Load paths:\A          /Applications/Adobe Dreamweaver CC 2018/Configuration/SassFrameworks/bourbon\A          /Applications/Adobe Dreamweaver CC 2018/Configuration/SassFrameworks/neat\A          /Applications/Adobe Dreamweaver CC 2018/Configuration/SassFrameworks/base\A         on line 15 of /Users/matthieudessarzin/Documents/Projets/MOG003_LFM/src/theme/variables.scss\A \A 10: // rtl styles in your app. For more info, please see:\A 11: // http://ionicframework.com/docs/theming/rtl-support/\A 12: $app-direction: ltr;\A 13: \A 14: \A 15: @import \"ionic.globals\";\A 16: \A 17: \A 18: // Shared Variables\A 19: // --------------------------------------------------\A 20: // To customize the look and feel of this app, you can override"; }
