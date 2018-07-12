@@ -212,41 +212,48 @@ export class MyApp {
 		// Load options with nested items (with icons)
 		// -----------------------------------------------
 		this.options.push({
-			displayName: 'Podcasts',
+			displayName: 'Replay',
 			subItems: [
 				{
 					iconName: '',
-					displayName: 'Radio Lac Matin',
+					displayName: 'Morax sur LFM',
 					component: PodcastsPage,
-					key: '51',
+					key: '109',
 					header: true
 				},
 				{
 					iconName: '',
-					displayName: 'Les après-midi Radio Lac',
+					displayName: 'Côté Romand',
 					component: PodcastsPage,
-					key: '293',
+					key: '128',
 					header: true
 				},
 				{
 					iconName: '',
-					displayName: 'Radio Lac Soir',
+					displayName: 'Les après-midi de Laura',
 					component: PodcastsPage,
-					key: '54',
+					key: '134',
 					header: true
 				},
 				{
 					iconName: '',
-					displayName: "L'actu en continue",
+					displayName: "Karmakadabra",
 					component: PodcastsPage,
-					key: '81',
+					key: '887',
+					header: true
+				},
+				{
+					iconName: '',
+					displayName: 'Flashs Infos',
+					component: PodcastsPage,
+					key: '107',
 					header: true
 				},
 				{
 					iconName: '',
 					displayName: 'Le Sport',
 					component: PodcastsPage,
-					key: '59',
+					key: '108',
 					header: true
 				}
 			]
