@@ -68,7 +68,8 @@
     "onesignal-cordova-plugin": "^2.4.1",
     "rxjs": "5.5.2",
     "sw-toolbox": "3.6.0",
-    "zone.js": "0.8.18"
+    "zone.js": "0.8.18",
+    "cordova-plugin-ionic-webview": "1.1.19"
   },
   "devDependencies": {
     "@ionic/app-scripts": "^3.1.10",
@@ -98,12 +99,13 @@
         "CHANNEL_NAME": "Production",
         "UPDATE_METHOD": "auto",
         "WARN_DEBUG": "false"
-      }
+      },
+      "cordova-plugin-ionic-webview": {}
     },
     "platforms": [
       "browser",
-      "ios",
-      "android"
+      "android",
+      "ios"
     ]
   }
 }
