@@ -75,7 +75,7 @@ export class MyApp {
 		this._player.playerconfigProvider();
 		//this._player.playProvider();
         //this._player.pauseProvider();
-		this.statusBar.backgroundColorByHexString("#29b7c2");
+		this.statusBar.backgroundColorByHexString("#833177");
 		this.initializeApp();	
 		let ratio = Math.max(window.devicePixelRatio || 1, 1);
 		
@@ -136,11 +136,11 @@ export class MyApp {
 								localStorage.setItem("songTitle",data.live[0].title);
 								localStorage.setItem("songCover",data.live[0].imageURL);
 						});
-						$.getJSON('https://www.mediaone-digital.ch/cache/radiolac_live.json', function(data){
+						$.getJSON('https://www.mediaone-digital.ch/cache/live/lfm_live.json', function(data){
 								localStorage.setItem("playerDetail",data.start+'-'+data.end);
 								localStorage.setItem("playerTitre",data.title);
-								localStorage.setItem("playerSoustitre",data.with);
-								localStorage.setItem("playerCover",data.cover);
+								localStorage.setItem("playerSoustitre",data.animators);
+								localStorage.setItem("playerCover",data.picture);
 
 						});					
 			}, 60000);
