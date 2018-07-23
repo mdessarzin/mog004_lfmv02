@@ -184,7 +184,7 @@ export class MyApp {
 			header: true
 		});
 		this.options.push({
-			iconName: 'ios-stats',
+			iconName: 'ios-chatbubbles',
 			displayName: 'Emissions',
 			//badge: ArrayObservable.of('NEW'),
 			component: BlogPage,
@@ -205,6 +205,14 @@ export class MyApp {
 			//badge: ArrayObservable.of('NEW'),
 			component: BlogPage,
 			key: '23',
+			header: true
+		});
+		this.options.push({
+			iconName: 'ios-star',
+			displayName: 'Concours',
+			//badge: ArrayObservable.of('NEW'),
+			component: BlogPage,
+			key: '16',
 			header: true
 		});
 		
