@@ -14,7 +14,7 @@
     <allow-intent href="geo:*" />
     <allow-intent href="whatsapp:*" />
     <allow-navigation href="https://www.radiolac.ch/*" />
-	<allow-navigation href="https://www.lfm.ch/*" />
+    <allow-navigation href="https://www.lfm.ch/*" />
     <allow-navigation href="https://applications.mediaonegroup.ch/*" />
     <preference name="ScrollEnabled" value="false" />
     <preference name="DisallowOverscroll" value="true" />
@@ -58,7 +58,7 @@
     </platform>
     <platform name="ios">
         <allow-navigation href="https://www.radiolac.ch/*" />
-		<allow-navigation href="https://www.lfm.ch/*" />
+        <allow-navigation href="https://www.lfm.ch/*" />
         <allow-navigation href="https://applications.mediaonegroup.ch/*" />
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
@@ -135,5 +135,5 @@
     <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
     <engine name="browser" spec="5.0.3" />
     <engine name="ios" spec="4.5.4" />
-    <engine name="android" spec="~7.0.0" />
+    <engine name="android" spec="7.0.0" />
 </widget>
