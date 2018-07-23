@@ -164,7 +164,7 @@ export class AudioStreamProvider {
 			setInterval(() => {      
 				  
 					  setTimeout(() => {
-						  fetch('https://www.mediaone-digital.ch/cache/radiolac.json')
+						  fetch('https://www.mediaone-digital.ch/cache/lfm.json')
 							.then(response => response.json())
 							.then(data => {
 							  console.log('playlist:'+data);
@@ -290,7 +290,7 @@ ngOnDestroy() {
 	
 	public loadtitlelive(){
 		  setTimeout(() => {
-			  fetch('https://www.mediaone-digital.ch/cache/radiolac.json')
+			  fetch('https://www.mediaone-digital.ch/cache/lfm.json')
 				.then(response => response.json())
 				.then(data => {
 				  console.log('playlist:'+data);
@@ -317,21 +317,21 @@ ngOnDestroy() {
 				});
 			}, 0);
 		  
-		setTimeout(() => {
-			  fetch('https://www.mediaone-digital.ch/cache/radiolac_live.json')
+		
+			setTimeout(() => {
+			  fetch('https://www.mediaone-digital.ch/cache/live/lfm_live.json')
 				.then(response => response.json())
 				.then(data => {
-	
+								localStorage.setItem("playerDetail",data.start+'-'+data.end);
+								localStorage.setItem("playerTitre",data.title);
+								localStorage.setItem("playerSoustitre",data.animators);
+								localStorage.setItem("playerCover",data.picture);
+								$('.detail').html(data.start+'-'+data.end);
+								$('.titre').html(data.title);
+								$('.soustitre').html(data.animators);
+								$('#coverPlayer').attr('src',data.picture);
+								$('.playerinfos').fadeIn();
 								this.settingMusicControl($('.songTitle').html(), $('.songArtist').html(), $('.songCover').attr('src'));
-									localStorage.setItem("playerDetail",data.start+'-'+data.end);
-									localStorage.setItem("playerTitre",data.title);
-									localStorage.setItem("playerSoustitre",data.with);
-									localStorage.setItem("playerCover",data.cover);
-				  					$('.detail').html(data.start+'-'+data.end);
-									$('.titre').html(data.title);
-									$('.soustitre').html(data.with);
-									$('#coverPlayer').attr('src',data.cover);
-									$('.playerinfos').fadeIn();
 				});
 			}, 0);
 
