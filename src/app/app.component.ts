@@ -262,7 +262,7 @@ export class MyApp {
 			displayName: 'Programme',
 			//badge: ArrayObservable.of('NEW'),
 			component: ContenupagePage,
-			key: 'https://www.radiolac.ch/emissions-et-programme/?clean=true',
+			key: 'https://www.lfm.ch/emissions-et-programme/?clean=true',
 			header: true
 		});
 		this.options.push({
