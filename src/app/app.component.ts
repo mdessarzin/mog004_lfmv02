@@ -172,17 +172,6 @@ export class MyApp {
 			key: '',
 			header: true
 		});
-
-
-		
-		this.options.push({
-			iconName: 'ios-contacts',
-			displayName: 'Actualité',
-			//badge: ArrayObservable.of('NEW'),
-			component: BlogPage,
-			key: '10',
-			header: true
-		});
 		this.options.push({
 			iconName: 'ios-chatbubbles',
 			displayName: 'Emissions',
@@ -197,6 +186,14 @@ export class MyApp {
 			//badge: ArrayObservable.of('NEW'),
 			component: BlogPage,
 			key: '18',
+			header: true
+		});
+		this.options.push({
+			iconName: 'ios-contacts',
+			displayName: 'Actualité',
+			//badge: ArrayObservable.of('NEW'),
+			component: BlogPage,
+			key: '10',
 			header: true
 		});
 		this.options.push({
