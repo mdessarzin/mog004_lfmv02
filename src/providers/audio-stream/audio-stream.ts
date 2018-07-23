@@ -322,7 +322,7 @@ ngOnDestroy() {
 			  fetch('https://www.mediaone-digital.ch/cache/live/lfm_live.json')
 				.then(response => response.json())
 				.then(data => {
-								localStorage.setItem("playerDetail",data.start+'-'+data.end);
+								localStorage.setItem("playerDetail",data.start_short+'-'+data.end_short);
 								localStorage.setItem("playerTitre",data.title);
 								localStorage.setItem("playerSoustitre",data.animators);
 								localStorage.setItem("playerCover",data.picture);

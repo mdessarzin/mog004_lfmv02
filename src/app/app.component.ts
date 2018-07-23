@@ -137,7 +137,7 @@ export class MyApp {
 								localStorage.setItem("songCover",data.live[0].imageURL);
 						});
 						$.getJSON('https://www.mediaone-digital.ch/cache/live/lfm_live.json', function(data){
-								localStorage.setItem("playerDetail",data.start+'-'+data.end);
+								localStorage.setItem("playerDetail",data.start_short+'-'+data.end_short);
 								localStorage.setItem("playerTitre",data.title);
 								localStorage.setItem("playerSoustitre",data.animators);
 								localStorage.setItem("playerCover",data.picture);
