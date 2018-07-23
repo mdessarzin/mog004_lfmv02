@@ -73,6 +73,8 @@ typeplayer: any;
 
   ngAfterViewInit() {	
 	  
+	  this.checklivestate = 1;
+	  
 	  if(localStorage.type_player == 'live'){
 			$('.songArtist').html(localStorage.songArtist);
 			$('.songTitle').html(localStorage.songTitle);
@@ -143,7 +145,7 @@ typeplayer: any;
 			let self = this;
 			this.durations = this._player.stream.getDuration();  
 		  
-		  
+		  /*
 		  	  		setTimeout(() => {
 						  fetch('https://www.mediaone-digital.ch/cache/live/www_radiolac_ch.json')
 							.then(response => response.json())
@@ -182,7 +184,7 @@ typeplayer: any;
 
 					},40000);
 		  
-		  
+		  */
 		},600);
 		  
 		  }
@@ -194,7 +196,7 @@ typeplayer: any;
 			this.onplaying = '0';
 			localStorage.setItem("player", "stop");
 			$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
-			let modal = this.modalCtrl.create(PlayerpopupPage,{url:'https://livevideo.infomaniak.com/streaming/livecast/radiolacmd/playlist.m3u8', poster:''});
+			let modal = this.modalCtrl.create(PlayerpopupPage,{url:'https://livevideo.infomaniak.com/streaming/livecast/lfmmd/playlist.m3u8', poster:''});
 			modal.present();  
 		}
 		else {
