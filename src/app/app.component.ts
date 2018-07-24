@@ -20,6 +20,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 //import { ContactezNousPage } from '../pages/contactez-nous/contactez-nous';
 import { BlogPage } from '../pages/blog/blog';
 import { PodcastsPage } from '../pages/podcasts/podcasts';
+import { WebradiosPage } from '../pages/webradios/webradios';
 
 
 import { AccueilPage } from '../pages/accueil/accueil';
@@ -278,6 +279,15 @@ export class MyApp {
 			key: 'https://applications.mediaonegroup.ch/contactez-nous-radio-lac/',
 			header: true
 		});
+		this.options.push({
+			iconName: 'ios-mail-outline',
+			displayName: 'Web Radios',
+			//badge: ArrayObservable.of('NEW'),
+			component: WebradiosPage,
+			key: '',
+			header: true
+		});
+
 	}
 
 	public selectOption(option: MenuOptionModel): void {

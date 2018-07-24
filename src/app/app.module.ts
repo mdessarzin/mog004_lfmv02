@@ -15,7 +15,8 @@ import { ContactezNousPage } from '../pages/contactez-nous/contactez-nous';
 import { BlogPage } from '../pages/blog/blog';
 import { PlayerpopupPage } from '../pages/playerpopup/playerpopup';
 import { ContenupagePage } from '../pages/contenupage/contenupage';
-
+import { WebradiosPage } from '../pages/webradios/webradios';
+ 
 import { ScrollHideDirective } from '../directives/scroll-hide/scroll-hide';
 import { IframeAutoHeightDirective } from '../directives/iframeautoheight/iframeautoheight';
 
@@ -63,21 +64,22 @@ export class MyErrorHandler implements ErrorHandler {
 
 @NgModule({
   declarations: [
-    MyApp,
-    AccueilPage,
-    ActualitePage,
-    ProgrammePage,
-    PodcastsPage,
-    ContactezNousPage,
-    BlogPage,
+	MyApp,
+	AccueilPage,
+	ActualitePage,
+	ProgrammePage,
+	PodcastsPage,
+	ContactezNousPage,
+	BlogPage,
 	DetailsPage,
-	  PlayerPage,
-PlayerPlaylistPage,
-	  ContenupagePage,
-	  PlayerpopupPage,
+	PlayerPage,
+	PlayerPlaylistPage,
+	ContenupagePage,
+	PlayerpopupPage,
+	WebradiosPage,
 	ScrollHideDirective,
-	  SideMenuContentComponent,
-	   IframeAutoHeightDirective
+	SideMenuContentComponent,
+	IframeAutoHeightDirective
   ],
   imports: [
 	  HttpModule,
@@ -108,7 +110,8 @@ PlayerPlaylistPage,
 	  PlayerPage,
 	  PlayerpopupPage,
 PlayerPlaylistPage,
-	ContenupagePage
+	ContenupagePage,
+	  WebradiosPage
   ],
   providers: [
     StatusBar,

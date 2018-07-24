@@ -1,0 +1,90 @@
+<ion-header> <!-- [scrollHide]="headerScrollConfig" [scrollContent]="pageContent" -->
+  <ion-navbar scroll-hide-translate>
+    <button ion-button menuToggle class="ripple">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <img alt="logo" height="35" src="./assets/imgs/logo_radio.png" >
+    </ion-title>
+	  
+	  <ion-buttons end >
+		  	 <button ion-button icon-only (tap)='openPlayer()' class="playerEtat_0">
+      				<ion-icon name="md-radio"></ion-icon>
+    		</button>
+		  <button ion-button icon-only (tap)='openPlayer()' class="playerEtat_1"  style="display:none;">
+		  	<div>
+					<svg xmlns="http://www.w3.org/2000/svg" class="equilizer" viewBox="0 0 128 128">
+					  <g>
+						<rect class="bar" transform="translate(0,0)" y="15"></rect>
+						<rect class="bar" transform="translate(25,0)" y="15"></rect>
+						<rect class="bar" transform="translate(50,0)" y="15"></rect>
+						<rect class="bar" transform="translate(75,0)" y="15"></rect>
+					  </g>
+					</svg>
+			  </div>
+		 	</button>
+		  <button ion-button icon-only (tap)='openPlayer()' class="playerEtat_2" style="display:none;">
+		  	<div >
+					<svg xmlns="http://www.w3.org/2000/svg" class="equilizer" viewBox="0 0 128 128">
+					  <g>
+						<rect class="bar_off" transform="translate(0,0)" y="15"></rect>
+						<rect class="bar_off" transform="translate(25,0)" y="15"></rect>
+						<rect class="bar_off" transform="translate(50,0)" y="15"></rect>
+						<rect class="bar_off" transform="translate(75,0)" y="15"></rect>
+					  </g>
+					</svg>
+			  </div>
+		 	</button>
+	</ion-buttons>
+  </ion-navbar>
+	<div class="subtitle">
+		Web Radios
+	</div>
+</ion-header>
+<ion-content no-padding id="page6" #pageContent>
+<ion-grid>
+  <ion-row>
+    <ion-col col-6 col-sm-6 col-md-6 col-lg-2 col-xl-2>
+		<img src="https://www.lfm.ch/wp-content/themes/mog-child/webradios/0.jpg" >
+    </ion-col>
+    <ion-col col-6 col-sm-6 col-md-6 col-lg-2 col-xl-2>
+		<img src="https://www.lfm.ch/wp-content/themes/mog-child/webradios/1.jpg" >
+    </ion-col>
+    <ion-col col-6 col-sm-6 col-md-6 col-lg-2 col-xl-2>
+		<img src="https://www.lfm.ch/wp-content/themes/mog-child/webradios/2.jpg">
+    </ion-col>
+    <ion-col col-6 col-sm-6 col-md-6 col-lg-2 col-xl-2>
+		<img src="https://www.lfm.ch/wp-content/themes/mog-child/webradios/3.jpg" width="140" height="140">
+    </ion-col>
+    <ion-col col-6 col-sm-6 col-md-6 col-lg-2 col-xl-2>
+		<img src="https://www.lfm.ch/wp-content/themes/mog-child/webradios/4.jpg" width="140" height="140">
+    </ion-col>
+    <ion-col col-6 col-sm-6 col-md-6 col-lg-2 col-xl-2>
+		<img src="https://www.lfm.ch/wp-content/themes/mog-child/webradios/5.jpg" width="140" height="140">
+    </ion-col>
+
+	</ion-row>
+</ion-grid>
+</ion-content>
+		<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent"  style="">
+		   <ion-grid style="max-height: 110px;">
+			  <ion-row align-items-center>
+				<ion-col col-2 style="max-width: 80px; text-align: center;" justify-content-center> 
+						<ion-spinner class="loadingPlayer" style="display:none;height:40px;width:40x;" name="crescent"></ion-spinner>
+						<span (click)="startAudio()" class="btPlayer" style="color:#833177;"><i class="fas fa-play-circle fa-3x"></i></span>
+				</ion-col>                 
+				<ion-col col-7>
+					<div (tap)='openPlayer()'>
+					<span style="color:#000;font-family: 'Days One', sans-serif; font-size: 13px; font-weight: bolder;" class="songTitle">&nbsp;</span><br>
+					<span style="color:#000;font-family: 'Days One', sans-serif; font-size: 12px;" class="songArtist">&nbsp;</span>
+					</div>
+				  </ion-col>
+				<ion-col col-3  style="text-align: right;">
+					<div (tap)='openPlayer()'>
+						<img class="songCover" src="./assets/imgs/logo_cover.png" style=" max-height: 55px;" />
+					</div>
+				</ion-col>
+				 
+			  </ion-row>
+			</ion-grid> 
+</ion-footer>
