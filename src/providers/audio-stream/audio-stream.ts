@@ -49,6 +49,8 @@ export class AudioStreamProvider {
 			  //Android
 			  ticker    : ''
 			 });
+						this.musicControls.listen(); // activates the observable above
+
 			 this.musicControls.subscribe().subscribe((action) => {
 			  console.log('action', action);
 				  const message = JSON.parse(action).message;
@@ -71,6 +73,8 @@ export class AudioStreamProvider {
 						$('.playerEtat_1').hide();
 						$('.playerEtat_0').show();
 						$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
+						$('.btPlayerhome').html('<i class="fas fa-play"></i>');
+						  $('.fab-md-danger').addClass("pulseplay");
 
 				   break;
 					case 'music-controls-play':
@@ -86,6 +90,9 @@ export class AudioStreamProvider {
 						$('.playerEtat_0').hide();
 						$('.playerEtat_1').show();
 						$('.btPlayer').html('<i class="fas fa-pause-circle fa-3x"></i>');
+						$('.btPlayerhome').html('<i class="fas fa-pause"></i>');
+						  $('.fab-md-danger').removeClass("pulseplay");
+
 					break;
 					case 'music-controls-destroy':
 					   // Do something
@@ -119,7 +126,6 @@ export class AudioStreamProvider {
 						break;
 				  }
 			});
-			this.musicControls.listen(); // activates the observable above
 			this.musicControls.updateIsPlaying(true);
 		  }
 
@@ -156,15 +162,11 @@ export class AudioStreamProvider {
 
 
 
-			
-			
-
-			
 
 			setInterval(() => {      
 				  
 					  setTimeout(() => {
-						  fetch('https://www.mediaone-digital.ch/cache/lfm.json')
+						  fetch('https://www.mediaone-digital.ch/cache/radiolac.json?hash_id='+Math.random())
 							.then(response => response.json())
 							.then(data => {
 							  console.log('playlist:'+data);
@@ -172,12 +174,13 @@ export class AudioStreamProvider {
 											//
 										}
 										else{
-											this.settingMusicControl($('.songTitle').html(), $('.songArtist').html(), $('.songCover').attr('src'));
 											this.live = data.live[0].interpret;
 											if(localStorage.type_player == 'live'){
-												$('.songArtist').html(data.live[0].interpret);
-												$('.songTitle').html(data.live[0].title);
-												$('.songCover').attr('src',data.live[0].imageURL);
+												$('.songArtist_').html(data.live[0].interpret);
+												$('.songTitle_').html(data.live[0].title);
+												$('.songCover_').attr('src',data.live[0].imageURL);
+												//this.settingMusicControl($('.songTitle').html(), $('.songArtist').html(), $('.songCover').attr('src'));
+
 											}
 											else
 											{
@@ -199,7 +202,7 @@ export class AudioStreamProvider {
 			$('.playerEtat_2').show();
 
 			this.stream.play();
-			this.settingMusicControl($('.songTitle').html(), $('.songArtist').html(), $('.songCover').attr('src'));
+			//this.settingMusicControl($('.songTitle_').html(), $('.songArtist_').html(), $('.songCover_').attr('src'));
 			console.log('play');
 			localStorage.setItem("player", "play");
 			
@@ -214,6 +217,8 @@ export class AudioStreamProvider {
 							$('.playerEtat_0').hide();
 							$('.playerEtat_1').show();
 							$('.btPlayer').html('<i class="fas fa-pause-circle fa-3x"></i>');
+							$('.btPlayerhome').html('<i class="fas fa-pause"></i>');
+						$('.fab-md-danger').removeClass("pulseplay");
 							clearInterval(this.timingloading);
 					}
 				});					
@@ -236,6 +241,8 @@ export class AudioStreamProvider {
 								$('.playerEtat_1').hide();
 								$('.playerEtat_0').show();
 								$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
+								$('.btPlayerhome').html('<i class="fas fa-play"></i>');
+					$('.fab-md-danger').addClass("pulseplay");
 					if (this.mediaTimer !=null) {
 						//clearInterval(this.mediaTimer);    // (*) don t do clearInterval here, or your ionic will not work, see below
 						//TODO here : handle html, remove "playing" message
@@ -252,10 +259,12 @@ export class AudioStreamProvider {
     this.stream.onError.subscribe(error => 
         {
         console.log(" > onError="+error); 
-						$('.playerEtat_2').hide();
-						$('.playerEtat_1').hide();
-						$('.playerEtat_0').show();
-						$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
+			$('.playerEtat_2').hide();
+			$('.playerEtat_1').hide();
+			$('.playerEtat_0').show();
+			$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
+			$('.btPlayerhome').html('<i class="fas fa-play"></i>');
+		$('.fab-md-danger').addClass("pulseplay");
         //clearInterval(this.mediaTimer);  (*) don t do clearInterval here, or your ionic will not work, see below
     });
 			
@@ -284,13 +293,15 @@ ngOnDestroy() {
 			$('.playerEtat_1').hide();
 			$('.playerEtat_0').show();
 			$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
+			$('.btPlayerhome').html('<i class="fas fa-play"></i>');
+			$('.fab-md-danger').addClass("pulseplay");
 			return Observable.of(false);
 		}
 	
 	
 	public loadtitlelive(){
 		  setTimeout(() => {
-			  fetch('https://www.mediaone-digital.ch/cache/lfm.json')
+			  fetch('https://www.mediaone-digital.ch/cache/radiolac.json?hash_id='+Math.random())
 				.then(response => response.json())
 				.then(data => {
 				  console.log('playlist:'+data);
@@ -298,12 +309,12 @@ ngOnDestroy() {
 								//
 							}
 							else{
-								this.settingMusicControl($('.songTitle').html(), $('.songArtist').html(), $('.songCover').attr('src'));
+								//this.settingMusicControl($('.songTitle').html(), $('.songArtist').html(), $('.songCover').attr('src'));
 								this.live = data.live[0].interpret;
 								if(localStorage.type_player == 'live'){
-									$('.songArtist').html(data.live[0].interpret);
-									$('.songTitle').html(data.live[0].title);
-									$('.songCover').attr('src',data.live[0].imageURL);
+									$('.songArtist_').html(data.live[0].interpret);
+									$('.songTitle_').html(data.live[0].title);
+									$('.songCover_').attr('src',data.live[0].imageURL);
 									localStorage.setItem("songArtist",data.live[0].interpret);
 									localStorage.setItem("songTitle",data.live[0].title);
 									localStorage.setItem("songCover",data.live[0].imageURL);
@@ -317,21 +328,19 @@ ngOnDestroy() {
 				});
 			}, 0);
 		  
-		
-			setTimeout(() => {
-			  fetch('https://www.mediaone-digital.ch/cache/live/lfm_live.json')
+		setTimeout(() => {
+			  fetch('https://www.mediaone-digital.ch/cache/live/radiolac_live.json?hash_id='+Math.random())
 				.then(response => response.json())
 				.then(data => {
-								localStorage.setItem("playerDetail",data.start_short+'-'+data.end_short);
-								localStorage.setItem("playerTitre",data.title);
-								localStorage.setItem("playerSoustitre",data.animators);
-								localStorage.setItem("playerCover",data.picture);
-								$('.detail').html(data.start+'-'+data.end);
-								$('.titre').html(data.title);
-								$('.soustitre').html(data.animators);
-								$('#coverPlayer').attr('src',data.picture);
-								$('.playerinfos').fadeIn();
-								this.settingMusicControl($('.songTitle').html(), $('.songArtist').html(), $('.songCover').attr('src'));
+					localStorage.setItem("playerDetail",data.start_short+'-'+data.end_short);
+					localStorage.setItem("playerTitre",data.title);
+					localStorage.setItem("playerSoustitre",data.animators);
+					localStorage.setItem("playerCover",data.picture); //data.picture				  
+					$('.detail').html(data.start_short+'-'+data.end_short);
+					$('.titre').html(data.title);
+					$('.soustitre').html(data.animators);
+					$('#coverPlayer').attr('src',data.picture);
+					$('.playerinfos').fadeIn();
 				});
 			}, 0);
 

@@ -7,8 +7,8 @@
       <img alt="logo" height="35" src="./assets/imgs/logo_radio.png" >
     </ion-title>
 	  
-	  <ion-buttons end >
-		  	 <button ion-button icon-only (tap)='openPlayer()' class="playerEtat_0">
+	  <ion-buttons end>
+		  	 <button ion-button icon-only (tap)='openPlayer()' class="playerEtat_0 test">
       				<ion-icon name="md-radio"></ion-icon>
     		</button>
 		  <button ion-button icon-only (tap)='openPlayer()' class="playerEtat_1"  style="display:none;">
@@ -38,10 +38,62 @@
 	</ion-buttons>
   </ion-navbar>
 	<div class="subtitle">
-		Direct
+		Accueil
 	</div>
 </ion-header>
 <ion-content no-padding id="page6" #pageContent>
+	
+	 <ion-card no-padding style="margin-bottom:0px; border-bottom: 6px solid #f1f1f1;" >
+
+							<button no-padding ion-item (click)="showDetails('','','')">
+								<ion-card-content no-padding class="fadeintransition" >
+									<div style="background-color: #f1f1f1; position: relative;">	
+										<span class="card_categorie">En ce moment</span>				
+										<img src="https://www.lfm.ch/wp-content/uploads/2018/01/laura-560x600.png" style="background-color: #BCBBBB;" />
+										<div class="home-live-play-icon">
+												<i class="fa fa-2 fa-play" aria-hidden="true"></i>
+											</div>
+									</div>
+									<ion-card-title>Les après-midi de Laura</ion-card-title>
+
+								</ion-card-content>
+							</button>
+
+						 
+					 </ion-card>
+	<h2 style="margin-left:10px;font-size:14px;color:#333;">Web Radios</h2>
+	<swiper [config]="config" style="">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background-color:red;margin-left:10px;">
+				<img src="https://images.sk-static.com/images/media/profile_images/artists/197928/huge_avatar">
+			</div>
+            <div class="swiper-slide" style="background-color:red;">
+				<img src="https://images.sk-static.com/images/media/profile_images/artists/197928/huge_avatar">
+			</div>
+
+            <div class="swiper-slide" style="background-color:red;">
+				<img src="https://images.sk-static.com/images/media/profile_images/artists/197928/huge_avatar">
+			</div>
+            <div class="swiper-slide" style="background-color:red;">
+				<img src="https://images.sk-static.com/images/media/profile_images/artists/197928/huge_avatar">
+			</div>
+            <div class="swiper-slide" style="background-color:red;">
+				<img src="https://images.sk-static.com/images/media/profile_images/artists/197928/huge_avatar">
+			</div>
+            <div class="swiper-slide" style="background-color:red;">
+				<img src="https://images.sk-static.com/images/media/profile_images/artists/197928/huge_avatar">
+			</div>
+            <div class="swiper-slide" style="background-color:red;">
+				<img src="https://images.sk-static.com/images/media/profile_images/artists/197928/huge_avatar">
+			</div>
+		
+		
+		
+		
+		
+		</div>
+            <div class="swiper-pagination"></div>
+        </swiper>
 	<ion-slides *ngIf='!postsLoading'>
         <ion-slide>
             <ion-spinner name="crescent"></ion-spinner>
@@ -101,27 +153,9 @@
 		<ion-infinite-scroll (ionInfinite)="loadMore($event)" threshold="50%" loadingSpinner="bubbles" loadingText="Chargement...">
     		<ion-infinite-scroll-content></ion-infinite-scroll-content>
   		</ion-infinite-scroll>
-	
+	<ion-fab right bottom>
+  <button ion-fab color="danger" class="" (tap)='startAudio()'>
+    <span class="btPlayerhome"></span>
+  </button>
+</ion-fab>
 		</ion-content>
-		<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent"  style="">
-		   <ion-grid style="max-height: 110px;">
-			  <ion-row align-items-center>
-				<ion-col col-2 style="max-width: 80px; text-align: center;" justify-content-center> 
-						<ion-spinner class="loadingPlayer" style="display:none;height:40px;width:40x;" name="crescent"></ion-spinner>
-						<span (click)="startAudio()" class="btPlayer" style="color:#833177;"><i class="fas fa-play-circle fa-3x"></i></span>
-				</ion-col>                 
-				<ion-col col-7>
-					<div (tap)='openPlayer()'>
-					<span style="color:#000;font-family: 'Days One', sans-serif; font-size: 13px; font-weight: bolder;" class="songTitle">&nbsp;</span><br>
-					<span style="color:#000;font-family: 'Days One', sans-serif; font-size: 12px;" class="songArtist">&nbsp;</span>
-					</div>
-				  </ion-col>
-				<ion-col col-3  style="text-align: right;">
-					<div (tap)='openPlayer()'>
-						<img class="songCover" src="./assets/imgs/logo_cover.png" style=" max-height: 55px;" />
-					</div>
-				</ion-col>
-				 
-			  </ion-row>
-			</ion-grid> 
-</ion-footer>

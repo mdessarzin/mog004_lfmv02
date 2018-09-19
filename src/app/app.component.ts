@@ -20,7 +20,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 //import { ContactezNousPage } from '../pages/contactez-nous/contactez-nous';
 import { BlogPage } from '../pages/blog/blog';
 import { PodcastsPage } from '../pages/podcasts/podcasts';
-import { WebradiosPage } from '../pages/webradios/webradios';
 
 
 import { AccueilPage } from '../pages/accueil/accueil';
@@ -56,9 +55,9 @@ export class MyApp {
 		showSelectedOption: true,
 		selectedOptionClass: 'active-side-menu-option',
 		subOptionIndentation: {
-			md: '56px',
-			ios: '64px',
-			wp: '56px'
+			md: '25px',
+			ios: '25px',
+			wp: '25px'
 		}
 	};
 
@@ -76,7 +75,8 @@ export class MyApp {
 		this._player.playerconfigProvider();
 		//this._player.playProvider();
         //this._player.pauseProvider();
-		this.statusBar.backgroundColorByHexString("#833177");
+		localStorage.setItem("build", "1.0.4");
+		this.statusBar.backgroundColorByHexString("#29b7c2");
 		this.initializeApp();	
 		let ratio = Math.max(window.devicePixelRatio || 1, 1);
 		
@@ -102,6 +102,14 @@ export class MyApp {
 		localStorage.setItem("podcast_url", '');
 		localStorage.setItem("player", "stop");
 
+			$.getJSON('https://www.mediaone-digital.ch/cache/live/radiolac_live.json', function(data){
+				localStorage.setItem("playerDetail",data.start_short+'-'+data.end_short);
+				localStorage.setItem("playerTitre",data.title);
+				localStorage.setItem("playerSoustitre",data.animators);
+				localStorage.setItem("playerCover",data.picture); //data.picture
+			});					
+
+			
 			// Initialize some options
 			this.initializeOptions();
 			if (this.platform.is('cordova')) {
@@ -132,18 +140,25 @@ export class MyApp {
 			
 			setInterval(() => {      
 						$.ajaxSetup({ cache: false });
-						$.getJSON('https://www.mediaone-digital.ch/cache/lfm.json', function(data){
+						$.getJSON('https://www.mediaone-digital.ch/cache/radiolac.json?hash_id='+Math.random(), function(data){
 								localStorage.setItem("songArtist",data.live[0].interpret);
 								localStorage.setItem("songTitle",data.live[0].title);
 								localStorage.setItem("songCover",data.live[0].imageURL);
 						});
-						$.getJSON('https://www.mediaone-digital.ch/cache/live/lfm_live.json', function(data){
+
+						if(localStorage.type_player == 'live'){
+							$.getJSON('https://www.mediaone-digital.ch/cache/live/radiolac_live.json?hash_id='+Math.random(), function(data){
 								localStorage.setItem("playerDetail",data.start_short+'-'+data.end_short);
 								localStorage.setItem("playerTitre",data.title);
 								localStorage.setItem("playerSoustitre",data.animators);
-								localStorage.setItem("playerCover",data.picture);
-						});					
-			}, 60000);
+								localStorage.setItem("playerCover",data.picture); //data.picture
+								$('.songArtist').html(data.start_short+'-'+data.end_short);
+								$('.songTitle').html(data.title);
+								$('.songCover').attr('src',data.picture);
+							});				
+						}
+
+			}, 30000);
 			
 			
 
@@ -164,7 +179,7 @@ export class MyApp {
 		// Load simple menu options
 		// ------------------------------------------
 		this.options.push({
-			iconName: 'ios-apps',
+			iconName: 'ios-radio',
 			displayName: 'Accueil',
 			component: AccueilPage,
 
@@ -173,102 +188,157 @@ export class MyApp {
 			key: '',
 			header: true
 		});
+
+/*		
+this.options.push({
+iconName: 'ios-radio',
+displayName: 'Emissions',
+//badge: ArrayObservable.of('NEW'),
+component: BlogPage,
+key: '34',
+header: true
+});
+
 		this.options.push({
-			iconName: 'ios-chatbubbles',
-			displayName: 'Emissions',
+			iconName: 'ios-contacts',
+			displayName: 'Politique',
 			//badge: ArrayObservable.of('NEW'),
 			component: BlogPage,
-			key: '163',
+			key: '39',
+			header: true
+		});
+		this.options.push({
+			iconName: 'ios-stats',
+			displayName: 'Economie',
+			//badge: ArrayObservable.of('NEW'),
+			component: BlogPage,
+			key: '40',
 			header: true
 		});
 		this.options.push({
 			iconName: 'ios-people',
-			displayName: 'People',
-			//badge: ArrayObservable.of('NEW'),
-			component: BlogPage,
-			key: '18',
-			header: true
-		});
-		this.options.push({
-			iconName: 'ios-contacts',
-			displayName: 'Actualité',
-			//badge: ArrayObservable.of('NEW'),
-			component: BlogPage,
-			key: '10',
-			header: true
-		});
-		this.options.push({
-			iconName: 'ios-bicycle',
-			displayName: 'Sport',
+			displayName: 'Culture',
 			//badge: ArrayObservable.of('NEW'),
 			component: BlogPage,
 			key: '23',
 			header: true
 		});
+
 		this.options.push({
-			iconName: 'ios-star',
-			displayName: 'Concours',
+			iconName: 'ios-paper',
+			displayName: 'Justice',
 			//badge: ArrayObservable.of('NEW'),
 			component: BlogPage,
-			key: '16',
+			key: '422',
 			header: true
 		});
 		
+		this.options.push({
+			iconName: 'ios-quote',
+			displayName: 'Faits divers',
+			//badge: ArrayObservable.of('NEW'),
+			component: BlogPage,
+			key: '420',
+			header: true
+		});
+
+		this.options.push({
+			iconName: 'ios-pulse',
+			displayName: 'Santé',
+			//badge: ArrayObservable.of('NEW'),
+			component: BlogPage,
+			key: '421',
+			header: true
+		});
+		
+		this.options.push({
+			iconName: 'ios-bicycle',
+			displayName: 'Sport',
+			//badge: ArrayObservable.of('NEW'),
+			component: BlogPage,
+			key: '19',
+			header: true
+		});
+*/	
 		// Load options with nested items (with icons)
 		// -----------------------------------------------
+		
 		this.options.push({
-			displayName: 'Replay',
+			displayName: 'Podcasts',
+			iconName: 'ios-musical-notes',
 			subItems: [
 				{
 					iconName: '',
-					displayName: 'Morax sur LFM',
+					displayName: 'Radio Lac Matin',
 					component: PodcastsPage,
-					key: '109',
+					key: '51',
 					header: true
 				},
 				{
 					iconName: '',
-					displayName: 'Côté Romand',
+					displayName: 'Mieux Vivre',
 					component: PodcastsPage,
-					key: '128',
+					key: '388',
 					header: true
 				},
 				{
 					iconName: '',
-					displayName: 'Les après-midi de Laura',
+					displayName: 'En toute vérité',
 					component: PodcastsPage,
-					key: '134',
+					key: '399',
 					header: true
 				},
 				{
 					iconName: '',
-					displayName: "Karmakadabra",
+					displayName: 'Radio Lac Midi',
 					component: PodcastsPage,
-					key: '887',
+					key: '402',
 					header: true
 				},
 				{
 					iconName: '',
-					displayName: 'Flashs Infos',
+					displayName: 'Pop Collection',
 					component: PodcastsPage,
-					key: '107',
+					key: '411',
+					header: true
+				},
+				{
+					iconName: '',
+					displayName: "Le Club Radio Lac",
+					component: PodcastsPage,
+					key: '230',
+					header: true
+				},
+				{
+					iconName: '',
+					displayName: "La C'lac",
+					component: PodcastsPage,
+					key: '413',
+					header: true
+				},
+				{
+					iconName: '',
+					displayName: "L'actu en continu",
+					component: PodcastsPage,
+					key: '81',
 					header: true
 				},
 				{
 					iconName: '',
 					displayName: 'Le Sport',
 					component: PodcastsPage,
-					key: '108',
+					key: '59',
 					header: true
 				}
 			]
 		});
+		
 		this.options.push({
 			iconName: 'ios-time-outline',
 			displayName: 'Programme',
 			//badge: ArrayObservable.of('NEW'),
 			component: ContenupagePage,
-			key: 'https://www.lfm.ch/emissions-et-programme/?clean=true',
+			key: 'https://www.radiolac.ch/emissions-et-programme/?clean=true',
 			header: true
 		});
 		this.options.push({
@@ -279,15 +349,6 @@ export class MyApp {
 			key: 'https://applications.mediaonegroup.ch/contactez-nous-radio-lac/',
 			header: true
 		});
-		this.options.push({
-			iconName: 'ios-mail-outline',
-			displayName: 'Web Radios',
-			//badge: ArrayObservable.of('NEW'),
-			component: WebradiosPage,
-			key: '',
-			header: true
-		});
-
 	}
 
 	public selectOption(option: MenuOptionModel): void {
@@ -324,6 +385,16 @@ export class MyApp {
 		});
 		alert.present();
 	}
+	
+	private infos(){
+       let alert = this.alertCtrl.create({
+			title: 'Informations',
+			message: 'Media One Group - Build v'+localStorage.build,
+			buttons: ['Ok']
+		});
+		alert.present();
+    }
+
 	
 	public whatsapp(){
 		

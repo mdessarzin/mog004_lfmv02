@@ -281,9 +281,9 @@ export class SideMenuContentComponent {
 			selectedOptionClass: 'selected-option',
 			indentSubOptionsWithoutIcons: false,
 			subOptionIndentation: {
-				ios: '16px',
-				md: '16px',
-				wp: '16px'
+				ios: '0px',
+				md: '0px',
+				wp: '0px'
 			}
 		}
 

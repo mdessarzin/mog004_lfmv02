@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { WebradiosPage } from './webradios';
+import { VideolivePage } from './videolive';
 
 @NgModule({
   declarations: [
-    WebradiosPage,
+    VideolivePage,
   ],
   imports: [
-    IonicPageModule.forChild(WebradiosPage),
+    IonicPageModule.forChild(VideolivePage),
   ],
 })
-export class WebradiosPageModule {}
+export class VideolivePageModule {}

@@ -15,8 +15,9 @@ import { ContactezNousPage } from '../pages/contactez-nous/contactez-nous';
 import { BlogPage } from '../pages/blog/blog';
 import { PlayerpopupPage } from '../pages/playerpopup/playerpopup';
 import { ContenupagePage } from '../pages/contenupage/contenupage';
-import { WebradiosPage } from '../pages/webradios/webradios';
- 
+import { SwiperModule } from 'angular2-useful-swiper'; 
+
+import { VideolivePage } from '../pages/videolive/videolive';
 import { ScrollHideDirective } from '../directives/scroll-hide/scroll-hide';
 import { IframeAutoHeightDirective } from '../directives/iframeautoheight/iframeautoheight';
 
@@ -37,7 +38,7 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics';
 localStorage.setItem("player", "stop");
 localStorage.setItem("firstclickonplayer", "oui");
 
-Pro.init('74b8ab5b', {
+Pro.init('813edd26', {
   appVersion: '0.0.1'
 })
 
@@ -64,26 +65,27 @@ export class MyErrorHandler implements ErrorHandler {
 
 @NgModule({
   declarations: [
-	MyApp,
-	AccueilPage,
-	ActualitePage,
-	ProgrammePage,
-	PodcastsPage,
-	ContactezNousPage,
-	BlogPage,
+    MyApp,
+    AccueilPage,
+    ActualitePage,
+    ProgrammePage,
+    PodcastsPage,
+    ContactezNousPage,
+    BlogPage,
 	DetailsPage,
-	PlayerPage,
-	PlayerPlaylistPage,
-	ContenupagePage,
-	PlayerpopupPage,
-	WebradiosPage,
+	  PlayerPage,
+	  VideolivePage,
+PlayerPlaylistPage,
+	  ContenupagePage,
+	  PlayerpopupPage,
 	ScrollHideDirective,
-	SideMenuContentComponent,
-	IframeAutoHeightDirective
+	  SideMenuContentComponent,
+	   IframeAutoHeightDirective
   ],
   imports: [
 	  HttpModule,
     BrowserModule,
+	   SwiperModule,
 	  BrowserAnimationsModule,
     IonicModule.forRoot(MyApp, {
         preloadModules: true,
@@ -106,12 +108,12 @@ export class MyErrorHandler implements ErrorHandler {
     PodcastsPage,
     ContactezNousPage,
     BlogPage,
+	  VideolivePage,
 	DetailsPage,
 	  PlayerPage,
 	  PlayerpopupPage,
 PlayerPlaylistPage,
-	ContenupagePage,
-	  WebradiosPage
+	ContenupagePage
   ],
   providers: [
     StatusBar,

@@ -13,10 +13,10 @@
 	
 	<ion-segment mode="md" [(ngModel)]="typeplayer" color="primary">
     <ion-segment-button value="audio">
-      <span style="color:#833177; font-weight: bold; font-size: 15px;">{{titreplayer}}</span>
+      <span style="color:#29b7c2; font-weight: bold; font-size: 15px;">{{titreplayer}}</span>
     </ion-segment-button>
     <ion-segment-button value="video" (tap)="startVideo()">
-      <span style="color: #833177; font-weight: bold; font-size: 15px;">Webcam</span>
+      <span style="color: #29b7c2; font-weight: bold; font-size: 15px;">Webcam</span>
 				<div class="rond flashit" style="display:none;"></div>
     </ion-segment-button>
 	</ion-segment>
@@ -51,16 +51,16 @@
       <ion-row align-items-center style="height:60px;">
         <ion-col  style="text-align: center;">
 			<button ion-button icon-only clear round style="height:50px;width:50px;">
-				<span style="color:#833177;" (click)="seekTo('back')">-15 <i class="fas fa-undo"></i></span>
+				<span style="color:#29B7C2;" (click)="seekTo('back')">-15 <i class="fas fa-undo"></i></span>
 			</button>
         </ion-col>
 		  <ion-col style="max-width: 80px; text-align: center;" justify-content-center> 
 				<ion-spinner class="loadingPlayer" style="display:none;height:80px;width:80x;" name="crescent"></ion-spinner>
-                <span (click)="startAudio()" class="btPlayer" style="color:#833177;"><i class="fas fa-play-circle fa-3x"></i></span>
+                <span (click)="startAudio()" class="btPlayer" style="color:#29B7C2;"><i class="fas fa-play-circle fa-3x"></i></span>
         </ion-col>                 
         <ion-col style="text-align: center;">
 			<button ion-button icon-only clear round style="height:50px;width:50px;">
-				<span style="color:#833177;" (click)="seekTo('forward')"><i class="fas fa-redo"></i> +15</span>
+				<span style="color:#29B7C2;" (click)="seekTo('forward')"><i class="fas fa-redo"></i> +15</span>
 			</button>
         </ion-col>
 		  
@@ -78,14 +78,14 @@
       <ion-row align-items-center>
         <ion-col col-2 style="max-width: 80px; text-align: center;" justify-content-center> 
 				<ion-spinner class="loadingPlayer" style="display:none;height:40px;width:40x;" name="crescent"></ion-spinner>
-                <span (click)="startAudio()" class="btPlayer btplay" style="display:block;color:#833177;"><i class="fas fa-play-circle fa-3x"></i></span>
+                <span (click)="startAudio()" class="btPlayer btplay" style="display:block;color:#29B7C2;"><i class="fas fa-play-circle fa-3x"></i></span>
         </ion-col>                 
         <ion-col col-7>
-            <span style="color:#000;font-family: 'Days One', sans-serif; font-size: 13px; font-weight: bolder;" class="songTitle">&nbsp;</span><br>
-			<span style="color:#000;font-family: 'Days One', sans-serif; font-size: 12px;" class="songArtist">&nbsp;</span>
+            <span style="color:#000;font-family: 'Days One', sans-serif; font-size: 13px; font-weight: bolder;" class="songTitle_">&nbsp;</span><br>
+			<span style="color:#000;font-family: 'Days One', sans-serif; font-size: 12px;" class="songArtist_">&nbsp;</span>
           </ion-col>
         <ion-col col-3  style="text-align: right;">
-          <img class="songCover" src="./assets/imgs/logo_cover.png" style=" max-height: 55px;" />
+          <img class="songCover_" src="https://www.radiolac.ch/wp-content/themes/mog-child/webradios/0.jpg" style=" max-height: 55px;" />
         </ion-col>
       </ion-row>
     </ion-grid> 

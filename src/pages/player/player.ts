@@ -8,6 +8,7 @@ import { Media, MediaObject } from '@ionic-native/media';
 import { map } from 'rxjs/operators';
 import { PlayerpopupPage } from '../playerpopup/playerpopup';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
+import { VideolivePage } from '../videolive/videolive';
 
 /**
  * Generated class for the PlayerPage page.
@@ -15,8 +16,6 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
-
 
 @IonicPage()
 @Component({
@@ -73,130 +72,151 @@ typeplayer: any;
 
   ngAfterViewInit() {	
 	  
-	  this.checklivestate = 1;
-	  
 	  if(localStorage.type_player == 'live'){
-			$('.songArtist').html(localStorage.songArtist);
-			$('.songTitle').html(localStorage.songTitle);
-			$('.songCover').attr('src',localStorage.songCover);
+			$('.songArtist_').html(localStorage.songArtist);
+			$('.songTitle_').html(localStorage.songTitle);
+			$('.songCover_').attr('src',localStorage.songCover);
 			this.titreplayer = 'Direct';		  
 			$('.detail').html(localStorage.playerDetail);
 			$('.titre').html(localStorage.playerTitre);
 			$('.soustitre').html(localStorage.playerSoustitre);
 			$('#coverPlayer').attr('src',localStorage.playerCover);
 
+		  		  	  		setTimeout(() => {
+						  fetch('https://www.mediaone-digital.ch/cache/live/www_radiolac_ch.json?hash_id='+Math.random())
+							.then(response => response.json())
+							.then(data => {
+							  console.log('Live:'+data);
+							  	if(data=='0'){
+									$('.rond').css('display','none');
+									this.checklivestate = 0;
+								}
+							  else {
+									$('.rond').css('display','block');
+								    this.checklivestate = 1;
+							  }
+
+							});
+					}, 2000);
+
 	  
 	  }
-	  else{
-		this.titreplayer = 'Podcast';
-	  
-	  setTimeout(() => {
+	  else
+	  {
+				this.titreplayer = 'Podcast';
 
+		  		setTimeout(() => {
 
-			  if(localStorage.type_player == 'live'){
-					//this._player.loadtitlelive();
-					//this._player.playProvider();
-				}
-				else
-				{
-
-
-					//this._player.pauseProvider();
-				//	this._player.playProvider();
-					this._player.stream.getCurrentPosition().then((curpos) => {
-						console.log('Player A '+curpos);
-						this.positions = curpos;
-					});					
-
-					this.timingseek = setInterval(() => {      
-						this._player.stream.getCurrentPosition().then((curpos) => {
-							console.log('Player '+curpos);
-							this.positions = curpos;
-						});					
-					}, 1000);
-
-					this.titreplayer = 'Podcast';
-					this.soustitre = localStorage.podcast_title;
-					this.titre = '';
-					this.detail = localStorage.podcast_category;
-
-					//$('.songArtist').html(localStorage.podcast_title);
-					//$('.songTitle').html(localStorage.podcast_category);
-					$('.songCover').attr('src',localStorage.podcast_cover);
-					$('#coverPlayer').attr('src',localStorage.podcast_cover);
-					console.log('Nouveau son? '+localStorage.podcast_nouveau);
-					if(localStorage.podcast_nouveau == 'oui'){
-					//	this.startAudio();
-						localStorage.setItem("podcast_nouveau", 'non');
-						this._player.playProvider();
-					}
-
-						if(localStorage.player == 'play'){
-							console.log('Etat PLAY');
-								$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
+					  if(localStorage.type_player == 'live'){
+							//this._player.loadtitlelive();
+							//this._player.playProvider();
 						}
-						else{
+						else
+						{
+
+							
+							//this._player.pauseProvider();
+						//	this._player.playProvider();
+							this._player.stream.getCurrentPosition().then((curpos) => {
+								console.log('Player A '+curpos);
+								this.positions = curpos;
+								
+							});					
+
+							this.timingseek = setInterval(() => {      
+								this._player.stream.getCurrentPosition().then((curpos) => {
+									console.log('Player '+curpos);
+									this.positions = curpos;
+								});					
+							}, 1000);
+							
+							this.titreplayer = 'Podcast';
+							this.soustitre = localStorage.podcast_title;
+							this.titre = '';
+							this.detail = localStorage.podcast_category;
+
+							//$('.songArtist').html(localStorage.podcast_title);
+							//$('.songTitle').html(localStorage.podcast_category);
+							$('.songCover_').attr('src',localStorage.podcast_cover);
+							$('#coverPlayer').attr('src',localStorage.podcast_cover);
+							console.log('Nouveau son? '+localStorage.podcast_nouveau);
+							if(localStorage.podcast_nouveau == 'oui'){
+							//	this.startAudio();
+								localStorage.setItem("podcast_nouveau", 'non');
+								this._player.playProvider();
+
+							}
+							
+
+								if(localStorage.player == 'play'){
+									console.log('Etat PLAY');
+									$('.btPlayer').html('<i class="fas fa-pause-circle fa-3x"></i>');
+
+								}
+								else{
 										console.log('Etat STOP');
-						this._player.playProvider();
-
-								$('.btPlayer').html('<i class="fas fa-pause-circle fa-3x"></i>');
+										this._player.playProvider();
+										$('.btPlayer').html('<i class="fas fa-pause-circle fa-3x"></i>');
+								}
+							
+							
 						}
-				}
-			let self = this;
-			this.durations = this._player.stream.getDuration();  
-		  
-		  /*
-		  	  		setTimeout(() => {
-						  fetch('https://www.mediaone-digital.ch/cache/live/www_radiolac_ch.json')
-							.then(response => response.json())
-							.then(data => {
-							  console.log('Live:'+data);
-							  	if(data=='0'){
-									$('.rond').css('display','none');
-									this.checklivestate = 0;
-								}
-							  else {
-									$('.rond').css('display','block');
-								    this.checklivestate = 1;
-							  }
+					let self = this;
+					this.durations = this._player.stream.getDuration();  
 
-							});
-					}, 5000);
 
-					this.checklive = setInterval(() => {      
-				  
-					  setTimeout(() => {
-						  fetch('https://www.mediaone-digital.ch/cache/live/www_radiolac_ch.json')
-							.then(response => response.json())
-							.then(data => {
-							  console.log('Live:'+data);
-							  	if(data=='0'){
-									$('.rond').css('display','none');
-									this.checklivestate = 0;
-								}
-							  else {
-									$('.rond').css('display','block');
-								    this.checklivestate = 1;
-							  }
+							setTimeout(() => {
+								  fetch('https://www.mediaone-digital.ch/cache/live/www_radiolac_ch.json?hash_id='+Math.random())
+									.then(response => response.json())
+									.then(data => {
+									  console.log('Live:'+data);
+										if(data=='0'){
+											$('.rond').css('display','none');
+											this.checklivestate = 0;
+										}
+									  else {
+											$('.rond').css('display','block');
+											this.checklivestate = 1;
+									  }
 
-							});
-						}, 0);
+									});
+							}, 5000);
 
-					},40000);
-		  
-		  */
-		},600);
+							this.checklive = setInterval(() => {      
+
+							  setTimeout(() => {
+								  fetch('https://www.mediaone-digital.ch/cache/live/www_radiolac_ch.json?hash_id='+Math.random())
+									.then(response => response.json())
+									.then(data => {
+									  console.log('Live:'+data);
+										if(data=='0'){
+											$('.rond').css('display','none');
+											this.checklivestate = 0;
+										}
+									  else {
+											$('.rond').css('display','block');
+											this.checklivestate = 1;
+									  }
+
+									});
+								}, 0);
+
+							},40000);
+
+
+				},600);
 		  
 		  }
   }
 
 	startVideo() {
+		this.checklivestate='1';
 		if(this.checklivestate==1){
 			this._player.pauseProvider();
 			this.onplaying = '0';
 			localStorage.setItem("player", "stop");
 			$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
-			let modal = this.modalCtrl.create(PlayerpopupPage,{url:'https://livevideo.infomaniak.com/streaming/livecast/lfmmd/playlist.m3u8', poster:''});
+			let modal = this.modalCtrl.create(VideolivePage,{url:'https://www.dailymotion.com/embed/video/k1NlPYwmFe7FL7rGZlX?autoPlay=1&queue-enable=false', poster:''});
 			modal.present();  
 		}
 		else {
@@ -266,12 +286,10 @@ typeplayer: any;
 				if (this.timingseek) {
 					clearInterval(this.timingseek);
 				}
-
-			   // this.musicControls.listen();
-				//this.musicControls.updateIsPlaying(false);
 				this.onplaying = '0';
                 localStorage.setItem("player", "stop");
                 $('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
+
         }
         else
         {
@@ -285,7 +303,13 @@ typeplayer: any;
 						});					
 					}, 1000);
 					this.durations = this._player.stream.getDuration();  
+					this._player.settingMusicControl(localStorage.podcast_title, localStorage.podcast_category, localStorage.podcast_cover);
+
 				}
+			else {
+				this._player.settingMusicControl(localStorage.playerTitre, localStorage.playerSoustitre, localStorage.playerCover);
+
+			}
 
 
 				this.onplaying = '1';
@@ -306,7 +330,22 @@ typeplayer: any;
 		
 			
 //	  setTimeout(() => {
-		  
+		
+		/* Démarrage automatique du flux à l'ouverture du player */
+		if(localStorage.type_player == 'live'){
+				
+			 if(localStorage.player == 'stop'){//
+				 this._player.playerconfigProvider();
+				this._player.settingMusicControl(localStorage.playerTitre, localStorage.playerSoustitre, localStorage.playerCover);
+				 this._player.playProvider();
+			 }
+		
+			
+		}
+		else {
+					this._player.settingMusicControl(localStorage.podcast_title, localStorage.podcast_category, localStorage.podcast_cover);
+		}
+		
 				if(localStorage.player == 'stop'){
 								$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
 								this.onplaying = '0';
@@ -346,22 +385,22 @@ typeplayer: any;
 			localStorage.setItem("type_player", "live");
 			this.titreplayer = 'Direct';
 			
-			$('.songArtist').html(localStorage.songArtist);
-			$('.songTitle').html(localStorage.songTitle);
-			$('.songCover').attr('src',localStorage.songCover);
+			$('.songArtist_').html(localStorage.songArtist);
+			$('.songTitle_').html(localStorage.songTitle);
+			$('.songCover_').attr('src',localStorage.songCover);
 			$('.detail').html(localStorage.playerDetail);
 			$('.titre').html(localStorage.playerTitre);
 			$('.soustitre').html(localStorage.playerSoustitre);
 			$('#coverPlayer').attr('src',localStorage.playerCover);
 			
-			$('.playerinfos').hide();
+			//$('.playerinfos').hide();
 			$('.player .scroll-content').css('margin-bottom','80px');
 			$('.btPlayer').hide();
 			$('.loadingPlayer').show();
 			this._player.pauseProvider();
 			this._player.playerconfigProvider();
 			this._player.playProvider();
-				
+			this._player.settingMusicControl(localStorage.playerTitre, localStorage.playerSoustitre, localStorage.playerCover);
 		}
 
 }

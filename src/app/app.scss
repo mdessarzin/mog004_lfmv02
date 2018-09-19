@@ -19,6 +19,8 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather');
 @import '../assets/animate.min.css';
 
+
+
 h1 {
 	font-family: 'Merriweather', serif;
 }
@@ -78,7 +80,7 @@ ion-item.item-wp {
     // Header
     // ------------------
     ion-item.item.item-block.header {
-        background-color: $background-dark-color;
+background-color: $background-light-color;
         color: $font-color;
 
         &.active-side-menu-option {
@@ -89,7 +91,7 @@ ion-item.item-wp {
     // Sub option
     // ------------------
     ion-item.item.item-block.sub-option {
-        background-color: $background-light-color;
+        background-color: $background-dark-color;
         color: $font-color;
 
         &.active-side-menu-option {
@@ -127,8 +129,8 @@ border-right: 0px solid $list-wp-border-color;
 	font-size: 13px;
 	background-color: $background-dark-color;
 	padding-left:20px;
-	font-weight: bolder;
-	color: #383838;
+	font-weight: lighter;
+	color: #C1C1C1;
 	text-transform: uppercase;
 }
 
@@ -178,7 +180,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
     text-transform: uppercase;
 	position: absolute;
 	bottom: 20px; 
-	background-color: #833177;
+	background-color: #29B7C2;
 	font-weight: lighter;
 }
 .card_icon {
@@ -198,7 +200,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 }
 
 .card_categorie_podcast {
-	color: #833177;
+	color: #29B7C2;
     display: inline-block;
     font-size: 11px;
     letter-spacing: .05rem;
@@ -235,11 +237,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 		color: #A9A9A9;
 	}
 	.point{
-		color:#833177;
+		color:#29B7C2;
 	}
 	
 		ion-footer {
-			border-top: 3px solid #833177;
+			border-top: 3px solid #29B7C2;
 			/*
 			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/xQAAukB5vvocQUAAAAASUVORK5CYII=);
 		*/
@@ -254,20 +256,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
     line-height: 1;
     padding: 5px 10px;
     text-transform: uppercase;
-	background-color: #833177;
+	background-color: #29B7C2;
 	font-weight: lighter;
 	border-radius: 4px;
 }
 ion-spinner {
   width: 60px;
   height: 60px;
-  fill: #833177;
+  fill: #29B7C2;
 }
 
 ion-refresher ion-spinner {
   width: 40px;
   height: 40px;
-  fill: #833177;
+  fill: #29B7C2;
 }
 
 $max: 35px;

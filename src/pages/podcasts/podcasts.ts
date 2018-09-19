@@ -1,5 +1,5 @@
 import { Component, ViewChild, Injectable } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform, Content, PopoverController, LoadingController, ModalController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, Content, PopoverController, LoadingController, ModalController, AlertController} from 'ionic-angular';
 import { ScrollHideConfig } from '../../directives/scroll-hide/scroll-hide';
 import * as $ from "jquery";
 import { MusicControls } from '@ionic-native/music-controls';
@@ -42,6 +42,7 @@ header: string;
    posts: Array<any> = [];
 postsLoading: any;
 pagination: number = 1;
+	nbPost: number = 0;
   maximumPages = 10;
 
   constructor(
@@ -55,7 +56,8 @@ pagination: number = 1;
 		public _player: AudioStreamProvider,
 		public musicControls: MusicControls,
 		private iab: InAppBrowser,
-		 private ga: GoogleAnalytics
+		 private ga: GoogleAnalytics,
+		 	public alertCtrl: AlertController,
 	){
 			
 			
@@ -93,7 +95,7 @@ update(refresher) {
 				this.pagination = 1;
 			}
 
-			this.http.get('https://www.lfm.ch/wp-json/mog/v1/get_data?type=podcasts&taxonomy=chronique&per_page=15&term_id='+this.navParams.get('key')+'&page='+this.pagination).map(res => res.json()).subscribe(data => {
+			this.http.get('https://www.radiolac.ch/wp-json/mog/v1/get_data?type=podcasts&taxonomy=chronique&per_page=15&term_id='+this.navParams.get('key')+'&page='+this.pagination+'&hash_id='+Math.random()).map(res => res.json()).subscribe(data => {
 			  //  this.posts = data;
 				console.log(this.posts);
 				if (refresher) {
@@ -103,8 +105,18 @@ update(refresher) {
 
 								for(let i of data){
 									this.posts.push(i);
-
-								}				  
+									this.nbPost = 1;
+								}
+				
+								if(this.nbPost == 0){
+									let alert = this.alertCtrl.create({
+									  title: 'Aucun podcast',
+									  subTitle: "Aucun podcast n'a été trouvé pour cette chronique.",
+									  buttons: ['Fermer']
+									});
+									alert.present();
+								}
+								
 							  this.postsLoading = '1';
 								if (infiniteScroll) {
 									infiniteScroll.complete();

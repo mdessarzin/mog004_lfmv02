@@ -1,7 +1,6 @@
 import { Component, ViewChild, Injectable } from '@angular/core';
 
 import { IonicPage, NavController, NavParams, Platform, Content, PopoverController, LoadingController, ModalController, ViewController} from 'ionic-angular';
-import { ScrollHideConfig } from '../../directives/scroll-hide/scroll-hide';
 import * as $ from "jquery";
 import { AudioStreamProvider } from '../../providers/audio-stream/audio-stream';
 import { Http } from '@angular/http';
@@ -13,6 +12,8 @@ import { PlayerPage } from '../player/player';
 import { PlayerPlaylistPage } from '../player-playlist/player-playlist'
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
+import { SwiperModule } from 'angular2-useful-swiper'; 
+
 
 
 //import {Http, Response} from "@angular/http";
@@ -25,6 +26,22 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics';
 })
 
 export class AccueilPage {
+	config: Object = {
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            spaceBetween: 10,
+            slidesPerView:2.3, //use any number 1.8 or 4.2 or 7.3 etc..
+            direction: 'horizontal',
+            parallax: true,
+            freeMode: false,
+            fade: {
+                crossFade: true,
+            },
+            allowSwipeToPrev: true,
+            roundLengths: false,
+            effect: 'slide' //use cube,flip,coverflow or fade
+        }; 
+	
 	private loadingPopup: any;
     artist: string;
     cover: string;
@@ -38,8 +55,6 @@ export class AccueilPage {
     pushPage: any;
     buttonIcon: string = 'ios-play';
   	fakeUsers: Array<any> = new Array(3);
-	footerScrollConfig: ScrollHideConfig = { cssProperty: 'margin-bottom', maxValue: undefined };
-  	headerScrollConfig: ScrollHideConfig = { cssProperty: 'margin-top', maxValue: 44 };
 	link: string;
     title: string;
     image: string;
@@ -55,147 +70,92 @@ test:any;
 		public _player: AudioStreamProvider,
 		public http: Http, 
 		public loadingCtrl: LoadingController,
-		 private socialSharing: SocialSharing,
-		 public modalCtrl: ModalController,
-		 public viewCtrl: ViewController,
-		 public plt: Platform,
-public platform: Platform,
-		 private iab: InAppBrowser,
+		private socialSharing: SocialSharing,
+		public modalCtrl: ModalController,
+		public viewCtrl: ViewController,
+		public plt: Platform,
+		public platform: Platform,
+		private iab: InAppBrowser,
 		private ga: GoogleAnalytics
 	){
 		this.loadData();	
-			this.test = 2;
-			this.liveTitre = 'Radio Lac Matin';
-			this.liveHeures = '06H-09H';
+		this.test = 2;
 	
-			
-	this.ga.startTrackerWithId('UA-104904297-2')
-      .then(() => {
-        console.log('Google analytics is ready now');
-        this.ga.trackView('home');
-        this.ga.trackEvent('Navigation', 'Home');
+		this.ga.startTrackerWithId('UA-104904297-2')
+		  .then(() => {
+			console.log('Google analytics is ready now');
+			this.ga.trackView('home');
+			this.ga.trackEvent('Navigation', 'Home');
 
-      })
-      .catch(e => console.log('Error starting GoogleAnalytics', e));
+		  })
+		  .catch(e => console.log('Error starting GoogleAnalytics', e));
 			
   }
 
 	
 update(refresher) {
     console.log('Begin async operation', refresher);
-		  setTimeout(() => {
-
-	this.loadData(false,refresher);	
-			  },200);
-  }
+   	setTimeout(() => {
+		this.loadData(false,refresher);	
+	},200);
+}
 	
-	  loadData(infiniteScroll?,refresher?) {
+loadData(infiniteScroll?,refresher?) {
 
-			if (refresher) {
-				this.pagination = 1;
+	if (refresher) {
+		this.pagination = 1;
+	}
+
+	this.http.get('https://www.radiolac.ch/wp-json/mog/v1/get_data?type=post&taxonomy=category&per_page=20&page='+this.pagination+'&hash_id=' + Math.random()).map(res => res.json()).subscribe(data => {
+	  //  this.posts = data;
+		console.log(this.posts);
+		if (refresher){
+			  this.posts = [];
+				refresher.complete();
 			}
+			for(let i of data){
+				this.posts.push(i);
+			}
+			this.postsLoading = '1';
+			if (infiniteScroll) {
+				infiniteScroll.complete();
+			}
+	});
+  
+}	
 
-			this.http.get('https://www.lfm.ch/wp-json/mog/v1/get_data?type=post&taxonomy=category&per_page=20&page='+this.pagination).map(res => res.json()).subscribe(data => {
-			  //  this.posts = data;
-				console.log(this.posts);
-				if (refresher) {
-								  this.posts = [];
-									refresher.complete();
-								}
-								for(let i of data){
-
-									  
-
-									
-
-	this.posts.push(i);
-
-
-								}
-				
-												this.postsLoading = '1';
-
-							  
-								if (infiniteScroll) {
-									infiniteScroll.complete();
-								}
-			});
-		  
-
-			  //Leaderboard
-			
-
-
-	  }	
-
-	
-	
- loadMore(infiniteScroll) {
+loadMore(infiniteScroll) {
     this.pagination += 1;
     this.loadData(infiniteScroll);
  
     if (this.pagination === this.maximumPages) {
       infiniteScroll.enable(false);
     }
-  }	
+}	
 	
-
-	
-	ngAfterViewInit() {
-		
-
-
+ngAfterViewInit() {
 }
 	
 ionViewDidLoad() {
-
-	
-
-	  
-	  //			interstitial: '947330/29216'
-
-	
-
-	
-	
-	  if(localStorage.type_player == 'live'){
-        }
-        else
-        {
-			$('.songArtist').html(localStorage.podcast_title);
-			$('.songTitle').html(localStorage.podcast_category);
-			$('.songCover').attr('src',localStorage.podcast_cover);
-        }
 	
 		if(localStorage.player == 'play'){
-			$('.btPlayer').html('<i class="fas fa-pause-circle fa-3x"></i>');
+			this.buttonIcon = 'ios-stop';
+			$('.btPlayerhome').html('<i class="fas fa-pause"></i>');
+			$('.fab-md-danger').removeClass("pulseplay");
 			$('.playerEtat_2').hide();
 			$('.playerEtat_0').hide();
 			$('.playerEtat_1').show();
         }
         else
         {
-			$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
+			this.buttonIcon = 'ios-play';
+			$('.btPlayerhome').html('<i class="fas fa-play"></i>');
+			$('.fab-md-danger').addClass("pulseplay");
 			$('.playerEtat_2').hide();
 			$('.playerEtat_1').hide();
 			$('.playerEtat_0').show();
         }
-      
-		$.ajaxSetup({ cache: false });
-		$.getJSON('https://www.mediaone-digital.ch/cache/lfm.json', function(data){
-			
-				   	if(localStorage.type_player == 'live'){
-						$('.songArtist').html(data.live[0].interpret);
-						$('.songTitle').html(data.live[0].title);
-						$('.songCover').attr('src',data.live[0].imageURL);
-					}
-					else
-					{
-						//
-					}
-
-		});
-	
+      	
 /*
 		this.platform.ready().then(() => {
 
@@ -231,34 +191,12 @@ ionViewDidLoad() {
 // 	(<any>window).SmartAdServer.hideBanner();
  }
 	
-	openads(link){
-//		const browser = this.iab.create('https://ionicframework.com/');
-		            window.open(link, "_system");
-
-	}
-	
-	
-startAudio() {      
-  // if (this.plt.is('cordova')) {
-     
-        if(localStorage.player == 'play'){
-                this._player.pauseProvider();
-			  //  this.musicControls.listen();
-				//this.musicControls.updateIsPlaying(false);
-				//this.onplaying = '0';
-                
-                //$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
-        }
-        else
-        {
-			
-			this._player.playerconfigProvider();
-			this._player.playProvider();
-		}
-
+openads(link){
+	window.open(link, "_system");
 }
+	
 
-	private whatsappShare(title, image, link){
+private whatsappShare(title, image, link){
     this.socialSharing.shareViaWhatsApp(title, image, link)
       .then(()=>{
 //
@@ -266,8 +204,7 @@ startAudio() {
       ()=>{
          //
       })
-  }
-
+}
 
 
 private share(message, title, image, link){
@@ -287,19 +224,36 @@ private showDetails(id,title,link){
     this.navCtrl.push(DetailsPage,{
             title: title,
             key: id,
-		link:link
-           
-        });
+			link:link       
+    });
 }
+
 	
+private startAudio() {      
+        if(localStorage.player == 'play'){
+				this._player.pauseProvider();
+				$('.btPlayerhome').html('<i class="fas fa-play"></i>');
+			$('.fab-md-danger').addClass("pulseplay");
+				$('.playerEtat_2').hide();
+				$('.playerEtat_1').hide();
+				$('.playerEtat_0').show();
+				
+		}
+        else
+        {
+			this.buttonIcon = 'ios-stop';
+			this._player.playProvider();
+			$('.btPlayerhome').html('<i class="fas fa-pause"></i>');
+			$('.fab-md-danger').removeClass("pulseplay");
+			$('.playerEtat_0').hide();
+			$('.playerEtat_1').hide();
+			$('.playerEtat_2').show();
+		}
+}
 
 private openPlayer(){
         //console.log(this.login);
-       let modal = this.modalCtrl.create(PlayerPage); //PlayerPage
-    modal.present();
-    
-    
+       	let modal = this.modalCtrl.create(PlayerPage); //PlayerPage
+		modal.present();
     }
-	
 }
-	
