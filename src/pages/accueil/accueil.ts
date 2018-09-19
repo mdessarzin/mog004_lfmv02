@@ -33,7 +33,7 @@ export class AccueilPage {
             slidesPerView:2.3, //use any number 1.8 or 4.2 or 7.3 etc..
             direction: 'horizontal',
             parallax: true,
-            freeMode: false,
+            freeMode: true,
             fade: {
                 crossFade: true,
             },

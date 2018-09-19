@@ -1,6 +1,6 @@
 /*
 Error: Undefined variable: "$background-light-color".
-        on line 72 of /Users/matthieudessarzin/Documents/Projets/MOG002_RadioLac/src/app/app.scss
+        on line 72 of /Users/matthieudessarzin/Documents/Projets/MOG003_LFM/src/app/app.scss
 
 67: 
 68: 
@@ -15,7 +15,7 @@ Error: Undefined variable: "$background-light-color".
 77:         }
 
 Backtrace:
-/Users/matthieudessarzin/Documents/Projets/MOG002_RadioLac/src/app/app.scss:72
+/Users/matthieudessarzin/Documents/Projets/MOG003_LFM/src/app/app.scss:72
 /Applications/Adobe Dreamweaver CC 2018/Adobe Dreamweaver CC 2018.app/Contents/Resources/gems/rubygems/gems/sass-3.5.3/lib/sass/script/tree/variable.rb:49:in `_perform'
 /Applications/Adobe Dreamweaver CC 2018/Adobe Dreamweaver CC 2018.app/Contents/Resources/gems/rubygems/gems/sass-3.5.3/lib/sass/script/tree/node.rb:50:in `perform'
 /Applications/Adobe Dreamweaver CC 2018/Adobe Dreamweaver CC 2018.app/Contents/Resources/gems/rubygems/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
@@ -72,4 +72,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$background-light-color\".\A         on line 72 of /Users/matthieudessarzin/Documents/Projets/MOG002_RadioLac/src/app/app.scss\A \A 67: \A 68: \A 69:     // Single option\A 70:     // ------------------\A 71:     ion-item.item.item-block.option {\A 72:         background-color: $background-light-color;\A 73:         color: $font-color;\A 74: \A 75:         &.active-side-menu-option {\A 76:             color: $active-color;\A 77:         }"; }
+  content: "Error: Undefined variable: \"$background-light-color\".\A         on line 72 of /Users/matthieudessarzin/Documents/Projets/MOG003_LFM/src/app/app.scss\A \A 67: \A 68: \A 69:     // Single option\A 70:     // ------------------\A 71:     ion-item.item.item-block.option {\A 72:         background-color: $background-light-color;\A 73:         color: $font-color;\A 74: \A 75:         &.active-side-menu-option {\A 76:             color: $active-color;\A 77:         }"; }
