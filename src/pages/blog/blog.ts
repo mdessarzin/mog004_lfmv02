@@ -19,7 +19,6 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics';
 })
 export class BlogPage {
 	private loadingPopup: any;
-	
     artist: string;
     cover: string;
     track: string;
@@ -61,11 +60,8 @@ header: string;
 		 private iab: InAppBrowser,
 		 private ga: GoogleAnalytics
 	){
-			
-							this.tabs=["page1","page2"];
-
-		this.title = 'Actualité';
-		this.loadData('');
+		this.title = navParams.get('title');
+		this.loadData();
 
 		this.ga.startTrackerWithId('UA-104904297-2')
 			  .then(() => {
@@ -79,21 +75,48 @@ header: string;
   }
 
 	
-  loadData(id) {	  
-			this.http.get('https://www.radiolac.ch/wp-json/mog/v1/get_data?type=post&taxonomy=category&term_id='+id+'&per_page=20&page=1&hash_id=' + Math.random()).map(res => res.json()).subscribe(data => {
+update(refresher) {
+    console.log('Begin async operation', refresher);
+	
+	this.loadData(false,refresher);		
+  }
+	
+  loadData(infiniteScroll?,refresher?) {
+	  
+	  
+			if (refresher) {
+				this.pagination = 1;
+			}
+
+			this.http.get('https://www.radiolac.ch/wp-json/mog/v1/get_data?type=post&taxonomy=category&term_id='+this.navParams.get('key')+'&per_page=20&page='+this.pagination+'&hash_id=' + Math.random()).map(res => res.json()).subscribe(data => {
+			  //  this.posts = data;
+				console.log(this.posts);
+				if (refresher) {
 								  this.posts = [];
+									refresher.complete();
+								}
 
 								for(let i of data){
 									this.posts.push(i);
 
 								}				  
 							  this.postsLoading = '1';
+								if (infiniteScroll) {
+									infiniteScroll.complete();
+								}
 			});
 	  
 
   }	
 	
-
+ loadMore(infiniteScroll) {
+    this.pagination += 1;
+    this.loadData(infiniteScroll);
+ 
+    if (this.pagination === this.maximumPages) {
+      infiniteScroll.enable(false);
+    }
+  }	
 	
 	
 	//Prépation de la fonction de chargement
