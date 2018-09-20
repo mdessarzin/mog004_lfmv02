@@ -28,6 +28,7 @@ import { SwiperModule } from 'angular2-useful-swiper';
 export class AccueilPage {
 	 @ViewChild('SwipedTabsSlider') SwipedTabsSlider: Slides ;
 
+
   SwipedTabsIndicator :any= null;
   tabs:any=[];
 	
@@ -164,6 +165,7 @@ loadMore(infiniteScroll) {
 }	
 	
 ngAfterViewInit() {
+	this.SwipedTabsSlider.autoHeight = true;
 }
 	
 	
