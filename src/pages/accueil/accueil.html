@@ -46,19 +46,21 @@
 				<ion-content no-padding id="page6" #pageContent >
 
 
- <ion-card no-padding style="margin-bottom:0px; border-bottom: 6px solid #f1f1f1;" >
+ <ion-card no-padding style="margin-bottom:0px; border-bottom: 3px solid #833177;" >
 
 							<button no-padding ion-item (click)="showDetails('','','')">
-								<ion-card-content no-padding class="fadeintransition" >
+								<ion-card-content no-padding class="fadeintransition" style="position:relative;" >
 									<div style="background-color: #f1f1f1; position: relative;">	
-										<span class="card_categorie">En ce moment</span>				
 										<img src="https://www.lfm.ch/wp-content/uploads/2018/01/laura-560x600.png" style="background-color: #BCBBBB;" />
+										<div class="fadebg"></div>
+													
+										<ion-card-title style="color:#fff; position:absolute;bottom:10px;left:0px;right:0px;height:auto;font-size:20px !important;"><span class="card_categorie_home">En ce moment</span><br>Les après-midi de Laura</ion-card-title>
 										<div class="home-live-play-icon">
 												<i class="fa fa-2 fa-play" aria-hidden="true"></i>
-											</div>
+										</div>
 									</div>
-									<ion-card-title>Les après-midi de Laura</ion-card-title>
-
+									
+								
 								</ion-card-content>
 							</button>
 
@@ -89,17 +91,14 @@
             <div class="swiper-slide" style="background-color:red;">
 				<img src="https://images.sk-static.com/images/media/profile_images/artists/197928/huge_avatar">
 			</div>
-		
-		
-		
-		
-		
+
 		</div>
             <div class="swiper-pagination"></div>
         </swiper>
 
-		
-			 <ion-grid *ngIf='posts' no-padding>
+	<h2 style="margin-left:10px;font-size:14px;color:#333;">Antenne</h2>
+
+					<ion-grid *ngIf='posts' no-padding>
 				<ion-row no-padding> 
 					
 							 <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 no-padding *ngFor="let post of posts" class="animated fadeIn" >
@@ -142,6 +141,12 @@
 
 			</ion-row>
 		</ion-grid>  
+					
+<ion-fab right bottom>
+<button ion-fab color="primary" class="" (tap)='startAudio()'>  <ion-icon name="logo-whatsapp"></ion-icon>
+
+</button>
+</ion-fab>
 
 
 					</ion-content>

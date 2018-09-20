@@ -169,6 +169,23 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 	
 	
 }
+.swiper-pagination-bullet-active {
+    background: #833177;
+    opacity: 1;
+}
+.card_categorie_home {
+	color: #fff;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .05rem;
+    line-height: 1;
+    padding: 5px 20px;
+    text-transform: uppercase;
+	background-color: #833177;
+	font-weight: lighter;
+	margin-bottom:5px;
+}
 .card_categorie {
 	color: #fff;
     display: inline-block;
@@ -180,7 +197,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
     text-transform: uppercase;
 	position: absolute;
 	bottom: 20px; 
-	background-color: #29B7C2;
+	background-color: #833177;
 	font-weight: lighter;
 }
 .card_icon {
@@ -200,7 +217,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 }
 
 .card_categorie_podcast {
-	color: #29B7C2;
+	color: #833177;
     display: inline-block;
     font-size: 11px;
     letter-spacing: .05rem;
@@ -237,11 +254,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 		color: #A9A9A9;
 	}
 	.point{
-		color:#29B7C2;
+		color:#833177;
 	}
 	
 		ion-footer {
-			border-top: 3px solid #29B7C2;
+			border-top: 3px solid #833177;
 			/*
 			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/xQAAukB5vvocQUAAAAASUVORK5CYII=);
 		*/
@@ -256,20 +273,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
     line-height: 1;
     padding: 5px 10px;
     text-transform: uppercase;
-	background-color: #29B7C2;
+	background-color: #833177;
 	font-weight: lighter;
 	border-radius: 4px;
 }
 ion-spinner {
   width: 60px;
   height: 60px;
-  fill: #29B7C2;
+  fill: #833177;
 }
 
 ion-refresher ion-spinner {
   width: 40px;
   height: 40px;
-  fill: #29B7C2;
+  fill: #833177;
 }
 
 $max: 35px;
