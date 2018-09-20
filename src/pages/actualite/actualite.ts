@@ -1,5 +1,5 @@
 import { Component, ViewChild, Injectable } from '@angular/core';
-import { IonicPage, NavController, ViewController, NavParams, Platform, Content, PopoverController, LoadingController, ModalController,Slides} from 'ionic-angular';
+import { IonicPage, NavController, ViewController, NavParams, Platform, Content, PopoverController, LoadingController, ModalController, Slides} from 'ionic-angular';
 import { ScrollHideConfig } from '../../directives/scroll-hide/scroll-hide';
 import * as $ from "jquery";
 import { AudioStreamProvider } from '../../providers/audio-stream/audio-stream';
