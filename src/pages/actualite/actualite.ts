@@ -125,26 +125,6 @@ header: string;
 	
 
 	
-update(refresher) {
-    console.log('Begin async operation', refresher);
-	
-	this.loadData(false,refresher);		
-  }
-	
-  loadData(id,datapush) {
-			
-	  
-
-  }	
-	
- loadMore(infiniteScroll) {
-    this.pagination += 1;
-    this.loadData(infiniteScroll);
- 
-    if (this.pagination === this.maximumPages) {
-      infiniteScroll.enable(false);
-    }
-  }	
 	
 	
 	//Prépation de la fonction de chargement
