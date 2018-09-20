@@ -59,6 +59,7 @@
 							[pager]="false"
 				>
 		<ion-slide>
+			<ion-scroll>
  <ion-card no-padding style="margin-bottom:0px; border-bottom: 6px solid #f1f1f1;" >
 
 							<button no-padding ion-item (click)="showDetails('','','')">
@@ -109,8 +110,9 @@
 		
 		</div>
             <div class="swiper-pagination"></div>
-        </swiper>		</ion-slide>
+        </swiper>		</ion-scroll></ion-slide>
 		<ion-slide>
+			<ion-scroll>
 			 <ion-grid *ngIf='posts' no-padding>
 				<ion-row no-padding> 
 					
@@ -154,13 +156,9 @@
 
 			</ion-row>
 		</ion-grid>  
+				</ion-scroll>
 		</ion-slide>
-		<ion-slide>
-			<h1>Page 3 </h1>
-		</ion-slide>
-		<ion-slide>
-			<h1>Page 4 </h1>
-		</ion-slide>
+
 	</ion-slides>
 	
 	
