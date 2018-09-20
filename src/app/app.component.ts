@@ -34,6 +34,9 @@ import { AudioStreamProvider } from '../providers/audio-stream/audio-stream';
 import { ContenupagePage } from '../pages/contenupage/contenupage';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import * as $ from "jquery";
+import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
+import { TabsPage } from '../pages/tabs/tabs';
+
 
 @Component({
 	templateUrl: 'app.html'
@@ -44,7 +47,7 @@ export class MyApp {
 	// Get the instance to call the public methods
 	@ViewChild(SideMenuContentComponent) sideMenu: SideMenuContentComponent;
 
-	public rootPage: any = AccueilPage;
+  rootPage:any = TabsPage;
 
 	// Options to show in the SideMenuComponent
 	public options: Array<MenuOptionModel>;

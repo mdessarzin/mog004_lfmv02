@@ -109,12 +109,8 @@ test:any;
   selectTab(index) {    
     this.SwipedTabsIndicator.style.webkitTransform = 'translate3d('+(100*index)+'%,0,0)';
     this.SwipedTabsSlider.slideTo(index, 500);
-	$('.swiper-wrapper').css('height','100%');
-
-  }
-
-  updateIndicatorPosition() {
-      // this condition is to avoid passing to incorrect index
+	  
+	  
   	if( this.SwipedTabsSlider.length()> this.SwipedTabsSlider.getActiveIndex())
   	{
   		this.SwipedTabsIndicator.style.webkitTransform = 'translate3d('+(this.SwipedTabsSlider.getActiveIndex() * 100)+'%,0,0)';

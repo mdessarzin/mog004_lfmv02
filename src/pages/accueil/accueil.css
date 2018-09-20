@@ -4,12 +4,8 @@ page-accueil ion-card.ng-enter-stagger {
   /* override to make sure it's not inherited from other styles */
   -webkit-animation-duration: 0;
   animation-duration: 0; }
-page-accueil .scroll-content {
-  margin-bottom: 0px !important; }
 page-accueil .pulseplay {
   -webkit-animation: pulsebottom 1.5s infinite; }
-page-accueil ion-slide {
-  overflow-y: auto; }
 page-accueil .fab-md-danger {
   color: #fff;
   background-color: #29b7c2;

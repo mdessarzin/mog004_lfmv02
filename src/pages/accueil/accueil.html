@@ -40,25 +40,12 @@
 	<div class="subtitle">
 		Accueil
 	</div>
-	<ion-segment  class="SwipedTabs-tabs"  >
-		<ion-segment-button *ngFor='let tab of tabs ; let i = index ' value="IngoreMe" (click)="selectTab(i)"
-		[ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }' >
-			{{tab}}
-		</ion-segment-button>
-	</ion-segment>
-</ion-header>
-<ion-content no-padding id="page6" #pageContent >
-	
-	<!-- here is our dynamic line  "indicator"-->
-	<div id='indicator' class="SwipedTabs-indicatorSegment" [ngStyle]="{'width.%': (100/this.tabs.length)}"></div>
 
-	<ion-slides #SwipedTabsSlider  (ionSlideDrag)="animateIndicator($event)"
-							(ionSlideWillChange)="updateIndicatorPosition()"
-							(ionSlideDidChange)="updateIndicatorPosition()"
-							(pan)="updateIndicatorPosition()"
-							[pager]="false"
-				class="slide-zoom" >
-		<ion-slide>
+
+</ion-header>
+				<ion-content no-padding id="page6" #pageContent >
+
+
  <ion-card no-padding style="margin-bottom:0px; border-bottom: 6px solid #f1f1f1;" >
 
 							<button no-padding ion-item (click)="showDetails('','','')">
@@ -110,8 +97,8 @@
 		</div>
             <div class="swiper-pagination"></div>
         </swiper>
-		</ion-slide>
-		<ion-slide>
+
+		
 			 <ion-grid *ngIf='posts' no-padding>
 				<ion-row no-padding> 
 					
@@ -155,23 +142,6 @@
 
 			</ion-row>
 		</ion-grid>  
-		</ion-slide>
 
-	</ion-slides>
-	
-	
-	
-	<ion-fab right bottom>
-  <button ion-fab color="danger" class="" (tap)='startAudio()'>
-    <span class="btPlayerhome"></span>
-  </button>
-</ion-fab>
 
-</ion-content>
-<ion-footer>
-<ion-tabs id="tabsController-tabs1">
-  <ion-tab [root]="tab1Root" tabTitle="Camera Tab" tabIcon="camera" id="tabsController-tab1"></ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="Cart Tab" tabIcon="cart" id="tabsController-tab2"></ion-tab>
-  <ion-tab [root]="tab3Root" tabTitle="Cloud Tab" tabIcon="cloud" id="tabsController-tab3"></ion-tab>
-</ion-tabs>
-</ion-footer>
+					</ion-content>

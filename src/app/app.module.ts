@@ -16,6 +16,7 @@ import { BlogPage } from '../pages/blog/blog';
 import { PlayerpopupPage } from '../pages/playerpopup/playerpopup';
 import { ContenupagePage } from '../pages/contenupage/contenupage';
 import { SwiperModule } from 'angular2-useful-swiper'; 
+import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
 
 import { VideolivePage } from '../pages/videolive/videolive';
 import { ScrollHideDirective } from '../directives/scroll-hide/scroll-hide';
@@ -34,6 +35,13 @@ import { Media, MediaObject } from '@ionic-native/media';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { ExtendMenuProvider } from '../providers/extend-menu/extend-menu';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
+
+import { AboutPage } from '../pages/about/about';
+import { ContactPage } from '../pages/contact/contact';
+import { HomePage } from '../pages/home/home';
+import { TabsPage } from '../pages/tabs/tabs';
+
+
 
 localStorage.setItem("player", "stop");
 localStorage.setItem("firstclickonplayer", "oui");
@@ -80,7 +88,12 @@ PlayerPlaylistPage,
 	  PlayerpopupPage,
 	ScrollHideDirective,
 	  SideMenuContentComponent,
-	   IframeAutoHeightDirective
+	   IframeAutoHeightDirective,
+	  TabsControllerPage,
+	      AboutPage,
+    ContactPage,
+    HomePage,
+    TabsPage
   ],
   imports: [
 	  HttpModule,
@@ -113,7 +126,11 @@ PlayerPlaylistPage,
 	  PlayerPage,
 	  PlayerpopupPage,
 PlayerPlaylistPage,
-	ContenupagePage
+	ContenupagePage,
+	      AboutPage,
+    ContactPage,
+    HomePage,
+    TabsPage
   ],
   providers: [
     StatusBar,

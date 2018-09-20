@@ -10,18 +10,14 @@ page-accueil {
   animation-duration:0;
 }
 
-.scroll-content{
-    margin-bottom: 0px !important;
-}
+
 	
 .pulseplay {
   -webkit-animation: pulsebottom 1.5s infinite;
 }
 	
 
-	ion-slide { overflow-y: auto }
-
-
+	
 	
 .fab-md-danger {
   color: #fff;
@@ -150,8 +146,6 @@ margin-left: 3px;
   }
 }
 
-
-	
 .swiper-slide {
 	width:350px;
 	-webkit-box-shadow: 2px 2px 5px 0px rgba(168,168,168,1);
