@@ -1,6 +1,6 @@
 import { Component, ViewChild, Injectable } from '@angular/core';
 
-import { IonicPage, NavController, NavParams, Platform, Content, PopoverController, LoadingController, ModalController, ViewController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, Content, PopoverController, LoadingController, ModalController, ViewController,Slides} from 'ionic-angular';
 import * as $ from "jquery";
 import { AudioStreamProvider } from '../../providers/audio-stream/audio-stream';
 import { Http } from '@angular/http';
@@ -26,6 +26,11 @@ import { SwiperModule } from 'angular2-useful-swiper';
 })
 
 export class AccueilPage {
+	 @ViewChild('SwipedTabsSlider') SwipedTabsSlider: Slides ;
+
+  SwipedTabsIndicator :any= null;
+  tabs:any=[];
+	
 	config: Object = {
             pagination: '.swiper-pagination',
             paginationClickable: true,
@@ -78,6 +83,8 @@ test:any;
 		private iab: InAppBrowser,
 		private ga: GoogleAnalytics
 	){
+				this.tabs=["page1","page2","page3","page4"];
+			
 		this.loadData();	
 		this.test = 2;
 	
@@ -92,6 +99,29 @@ test:any;
 			
   }
 
+	
+	ionViewDidEnter() {
+    this.SwipedTabsIndicator = document.getElementById("indicator");
+  }
+
+  selectTab(index) {    
+    this.SwipedTabsIndicator.style.webkitTransform = 'translate3d('+(100*index)+'%,0,0)';
+    this.SwipedTabsSlider.slideTo(index, 500);
+  }
+
+  updateIndicatorPosition() {
+      // this condition is to avoid passing to incorrect index
+  	if( this.SwipedTabsSlider.length()> this.SwipedTabsSlider.getActiveIndex())
+  	{
+  		this.SwipedTabsIndicator.style.webkitTransform = 'translate3d('+(this.SwipedTabsSlider.getActiveIndex() * 100)+'%,0,0)';
+  	}
+    
+    }
+
+  animateIndicator($event) {
+  	if(this.SwipedTabsIndicator)
+   	    this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (($event.progress* (this.SwipedTabsSlider.length()-1))*100) + '%,0,0)';
+  }
 	
 update(refresher) {
     console.log('Begin async operation', refresher);
@@ -135,6 +165,7 @@ loadMore(infiniteScroll) {
 	
 ngAfterViewInit() {
 }
+	
 	
 ionViewDidLoad() {
 	

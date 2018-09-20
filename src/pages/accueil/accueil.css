@@ -125,3 +125,21 @@ page-accueil .swiper-slide h3 {
     box-shadow: 0 0 0 50px rgba(41, 183, 194, 0); }
   100% {
     box-shadow: 0 0 0 0 rgba(41, 183, 194, 0); } }
+page-accueil .SwipedTabs-indicatorSegment {
+  -webkit-transition: 0.3s all;
+  -moz-transition: 0.3s all;
+  -o-transition: 0.3s all;
+  transition: 0.3s all;
+  transform-origin: top 0 left 0;
+  height: 1px;
+  position: relative;
+  top: -2px;
+  background-color: black !important; }
+page-accueil .SwipedTabs-tabs ion-segment-button {
+  border: none !important;
+  color: gray !important;
+  background-color: white !important; }
+page-accueil .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
+  color: black !important; }
+page-accueil .SwipedTabs-tabs {
+  border-bottom: solid 1px #e6e6e6  !important; }
