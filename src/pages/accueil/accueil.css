@@ -8,6 +8,8 @@ page-accueil .scroll-content {
   margin-bottom: 0px !important; }
 page-accueil .pulseplay {
   -webkit-animation: pulsebottom 1.5s infinite; }
+page-accueil ion-slide {
+  overflow-y: auto; }
 page-accueil .fab-md-danger {
   color: #fff;
   background-color: #29b7c2;

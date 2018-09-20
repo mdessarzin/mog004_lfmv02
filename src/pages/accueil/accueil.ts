@@ -109,6 +109,8 @@ test:any;
   selectTab(index) {    
     this.SwipedTabsIndicator.style.webkitTransform = 'translate3d('+(100*index)+'%,0,0)';
     this.SwipedTabsSlider.slideTo(index, 500);
+	$('.swiper-wrapper').css('height','100%');
+
   }
 
   updateIndicatorPosition() {
@@ -116,9 +118,8 @@ test:any;
   	if( this.SwipedTabsSlider.length()> this.SwipedTabsSlider.getActiveIndex())
   	{
   		this.SwipedTabsIndicator.style.webkitTransform = 'translate3d('+(this.SwipedTabsSlider.getActiveIndex() * 100)+'%,0,0)';
-
+		
   	}
-    
     }
 
   animateIndicator($event) {
@@ -152,6 +153,8 @@ loadData(infiniteScroll?,refresher?) {
 			this.postsLoading = '1';
 			if (infiniteScroll) {
 				infiniteScroll.complete();
+					
+
 			}
 	});
   
@@ -171,7 +174,7 @@ ngAfterViewInit() {
 	
 	
 ionViewDidLoad() {
-	
+	this.SwipedTabsSlider.autoHeight = true;
 		if(localStorage.player == 'play'){
 			this.buttonIcon = 'ios-stop';
 			$('.btPlayerhome').html('<i class="fas fa-pause"></i>');

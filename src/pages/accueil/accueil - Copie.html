@@ -47,7 +47,7 @@
 		</ion-segment-button>
 	</ion-segment>
 </ion-header>
-<ion-content no-padding id="page6" #pageContent >
+<ion-content no-padding id="page6" #pageContent>
 	
 	<!-- here is our dynamic line  "indicator"-->
 	<div id='indicator' class="SwipedTabs-indicatorSegment" [ngStyle]="{'width.%': (100/this.tabs.length)}"></div>
@@ -57,7 +57,7 @@
 							(ionSlideDidChange)="updateIndicatorPosition()"
 							(pan)="updateIndicatorPosition()"
 							[pager]="false"
-				class="slide-zoom" >
+				>
 		<ion-slide>
  <ion-card no-padding style="margin-bottom:0px; border-bottom: 6px solid #f1f1f1;" >
 
