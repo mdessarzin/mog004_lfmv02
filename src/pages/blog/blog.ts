@@ -65,7 +65,7 @@ header: string;
 							this.tabs=["page1","page2"];
 
 		this.title = 'Actualité';
-		this.loadData();
+		this.loadData('');
 
 		this.ga.startTrackerWithId('UA-104904297-2')
 			  .then(() => {
