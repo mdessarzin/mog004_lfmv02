@@ -28,7 +28,7 @@ export class ChroniquesPage {
     </ion-item>
   `;
   triggerAlphaScrollChange: number = 0;
-	
+	 searchQuery: string = '';
 	
 	private loadingPopup: any;
     artist: string;
@@ -92,6 +92,7 @@ pagination: number = 1;
 
 			
   }
+	
 	
 	
 	
