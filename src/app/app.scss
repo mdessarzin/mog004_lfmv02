@@ -159,6 +159,16 @@ border-right: 0px solid $list-wp-border-color;
 	top:5px;
 	right:5px;
 }
+
+.item-divider-md {
+    padding-left: 16px;
+    border-bottom: 1px solid #dedede;
+    font-size: 1.4rem;
+    color: #858585;
+    background-color: #f1f1f1;
+    height: 25px;
+}
+
 @keyframes fadeIn{
   0%{
     opacity: 0;

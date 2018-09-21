@@ -13,6 +13,7 @@ import { AudioStreamProvider } from '../../providers/audio-stream/audio-stream';
 import { PlayerpopupPage } from '../playerpopup/playerpopup';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
+import { PodcastsPage } from '../podcasts/podcasts';
 
 @Component({
   selector: 'page-chroniques',
@@ -23,7 +24,7 @@ export class ChroniquesPage {
 	 breeds: any;
   currentPageClass = this;
   alphaScrollItemTemplate: string = `
-    <ion-item (click)="currentPageClass.onItemClick(item)">
+    <ion-item (click)="showDetails(post.id,post.name)">
       {post.name}}
     </ion-item>
   `;
@@ -94,6 +95,14 @@ pagination: number = 1;
   }
 	
 	
+	private showDetails(id,title){
+        //console.log(this.login);
+       
+    this.navCtrl.push(PodcastsPage,{
+            title: title,
+            key: id
+        });
+}
 	
 	
 update(refresher) {

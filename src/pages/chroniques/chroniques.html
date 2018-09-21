@@ -43,8 +43,6 @@
 	 <ion-toolbar color="primary" style="display:none;">
 		<ion-searchbar (input)="search($event)"></ion-searchbar>
 	 </ion-toolbar>
-
-
 </ion-header>
 
     <ion-content class="alpha-list-page">
@@ -62,7 +60,7 @@
         [triggerChange]="triggerAlphaScrollChange">
 
           <ng-template #alphaScrollItemTemplateRef let-item>
-            <ion-item (click)="currentPageClass.onItemClick(item)">{{item.name}}</ion-item>
+            <ion-item (click)="showDetails(item.id,item.name)">{{item.name}}</ion-item>
           </ng-template>
 
       </ion-alpha-scroll>
