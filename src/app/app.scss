@@ -127,13 +127,38 @@ border-right: 0px solid $list-wp-border-color;
 .subtitle {
 	line-height:25px !important;
 	font-size: 13px;
-	background-color: $background-dark-color;
+	background-color: #f6f6f6;
 	padding-left:20px;
 	font-weight: lighter;
-	color: #C1C1C1;
+	color: #333;
 	text-transform: uppercase;
 }
-
+.favoris {
+	background-color:#fff;
+	border-radius:50%;
+	padding:5px;
+	height:40px;
+	width:40px;
+	font-size:27px;
+	line-height:33px;
+	color:#DC303E;
+	position:absolute;
+	top:5px;
+	right:5px;
+}
+.favoris_check {
+	background-color:#fff;
+	border-radius:50%;
+	padding:5px;
+	height:40px;
+	width:40px;
+	font-size:27px;
+	line-height:33px;
+	color:#DC303E;
+	position:absolute;
+	top:5px;
+	right:5px;
+}
 @keyframes fadeIn{
   0%{
     opacity: 0;

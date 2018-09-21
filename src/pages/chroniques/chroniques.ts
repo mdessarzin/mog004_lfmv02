@@ -15,10 +15,21 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 
 @Component({
-  selector: 'page-podcasts',
-  templateUrl: 'podcasts.html'
+  selector: 'page-chroniques',
+  templateUrl: 'chroniques.html'
 })
-export class PodcastsPage {
+export class ChroniquesPage {
+	
+	 breeds: any;
+  currentPageClass = this;
+  alphaScrollItemTemplate: string = `
+    <ion-item (click)="currentPageClass.onItemClick(item)">
+      {post.name}}
+    </ion-item>
+  `;
+  triggerAlphaScrollChange: number = 0;
+	
+	
 	private loadingPopup: any;
     artist: string;
     cover: string;
@@ -38,6 +49,8 @@ export class PodcastsPage {
     title: string;
     image: string;
 header: string;
+	
+
 	
    posts: Array<any> = [];
 postsLoading: any;
@@ -95,8 +108,8 @@ update(refresher) {
 				this.pagination = 1;
 			}
 
-			this.http.get('https://www.lfm.ch/wp-json/mog/v1/get_data?type=podcasts&taxonomy=chronique&per_page=15&page='+this.pagination+'&hash_id='+Math.random()).map(res => res.json()).subscribe(data => {
-			  //  this.posts = data;
+			this.http.get('https://www.lfm.ch/wp-json/wp/v2/chronique?per_page=100&orderby=name').map(res => res.json()).subscribe(data => {
+			   this.posts = data;
 				console.log(this.posts);
 				if (refresher) {
 								  this.posts = [];
@@ -104,7 +117,7 @@ update(refresher) {
 								}
 
 								for(let i of data){
-									this.posts.push(i);
+								//	this.posts.push(i);
 									this.nbPost = 1;
 								}
 				
@@ -125,6 +138,13 @@ update(refresher) {
 	  
 
   }	
+	
+	onItemClick(item) {
+    // This is an example of how you could manually trigger ngOnChange
+    // for the component. If you modify "listData" it won't perform
+    // an ngOnChange, you will have to trigger manually to refresh the component.
+    this.triggerAlphaScrollChange++;
+  }
 	
  loadMore(infiniteScroll) {
     this.pagination += 1;

@@ -11,6 +11,7 @@ import { PlayerPage } from '../pages/player/player';
 import { PlayerPlaylistPage } from '../pages/player-playlist/player-playlist';
 import { ProgrammePage } from '../pages/programme/programme';
 import { PodcastsPage } from '../pages/podcasts/podcasts';
+import { ChroniquesPage } from '../pages/chroniques/chroniques';
 import { ContactezNousPage } from '../pages/contactez-nous/contactez-nous';
 import { BlogPage } from '../pages/blog/blog';
 import { PlayerpopupPage } from '../pages/playerpopup/playerpopup';
@@ -41,6 +42,7 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
+import { IonAlphaScrollModule } from 'ionic2-alpha-scroll';
 
 
 localStorage.setItem("player", "stop");
@@ -78,6 +80,7 @@ export class MyErrorHandler implements ErrorHandler {
     ActualitePage,
     ProgrammePage,
     PodcastsPage,
+	ChroniquesPage,
     ContactezNousPage,
     BlogPage,
 	DetailsPage,
@@ -100,6 +103,7 @@ PlayerPlaylistPage,
     BrowserModule,
 	   SwiperModule,
 	  BrowserAnimationsModule,
+	  IonAlphaScrollModule,
     IonicModule.forRoot(MyApp, {
         preloadModules: true,
 		backButtonText: 'Retour',
@@ -130,7 +134,8 @@ PlayerPlaylistPage,
 	      AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+	  ChroniquesPage
   ],
   providers: [
     StatusBar,

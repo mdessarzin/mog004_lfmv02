@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle class="ripple">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <img alt="logo" height="35" src="./assets/imgs/logo.svg" style="margin-top:8px;">
+    </ion-title>
+
+	  <ion-buttons end >
+		  	 <button ion-button icon-only (tap)='openPlayer()' class="playerEtat_0">
+      				<ion-icon name="md-radio"></ion-icon>
+    		</button>
+		  <button ion-button icon-only (tap)='openPlayer()' class="playerEtat_1"  style="display:none;">
+		  	<div >
+					<svg xmlns="http://www.w3.org/2000/svg" class="equilizer" viewBox="0 0 128 128">
+						
+					  <g>
+						<rect class="bar" transform="translate(0,0)" y="15"></rect>
+						<rect class="bar" transform="translate(25,0)" y="15"></rect>
+						<rect class="bar" transform="translate(50,0)" y="15"></rect>
+						<rect class="bar" transform="translate(75,0)" y="15"></rect>
+					  </g>
+							
+					</svg>
+			  </div>
+		 	</button>
+		  <button ion-button icon-only (tap)='openPlayer()' class="playerEtat_2" style="display:none;">
+		  	<div >
+					<svg xmlns="http://www.w3.org/2000/svg" class="equilizer" viewBox="0 0 128 128">
+					  <g>
+						<rect class="bar_off" transform="translate(0,0)" y="15"></rect>
+						<rect class="bar_off" transform="translate(25,0)" y="15"></rect>
+						<rect class="bar_off" transform="translate(50,0)" y="15"></rect>
+						<rect class="bar_off" transform="translate(75,0)" y="15"></rect>
+					  </g>
+					</svg>
+			  </div>
+		 	</button>
+	</ion-buttons>
+  </ion-navbar>
+	
+	 <ion-toolbar color="primary" style="display:none;">
+		<ion-searchbar (input)="search($event)"></ion-searchbar>
+	 </ion-toolbar>
+
+	<div class="subtitle">
+		{{title}}
+	</div>
+	
+
+</ion-header>
+
+    <ion-content class="alpha-list-page">
+		<ion-slides *ngIf='!postsLoading'>
+        <ion-slide>
+            <ion-spinner name="crescent"></ion-spinner>
+        </ion-slide>
+    </ion-slides>
+		 <div *ngIf='posts'>
+      <ion-alpha-scroll
+        [listData]="posts"
+        key="name"
+        [itemTemplate]="alphaScrollItemTemplateRef"
+        [currentPageClass]="currentPageClass"
+        [triggerChange]="triggerAlphaScrollChange">
+
+          <ng-template #alphaScrollItemTemplateRef let-item>
+            <ion-item (click)="currentPageClass.onItemClick(item)">{{item.name}}</ion-item>
+          </ng-template>
+
+      </ion-alpha-scroll>
+		</div>
+    </ion-content>

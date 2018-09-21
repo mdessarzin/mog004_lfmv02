@@ -4,7 +4,7 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      <img alt="logo" height="35" src="./assets/imgs/logo_radio.png" >
+      <img alt="logo" height="35" src="./assets/imgs/logo.svg" style="margin-top:8px;">
     </ion-title>
 	  
 	  <ion-buttons end>
@@ -37,7 +37,7 @@
 		 	</button>
 	</ion-buttons>
   </ion-navbar>
-	<div class="subtitle">
+	<div class="subtitle"  style="display:none;">
 		Accueil
 	</div>
 
@@ -70,28 +70,26 @@
 	<swiper [config]="config" style="">
         <div class="swiper-wrapper">
             <div class="swiper-slide" style="background-color:red;margin-left:10px;">
-				<img src="https://images.sk-static.com/images/media/profile_images/artists/197928/huge_avatar">
+				<img src="./assets/webradios/1.png">
+				<ion-icon name="ios-heart-outline" class="favoris"></ion-icon>
 			</div>
             <div class="swiper-slide" style="background-color:red;">
-				<img src="https://images.sk-static.com/images/media/profile_images/artists/197928/huge_avatar">
+				<img src="./assets/webradios/2.png">
+				<ion-icon name="ios-heart" class="favoris"></ion-icon>
 			</div>
 
             <div class="swiper-slide" style="background-color:red;">
-				<img src="https://images.sk-static.com/images/media/profile_images/artists/197928/huge_avatar">
+				<img src="./assets/webradios/3.png">
+				<ion-icon name="ios-heart-outline" class="favoris"></ion-icon>
 			</div>
             <div class="swiper-slide" style="background-color:red;">
-				<img src="https://images.sk-static.com/images/media/profile_images/artists/197928/huge_avatar">
+				<img src="./assets/webradios/2.png">
+				<ion-icon name="ios-heart-outline" class="favoris"></ion-icon>
 			</div>
-            <div class="swiper-slide" style="background-color:red;">
-				<img src="https://images.sk-static.com/images/media/profile_images/artists/197928/huge_avatar">
+            <div class="swiper-slide" style="background-color:red;margin-left:10px;">
+				<img src="./assets/webradios/1.png">
+				<ion-icon name="ios-heart-outline" class="favoris"></ion-icon>
 			</div>
-            <div class="swiper-slide" style="background-color:red;">
-				<img src="https://images.sk-static.com/images/media/profile_images/artists/197928/huge_avatar">
-			</div>
-            <div class="swiper-slide" style="background-color:red;">
-				<img src="https://images.sk-static.com/images/media/profile_images/artists/197928/huge_avatar">
-			</div>
-
 		</div>
             <div class="swiper-pagination"></div>
         </swiper>
