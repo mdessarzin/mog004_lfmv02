@@ -216,8 +216,11 @@ typeplayer: any;
 			this.onplaying = '0';
 			localStorage.setItem("player", "stop");
 			$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
-			let modal = this.modalCtrl.create(VideolivePage,{url:'https://www.dailymotion.com/embed/video/k1NlPYwmFe7FL7rGZlX?autoPlay=1&queue-enable=false', poster:''});
-			modal.present();  
+//			let modal = this.modalCtrl.create(VideolivePage,{url:'https://livevideo.infomaniak.com/streaming/livecast/lfmmd/playlist.m3u8', poster:''});
+			
+			let modal = this.modalCtrl.create(PlayerpopupPage,{url:'https://livevideo.infomaniak.com/streaming/livecast/radiolacmd/playlist.m3u8', poster:''});
+					modal.present();  
+
 		}
 		else {
 			let alert = this.alertCtrl.create({

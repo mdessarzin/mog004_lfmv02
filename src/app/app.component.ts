@@ -105,7 +105,7 @@ export class MyApp {
 		localStorage.setItem("podcast_url", '');
 		localStorage.setItem("player", "stop");
 
-			$.getJSON('https://www.mediaone-digital.ch/cache/live/radiolac_live.json', function(data){
+			$.getJSON('https://www.mediaone-digital.ch/cache/live/lfm_live.json', function(data){
 				localStorage.setItem("playerDetail",data.start_short+'-'+data.end_short);
 				localStorage.setItem("playerTitre",data.title);
 				localStorage.setItem("playerSoustitre",data.animators);
@@ -143,14 +143,14 @@ export class MyApp {
 			
 			setInterval(() => {      
 						$.ajaxSetup({ cache: false });
-						$.getJSON('https://www.mediaone-digital.ch/cache/radiolac.json?hash_id='+Math.random(), function(data){
+						$.getJSON('https://www.mediaone-digital.ch/cache/lfm.json?hash_id='+Math.random(), function(data){
 								localStorage.setItem("songArtist",data.live[0].interpret);
 								localStorage.setItem("songTitle",data.live[0].title);
 								localStorage.setItem("songCover",data.live[0].imageURL);
 						});
 
 						if(localStorage.type_player == 'live'){
-							$.getJSON('https://www.mediaone-digital.ch/cache/live/radiolac_live.json?hash_id='+Math.random(), function(data){
+							$.getJSON('https://www.mediaone-digital.ch/cache/live/lfm_live.json?hash_id='+Math.random(), function(data){
 								localStorage.setItem("playerDetail",data.start_short+'-'+data.end_short);
 								localStorage.setItem("playerTitre",data.title);
 								localStorage.setItem("playerSoustitre",data.animators);
@@ -399,11 +399,7 @@ header: true
     }
 
 	
-	public whatsapp(){
-		
-		
-		window.open("whatsapp://send?text=Bonjour&phone=+41799183000&abid=+41799183000",'_system', 'location=yes');
-	}
+	
 	
 	private handlerNotifications(){
 		

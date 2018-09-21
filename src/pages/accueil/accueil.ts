@@ -256,6 +256,10 @@ private startAudio() {
 		}
 }
 
+	public whatsapp(){
+		window.open("whatsapp://send?text=Bonjour&phone=+417984210330&abid=+417984210330",'_system', 'location=yes');
+	}
+	
 private openPlayer(){
         //console.log(this.login);
        	let modal = this.modalCtrl.create(PlayerPage); //PlayerPage

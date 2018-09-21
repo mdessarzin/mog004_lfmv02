@@ -143,7 +143,7 @@ export class AudioStreamProvider {
 			}
 			else
 			{
-				this.url = "https://radiolac.ice.infomaniak.ch/radiolac-high.mp3"; //https://radiolac.ice.infomaniak.ch/radiolac-high.mp3
+				this.url = "http://lausannefm.ice.infomaniak.ch/lausannefm-high.mp3"; //https://radiolac.ice.infomaniak.ch/radiolac-high.mp3
 				localStorage.setItem("type_player", "live");
 				
 				
@@ -166,7 +166,7 @@ export class AudioStreamProvider {
 			setInterval(() => {      
 				  
 					  setTimeout(() => {
-						  fetch('https://www.mediaone-digital.ch/cache/radiolac.json?hash_id='+Math.random())
+						  fetch('https://www.mediaone-digital.ch/cache/lfm.json?hash_id='+Math.random())
 							.then(response => response.json())
 							.then(data => {
 							  console.log('playlist:'+data);
@@ -301,7 +301,7 @@ ngOnDestroy() {
 	
 	public loadtitlelive(){
 		  setTimeout(() => {
-			  fetch('https://www.mediaone-digital.ch/cache/radiolac.json?hash_id='+Math.random())
+			  fetch('https://www.mediaone-digital.ch/cache/lfm.json?hash_id='+Math.random())
 				.then(response => response.json())
 				.then(data => {
 				  console.log('playlist:'+data);
@@ -329,7 +329,7 @@ ngOnDestroy() {
 			}, 0);
 		  
 		setTimeout(() => {
-			  fetch('https://www.mediaone-digital.ch/cache/live/radiolac_live.json?hash_id='+Math.random())
+			  fetch('https://www.mediaone-digital.ch/cache/live/lfm_live.json?hash_id='+Math.random())
 				.then(response => response.json())
 				.then(data => {
 					localStorage.setItem("playerDetail",data.start_short+'-'+data.end_short);
