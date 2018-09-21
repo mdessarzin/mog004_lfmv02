@@ -48,7 +48,7 @@
 
  <ion-card no-padding style="margin-bottom:0px; border-bottom: 3px solid #833177;" >
 
-							<button no-padding ion-item (click)="showDetails('','','')">
+							<button no-padding ion-item (tap)='startAudio()'>
 								<ion-card-content no-padding class="fadeintransition" style="position:relative;" >
 									<div style="background-color: #f1f1f1; position: relative;">	
 										<img src="https://www.lfm.ch/wp-content/uploads/2018/01/laura-560x600.png" style="background-color: #BCBBBB;" />
@@ -145,7 +145,7 @@
 		</ion-grid>  
 					
 <ion-fab right bottom>
-<button ion-fab color="primary" class="" (tap)='startAudio()'>  <ion-icon name="logo-whatsapp"></ion-icon>
+<button ion-fab color="primary" class="" (tap)='whatsapp()'>  <ion-icon name="logo-whatsapp"></ion-icon>
 
 </button>
 </ion-fab>
