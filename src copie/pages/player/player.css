@@ -1,0 +1,36 @@
+page-player .bg {
+  margin-left: -25vw;
+  top: -25vh;
+  width: 150vw;
+  position: fixed;
+  z-index: -1;
+  -webkit-filter: blur(40px);
+  filter: blur(40px); }
+page-player .noize {
+  background-color: #f6f6f6;
+  background-size: cover; }
+page-player .profile-image img {
+  height: 200px;
+  width: 200px;
+  border-radius: 3%;
+  border: 0px solid #010101; }
+page-player h1 {
+  color: #833177;
+  font-size: 25px;
+  font-weight: lighter; }
+page-player h2 {
+  color: #000;
+  font-size: 15px;
+  font-weight: lighter;
+  padding-left: 10px;
+  padding-right: 10px; }
+page-player h3 {
+  color: #000;
+  font-size: 14px;
+  margin-bottom: 0px; }
+page-player .scroll-content {
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center; }

@@ -8,7 +8,6 @@ import { IonicPage, NavController, NavParams, Slides} from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-player-playlist',
   templateUrl: 'player-playlist.html',

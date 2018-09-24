@@ -20,8 +20,6 @@ import { SwiperModule } from 'angular2-useful-swiper';
 import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
 
 import { VideolivePage } from '../pages/videolive/videolive';
-import { ScrollHideDirective } from '../directives/scroll-hide/scroll-hide';
-import { IframeAutoHeightDirective } from '../directives/iframeautoheight/iframeautoheight';
 
 import { AudioStreamProvider } from '../providers/audio-stream/audio-stream';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -89,9 +87,7 @@ export class MyErrorHandler implements ErrorHandler {
 PlayerPlaylistPage,
 	  ContenupagePage,
 	  PlayerpopupPage,
-	ScrollHideDirective,
 	  SideMenuContentComponent,
-	   IframeAutoHeightDirective,
 	  TabsControllerPage,
 	      AboutPage,
     ContactPage,
@@ -106,7 +102,7 @@ PlayerPlaylistPage,
 	  IonAlphaScrollModule,
     IonicModule.forRoot(MyApp, {
         preloadModules: true,
-		backButtonText: 'Retour',
+		backButtonText: '',
       iconMode: 'ios',
       modalEnter: 'modal-slide-in',
       modalLeave: 'modal-slide-out',

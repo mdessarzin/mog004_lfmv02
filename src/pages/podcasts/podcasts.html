@@ -147,25 +147,3 @@
     <ion-infinite-scroll-content></ion-infinite-scroll-content>
   </ion-infinite-scroll>
 </ion-content>
-
-<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent" class="" style="display:none;">
-		   <ion-grid style="max-height: 110px;">
-			  <ion-row align-items-center>
-				<ion-col col-2 style="max-width: 80px; text-align: center;" justify-content-center> 
-						<ion-spinner class="loadingPlayer" style="display:none;height:40px;width:40x;" name="crescent"></ion-spinner>
-						<span (click)="startAudio()" class="btPlayer" style="color:#29B7C2;"><i class="fas fa-play-circle fa-3x"></i></span>
-				</ion-col>                 
-				<ion-col col-7>
-					<div (tap)='openPlayer()'>
-					<span style="color:#000;font-family: 'Days One', sans-serif; font-size: 13px; font-weight: bolder;" class="songTitle">&nbsp;</span><br>
-					<span style="color:#000;font-family: 'Days One', sans-serif; font-size: 12px;" class="songArtist">&nbsp;</span>
-					</div>
-				  </ion-col>
-				<ion-col col-3  style="text-align: right;">
-					<div (tap)='openPlayer()'>
-						<img class="songCover" src="https://www.radiolac.ch/wp-content/themes/mog-child/webradios/0.jpg" style=" max-height: 55px;" />
-					</div>
-				</ion-col>
-			  </ion-row>
-			</ion-grid> 		
-</ion-footer>

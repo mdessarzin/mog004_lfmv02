@@ -9,7 +9,6 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browse
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-playerpopup',
   templateUrl: 'playerpopup.html',

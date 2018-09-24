@@ -14,7 +14,6 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics';
  */
 
 
-@IonicPage()
 @Component({
   selector: 'page-details',
   templateUrl: 'details.html',

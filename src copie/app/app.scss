@@ -1,0 +1,548 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+@import url('https://use.fontawesome.com/releases/v5.0.10/css/all.css');
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+@import '../assets/animate.min.css';
+
+
+
+h1 {
+	font-family: 'Merriweather', serif;
+}
+p {
+	font-family: 'Merriweather', serif;
+	    display: block;
+    font-size: 1.5rem;
+    line-height: 160%;
+    margin-bottom: 20px;
+	text-align: justify;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+side-menu-content {
+
+	ion-item.item-ios,
+ion-item.item-md,
+ion-item.item-wp {
+
+    padding-left: 16px;
+    padding-right: 16px;
+    min-height: 50px;
+
+    &.item.item-block {
+        border-bottom: 0px solid #252525;
+    }
+    
+    & [item-left], 
+    & [item-right] {
+        margin-left: 0;
+    }
+
+    & ion-icon[item-left] + .item-inner, 
+    & ion-icon[item-left] + .item-input {
+       margin-left: 8px;
+    }
+}
+	
+    // In this example, we have used the following name
+    // for the selected option in the settings object:
+    // selectedOptionClass: 'active-side-menu-option'
+
+
+
+    // Single option
+    // ------------------
+    ion-item.item.item-block.option {
+        background-color: $background-light-color;
+        color: $font-color;
+
+        &.active-side-menu-option {
+            color: $active-color;
+        }
+    }
+
+    // Header
+    // ------------------
+    ion-item.item.item-block.header {
+background-color: $background-light-color;
+        color: $font-color;
+
+        &.active-side-menu-option {
+            color: $active-color;
+        }
+    }
+
+    // Sub option
+    // ------------------
+    ion-item.item.item-block.sub-option {
+        background-color: $background-dark-color;
+        color: $font-color;
+
+        &.active-side-menu-option {
+            color: $active-color;
+        }
+    }
+}
+
+.split-pane-ios.split-pane-visible >.split-pane-side {
+border-right: 0px solid $list-wp-border-color;}
+
+.split-pane-md.split-pane-visible >.split-pane-side {
+border-right: 0px solid $list-wp-border-color;}
+
+.split-pane-wp.split-pane-visible >.split-pane-side {
+border-right: 0px solid $list-wp-border-color;
+}
+
+
+
+.card-md,
+.card-ios {
+	margin:  0px !important;
+	width: 100%;
+	    box-shadow: none !important;
+}
+
+.fadeintransition{
+  opacity: 1;
+  animation: fadeIn 1s ease;
+}
+
+.subtitle {
+	line-height:25px !important;
+	font-size: 13px;
+	background-color: #f6f6f6;
+	padding-left:20px;
+	font-weight: lighter;
+	color: #333;
+	text-transform: uppercase;
+}
+.favoris {
+	background-color:#fff;
+	border-radius:50%;
+	padding:5px;
+	height:40px;
+	width:40px;
+	font-size:27px;
+	line-height:33px;
+	color:#DC303E;
+	position:absolute;
+	top:5px;
+	right:5px;
+}
+.favoris_check {
+	background-color:#fff;
+	border-radius:50%;
+	padding:5px;
+	height:40px;
+	width:40px;
+	font-size:27px;
+	line-height:33px;
+	color:#DC303E;
+	position:absolute;
+	top:5px;
+	right:5px;
+}
+
+.item-divider-md {
+    padding-left: 16px;
+    border-bottom: 1px solid #dedede;
+    font-size: 1.4rem;
+    color: #858585;
+    background-color: #f1f1f1;
+    height: 25px;
+}
+
+@keyframes fadeIn{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.card_live {
+	color: #fff;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .05rem;
+    line-height: 1;
+    padding: 5px 20px;
+    text-transform: uppercase;
+	position: absolute;
+	bottom: 0px; 
+	left:0px;
+	right:0px;
+	height:100px;
+	text-align: center;
+	
+	font-weight: lighter;
+	
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.65+100 */
+background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+	
+	
+}
+.swiper-pagination-bullet-active {
+    background: #833177;
+    opacity: 1;
+}
+.card_categorie_home {
+	color: #fff;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .05rem;
+    line-height: 1;
+    padding: 5px 20px;
+    text-transform: uppercase;
+	background-color: #833177;
+	font-weight: lighter;
+	margin-bottom:5px;
+}
+.card_categorie {
+	color: #fff;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .05rem;
+    line-height: 1;
+    padding: 5px 20px;
+    text-transform: uppercase;
+	position: absolute;
+	bottom: 20px; 
+	background-color: #833177;
+	font-weight: lighter;
+}
+.card_icon {
+	color: #fff;
+    display: inline-block;
+    font-size: 25px;
+    letter-spacing: .05rem;
+    line-height: 1;
+    padding: 5px 20px;
+    text-transform: uppercase;
+	font-weight: lighter;	
+	position:absolute;
+	text-align: center;
+	width: 100%;
+	opacity: 0.8;
+    top: calc(50% - 40px); /* 50% - 3/4 of icon height */
+}
+
+.card_categorie_podcast {
+	color: #833177;
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: .05rem;
+    line-height: 1;
+    padding: 4px 0px;
+    text-transform: uppercase;
+	background-color: #fff;
+	font-weight: bold;
+}
+
+.date_podcast {
+  padding-left: 0px !important;
+  padding-right: 5px !important;
+	padding-top: 5px;
+  font-size: 11px !important;
+  font-weight: lighter !important;
+  color: #A9A9A9; }
+	ion-card-title {
+		padding-left:10px !important;
+		padding-right: 10px !important;
+		font-size: 18px !important;
+		font-weight: bold !important;
+	}
+	
+	.card-md {
+		margin:0px !important;
+	}
+
+	.date {
+		padding-left:5px !important;
+		padding-right: 10px !important;
+		font-size: 13px !important;
+		font-weight: lighter !important;
+		color: #A9A9A9;
+	}
+	.point{
+		color:#833177;
+	}
+	
+		ion-footer {
+			border-top: 3px solid #833177;
+			/*
+			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/xQAAukB5vvocQUAAAAASUVORK5CYII=);
+		*/
+			background-color: #ffffff;
+	}
+.player_details {
+	color: #fff;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .05rem;
+    line-height: 1;
+    padding: 5px 10px;
+    text-transform: uppercase;
+	background-color: #833177;
+	font-weight: lighter;
+	border-radius: 4px;
+}
+ion-spinner {
+  width: 60px;
+  height: 60px;
+  fill: #833177;
+}
+
+ion-refresher ion-spinner {
+  width: 40px;
+  height: 40px;
+  fill: #833177;
+}
+
+$max: 35px;
+
+.equilizer {
+  height: $max;
+  width: $max;
+  transform: rotate(180deg);
+}
+
+.bar_off {
+  fill: #fff;
+  width: 12px;
+	height: 3px !important;
+}
+
+.bar {
+  fill: #fff;
+  width: 12px;
+  animation: equalize 1.25s steps(25, end) 0s infinite;
+}
+
+.bar:nth-child(1) { 
+  animation-duration: 1.9s;
+}
+
+.bar:nth-child(2) { 
+  animation-duration: 2s;
+}
+
+.bar:nth-child(3) { 
+  animation-duration: 2.3s;
+}
+
+.bar:nth-child(4) { 
+  animation-duration: 2.4s;
+}
+
+.bar:nth-child(5) { 
+  animation-duration: 2.1s;
+}
+
+@keyframes equalize {
+  0% {
+    height: 60px;
+  }
+  4% {
+    height: 50px;
+  }
+  8% {
+    height: 40px;
+  }
+  12% {
+    height: 30px;
+  }
+  16% {
+    height: 20px;
+  }
+  20% {
+    height: 30px;
+  }
+  24% {
+    height: 40px;
+  }
+  28% {
+    height: 10px;
+  }
+  32% {
+    height: 40px;
+  }
+  36% {
+    height: 60px;
+  }
+  40% {
+    height: 20px;
+  }
+  44% {
+    height: 40px;
+  }
+  48% {
+    height: 70px;
+  }
+  52% {
+    height: 30px;
+  }
+  56% {
+    height: 10px;
+  }
+  60% {
+    height: 30px;
+  }
+  64% {
+    height: 50px;
+  }
+  68% {
+    height: 60px;
+  }
+  72% {
+    height: 70px;
+  }
+  76% {
+    height: 80px;
+  }
+  80% {
+    height: 70px;
+  }
+  84% {
+    height: 60px;
+  }
+  88% {
+    height: 50px;
+  }
+  92% {
+    height: 60px;
+  }
+  96% {
+    height: 70px;
+  }
+  100% {
+    height: 80px;
+  }
+}	
+
+	ion-card .item-inner {
+		padding: 0px !important;
+	}
+	
+	ion-card .item-inner .ion-label,
+	ion-card .item-inner .label-md {
+		 		padding: 0px !important;
+			margin: 0px !important;
+		    white-space: normal !important;
+	}
+
+
+
+/* Flash class and keyframe animation */
+.flashit{
+	-webkit-animation: flash linear 2s infinite;
+	animation: flash linear 2s infinite;
+}
+
+@-webkit-keyframes flash {
+	0% { opacity: 1; } 
+	50% { opacity: .1; } 
+	100% { opacity: 1; }
+}
+@keyframes flash {
+	0% { opacity: 1; } 
+	50% { opacity: .1; } 
+	100% { opacity: 1; }
+}
+
+  .rond {
+	position: absolute;
+	top:10px;
+	right:10px;
+	width:8px;
+	height:8px;
+	background:red;
+	-webkit-border-radius:50px;
+	-moz-border-radius:50px;
+	-o-border-radius:50px;
+	border-radius:50px;
+}
+
+
+// For 3d animations
+ion-menu[type='3d'],
+ion-menu[type='3d-open'],
+ion-menu[type='3d-skew'],
+ion-menu[type='3d-fall-down'],
+ion-menu[type='3d-float-up'],
+ion-menu[type='3d-scale-back'],
+ion-menu[type='3d-scale-up'],
+ion-menu[type='3d-rotate-out'],
+ion-menu[type='3d-reverse-slide'],
+ion-menu[type='3d-content-down'] {
+    &.show-menu {
+        .menu-inner {
+            -webkit-transform: translate3d(0, 0, 0);
+            -moz-transform: translate3d(0, 0, 0);
+            -ms-transform: translate3d(0, 0, 0);
+            -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+    }
+}
+
+ion-menu[type='3d-rotate-out'].show-menu .menu-inner {
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+}
+
+ion-menu[type='3d-scale-back'] {
+    .show-backdrop {
+        display: block;
+    }
+}
+
+.menu-content-3d,
+.menu-content-3d-open,
+.menu-content-3d-skew,
+.menu-content-3d-fall-down,
+.menu-content-3d-float-up,
+.menu-content-3d-scale-back,
+.menu-content-3d-scale-up,
+.menu-content-3d-rotate-out,
+.menu-content-3d-reverse-slide,
+.menu-content-3d-content-down {
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    -ms-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+// Full with for '3d' sidemenu
+// You can make it permanent by set up $menu-width in variables.scss
+.fullWidthMenu {
+    .menu-inner {
+        width: 100% !important;
+    }
+}

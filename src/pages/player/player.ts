@@ -17,7 +17,6 @@ import { VideolivePage } from '../videolive/videolive';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-player',
   templateUrl: 'player.html',

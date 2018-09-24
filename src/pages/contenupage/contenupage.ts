@@ -14,7 +14,6 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-contenupage',
   templateUrl: 'contenupage.html',
