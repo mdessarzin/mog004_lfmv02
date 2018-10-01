@@ -42,6 +42,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { IonAlphaScrollModule } from 'ionic2-alpha-scroll';
 
+import { ComponentsModule } from './../components/components.module';
+import { DirectivesModule } from './../directives/directives.module';
 
 localStorage.setItem("player", "stop");
 localStorage.setItem("firstclickonplayer", "oui");
@@ -100,6 +102,8 @@ PlayerPlaylistPage,
 	   SwiperModule,
 	  BrowserAnimationsModule,
 	  IonAlphaScrollModule,
+	  ComponentsModule,
+    DirectivesModule,
     IonicModule.forRoot(MyApp, {
         preloadModules: true,
 		backButtonText: '',

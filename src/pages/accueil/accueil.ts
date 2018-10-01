@@ -14,8 +14,6 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { SwiperModule } from 'angular2-useful-swiper'; 
 
-
-
 //import {Http, Response} from "@angular/http";
 //import {Observable} from 'rxjs/Rx';
 //import 'rxjs/add/operator/catch';

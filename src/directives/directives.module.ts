@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
+import { AutoplayVideoDirective } from './autoplay-video/autoplay-video';
 
 @NgModule({
-	declarations: [],
+	declarations: [AutoplayVideoDirective],
 	imports: [],
-	exports: []
+	exports: [AutoplayVideoDirective]
 })
 export class DirectivesModule {}
