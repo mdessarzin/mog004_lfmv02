@@ -1,5 +1,6 @@
 import { AutoplayVideoDirective } from './../../directives/autoplay-video/autoplay-video';
 import { Component, ElementRef, NgZone, QueryList, ContentChildren, OnDestroy, OnInit } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'autoplay-content',
@@ -18,13 +19,13 @@ export class AutoplayContentComponent implements OnInit, OnDestroy {
 
   private intersectionObserver: IntersectionObserver;
   private mutationObserver: MutationObserver;
-
   private play: Promise<any>;
 
   constructor(
 
     private element: ElementRef,
-    public ngZone: NgZone
+    public ngZone: NgZone,
+	 private sanitizer: DomSanitizer
 
   ) { }
 
@@ -139,6 +140,7 @@ export class AutoplayContentComponent implements OnInit, OnDestroy {
           // for demo purposes we use a single video
           // this code can easely be 
           // extended to support multiple videos
+
           if (this.play === undefined) {
             this.play = video.play();
           }
