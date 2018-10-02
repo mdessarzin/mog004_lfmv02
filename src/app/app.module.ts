@@ -18,6 +18,7 @@ import { PlayerpopupPage } from '../pages/playerpopup/playerpopup';
 import { ContenupagePage } from '../pages/contenupage/contenupage';
 import { SwiperModule } from 'angular2-useful-swiper'; 
 import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
+import 'intersection-observer';
 
 import { VideolivePage } from '../pages/videolive/videolive';
 

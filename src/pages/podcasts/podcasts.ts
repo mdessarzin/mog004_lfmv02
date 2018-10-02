@@ -18,6 +18,35 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics';
   templateUrl: 'podcasts.html'
 })
 export class PodcastsPage {
+	
+	 public cards = [{
+    hasVideo: false,
+    src: 'https://vod.infomaniak.com/redirect/mediaonecontactsa_2_vod/folder-43820/mp4-12/2018-10-02_140041_editedvideo.mp4',
+    avatarSrc: 'https://vod.infomaniak.com/redirect/mediaonecontactsa_2_vod/folder-43820/mp4-12/2018-10-02_140041_editedvideo.jpg',
+    name: 'Ian',
+    location: 'Dallas'
+  }, {
+    hasVideo: true,
+    src: 'https://vod.infomaniak.com/redirect/mediaonecontactsa_2_vod/folder-43820/mp4-12/2018-10-02_140041_editedvideo.mp4',
+    avatarSrc: 'https://vod.infomaniak.com/redirect/mediaonecontactsa_2_vod/folder-43820/mp4-12/2018-10-02_140041_editedvideo.jpg',
+    name: 'Sarah',
+    location: 'Huntington Park'
+  },
+					 {
+    hasVideo: true,
+    src: 'https://vod.infomaniak.com/redirect/mediaonecontactsa_2_vod/folder-43820/mp4-12/2018-10-02_140041_editedvideo.mp4',
+    avatarSrc: 'https://vod.infomaniak.com/redirect/mediaonecontactsa_2_vod/folder-43820/mp4-12/2018-10-02_140041_editedvideo.jpg',
+    name: 'Sarah',
+    location: 'Huntington Park'
+  }, {
+    hasVideo: false,
+    src: 'assets/imgs/poster02.jpg',
+    avatarSrc: 'assets/imgs/avatar03.jpg',
+    name: 'Marty',
+    location: 'Roslyndale Avenue'
+  }];
+	
+	
 	private loadingPopup: any;
     artist: string;
     cover: string;
