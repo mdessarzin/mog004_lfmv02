@@ -1,12 +1,11 @@
-<ion-header color="primary">
+<ion-header color="primary" (pan)="dismiss()">
   <ion-toolbar  (click)="dismiss()">
     <ion-title>
       Lecteur audio
     </ion-title>
     <ion-buttons start>
-      <button ion-button (click)="dismiss()" icon-start>
+      <button ion-button (click)="dismiss()">
         <ion-icon name="ios-arrow-down" showWhen="android,windows, ios"></ion-icon>
-		  Fermer
       </button>
     </ion-buttons>
 	  
@@ -24,7 +23,7 @@
 	
 </ion-header>
 
-<ion-content no-bounce id="player" class="player noize">
+<ion-content no-bounce id="player" class="player noize"  (pan)="dismiss()">
 	
 <div style="" class="playerinfos">
   <div class="profile-image">
