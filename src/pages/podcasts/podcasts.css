@@ -1,5 +1,7 @@
 page-podcasts .scroll-content {
   margin-bottom: 0px !important; }
+page-podcasts video {
+  max-width: 100%; }
 @media (min-width: 992px) {
   page-podcasts .podcast_tab {
     display: block !important; }

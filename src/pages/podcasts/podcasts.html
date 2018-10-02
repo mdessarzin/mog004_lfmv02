@@ -72,8 +72,7 @@
       <img *ngIf="!card.hasVideo"
            [src]="card.src" />
 
-      <video playsinline webkit-playsinline autoplay *ngIf="card.hasVideo"
-             muted>
+      <video muted="true" controls playsinline webkit-playsinline looped preload="auto" *ngIf="card.hasVideo">
 
         <source [src]="card.src"
                 type="video/mp4">
