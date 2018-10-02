@@ -155,10 +155,11 @@ margin-left: 3px;
 
 .swiper-slide {
 	width:350px;
-	-webkit-box-shadow: 2px 2px 5px 0px rgba(168,168,168,1);
--moz-box-shadow: 2px 2px 5px 0px rgba(168,168,168,1);
-box-shadow: 2px 2px 5px 0px rgba(168,168,168,1);
-	margin-bottom:50px;
+	box-shadow: 4px 4px 21px 0px rgba(202,202,202,0.75) !important;
+-webkit-box-shadow: 4px 4px 21px 0px rgba(202,202,202,0.75) !important;
+-moz-box-shadow: 4px 4px 21px 0px rgba(202,202,202,0.75) !important;
+
+	margin-bottom:40px;
 	background-color:#f1f1f1;
 }
 .swiper-slide h3 {
@@ -167,6 +168,10 @@ box-shadow: 2px 2px 5px 0px rgba(168,168,168,1);
 	display: block;
 	height: 100px;
 }
+	
+	.swiper-slide img {
+		border-radius: 10px;
+	}
 
 
 @-webkit-keyframes pulsebottom { 

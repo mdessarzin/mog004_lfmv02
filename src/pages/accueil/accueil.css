@@ -124,16 +124,18 @@ page-accueil .vlog-action-menu:hover .pulse {
     transform: scale(1.1); } }
 page-accueil .swiper-slide {
   width: 350px;
-  -webkit-box-shadow: 2px 2px 5px 0px #a8a8a8;
-  -moz-box-shadow: 2px 2px 5px 0px #a8a8a8;
-  box-shadow: 2px 2px 5px 0px #a8a8a8;
-  margin-bottom: 50px;
+  box-shadow: 4px 4px 21px 0px rgba(202, 202, 202, 0.75) !important;
+  -webkit-box-shadow: 4px 4px 21px 0px rgba(202, 202, 202, 0.75) !important;
+  -moz-box-shadow: 4px 4px 21px 0px rgba(202, 202, 202, 0.75) !important;
+  margin-bottom: 40px;
   background-color: #f1f1f1; }
 page-accueil .swiper-slide h3 {
   width: 100%;
   font-size: 14px;
   display: block;
   height: 100px; }
+page-accueil .swiper-slide img {
+  border-radius: 10px; }
 @-webkit-keyframes pulsebottom {
   70% {
     box-shadow: 0 0 0 50px rgba(41, 183, 194, 0); }
