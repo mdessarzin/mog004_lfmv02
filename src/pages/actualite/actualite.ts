@@ -11,6 +11,7 @@ import { DetailsPage } from '../details/details';
 import { PlayerPage } from '../player/player';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
+import { SwiperModule } from 'angular2-useful-swiper'; 
 
 @Component({
   selector: 'page-actualite',
@@ -19,8 +20,26 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics';
 
 export class ActualitePage {
 	 @ViewChild('SwipedTabsSlider') SwipedTabsSlider: Slides ;
+
   SwipedTabsIndicator :any= null;
   tabs:any=[];
+	
+	config: Object = {
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            spaceBetween: 10,
+            slidesPerView:4.2, //use any number 1.8 or 4.2 or 7.3 etc..
+            direction: 'horizontal',
+            parallax: true,
+            freeMode: true,
+            fade: {
+                crossFade: true,
+            },
+            allowSwipeToPrev: true,
+            roundLengths: false,
+            effect: 'slide' //use cube,flip,coverflow or fade
+        }; 
+	
 	private loadingPopup: any;
     artist: string;
     cover: string;

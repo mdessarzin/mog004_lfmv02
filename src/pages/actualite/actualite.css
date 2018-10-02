@@ -16,3 +16,6 @@ page-actualite .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
   color: black !important; }
 page-actualite .SwipedTabs-tabs {
   border-bottom: solid 1px #e6e6e6  !important; }
+page-actualite .swiper-slide {
+  float: left;
+  width: auto; }

@@ -56,6 +56,18 @@
 <ion-content >
 	<!-- here is our dynamic line  "indicator"-->
 
+    <ion-scroll scrollX="true" style="height:60px;margin-top:10px;">
+		
+	  <ion-segment style="width: 670px;">
+		<button ion-button round>Derniers</button>
+		<button ion-button round>Vaud</button>
+		<button ion-button round>Genève</button>
+		<button ion-button round>Sport</button>
+		<button ion-button round>Suisse & International</button>
+	  </ion-segment>
+		
+		</ion-scroll>	
+         
 	<ion-slides #SwipedTabsSlider  (ionSlideDrag)="animateIndicator($event)"
 							(ionSlideWillChange)="updateIndicatorPosition()"
 							(ionSlideDidChange)="updateIndicatorPosition()"
