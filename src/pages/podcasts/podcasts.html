@@ -73,13 +73,11 @@
 			 <ion-card item-start no-padding style="margin-bottom:0px; border-bottom: 6px solid #f1f1f1;" *ngIf='post._url_podcast_video;else podcasts' (tap)="openPlayerVideo(post._url_podcast_video,post.card)">
 						<ion-card-content no-padding class="fadeintransition">
 							<div style="background-color: #f1f1f1; position: relative;">	
-								<span class="card_categorie">{{post.chronique[0]}}</span>
-								<span class="card_icon"><i class="fas fa-play-circle fa-3x"></i></span>
+								<span class="card_categorie" style="display:none; ">{{post.chronique[0]}}</span>
 								<!--<img *ngIf='post.card' data-src="{{post.card}}" />-->
 								      <video muted="true" controls playsinline webkit-playsinline looped *ngIf="post._url_podcast_video">
 
-        <source [src]="post._url_podcast_video"
-                type="video/mp4">
+        <source [src]="post._url_podcast_video" type="video/mp4">
 
       </video>
 							</div>
@@ -104,10 +102,9 @@
 				 <ion-card no-padding style="margin-bottom:0px; border-bottom: 6px solid #f1f1f1; margin-bottom:50px;" class="podcast_mobile">
 					<ion-card-content no-padding class="fadeintransition">
 							<div style="background-color: #f1f1f1; position: relative;">	
-								<span class="card_categorie">{{post.chronique[0]}}</span>
-								<span class="card_icon"><i class="fas fa-play-circle fa-3x"></i></span>
+								<span style="display:none; " class="card_categorie">{{post.chronique[0]}}</span>
 								<!--<img *ngIf='post.card' data-src="{{post.card}}" />-->
-								      <video poster="https://www.radiolac.ch/player/replay_audio.png" muted="true" controls playsinline webkit-playsinline looped *ngIf="post._url_podcast">
+<video poster="https://www.radiolac.ch/player/replay_audio.png" muted="true" controls playsinline webkit-playsinline looped *ngIf="post._url_podcast">
 
         <source [src]="post._url_podcast"
                 type="video/mp4">
