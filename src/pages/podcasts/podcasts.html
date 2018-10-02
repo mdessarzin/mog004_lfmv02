@@ -76,7 +76,7 @@
 								<span class="card_categorie">{{post.chronique[0]}}</span>
 								<span class="card_icon"><i class="fas fa-play-circle fa-3x"></i></span>
 								<!--<img *ngIf='post.card' data-src="{{post.card}}" />-->
-								      <video muted="true" controls playsinline webkit-playsinline looped preload="auto" *ngIf="post._url_podcast_video">
+								      <video muted="true" controls playsinline webkit-playsinline looped *ngIf="post._url_podcast_video">
 
         <source [src]="post._url_podcast_video"
                 type="video/mp4">
@@ -107,7 +107,7 @@
 								<span class="card_categorie">{{post.chronique[0]}}</span>
 								<span class="card_icon"><i class="fas fa-play-circle fa-3x"></i></span>
 								<!--<img *ngIf='post.card' data-src="{{post.card}}" />-->
-								      <video poster="https://www.radiolac.ch/player/replay_audio.png" muted="true" controls playsinline webkit-playsinline looped preload="auto" *ngIf="post._url_podcast">
+								      <video poster="https://www.radiolac.ch/player/replay_audio.png" muted="true" controls playsinline webkit-playsinline looped *ngIf="post._url_podcast">
 
         <source [src]="post._url_podcast"
                 type="video/mp4" poster="https://www.radiolac.ch/player/replay_audio.png">
