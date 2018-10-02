@@ -28,15 +28,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 	
 .fab-md-danger {
   color: #fff;
-  background-color: #29b7c2;
+background: rgba(0,0,0,.4);
+	border: 2px solid #fff;
+	opacity: 1;
   cursor: pointer;
-  box-shadow: 0 0 0 0 rgba(#29b7c2, .5);
+	height: 80px;
+	width:80px;
+	margin-left: -15px;
+	margin-top:-15px;
+	box-shadow: 0 0 0 0 rgba(#833177, .5);
 
 }
 
 .fab-md-danger.activated {
   color: #fff;
-  background-color: #29b7c2;
+  background-color: #833177;
 }
 .home-live-play-icon {
 position: absolute;
@@ -178,13 +184,13 @@ margin-left: 3px;
 
   70% { 
 
-    box-shadow: 0 0 0 50px rgba(#29b7c2, 0);
+    box-shadow: 0 0 0 50px rgba(#833177, 0);
 
   }
 
   100% { 
 
-    box-shadow: 0 0 0 0 rgba(#29b7c2, 0);
+    box-shadow: 0 0 0 0 rgba(#833177, 0);
 
   }
 

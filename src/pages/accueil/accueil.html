@@ -43,7 +43,7 @@
 
 
 </ion-header>
-				<ion-content no-padding id="page6" #pageContent style="background-color:#f9f9f9;">
+				<ion-content no-padding no-bounce id="page6" #pageContent style="background-color:#f9f9f9;">
 
  <ion-card no-padding style="margin-bottom:0px; border-bottom: 0px solid #833177;" >
 
@@ -54,7 +54,12 @@
 										<div class="fadebg"></div>
 													
 										<ion-card-title style="color:#fff; position:absolute;bottom:10px;left:0px;right:0px;height:auto;font-size:20px !important;"><span class="card_categorie_home">En ce moment</span><br>Les après-midi de Laura</ion-card-title>
-										<div class="home-live-play-icon">
+<ion-fab center middle>
+<button ion-fab color="danger" class="" (tap)='startAudio()'>
+<span class="btPlayerhome"></span>
+</button>
+											</ion-fab>
+										<div class="home-live-play-icon" style="display: none;">
 												<i class="fa fa-2 fa-play" aria-hidden="true"></i>
 										</div>
 									</div>
