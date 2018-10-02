@@ -43,52 +43,9 @@
 
 
 </ion-header>
-				<ion-content no-padding id="page6" #pageContent >
-					<ion-grid *ngIf='posts' no-padding>
-				<ion-row no-padding> 
-					
-							 <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 no-padding *ngFor="let post of posts" class="animated fadeIn" >
-					 <ion-card no-padding style="margin-bottom:0px; border-bottom: 6px solid #f1f1f1;" >
+				<ion-content no-padding id="page6" #pageContent style="background-color:#f9f9f9;">
 
-							<button no-padding ion-item (click)="">
-								<ion-card-content no-padding class="fadeintransition" >
-									<div style="background-color: #f1f1f1; position: relative;">	
-										<span class="card_categorie">En ce moment</span>				
-										<img data-src="https://www.lfm.ch/wp-content/uploads/2018/01/laura-560x600.png" style="background-color: #BCBBBB;" />
-									</div>
-									<ion-card-title [innerHTML]="">Les après-midi de Laura</ion-card-title>
-
-								</ion-card-content>
-							</button>
-
-					<ion-row>
-
-					   <ion-col align-self-start>
-						   <p class="date" (tap)="opentest()"><i class="fas fa-dot-circle point"></i> 13H-19H</p>
-					   </ion-col>
-					   <ion-col text-right align-self-start>
-							<button ion-button icon-only clear mode="md" (tap)="">
-								<ion-icon name="md-share" style="color:#A9A9A9;"></ion-icon>
-							</button>
-						   <button ion-button clear icon-only mode="md" style="border-left:1px solid #f1f1f1;" (tap)="">
-								<ion-icon name="logo-whatsapp" style="color:#A9A9A9;"></ion-icon>
-							</button>					
-					  </ion-col>
-					 </ion-row>
-						 
-					 </ion-card>
-
-	<div *ngIf="post.ads != 0">				
-<a href="#" (tap)="this.iab.create(post.ads_l, '_blank','location=no,clearsessioncache=yes');">                
-	<img src="{{post.ads_i}}" border="0" alt="" />
-</a>				 
-					 </div>					
-					</ion-col>
-
-			</ion-row>
-		</ion-grid>  
-
- <ion-card no-padding style="margin-bottom:0px; border-bottom: 3px solid #833177;" >
+ <ion-card no-padding style="margin-bottom:0px; border-bottom: 0px solid #833177;" >
 
 							<button no-padding ion-item (tap)='startAudio()'>
 								<ion-card-content no-padding class="fadeintransition" style="position:relative;" >
@@ -113,7 +70,7 @@
     margin-top: 0px;
     padding: 10px 10px 10px 10px;
     margin-bottom: 0px;">Web Radios</h2>
-	<swiper [config]="config" style="backgroud-color:#f6f6f6;border-bottom: 3px solid #f1f1f1;">
+	<swiper [config]="config" style="backgroud-color:#f6f6f6;border-bottom: 0px solid #f1f1f1;">
         <div class="swiper-wrapper" style="backgroud-color:#f6f6f6;">
             <div class="swiper-slide" style="background-color:red;margin-left:10px;">
 				<img src="./assets/webradios/1.png">
@@ -146,7 +103,7 @@
 				<ion-row no-padding> 
 					
 							 <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 no-padding *ngFor="let post of posts" class="animated fadeIn" >
-					 <ion-card no-padding style="margin-bottom:0px; border-bottom: 6px solid #f1f1f1;" >
+					 <ion-card no-padding style="" >
 
 							<button no-padding ion-item (click)="showDetails(post.id,post.title,post.link)">
 								<ion-card-content no-padding class="fadeintransition" >
