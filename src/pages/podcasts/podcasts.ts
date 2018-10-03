@@ -63,6 +63,13 @@ pagination: number = 1;
 		 private ga: GoogleAnalytics,
 		 	public alertCtrl: AlertController,
 	){
+		
+			
+			
+
+
+			
+			
 			
 		this.filtre='0';
 		this.tabs=["Lausanne","Genève"];

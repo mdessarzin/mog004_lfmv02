@@ -11,6 +11,7 @@ import { DetailsPage } from '../details/details';
 import { PlayerPage } from '../player/player';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
+import { StatusBar } from '@ionic-native/status-bar';
 
 @Component({
   selector: 'page-actualite',
@@ -59,6 +60,7 @@ export class ActualitePage {
 		public musicControls: MusicControls,
 		 private socialSharing: SocialSharing,
 		 public modalCtrl: ModalController,
+		 private statusBar: StatusBar,
 		//private iab: InAppBrowser,
 		 public viewCtrl: ViewController,
 		 public plt: Platform,
@@ -71,6 +73,12 @@ export class ActualitePage {
 		this.title = navParams.get('title');
 		this.loadData();
 
+			this.statusBar.hide();
+			this.statusBar.styleDefault();
+			this.statusBar.show();
+			
+			
+			
 		this.ga.startTrackerWithId('UA-104904297-2')
 			  .then(() => {
 				console.log('Google analytics is ready now');
