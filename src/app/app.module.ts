@@ -111,7 +111,6 @@ PlayerPlaylistPage,
       iconMode: 'ios',
       modalEnter: 'modal-slide-in',
       modalLeave: 'modal-slide-out',
-    	mode: 'ios',
 		activator: 'ripple',
 		menuType: "push",
 		backButtonIcon: "ios-arrow-back"
