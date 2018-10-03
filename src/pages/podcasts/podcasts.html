@@ -39,7 +39,14 @@
 		 	</button>
 	</ion-buttons>
   </ion-navbar>
-	
+    <ion-scroll *ngIf='filtre!="0"' scrollX="true" id="tags" style="height:55px;margin-top:5px;margin-bottom:5px;">
+	  	<ion-segment>
+			<button ion-button icon-end round color="light" (click)="closeChroniques();">
+				{{filtre_titre}} 
+			  	<ion-icon name="close"></ion-icon>
+			</button>
+		</ion-segment>
+	</ion-scroll>
 </ion-header>
 
 <ion-content no-padding id="page6" #pageContent>
@@ -63,6 +70,7 @@
 						<ion-card-content no-padding class="fadeintransition">
 							<div style="background-color: #f1f1f1; position: relative;">	
 								<span class="card_categorie" style="display:none; ">{{post.chronique[0]}}</span>
+								<span class="card_icon"><i class="fas fa-play-circle fa-3x"></i></span>
 								<img *ngIf='post.card' data-src="{{post.card}}" />
 							</div>
 							<ion-card-title [innerHTML]="post.title"></ion-card-title>
@@ -133,7 +141,12 @@
 			</ion-col>
 		</ion-row>
     </ion-grid>  
+			<ion-infinite-scroll (ionInfinite)="loadMore($event)" threshold="30%" loadingSpinner="bubbles" loadingText="Chargement...">
+    		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+  		</ion-infinite-scroll>
+
 <ion-fab right bottom>
 	<button ion-fab color="primary" class="" (tap)='openChroniques()'><ion-icon name="funnel"></ion-icon></button>
-</ion-fab>		  		
+</ion-fab>	
+	
 </ion-content>

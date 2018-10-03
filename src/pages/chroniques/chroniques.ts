@@ -46,9 +46,7 @@ export class ChroniquesPage {
 	link: string;
     title: string;
     image: string;
-header: string;
-	
-
+	header: string;
 	
    posts: Array<any> = [];
 postsLoading: any;
@@ -76,7 +74,7 @@ pagination: number = 1;
 		if(navParams.get('header')==true){
 			this.header = 'yes';
 		}
-			
+		this.cat = 10;	
 		this.title = navParams.get('title');
 			
 	this.ga.startTrackerWithId('UA-104904297-2')
@@ -219,6 +217,10 @@ ionViewDidLoad() {
 
 private dismiss() {
 	this.viewCtrl.dismiss();
+}
+	
+private selectionClose(id,title) {
+	this.viewCtrl.dismiss({"id" : id, "title" : title});
 }
 	
 private whatsappShare(title, image, link){

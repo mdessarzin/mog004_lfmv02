@@ -44,7 +44,6 @@
 		{{title}}
 	</div>
     <ion-scroll scrollX="true" id="tags" style="height:55px;margin-top:5px;margin-bottom:5px;">
-		
 	  	<ion-segment style="width: 670px;">
 			<button class="t btcat_10" color="light" ion-button round (click)="selectioncat('10');">Derniers</button>
 			<button class="t btcat_221" ion-button color="light" round (click)="selectioncat('221')">Vaud</button>
@@ -53,7 +52,6 @@
 			<button class="t btcat_24" ion-button color="light" round (click)="selectioncat('24')">Suisse</button>
 			<button class="t btcat_61" ion-button color="light" round (click)="selectioncat('61')">International</button>
 		</ion-segment>
-		
 	</ion-scroll>
 </ion-header>
 <ion-content >
@@ -106,5 +104,9 @@
 							 </div>	
 						</ion-col>
 					</ion-row>
-				</ion-grid>  
+				</ion-grid> 
+			<ion-infinite-scroll (ionInfinite)="loadMore($event)" threshold="30%" loadingSpinner="bubbles" loadingText="Chargement...">
+    		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+  		</ion-infinite-scroll>
+
 </ion-content>

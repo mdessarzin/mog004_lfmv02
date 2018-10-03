@@ -28,7 +28,7 @@
         [triggerChange]="triggerAlphaScrollChange">
 
           <ng-template #alphaScrollItemTemplateRef let-item>
-            <ion-item (click)="showDetails(item.id,item.name)">{{item.name}}</ion-item>
+            <ion-item (click)="selectionClose(item.id,item.name)">{{item.name}}</ion-item>
           </ng-template>
 
       </ion-alpha-scroll>

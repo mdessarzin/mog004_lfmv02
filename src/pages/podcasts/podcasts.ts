@@ -28,7 +28,7 @@ export class PodcastsPage {
     cover: string;
     track: string;
     date: string;
-    cat: string;
+    cat: string = '';
     live: string;
 	onplaying: string;
     animateClass: any;
@@ -41,7 +41,8 @@ export class PodcastsPage {
     title: string;
     image: string;
 header: string;
-	
+	filtre: any;
+	filtre_titre: any;
    posts: Array<any> = [];
 postsLoading: any;
 pagination: number = 1;
@@ -63,6 +64,7 @@ pagination: number = 1;
 		 	public alertCtrl: AlertController,
 	){
 			
+		this.filtre='0';
 		this.tabs=["Lausanne","Genève"];
 		if(navParams.get('header')==true){
 			this.header = 'yes';
@@ -101,7 +103,7 @@ update(refresher) {
 				this.pagination = 1;
 			}
 
-			this.http.get('https://www.lfm.ch/wp-json/mog/v1/get_data?type=podcasts&taxonomy=chronique&per_page=15&page='+this.pagination+'&hash_id='+Math.random()).map(res => res.json()).subscribe(data => {
+			this.http.get('https://www.lfm.ch/wp-json/mog/v1/get_data?type=podcasts&taxonomy=chronique&per_page=15&term_id='+this.cat+'&page='+this.pagination+'&hash_id='+Math.random()).map(res => res.json()).subscribe(data => {
 			  //  this.posts = data;
 				console.log(this.posts);
 				if (refresher) {
@@ -189,41 +191,6 @@ ionViewDidLoad() {
 	
 }
 	
-	ionViewDidEnter() {
-		this.SwipedTabsIndicator = document.getElementById("indicator");
-	}
-	updateIndicatorPosition() {
-	  	// this condition is to avoid passing to incorrect index
-		if( this.SwipedTabsSlider.length()> this.SwipedTabsSlider.getActiveIndex())
-		{
-			this.SwipedTabsIndicator.style.webkitTransform = 'translate3d('+(this.SwipedTabsSlider.getActiveIndex() * 100)+'%,0,0)';
-		}
-
-	}
-
-	selectTab(index) {    
-		this.SwipedTabsIndicator.style.webkitTransform = 'translate3d('+(100*index)+'%,0,0)';
-		this.SwipedTabsSlider.slideTo(index, 500);
-
-		if( this.SwipedTabsSlider.length()> this.SwipedTabsSlider.getActiveIndex())
-		{
-			this.SwipedTabsIndicator.style.webkitTransform = 'translate3d('+(this.SwipedTabsSlider.getActiveIndex() * 100)+'%,0,0)';
-
-		}
-	}
-
-	animateIndicator($event) {
-		if(this.SwipedTabsIndicator)
-			this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (($event.progress* (this.SwipedTabsSlider.length()-1))*100) + '%,0,0)';
-	}
-
-	
-	
- ionViewWillLeave() {
-    console.log("Looks like I'm about to leave :(");
- 
-// 	(<any>window).SmartAdServer.removeBanner();
- }
 
 private whatsappShare(title, image, link){
     this.socialSharing.shareViaWhatsApp(title, image, link)
@@ -282,8 +249,27 @@ private share(message, title, image, link){
 	private openChroniques(){
        let modal = this.modalCtrl.create(ChroniquesPage);
     	modal.present();   
+		modal.onDidDismiss(data => {
+			console.log('test '+data.title);
+			this.filtre = data.id;
+			this.filtre_titre = data.title;
+			this.postsLoading = 0;
+			this.cat = data.id;
+			this.posts = [];
+			this.pagination = 1;
+		  	this.loadData();
+		});
 
     }
-	
+
+	private closeChroniques(){
+		this.postsLoading = 0;
+			this.filtre = '0';
+			this.filtre_titre = null;
+			this.cat = '';
+			this.posts = [];
+			this.pagination = 1;
+		  	this.loadData();
+    }
 	
 }
