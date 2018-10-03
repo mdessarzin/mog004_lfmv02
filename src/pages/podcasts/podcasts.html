@@ -4,7 +4,7 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      <img alt="logo" height="35" src="./assets/imgs/logo.svg" style="margin-top:8px;">
+      Replay
     </ion-title>
 
 	  <ion-buttons end >
@@ -40,25 +40,14 @@
 	</ion-buttons>
   </ion-navbar>
 	
-	 <ion-toolbar color="primary" style="display:none;">
-		<ion-searchbar (input)="search($event)"></ion-searchbar>
-	 </ion-toolbar>
-
-	<div class="subtitle">
-		{{title}}
-	</div>
-	
-
 </ion-header>
 
 <ion-content no-padding id="page6" #pageContent>
 	
-	<autoplay-content>
-		<ion-slides *ngIf='!postsLoading'>
-        <ion-slide>
-            <ion-spinner name="crescent"></ion-spinner>
-        </ion-slide>
-    </ion-slides>
+			
+		<div *ngIf='!postsLoading' class="spinnerCenter">
+           <ion-spinner name="crescent"></ion-spinner>
+        </div>
 	<ion-refresher (ionRefresh)="update($event)">
 			<ion-refresher-content
 			  pullingIcon="ios-arrow-down-outline"
@@ -70,7 +59,7 @@
         <ion-row no-padding> 
 		 <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 no-padding *ngFor="let post of posts" >
 			 
-			 <ion-card item-start no-padding style="margin-bottom:10px !important; border-bottom: 6px solid #f1f1f1;" *ngIf='post._url_podcast_video;else podcasts' (tap)="openPlayerVideo(post._url_podcast_video,post.card)">
+			 <ion-card item-start no-padding style="margin-bottom:10px !important;" *ngIf='post._url_podcast_video;else podcasts' (tap)="openPlayerVideo(post._url_podcast_video,post.card)">
 						<ion-card-content no-padding class="fadeintransition">
 							<div style="background-color: #f1f1f1; position: relative;">	
 								<span class="card_categorie" style="display:none; ">{{post.chronique[0]}}</span>
@@ -94,7 +83,7 @@
 			 </ion-card>
 			 <ng-template #podcasts>
 				 
-				 <ion-card no-padding style="margin-bottom:10px !important; border-bottom: 6px solid #f1f1f1; margin-bottom:50px;" class="podcast_mobile">
+				 <ion-card no-padding style="margin-bottom:10px !important; margin-bottom:50px;" class="podcast_mobile">
 					<ion-card-content no-padding class="fadeintransition">
 							<div style="background-color: #f1f1f1; position: relative;">	
 								<span class="card_categorie">{{post.chronique[0]}}</span>
@@ -117,7 +106,7 @@
 						  </ion-col>
 						 </ion-row>
 					</ion-card>	 
-				 <ion-card no-padding class="podcast_tab" style="display:none; margin-bottom:0px; border-bottom: 6px solid #f1f1f1;"  (tap)="openPlayerVideo(post._url_podcast_video,'./assets/imgs/podcast_tab.jpg')">
+				 <ion-card no-padding class="podcast_tab" style="display:none; margin-bottom:0px;"  (tap)="openPlayerVideo(post._url_podcast_video,'./assets/imgs/podcast_tab.jpg')">
 						<ion-card-content no-padding class="fadeintransition">
 							<div style="background-color: #f1f1f1; position: relative;">	
 								<span class="card_categorie">{{post.chronique[0]}}</span>
@@ -141,12 +130,10 @@
 						</ion-row>
 			 	</ion-card>
 			 </ng-template>
-		</ion-col>
-</ion-row>
+			</ion-col>
+		</ion-row>
     </ion-grid>  
-		  </autoplay-content>
-
-	<ion-infinite-scroll (ionInfinite)="loadMore($event)" threshold="50%" loadingSpinner="bubbles" loadingText="Chargement...">
-    <ion-infinite-scroll-content></ion-infinite-scroll-content>
-  </ion-infinite-scroll>
+<ion-fab right bottom>
+	<button ion-fab color="primary" class="" (tap)='openChroniques()'><ion-icon name="funnel"></ion-icon></button>
+</ion-fab>		  		
 </ion-content>

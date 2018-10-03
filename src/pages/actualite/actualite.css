@@ -19,3 +19,9 @@ page-actualite .SwipedTabs-tabs {
 page-actualite .swiper-slide {
   float: left;
   width: auto; }
+page-actualite .spinnerCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%; }

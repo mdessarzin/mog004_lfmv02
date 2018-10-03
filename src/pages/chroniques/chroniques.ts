@@ -1,5 +1,5 @@
 import { Component, ViewChild, Injectable } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform, Content, PopoverController, LoadingController, ModalController, AlertController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, Content, PopoverController, LoadingController, ModalController, ViewController, AlertController} from 'ionic-angular';
 import * as $ from "jquery";
 import { MusicControls } from '@ionic-native/music-controls';
 import { Http } from '@angular/http';
@@ -67,8 +67,9 @@ pagination: number = 1;
 		public _player: AudioStreamProvider,
 		public musicControls: MusicControls,
 		private iab: InAppBrowser,
-		 private ga: GoogleAnalytics,
-		 	public alertCtrl: AlertController,
+		private ga: GoogleAnalytics,
+		public alertCtrl: AlertController,
+		public viewCtrl: ViewController
 	){
 			
 			
@@ -216,6 +217,10 @@ ionViewDidLoad() {
 // 	(<any>window).SmartAdServer.removeBanner();
  }
 
+private dismiss() {
+	this.viewCtrl.dismiss();
+}
+	
 private whatsappShare(title, image, link){
     this.socialSharing.shareViaWhatsApp(title, image, link)
       .then(()=>{

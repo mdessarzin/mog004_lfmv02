@@ -323,6 +323,15 @@ ion-refresher ion-spinner {
   fill: #833177;
 }
 
+
+.spinnerCenter {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
 $max: 35px;
 
 .equilizer {
@@ -449,7 +458,8 @@ $max: 35px;
 	}
 	
 	ion-card .item-inner .ion-label,
-	ion-card .item-inner .label-md {
+	ion-card .item-inner .label-md,
+ion-card .item-inner .label-ios{
 		 		padding: 0px !important;
 			margin: 0px !important;
 		    white-space: normal !important;

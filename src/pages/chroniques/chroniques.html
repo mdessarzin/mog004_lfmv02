@@ -1,48 +1,16 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle class="ripple">
-      <ion-icon name="menu"></ion-icon>
-    </button>
+  <ion-toolbar  (click)="dismiss()">
     <ion-title>
-      <img alt="logo" height="35" src="./assets/imgs/logo.svg" style="margin-top:8px;">
+      Chroniques
     </ion-title>
-
-	  <ion-buttons end >
-		  	 <button ion-button icon-only (tap)='openPlayer()' class="playerEtat_0">
-      				<ion-icon name="md-radio"></ion-icon>
-    		</button>
-		  <button ion-button icon-only (tap)='openPlayer()' class="playerEtat_1"  style="display:none;">
-		  	<div >
-					<svg xmlns="http://www.w3.org/2000/svg" class="equilizer" viewBox="0 0 128 128">
-						
-					  <g>
-						<rect class="bar" transform="translate(0,0)" y="15"></rect>
-						<rect class="bar" transform="translate(25,0)" y="15"></rect>
-						<rect class="bar" transform="translate(50,0)" y="15"></rect>
-						<rect class="bar" transform="translate(75,0)" y="15"></rect>
-					  </g>
-							
-					</svg>
-			  </div>
-		 	</button>
-		  <button ion-button icon-only (tap)='openPlayer()' class="playerEtat_2" style="display:none;">
-		  	<div >
-					<svg xmlns="http://www.w3.org/2000/svg" class="equilizer" viewBox="0 0 128 128">
-					  <g>
-						<rect class="bar_off" transform="translate(0,0)" y="15"></rect>
-						<rect class="bar_off" transform="translate(25,0)" y="15"></rect>
-						<rect class="bar_off" transform="translate(50,0)" y="15"></rect>
-						<rect class="bar_off" transform="translate(75,0)" y="15"></rect>
-					  </g>
-					</svg>
-			  </div>
-		 	</button>
-	</ion-buttons>
-  </ion-navbar>
-	
-	 <ion-toolbar color="primary" style="display:none;">
-		<ion-searchbar (input)="search($event)"></ion-searchbar>
-	 </ion-toolbar>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()" icon-start>
+        <ion-icon name="ios-arrow-down" showWhen="android,windows, ios"></ion-icon>
+		  Annuler
+      </button>
+    </ion-buttons>
+	  
+  </ion-toolbar>
 </ion-header>
 
     <ion-content class="alpha-list-page">

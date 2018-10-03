@@ -45,8 +45,7 @@
 </ion-header>
 				<ion-content no-padding no-bounce id="page6" #pageContent style="background-color:#f9f9f9;">
 
- <ion-card no-padding style="margin-bottom:0px; border-bottom: 0px solid #833177;" >
-
+ <ion-card no-padding style="margin-bottom:0px; border-bottom: 0px solid #833177; overflow-y:hidden;" >
 							<button no-padding ion-item (tap)='startAudio()'>
 								<ion-card-content no-padding class="fadeintransition" style="position:relative;" >
 									<div style="background-color: #f1f1f1; position: relative;">	
@@ -58,15 +57,16 @@
 										
 									</div>
 									
-								
+<ion-fab center middle>
+	<button ion-fab mode="md" color="danger" class="" (tap)='startAudio()'>
+		<span class="btPlayerhome"></span>
+	</button>
+</ion-fab>
+
 								</ion-card-content>
 							</button>
 
-						 <ion-fab center middle>
-<button ion-fab color="danger" class="" (tap)='startAudio()'>
-<span class="btPlayerhome"></span>
-</button>
-</ion-fab>
+
 					 </ion-card>
 	<h2 style="margin-left:10px;font-size:1.3em;color:#333;font-weight: bolder; margin-top:15px;">Web Radios</h2>
 
@@ -144,9 +144,7 @@
 		</ion-grid>  
 					
 <ion-fab right bottom>
-<button ion-fab color="primary" class="" (tap)='whatsapp()'>  <ion-icon name="logo-whatsapp"></ion-icon>
-
-</button>
+	<button ion-fab color="primary" class="" (tap)='whatsapp()'>  <ion-icon name="logo-whatsapp"></ion-icon></button>
 </ion-fab>
 
 

@@ -4,7 +4,7 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      <img alt="logo" height="35" src="./assets/imgs/logo.svg" style="margin-top:8px;">
+      Actualité
     </ion-title>
 
 	  <ion-buttons end >
@@ -43,41 +43,36 @@
 	<div class="subtitle" style="display:none;">
 		{{title}}
 	</div>
-	<ion-segment  class="SwipedTabs-tabs"  >
-		<ion-segment-button *ngFor='let tab of tabs ; let i = index ' value="IngoreMe" (click)="selectTab(i)"
-		[ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }' >
-			{{tab}}
-		</ion-segment-button>
-	</ion-segment>
-		<div id='indicator' class="SwipedTabs-indicatorSegment" [ngStyle]="{'width.%': (100/this.tabs.length)}"></div>
-
+    <ion-scroll scrollX="true" id="tags" style="height:55px;margin-top:5px;margin-bottom:5px;">
+		
+	  	<ion-segment style="width: 670px;">
+			<button class="t btcat_10" color="light" ion-button round (click)="selectioncat('10');">Derniers</button>
+			<button class="t btcat_221" ion-button color="light" round (click)="selectioncat('221')">Vaud</button>
+			<button class="t btcat_404" ion-button color="light" round (click)="selectioncat('404')">Genève</button>
+			<button class="t btcat_23" ion-button color="light" round (click)="selectioncat('23')">Sport</button>
+			<button class="t btcat_24" ion-button color="light" round (click)="selectioncat('24')">Suisse</button>
+			<button class="t btcat_61" ion-button color="light" round (click)="selectioncat('61')">International</button>
+		</ion-segment>
+		
+	</ion-scroll>
 </ion-header>
-
 <ion-content >
 	<!-- here is our dynamic line  "indicator"-->
 
-    <ion-scroll scrollX="true" style="height:60px;margin-top:10px;">
-		
-	  <ion-segment style="width: 670px;">
-		<button ion-button round>Derniers</button>
-		<button ion-button round>Vaud</button>
-		<button ion-button round>Genève</button>
-		<button ion-button round>Sport</button>
-		<button ion-button round>Suisse & International</button>
-	  </ion-segment>
-		
-		</ion-scroll>	
+	<div *ngIf='postsLoading=="0"' class="spinnerCenter">
+            <ion-spinner name="crescent"></ion-spinner>
+    </div>
+	<ion-refresher (ionRefresh)="update($event)">
+			<ion-refresher-content
+			  pullingIcon="ios-arrow-down-outline"
+			  
+			  refreshingSpinner="crescent">
+			</ion-refresher-content>
+	</ion-refresher>
          
-	<ion-slides #SwipedTabsSlider  (ionSlideDrag)="animateIndicator($event)"
-							(ionSlideWillChange)="updateIndicatorPosition()"
-							(ionSlideDidChange)="updateIndicatorPosition()"
-							(pan)="updateIndicatorPosition()"
-							[pager]="false"
-				>
-		<ion-slide>
-			 <ion-grid *ngIf="postsActu2" no-padding>
+			 <ion-grid *ngIf="posts" no-padding>
 				<ion-row no-padding> 
-				 <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 no-padding *ngFor="let post of postsActu2" >
+				 <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 no-padding *ngFor="let post of posts" >
 					 <ion-card no-padding style="">
 
 							<button no-padding ion-item (tap)="showDetails(post.id,post.title,post.link)">
@@ -112,87 +107,4 @@
 						</ion-col>
 					</ion-row>
 				</ion-grid>  
-		</ion-slide>
-		
-		<ion-slide>
-			 <ion-grid *ngIf="postsActu3" no-padding>
-				<ion-row no-padding> 
-				 <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 no-padding *ngFor="let post of postsActu3" >
-					 <ion-card no-padding style="margin-bottom:0px; border-bottom: 6px solid #f1f1f1;">
-
-							<button no-padding ion-item (tap)="showDetails(post.id,post.title,post.link)">
-								<ion-card-content no-padding class="fadeintransition" >
-									<div style="background-color: #f1f1f1; position: relative;">	
-										<span class="card_categorie">{{post.chronique[0]}}</span>				
-										<img data-src="{{post.card}}" style="background-color: #BCBBBB;" />
-									</div>
-									<ion-card-title [innerHTML]="post.title"></ion-card-title>
-
-								</ion-card-content>
-							</button>
-							<ion-row>
-							   <ion-col align-self-start>
-								   <p class="date"><i class="fas fa-dot-circle point"></i> {{post.date}}</p>
-							   </ion-col>
-							   <ion-col text-right align-self-start>
-									<button ion-button icon-only clear mode="md" (tap)="share(post.title, post.card, post.link )">
-										<ion-icon name="md-share" style="color:#A9A9A9;"></ion-icon>
-									</button>
-								   <button ion-button clear icon-only mode="md" style="border-left:1px solid #f1f1f1;" (tap)="whatsappShare(post.title, post.card, post.link )">
-										<ion-icon name="logo-whatsapp" style="color:#A9A9A9;"></ion-icon>
-									</button>					
-							  </ion-col>
-							 </ion-row>
-						  </ion-card>
-							<div *ngIf="post.ads != 0">				
-								<a href="#" (tap)="this.iab.create(post.ads_l, '_blank','location=no,clearsessioncache=yes');">                
-									<img src="http://1x1px.me/FFFFFF-1.png" data-src="{{post.ads_i}}" border="0" alt="" />
-								</a>				 
-							 </div>	
-						</ion-col>
-					</ion-row>
-				</ion-grid>  
-		</ion-slide>
-		<ion-slide>
-			 <ion-grid *ngIf="postsActu4" no-padding>
-				<ion-row no-padding> 
-				 <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 no-padding *ngFor="let post of postsActu4" >
-					 <ion-card no-padding style="margin-bottom:0px; border-bottom: 6px solid #f1f1f1;">
-
-							<button no-padding ion-item (tap)="showDetails(post.id,post.title,post.link)">
-								<ion-card-content no-padding class="fadeintransition" >
-									<div style="background-color: #f1f1f1; position: relative;">	
-										<span class="card_categorie">{{post.chronique[0]}}</span>				
-										<img data-src="{{post.card}}" style="background-color: #BCBBBB;" />
-									</div>
-									<ion-card-title [innerHTML]="post.title"></ion-card-title>
-
-								</ion-card-content>
-							</button>
-							<ion-row>
-							   <ion-col align-self-start>
-								   <p class="date"><i class="fas fa-dot-circle point"></i> {{post.date}}</p>
-							   </ion-col>
-							   <ion-col text-right align-self-start>
-									<button ion-button icon-only clear mode="md" (tap)="share(post.title, post.card, post.link )">
-										<ion-icon name="md-share" style="color:#A9A9A9;"></ion-icon>
-									</button>
-								   <button ion-button clear icon-only mode="md" style="border-left:1px solid #f1f1f1;" (tap)="whatsappShare(post.title, post.card, post.link )">
-										<ion-icon name="logo-whatsapp" style="color:#A9A9A9;"></ion-icon>
-									</button>					
-							  </ion-col>
-							 </ion-row>
-						  </ion-card>
-							<div *ngIf="post.ads != 0">				
-								<a href="#" (tap)="this.iab.create(post.ads_l, '_blank','location=no,clearsessioncache=yes');">                
-									<img src="http://1x1px.me/FFFFFF-1.png" data-src="{{post.ads_i}}" border="0" alt="" />
-								</a>				 
-							 </div>	
-						</ion-col>
-					</ion-row>
-				</ion-grid>  
-		</ion-slide>
-	</ion-slides>
-
-
 </ion-content>

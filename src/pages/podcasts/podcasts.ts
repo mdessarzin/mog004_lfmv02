@@ -1,5 +1,5 @@
 import { Component, ViewChild, Injectable } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform, Content, PopoverController, LoadingController, ModalController, AlertController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, Content, PopoverController, LoadingController, ModalController, AlertController, Slides} from 'ionic-angular';
 import * as $ from "jquery";
 import { MusicControls } from '@ionic-native/music-controls';
 import { Http } from '@angular/http';
@@ -12,41 +12,17 @@ import { AudioStreamProvider } from '../../providers/audio-stream/audio-stream';
 import { PlayerpopupPage } from '../playerpopup/playerpopup';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
+import { ChroniquesPage } from '../chroniques/chroniques';
 
 @Component({
   selector: 'page-podcasts',
   templateUrl: 'podcasts.html'
 })
 export class PodcastsPage {
-	
-	 public cards = [{
-    hasVideo: false,
-    src: 'https://vod.infomaniak.com/redirect/mediaonecontactsa_2_vod/folder-43820/mp4-12/2018-10-02_140041_editedvideo.mp4',
-    avatarSrc: 'https://vod.infomaniak.com/redirect/mediaonecontactsa_2_vod/folder-43820/mp4-12/2018-10-02_140041_editedvideo.jpg',
-    name: 'Ian',
-    location: 'Dallas'
-  }, {
-    hasVideo: true,
-    src: 'https://vod.infomaniak.com/redirect/mediaonecontactsa_2_vod/folder-43820/mp4-12/2018-10-02_140041_editedvideo.mp4',
-    avatarSrc: 'https://vod.infomaniak.com/redirect/mediaonecontactsa_2_vod/folder-43820/mp4-12/2018-10-02_140041_editedvideo.jpg',
-    name: 'Sarah',
-    location: 'Huntington Park'
-  },
-					 {
-    hasVideo: true,
-    src: 'https://vod.infomaniak.com/redirect/mediaonecontactsa_2_vod/folder-43820/mp4-12/2018-10-02_140041_editedvideo.mp4',
-    avatarSrc: 'https://vod.infomaniak.com/redirect/mediaonecontactsa_2_vod/folder-43820/mp4-12/2018-10-02_140041_editedvideo.jpg',
-    name: 'Sarah',
-    location: 'Huntington Park'
-  }, {
-    hasVideo: false,
-    src: 'assets/imgs/poster02.jpg',
-    avatarSrc: 'assets/imgs/avatar03.jpg',
-    name: 'Marty',
-    location: 'Roslyndale Avenue'
-  }];
-	
-	
+	@ViewChild('SwipedTabsSlider') SwipedTabsSlider: Slides ;
+	SwipedTabsIndicator :any= null;
+	tabs:any=[];
+
 	private loadingPopup: any;
     artist: string;
     cover: string;
@@ -87,12 +63,13 @@ pagination: number = 1;
 		 	public alertCtrl: AlertController,
 	){
 			
-			
+		this.tabs=["Lausanne","Genève"];
 		if(navParams.get('header')==true){
 			this.header = 'yes';
 		}
 			
 		this.title = navParams.get('title');
+			
 			
 	this.ga.startTrackerWithId('UA-104904297-2')
       .then(() => {
@@ -102,7 +79,9 @@ pagination: number = 1;
       })
       .catch(e => console.log('Error starting GoogleAnalytics', e));
 			
-			this.loadData();
+			
+	this.loadData();
+			
 
 			
   }
@@ -210,6 +189,36 @@ ionViewDidLoad() {
 	
 }
 	
+	ionViewDidEnter() {
+		this.SwipedTabsIndicator = document.getElementById("indicator");
+	}
+	updateIndicatorPosition() {
+	  	// this condition is to avoid passing to incorrect index
+		if( this.SwipedTabsSlider.length()> this.SwipedTabsSlider.getActiveIndex())
+		{
+			this.SwipedTabsIndicator.style.webkitTransform = 'translate3d('+(this.SwipedTabsSlider.getActiveIndex() * 100)+'%,0,0)';
+		}
+
+	}
+
+	selectTab(index) {    
+		this.SwipedTabsIndicator.style.webkitTransform = 'translate3d('+(100*index)+'%,0,0)';
+		this.SwipedTabsSlider.slideTo(index, 500);
+
+		if( this.SwipedTabsSlider.length()> this.SwipedTabsSlider.getActiveIndex())
+		{
+			this.SwipedTabsIndicator.style.webkitTransform = 'translate3d('+(this.SwipedTabsSlider.getActiveIndex() * 100)+'%,0,0)';
+
+		}
+	}
+
+	animateIndicator($event) {
+		if(this.SwipedTabsIndicator)
+			this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (($event.progress* (this.SwipedTabsSlider.length()-1))*100) + '%,0,0)';
+	}
+
+	
+	
  ionViewWillLeave() {
     console.log("Looks like I'm about to leave :(");
  
@@ -238,6 +247,8 @@ private share(message, title, image, link){
       })
   }
 	
+	
+	
 	private startAudio(title,image, text, date, link){
 
 		localStorage.setItem("podcast_title", title);
@@ -257,10 +268,10 @@ private share(message, title, image, link){
 }
 	
 	private openPlayer(){
+		
        let modal = this.modalCtrl.create(PlayerPage);
     	modal.present();   
     }
-	
 	
 	private openPlayerVideo(url,poster){
         //console.log(this.login);
@@ -268,6 +279,11 @@ private share(message, title, image, link){
     	modal.present();   
     }
 	
+	private openChroniques(){
+       let modal = this.modalCtrl.create(ChroniquesPage);
+    	modal.present();   
+
+    }
 	
 	
 }
