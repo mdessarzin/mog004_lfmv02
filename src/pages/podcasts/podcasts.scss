@@ -27,6 +27,15 @@ page-podcasts {
     	border-bottom: solid 1px #e6e6e6  !important;
     }
 	
+.btFiltre {
+   position:fixed;
+   top:70px;
+   height:50px;
+	width:100%;
+	text-align: center;
+}
+	
+	
 @media (min-width: 992px) {
   .podcast_tab{
    display: block !important;

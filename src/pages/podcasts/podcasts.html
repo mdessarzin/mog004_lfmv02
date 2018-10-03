@@ -39,19 +39,20 @@
 		 	</button>
 	</ion-buttons>
   </ion-navbar>
-    <ion-scroll *ngIf='filtre!="0"' scrollX="true" id="tags" style="height:55px;margin-top:5px;margin-bottom:5px;">
-	  	<ion-segment>
-			<button ion-button icon-end round color="light" (click)="closeChroniques();">
-				{{filtre_titre}} 
-			  	<ion-icon name="close"></ion-icon>
-			</button>
-		</ion-segment>
-	</ion-scroll>
+	
+	<div class="btFiltre" *ngIf='filtre!="0"'>
+		<button ion-button icon-end round color="light" (click)="closeChroniques();">
+			{{filtre_titre}} 
+			<ion-icon name="close"></ion-icon>
+		</button>
+	</div>
+	
 </ion-header>
 
 <ion-content no-padding id="page6" #pageContent>
 	
-			
+
+	
 		<div *ngIf='!postsLoading' class="spinnerCenter">
            <ion-spinner name="crescent"></ion-spinner>
         </div>
@@ -91,7 +92,7 @@
 			 </ion-card>
 			 <ng-template #podcasts>
 				 
-				 <ion-card no-padding style="margin-bottom:10px !important; margin-bottom:50px;" class="podcast_mobile">
+				 <ion-card no-padding style="margin-bottom:10px !important; margin-bottom:50px;" class="podcast_mobile" (tap)="configPlayer(post.title, './assets/imgs/podcasts.jpg', post.chronique[0], post.date, post._url_podcast)">
 					<ion-card-content no-padding class="fadeintransition">
 							<div style="background-color: #f1f1f1; position: relative;">	
 								<span class="card_categorie">{{post.chronique[0]}}</span>
