@@ -74,7 +74,7 @@ pagination: number = 1;
 		if(navParams.get('header')==true){
 			this.header = 'yes';
 		}
-		this.cat = 10;	
+		this.cat = '';	
 		this.title = navParams.get('title');
 			
 	this.ga.startTrackerWithId('UA-104904297-2')
