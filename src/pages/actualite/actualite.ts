@@ -73,9 +73,6 @@ export class ActualitePage {
 		this.title = navParams.get('title');
 		this.loadData();
 
-			this.statusBar.hide();
-			this.statusBar.styleDefault();
-			this.statusBar.show();
 			
 			
 			

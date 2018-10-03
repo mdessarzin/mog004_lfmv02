@@ -1,5 +1,47 @@
 <ion-header color="light">
-    <ion-scroll scrollX="true" id="tags" style="height:55px;margin-top:25px;margin-bottom:5px;">
+  <ion-navbar >
+    <button ion-button menuToggle class="ripple">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Actualité
+    </ion-title>
+
+	  <ion-buttons end >
+		  	 <button ion-button icon-only (tap)='openPlayer()' class="playerEtat_0">
+      				<ion-icon name="md-radio"></ion-icon>
+    		</button>
+		  <button ion-button icon-only (tap)='openPlayer()' class="playerEtat_1"  style="display:none;">
+		  	<div >
+					<svg xmlns="http://www.w3.org/2000/svg" class="equilizer" viewBox="0 0 128 128">
+						
+					  <g>
+						<rect class="bar" transform="translate(0,0)" y="15"></rect>
+						<rect class="bar" transform="translate(25,0)" y="15"></rect>
+						<rect class="bar" transform="translate(50,0)" y="15"></rect>
+						<rect class="bar" transform="translate(75,0)" y="15"></rect>
+					  </g>
+							
+					</svg>
+			  </div>
+		 	</button>
+		  <button ion-button icon-only (tap)='openPlayer()' class="playerEtat_2" style="display:none;">
+		  	<div >
+					<svg xmlns="http://www.w3.org/2000/svg" class="equilizer" viewBox="0 0 128 128">
+					  <g>
+						<rect class="bar_off" transform="translate(0,0)" y="15"></rect>
+						<rect class="bar_off" transform="translate(25,0)" y="15"></rect>
+						<rect class="bar_off" transform="translate(50,0)" y="15"></rect>
+						<rect class="bar_off" transform="translate(75,0)" y="15"></rect>
+					  </g>
+					</svg>
+			  </div>
+		 	</button>
+	</ion-buttons>
+
+  </ion-navbar>
+
+    <ion-scroll scrollX="true" id="tags" style="height:55px;margin-top:5px;margin-bottom:5px;">
 	  	<ion-segment style="width: 670px;">
 			<button class="t btcat_10" color="light" ion-button round (click)="selectioncat('10');">Derniers</button>
 			<button class="t btcat_221" ion-button color="light" round (click)="selectioncat('221')">Vaud</button>
