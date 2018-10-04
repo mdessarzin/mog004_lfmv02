@@ -41,8 +41,8 @@
 
   </ion-navbar>
 
-	<div class="btFiltre" id="tags">
-	  	<ion-segment style="width: 620px;" no-shadow>
+	<ion-scroll scrollX="true" class="btFiltre" id="tags">
+	  	<ion-segment style="width: 640px;" no-shadow>
 			<button class="t btcat_10" color="light" ion-button round small (click)="selectioncat('10');">Derniers</button>
 			<button class="t btcat_221" ion-button color="light" round small (click)="selectioncat('221')">Vaud</button>
 			<button class="t btcat_404" ion-button color="light" round small (click)="selectioncat('404')">Genève</button>
@@ -50,7 +50,7 @@
 			<button class="t btcat_24" ion-button color="light" round small (click)="selectioncat('24')">Suisse</button>
 			<button class="t btcat_61" ion-button color="light" round small (click)="selectioncat('61')">International</button>
 		</ion-segment>
-	</div>
+	</ion-scroll>
 </ion-header>
 <ion-content >
 	<!-- here is our dynamic line  "indicator"-->

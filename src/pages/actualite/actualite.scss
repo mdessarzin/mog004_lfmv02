@@ -50,13 +50,34 @@ super-tabs {
 	.has-refresher > .scroll-content {
 		border-top: 0px solid #ddd;
 	}
+
+	.header-ios	.btFiltre {
+		   position:fixed;
+		   top:55px;
+		   height:50px;
+			width:100%;
+			text-align: center;
+	}
+	.header-md	.btFiltre {
+		   position:fixed;
+		   top:65px;
+		   height:50px;
+			width:100%;
+			text-align: center;
+	}
+	
+	.content-ios .grid {
+		padding-top:48px;
+	}
+	.content-md .grid {
+		padding-top:46px;
+	}
+
 	
 	#tags::-webkit-scrollbar, #tags::-webkit-scrollbar { display: none; }
 	
 	#tags{
-		overflow-x: scroll;
-		padding-top:8px;
-		margin-bottom:8px;
+		
 	}
 	
 }
