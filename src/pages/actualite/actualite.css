@@ -41,10 +41,6 @@ page-actualite .header-md .btFiltre {
   height: 50px;
   width: 100%;
   text-align: center; }
-page-actualite .content-ios .grid {
-  margin-top: 65px; }
-page-actualite .content-md .grid {
-  margin-top: 45px; }
 page-actualite ion-content.has-refresher > .scroll-content {
   background-color: transparent; }
 page-actualite #tags::-webkit-scrollbar, page-actualite #tags::-webkit-scrollbar {

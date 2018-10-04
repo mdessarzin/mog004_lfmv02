@@ -100,7 +100,7 @@ update(refresher) {
 
 			const toast = this.toastCtrl.create({
 				message: 'Chargement des articles',
-				position: 'bottom'
+				position: 'top'
 			  });
 			toast.present();
 
