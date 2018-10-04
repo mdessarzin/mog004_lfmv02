@@ -42,5 +42,21 @@ super-tabs {
 		align-items: center;
 		height: 100%;
 	}
-
+	
+	.header-md::after{
+		background-image: none;
+	}
+	
+	.has-refresher > .scroll-content {
+		border-top: 0px solid #ddd;
+	}
+	
+	#tags::-webkit-scrollbar, #tags::-webkit-scrollbar { display: none; }
+	
+	#tags{
+		overflow-x: scroll;
+		padding-top:8px;
+		padding-bottom:4px;
+	}
+	
 }

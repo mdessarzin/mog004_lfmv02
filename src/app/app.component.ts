@@ -118,7 +118,8 @@ export class MyApp {
 			if (this.platform.is('cordova')) {
 				this.handlerNotifications();
 			}
-		
+			
+				if (this.platform.is('cordova')) {
 			
 				let ratio = Math.max(window.devicePixelRatio || 1, 1);
 
@@ -139,7 +140,7 @@ export class MyApp {
 				});
 			
 				console.log('Platform is ready');
-			
+				}
 			
 			setInterval(() => {      
 						$.ajaxSetup({ cache: false });
