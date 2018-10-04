@@ -100,7 +100,8 @@ update(refresher) {
 	  
 			this.toast = this.toastCtrl.create({
 				message: 'Chargement des articles',
-				position: 'bottom'
+				position: 'bottom',
+				duration: 5000,
 			  });
 	    	this.toast.present();
 
