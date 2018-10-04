@@ -164,11 +164,11 @@ ionViewDidLoad() {
 private selectioncat(id){
 	$('.t').css('background-color','#f4f4f4').css('color','#000');
 	$('.btcat_'+id).css('background-color','#833177').css('color','#fff');
-		this.content.scrollToTop();
 
 	this.postsLoading = 0;
 	this.cat = id;
-	
+			this.content.scrollToTop();
+
 	this.posts = [];
 	this.pagination = 1;
 	this.loadData();
