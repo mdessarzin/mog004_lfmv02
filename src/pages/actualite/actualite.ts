@@ -1,5 +1,5 @@
 import { Component, ViewChild, Injectable } from '@angular/core';
-import { IonicPage, NavController, ViewController, NavParams, Platform, Content, PopoverController, LoadingController, ModalController, Slides} from 'ionic-angular';
+import { IonicPage, NavController, ViewController, NavParams, ToastController, Platform, Content, PopoverController, LoadingController, ModalController, Slides} from 'ionic-angular';
 import * as $ from "jquery";
 import { AudioStreamProvider } from '../../providers/audio-stream/audio-stream';
 import { MusicControls } from '@ionic-native/music-controls';
@@ -44,7 +44,7 @@ export class ActualitePage {
 	pagination: number = 1;
 	maximumPages = 10;
 	posts: Array<any> = [];
-	
+	toast: any;
 	color1: string = 'light';
 	color2: string = 'light';
 	color3: string = 'light';
@@ -67,14 +67,15 @@ export class ActualitePage {
 		 public navParams: NavParams,
 		 public platform: Platform,
 		 private iab: InAppBrowser,
-		 private ga: GoogleAnalytics
+		 private ga: GoogleAnalytics,
+		 private toastCtrl: ToastController
 	){
 		this.cat = 10;
 		this.title = navParams.get('title');
-		this.loadData();
+		
+			
+this.loadData();
 
-			
-			
 			
 		this.ga.startTrackerWithId('UA-104904297-2')
 			  .then(() => {
@@ -97,7 +98,12 @@ update(refresher) {
 	
   loadData(infiniteScroll?,refresher?) {
 	  
-	  
+			this.toast = this.toastCtrl.create({
+				message: 'Chargement des articles',
+				position: 'bottom'
+			  });
+	    	this.toast.present();
+
 	  
 			if (refresher) {
 				this.pagination = 1;
@@ -116,8 +122,14 @@ update(refresher) {
 
 								}				  
 							  this.postsLoading = '1';
+				this.toast.dismiss();
 								if (infiniteScroll) {
 									infiniteScroll.complete();
+								}
+								else {
+									setTimeout(() => {     
+										this.content.scrollToTop();			
+									}, 100);
 								}
 			});
 	  
@@ -165,14 +177,11 @@ private selectioncat(id){
 	$('.t').css('background-color','#f4f4f4').css('color','#000');
 	$('.btcat_'+id).css('background-color','#833177').css('color','#fff');
 
-	this.postsLoading = 0;
+	//this.postsLoading = 0;
 	this.cat = id;
-			this.content.scrollToTop();
-
 	this.posts = [];
 	this.pagination = 1;
 	this.loadData();
-	this.content.scrollToTop();
 }	
 
 private whatsappShare(title, image, link){

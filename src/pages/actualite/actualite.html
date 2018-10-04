@@ -58,7 +58,7 @@
 	<div *ngIf='postsLoading=="0"' class="spinnerCenter">
             <ion-spinner name="crescent"></ion-spinner>
     </div>
-	<ion-refresher (ionRefresh)="update($event)">
+	<ion-refresher (ionRefresh)="update($event)" style="margin-top:50px;">
 			<ion-refresher-content
 			  pullingIcon="ios-arrow-down-outline"
 			  
@@ -69,8 +69,7 @@
 			 <ion-grid *ngIf="posts" no-padding>
 				<ion-row no-padding> 
 				 <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 no-padding *ngFor="let post of posts" >
-					 <ion-card no-padding style="">
-
+					 <ion-card no-padding>
 							<button no-padding ion-item (tap)="showDetails(post.id,post.title,post.link)">
 								<ion-card-content no-padding class="fadeintransition" >
 									<div style="background-color: #f1f1f1; position: relative;">	

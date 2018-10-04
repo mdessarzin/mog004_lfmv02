@@ -53,7 +53,7 @@ super-tabs {
 
 	.header-ios	.btFiltre {
 		   position:fixed;
-		   top:55px;
+		   top:73px;
 		   height:50px;
 			width:100%;
 			text-align: center;
@@ -67,12 +67,14 @@ super-tabs {
 	}
 	
 	.content-ios .grid {
-		padding-top:48px;
+		margin-top:45px;
 	}
 	.content-md .grid {
-		padding-top:46px;
+		padding-top:45px;
 	}
-
+ion-content.has-refresher > .scroll-content {
+    background-color: transparent;
+}
 	
 	#tags::-webkit-scrollbar, #tags::-webkit-scrollbar { display: none; }
 	

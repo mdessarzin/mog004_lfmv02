@@ -1,5 +1,5 @@
 import { Component, ViewChild, Injectable } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform, Content, PopoverController, LoadingController, ModalController, AlertController, Slides} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, Platform, Content, PopoverController, LoadingController, ModalController, AlertController, Slides} from 'ionic-angular';
 import * as $ from "jquery";
 import { MusicControls } from '@ionic-native/music-controls';
 import { Http } from '@angular/http';
@@ -60,8 +60,9 @@ pagination: number = 1;
 		public _player: AudioStreamProvider,
 		public musicControls: MusicControls,
 		private iab: InAppBrowser,
-		 private ga: GoogleAnalytics,
-		 	public alertCtrl: AlertController,
+		private ga: GoogleAnalytics,
+		public alertCtrl: AlertController,
+		private toastCtrl: ToastController
 	){
 		
 			

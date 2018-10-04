@@ -31,7 +31,7 @@ page-actualite .has-refresher > .scroll-content {
   border-top: 0px solid #ddd; }
 page-actualite .header-ios .btFiltre {
   position: fixed;
-  top: 55px;
+  top: 73px;
   height: 50px;
   width: 100%;
   text-align: center; }
@@ -42,8 +42,10 @@ page-actualite .header-md .btFiltre {
   width: 100%;
   text-align: center; }
 page-actualite .content-ios .grid {
-  padding-top: 48px; }
+  margin-top: 45px; }
 page-actualite .content-md .grid {
-  padding-top: 46px; }
+  padding-top: 45px; }
+page-actualite ion-content.has-refresher > .scroll-content {
+  background-color: transparent; }
 page-actualite #tags::-webkit-scrollbar, page-actualite #tags::-webkit-scrollbar {
   display: none; }
