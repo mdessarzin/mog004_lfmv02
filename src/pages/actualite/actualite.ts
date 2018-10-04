@@ -22,7 +22,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 
 export class ActualitePage {
-	
+	@ViewChild(Content) content: Content;
 	private loadingPopup: any;
     artist: string;
     cover: string;
@@ -161,17 +161,18 @@ ionViewDidLoad() {
 	}	
 	
 
-
-
 private selectioncat(id){
 	$('.t').css('background-color','#f4f4f4').css('color','#000');
 	$('.btcat_'+id).css('background-color','#833177').css('color','#fff');
+		this.content.scrollToTop();
+
 	this.postsLoading = 0;
 	this.cat = id;
 	
 	this.posts = [];
 	this.pagination = 1;
-	  this.loadData();
+	this.loadData();
+	this.content.scrollToTop();
 }	
 
 private whatsappShare(title, image, link){
