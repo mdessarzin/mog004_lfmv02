@@ -1,5 +1,5 @@
 import { Component, ViewChild, Injectable } from '@angular/core';
-import { IonicPage, NavController, ViewController, NavParams, Platform, Content, PopoverController, LoadingController, ModalController, Slides} from 'ionic-angular';
+import { IonicPage, NavController, ViewController, ToastController, NavParams, Platform, Content, PopoverController, LoadingController, ModalController, Slides} from 'ionic-angular';
 import * as $ from "jquery";
 import { AudioStreamProvider } from '../../providers/audio-stream/audio-stream';
 import { MusicControls } from '@ionic-native/music-controls';
@@ -55,11 +55,11 @@ header: string;
 		 public navParams: NavParams,
 		 public platform: Platform,
 		 private iab: InAppBrowser,
-		 private ga: GoogleAnalytics
+		 private ga: GoogleAnalytics,
+		 private toastCtrl: ToastController
 	){
 		
 			
-			this.data= navParams.title;
 			
 			console.log(this.data);
 		this.loadData();
@@ -84,12 +84,17 @@ update(refresher) {
 	
   loadData(infiniteScroll?,refresher?) {
 	  
-	  
-			if (refresher) {
+			const toast = this.toastCtrl.create({
+				message: 'Chargement des articles',
+				position: 'bottom'
+			  });
+			toast.present();
+
+	  		if (refresher) {
 				this.pagination = 1;
 			}
 
-			this.http.get('https://www.radiolac.ch/wp-json/mog/v1/get_data?type=post&taxonomy=category&term_id='+this.navParams.get('key')+'&per_page=20&page='+this.pagination+'&hash_id=' + Math.random()).map(res => res.json()).subscribe(data => {
+			this.http.get('https://www.lfm.ch/wp-json/mog/v1/get_data?type=post&taxonomy=category&term_id=16&per_page=20&page='+this.pagination+'&hash_id=' + Math.random()).map(res => res.json()).subscribe(data => {
 			  //  this.posts = data;
 				console.log(this.posts);
 				if (refresher) {
@@ -102,6 +107,7 @@ update(refresher) {
 
 								}				  
 							  this.postsLoading = '1';
+							toast.dismiss();
 								if (infiniteScroll) {
 									infiniteScroll.complete();
 								}

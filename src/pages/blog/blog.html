@@ -4,7 +4,7 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      {{data}}
+      Concours
     </ion-title>
 
 	  <ion-buttons end >
@@ -46,11 +46,6 @@
 </ion-header>
 
 <ion-content no-padding id="page6" #pageContent>
-	<ion-slides *ngIf='!postsLoading'>
-        <ion-slide>
-            <ion-spinner name="crescent"></ion-spinner>
-        </ion-slide>
-    </ion-slides>
 	<ion-refresher (ionRefresh)="update($event)">
 			<ion-refresher-content
 			  pullingIcon="ios-arrow-down-outline"
