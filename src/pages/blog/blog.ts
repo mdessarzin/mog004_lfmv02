@@ -39,7 +39,6 @@ header: string;
 	pagination: number = 1;
 	maximumPages = 10;
 	posts: Array<any> = [];
-	data: any;
 	
   constructor(
 		public navCtrl: NavController,
