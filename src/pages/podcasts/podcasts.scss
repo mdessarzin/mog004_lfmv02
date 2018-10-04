@@ -27,14 +27,27 @@ page-podcasts {
     	border-bottom: solid 1px #e6e6e6  !important;
     }
 	
-.btFiltre {
-   position:fixed;
-   top:70px;
-   height:50px;
-	width:100%;
-	text-align: center;
-}
+	.header-ios	.btFiltre {
+		   position:fixed;
+		   top:50px;
+		   height:50px;
+			width:100%;
+			text-align: center;
+	}
+	.header-md	.btFiltre {
+		   position:fixed;
+		   top:65px;
+		   height:50px;
+			width:100%;
+			text-align: center;
+	}
 	
+	.content-ios .marginFiltre {
+		padding-top:53px;
+	}
+	.content-md .marginFiltre {
+		padding-top:53px;
+	}
 	
 @media (min-width: 992px) {
   .podcast_tab{

@@ -34,4 +34,4 @@ page-actualite #tags::-webkit-scrollbar, page-actualite #tags::-webkit-scrollbar
 page-actualite #tags {
   overflow-x: scroll;
   padding-top: 8px;
-  padding-bottom: 4px; }
+  margin-bottom: 8px; }

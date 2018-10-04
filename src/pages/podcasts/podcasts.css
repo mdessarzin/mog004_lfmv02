@@ -16,12 +16,22 @@ page-podcasts .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
   color: black !important; }
 page-podcasts .SwipedTabs-tabs {
   border-bottom: solid 1px #e6e6e6  !important; }
-page-podcasts .btFiltre {
+page-podcasts .header-ios .btFiltre {
   position: fixed;
-  top: 70px;
+  top: 50px;
   height: 50px;
   width: 100%;
   text-align: center; }
+page-podcasts .header-md .btFiltre {
+  position: fixed;
+  top: 65px;
+  height: 50px;
+  width: 100%;
+  text-align: center; }
+page-podcasts .content-ios .marginFiltre {
+  padding-top: 53px; }
+page-podcasts .content-md .marginFiltre {
+  padding-top: 53px; }
 @media (min-width: 992px) {
   page-podcasts .podcast_tab {
     display: block !important; }

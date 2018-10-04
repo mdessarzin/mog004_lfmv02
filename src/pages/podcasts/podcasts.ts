@@ -260,6 +260,7 @@ private share(message, title, image, link){
 			console.log('test '+data.title);
 			this.filtre = data.id;
 			this.filtre_titre = data.title;
+			$('.grid').addClass('marginFiltre');
 			this.postsLoading = 0;
 			this.cat = data.id;
 			this.posts = [];
@@ -273,6 +274,7 @@ private share(message, title, image, link){
 		this.postsLoading = 0;
 			this.filtre = '0';
 			this.filtre_titre = null;
+			$('.grid').removeClass('marginFiltre');
 			this.cat = '';
 			this.posts = [];
 			this.pagination = 1;

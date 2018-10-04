@@ -91,8 +91,22 @@
 						 </ion-row>
 			 </ion-card>
 			 <ng-template #podcasts>
+				
+					 <ion-card no-padding style="margin-bottom:10px; border-bottom: 0px solid #f1f1f1;" class="podcast_mobile">
+						<ion-card-content no-padding class="fadeintransition">
+							  <ion-item (tap)="configPlayer(post.title, './assets/imgs/podcasts.jpg', post.chronique[0], post.date, post._url_podcast)" style="padding-left: 5px; border-bottom: 0px solid #fff;">
+									<ion-thumbnail item-start>
+									  <img src="./assets/imgs/podcasts_.jpg">
+									</ion-thumbnail>
+									<span class="card_categorie_podcast">{{post.chronique[0]}}</span>
+									<h2 style="font-size:13px;">{{post.title}}</h2>
+									<p class="date_podcast"><i class="fas fa-dot-circle point"></i> {{post.date}}</p>
+							  </ion-item>
+						</ion-card-content>		
+					</ion-card>
 				 
-				 <ion-card no-padding style="margin-bottom:10px !important; margin-bottom:50px;" class="podcast_mobile" (tap)="configPlayer(post.title, './assets/imgs/podcasts.jpg', post.chronique[0], post.date, post._url_podcast)">
+				 
+				 <ion-card no-padding style="display:none; margin-bottom:10px !important;" class="podcast_tab" (tap)="configPlayer(post.title, './assets/imgs/podcasts.jpg', post.chronique[0], post.date, post._url_podcast)">
 					<ion-card-content no-padding class="fadeintransition">
 							<div style="background-color: #f1f1f1; position: relative;">	
 								<span class="card_categorie">{{post.chronique[0]}}</span>
@@ -115,34 +129,12 @@
 						  </ion-col>
 						 </ion-row>
 					</ion-card>	 
-				 <ion-card no-padding class="podcast_tab" style="display:none; margin-bottom:0px;"  (tap)="openPlayerVideo(post._url_podcast_video,'./assets/imgs/podcast_tab.jpg')">
-						<ion-card-content no-padding class="fadeintransition">
-							<div style="background-color: #f1f1f1; position: relative;">	
-								<span class="card_categorie">{{post.chronique[0]}}</span>
-								<span class="card_icon"><i class="fas fa-play-circle fa-3x"></i></span>
-								<img src="./assets/imgs/podcast_tab.jpg" />
-							</div>
-							<ion-card-title [innerHTML]="post.title"></ion-card-title>
-						</ion-card-content>
-						<ion-row>
-						   <ion-col align-self-start>
-							   <p class="date"><i class="fas fa-dot-circle point"></i> {{post.date}}</p>
-						   </ion-col>
-						   <ion-col text-right align-self-start>
-								<button ion-button clear icon-only mode="md" (tap)="share(post.title, post.card, post.link )">
-									<ion-icon name="md-share" style="color:#A9A9A9;"></ion-icon>
-								</button>
-							   <button ion-button clear icon-only mode="md" style="border-left:1px solid #f1f1f1;" (tap)="whatsappShare(post.title, post.card, post.link )">
-									<ion-icon name="logo-whatsapp" style="color:#A9A9A9;"></ion-icon>
-								</button>					
-						  </ion-col>
-						</ion-row>
-			 	</ion-card>
+				
 			 </ng-template>
 			</ion-col>
 		</ion-row>
     </ion-grid>  
-			<ion-infinite-scroll (ionInfinite)="loadMore($event)" threshold="30%" loadingSpinner="bubbles" loadingText="Chargement...">
+			<ion-infinite-scroll (ionInfinite)="loadMore($event)" threshold="30%" loadingSpinner="crescent" loadingText="Chargement...">
     		<ion-infinite-scroll-content></ion-infinite-scroll-content>
   		</ion-infinite-scroll>
 
