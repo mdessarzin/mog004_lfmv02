@@ -11,16 +11,17 @@ import { BlogPage } from '../blog/blog';
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-	tab1Root = AccueilPage;
-	tab2Root = ActualitePage;
-	tab3Root = PodcastsPage;
-	tab4Root = ChroniquesPage;
-	tab5Root = BlogPage;
 	
 	concours: {
 		title: "lawlesscreation",
 		key: "31"
 	}
+	
+	tab1Root = AccueilPage;
+	tab2Root = ActualitePage;
+	tab3Root = PodcastsPage;
+	tab4Root = ChroniquesPage;
+	tab5Root = BlogPage;
 	
 	
 	constructor(public navParams: NavParams) {

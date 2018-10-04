@@ -22,7 +22,6 @@ export class PodcastsPage {
 	@ViewChild('SwipedTabsSlider') SwipedTabsSlider: Slides ;
 	SwipedTabsIndicator :any= null;
 	tabs:any=[];
-
 	private loadingPopup: any;
     artist: string;
     cover: string;
@@ -105,12 +104,21 @@ update(refresher) {
   }
 	
   loadData(infiniteScroll?,refresher?) {
-	  
+
+	   		const toast = this.toastCtrl.create({
+				message: 'Chargement des articles',
+				position: 'bottom'
+			  });
+			toast.present();
 	  
 			if (refresher) {
 				this.pagination = 1;
 			}
 
+	  		if(this.pagination == 1){
+				this.posts = [];
+			}
+	  
 			this.http.get('https://www.lfm.ch/wp-json/mog/v1/get_data?type=podcasts&taxonomy=chronique&per_page=15&term_id='+this.cat+'&page='+this.pagination+'&hash_id='+Math.random()).map(res => res.json()).subscribe(data => {
 			  //  this.posts = data;
 				console.log(this.posts);
@@ -123,6 +131,9 @@ update(refresher) {
 									this.posts.push(i);
 									this.nbPost = 1;
 								}
+								
+								this.postsLoading = '1';
+								toast.dismiss();
 				
 								if(this.nbPost == 0){
 									let alert = this.alertCtrl.create({
@@ -261,7 +272,8 @@ private share(message, title, image, link){
 			console.log('test '+data.title);
 			this.filtre = data.id;
 			this.filtre_titre = data.title;
-			$('.grid').addClass('marginFiltre');
+			$('.grid').addClass('gridFiltre');
+			$('.refresh').addClass('refreshFiltre');
 			this.postsLoading = 0;
 			this.cat = data.id;
 			this.posts = [];
@@ -275,7 +287,8 @@ private share(message, title, image, link){
 		this.postsLoading = 0;
 			this.filtre = '0';
 			this.filtre_titre = null;
-			$('.grid').removeClass('marginFiltre');
+			$('.grid').removeClass('gridFiltre');
+			$('.refresh').removeClass('refreshFiltre');
 			this.cat = '';
 			this.posts = [];
 			this.pagination = 1;

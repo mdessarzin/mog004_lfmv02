@@ -42,23 +42,20 @@
   </ion-navbar>
 
 	<ion-scroll scrollX="true" class="btFiltre" id="tags">
-	  	<ion-segment style="width: 640px;" no-shadow>
-			<button class="t btcat_10" color="light" ion-button round small (click)="selectioncat('10');">Derniers</button>
-			<button class="t btcat_221" ion-button color="light" round small (click)="selectioncat('221')">Vaud</button>
-			<button class="t btcat_404" ion-button color="light" round small (click)="selectioncat('404')">Genève</button>
-			<button class="t btcat_23" ion-button color="light" round small (click)="selectioncat('23')">Sport</button>
-			<button class="t btcat_24" ion-button color="light" round small (click)="selectioncat('24')">Suisse</button>
-			<button class="t btcat_61" ion-button color="light" round small (click)="selectioncat('61')">International</button>
+	  	<ion-segment style="width: 680px;" no-shadow>
+			<button class="t btcat_10" color="light" ion-button round (click)="selectioncat('10');">Derniers</button>
+			<button class="t btcat_221" ion-button color="light" round (click)="selectioncat('221')">Vaud</button>
+			<button class="t btcat_404" ion-button color="light" round (click)="selectioncat('404')">Genève</button>
+			<button class="t btcat_23" ion-button color="light" round (click)="selectioncat('23')">Sport</button>
+			<button class="t btcat_24" ion-button color="light" round (click)="selectioncat('24')">Suisse</button>
+			<button class="t btcat_61" ion-button color="light" round (click)="selectioncat('61')">International</button>
 		</ion-segment>
 	</ion-scroll>
 </ion-header>
 <ion-content >
 	<!-- here is our dynamic line  "indicator"-->
 
-	<div *ngIf='postsLoading=="0"' class="spinnerCenter">
-            <ion-spinner name="crescent"></ion-spinner>
-    </div>
-	<ion-refresher (ionRefresh)="update($event)" style="margin-top:50px;">
+	<ion-refresher (ionRefresh)="update($event)" style="margin-top:60px;">
 			<ion-refresher-content
 			  pullingIcon="ios-arrow-down-outline"
 			  
@@ -66,12 +63,12 @@
 			</ion-refresher-content>
 	</ion-refresher>
          
-			 <ion-grid *ngIf="posts" no-padding>
+			 <ion-grid no-padding>
 				<ion-row no-padding> 
 				 <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 no-padding *ngFor="let post of posts" >
 					 <ion-card no-padding>
 							<button no-padding ion-item (tap)="showDetails(post.id,post.title,post.link)">
-								<ion-card-content no-padding class="fadeintransition" >
+								<ion-card-content no-padding class="fadeintransition-" >
 									<div style="background-color: #f1f1f1; position: relative;">	
 										<span class="card_categorie">{{post.chronique[0]}}</span>				
 										<img data-src="{{post.card}}" style="background-color: #BCBBBB;" />
@@ -102,7 +99,7 @@
 						</ion-col>
 					</ion-row>
 				</ion-grid> 
-			<ion-infinite-scroll (ionInfinite)="loadMore($event)" threshold="30%" loadingSpinner="crescent" loadingText="Chargement...">
+			<ion-infinite-scroll *ngIf="postsLoading!='0'" (ionInfinite)="loadMore($event)" threshold="30%" loadingSpinner="crescent" loadingText="Chargement...">
     		<ion-infinite-scroll-content></ion-infinite-scroll-content>
   		</ion-infinite-scroll>
 

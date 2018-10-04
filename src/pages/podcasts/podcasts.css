@@ -16,10 +16,12 @@ page-podcasts .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
   color: black !important; }
 page-podcasts .SwipedTabs-tabs {
   border-bottom: solid 1px #e6e6e6  !important; }
+page-podcasts .has-refresher > .scroll-content {
+  border-top: 0px solid #ddd; }
 page-podcasts .header-ios .btFiltre {
   position: fixed;
-  top: 70px;
-  height: 50px;
+  top: 73px;
+  height: 70px;
   width: 100%;
   text-align: center; }
 page-podcasts .header-md .btFiltre {
@@ -28,10 +30,14 @@ page-podcasts .header-md .btFiltre {
   height: 50px;
   width: 100%;
   text-align: center; }
-page-podcasts .content-ios .marginFiltre {
-  padding-top: 53px; }
-page-podcasts .content-md .marginFiltre {
-  padding-top: 53px; }
+page-podcasts .content-ios .gridFiltre {
+  margin-top: 65px; }
+page-podcasts .content-md .gridFiltre {
+  margin-top: 45px; }
+page-podcasts .refreshFiltre {
+  margin-top: 60px; }
+page-podcasts ion-content.has-refresher > .scroll-content {
+  background-color: transparent; }
 @media (min-width: 992px) {
   page-podcasts .podcast_tab {
     display: block !important; }

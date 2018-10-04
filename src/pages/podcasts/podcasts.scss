@@ -1,6 +1,5 @@
 page-podcasts {
-	
-	
+
 	 	.SwipedTabs-indicatorSegment{
         -webkit-transition: 0.3s all;
         -moz-transition:  0.3s all;
@@ -27,27 +26,41 @@ page-podcasts {
     	border-bottom: solid 1px #e6e6e6  !important;
     }
 	
+	.has-refresher > .scroll-content {
+		border-top: 0px solid #ddd;
+	}
+
 	.header-ios	.btFiltre {
-		position:fixed;
-		top:70px;
-		height:50px;
-		width:100%;
-		text-align: center;
+		   position:fixed;
+		   top:73px;
+		   height:70px;
+			width:100%;
+			text-align: center;
 	}
 	.header-md	.btFiltre {
-		position:fixed;
-		top:65px;
-		height:50px;
-		width:100%;
-		text-align: center;
+		   position:fixed;
+		   top:65px;
+		   height:50px;
+			width:100%;
+			text-align: center;
 	}
 	
-	.content-ios .marginFiltre {
-		padding-top:53px;
+	.content-ios .gridFiltre {
+		margin-top:65px;
 	}
-	.content-md .marginFiltre {
-		padding-top:53px;
+	.content-md .gridFiltre {
+		margin-top:45px;
 	}
+	
+	.refreshFiltre {
+		margin-top:60px;
+	}
+	
+ion-content.has-refresher > .scroll-content {
+    background-color: transparent;
+}
+
+
 	
 @media (min-width: 992px) {
   .podcast_tab{

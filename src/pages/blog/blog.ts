@@ -39,7 +39,7 @@ header: string;
 	pagination: number = 1;
 	maximumPages = 10;
 	posts: Array<any> = [];
-	
+	data: any;
 	
   constructor(
 		public navCtrl: NavController,
@@ -57,7 +57,11 @@ header: string;
 		 private iab: InAppBrowser,
 		 private ga: GoogleAnalytics
 	){
-		this.title = navParams.get('title');
+		
+			
+			this.data= navParams.title;
+			
+			console.log(this.data);
 		this.loadData();
 
 		this.ga.startTrackerWithId('UA-104904297-2')

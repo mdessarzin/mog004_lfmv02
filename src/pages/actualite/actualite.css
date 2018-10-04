@@ -32,7 +32,7 @@ page-actualite .has-refresher > .scroll-content {
 page-actualite .header-ios .btFiltre {
   position: fixed;
   top: 73px;
-  height: 50px;
+  height: 70px;
   width: 100%;
   text-align: center; }
 page-actualite .header-md .btFiltre {
@@ -42,9 +42,9 @@ page-actualite .header-md .btFiltre {
   width: 100%;
   text-align: center; }
 page-actualite .content-ios .grid {
-  margin-top: 45px; }
+  margin-top: 65px; }
 page-actualite .content-md .grid {
-  padding-top: 45px; }
+  margin-top: 45px; }
 page-actualite ion-content.has-refresher > .scroll-content {
   background-color: transparent; }
 page-actualite #tags::-webkit-scrollbar, page-actualite #tags::-webkit-scrollbar {

@@ -97,19 +97,22 @@ update(refresher) {
   }
 	
   loadData(infiniteScroll?,refresher?) {
-	  
-			this.toast = this.toastCtrl.create({
+
+			const toast = this.toastCtrl.create({
 				message: 'Chargement des articles',
-				position: 'bottom',
-				duration: 5000,
+				position: 'bottom'
 			  });
-	    	this.toast.present();
+			toast.present();
 
 	  
 			if (refresher) {
 				this.pagination = 1;
 			}
 
+	  		if(this.pagination == 1){
+				this.posts = [];
+			}
+	  
 			this.http.get('https://www.lfm.ch/wp-json/mog/v1/get_data?type=post&taxonomy=category&term_id='+this.cat+'&per_page=20&page='+this.pagination+'&hash_id=' + Math.random()).map(res => res.json()).subscribe(data => {
 			  //  this.posts = data;
 				console.log(this.posts);
@@ -122,18 +125,19 @@ update(refresher) {
 									this.posts.push(i);
 
 								}				  
-							  this.postsLoading = '1';
-				this.toast.dismiss();
+								this.postsLoading = '1';
+								toast.dismiss();
 								if (infiniteScroll) {
 									infiniteScroll.complete();
 								}
 								else {
-									setTimeout(() => {     
-										this.content.scrollToTop();			
-									}, 100);
+									
+										
+									
+									
 								}
 			});
-	  
+	  						
 
   }	
 	
@@ -178,9 +182,11 @@ private selectioncat(id){
 	$('.t').css('background-color','#f4f4f4').css('color','#000');
 	$('.btcat_'+id).css('background-color','#833177').css('color','#fff');
 
-	//this.postsLoading = 0;
+	
+	this.postsLoading = 0;
 	this.cat = id;
-	this.posts = [];
+	
+
 	this.pagination = 1;
 	this.loadData();
 }	
