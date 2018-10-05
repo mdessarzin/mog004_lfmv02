@@ -41,26 +41,37 @@
 
   </ion-navbar>
 
-	<ion-scroll scrollX="true" style="height:55px;" id="tags">
-	  	<ion-segment style="width: 680px;" no-shadow>
-			<button class="t btcat_10" color="light" ion-button round (tap)="selectioncat('10');">Derniers</button>
-			<button class="t btcat_221" ion-button color="light" round (tap)="selectioncat('221')">Vaud</button>
-			<button class="t btcat_404" ion-button color="light" round (tap)="selectioncat('404')">Genève</button>
-			<button class="t btcat_23" ion-button color="light" round (tap)="selectioncat('23')">Sport</button>
-			<button class="t btcat_24" ion-button color="light" round (tap)="selectioncat('24')">Suisse</button>
-			<button class="t btcat_61" ion-button color="light" round (tap)="selectioncat('61')">International</button>
-		</ion-segment>
-	</ion-scroll>
+	<swiper [config]="config" class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+				<button class="t btcat_10" color="light" ion-button round (tap)="selectioncat('10');">Derniers</button>
+			</div>
+			<div class="swiper-slide">
+				<button class="t btcat_221" ion-button color="light" round (tap)="selectioncat('221')">Vaud</button>
+			</div>	
+			<div class="swiper-slide">
+				<button class="t btcat_404" ion-button color="light" round (tap)="selectioncat('404')">Genève</button>
+			</div>	
+			<div class="swiper-slide">
+				<button class="t btcat_23" ion-button color="light" round (tap)="selectioncat('23')">Sport</button>
+			</div>	
+			<div class="swiper-slide">
+				<button class="t btcat_24" ion-button color="light" round (tap)="selectioncat('24')">Suisse</button>
+			</div>	
+			<div class="swiper-slide">
+				<button class="t btcat_61" ion-button color="light" round (tap)="selectioncat('61')">International</button>
+			</div>
+				
+</div>
+	</swiper>
 </ion-header>
 <ion-content >
 	<!-- here is our dynamic line  "indicator"-->
 
-	<ion-refresher (ionRefresh)="update($event)" startY="300">
+	<ion-refresher (ionRefresh)="update($event)" pullMin="100">
 			<ion-refresher-content
 				pullingIcon="ios-arrow-down-outline"
-				pullingText=" "
-				refreshingSpinner="crescent"
-				refreshingText=" ">
+				refreshingSpinner="crescent">
 			</ion-refresher-content>
 	</ion-refresher>
          

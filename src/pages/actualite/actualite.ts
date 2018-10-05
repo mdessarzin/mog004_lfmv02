@@ -12,6 +12,7 @@ import { PlayerPage } from '../player/player';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { StatusBar } from '@ionic-native/status-bar';
+import { SwiperModule } from 'angular2-useful-swiper'; 
 
 @Component({
   selector: 'page-actualite',
@@ -51,6 +52,22 @@ export class ActualitePage {
 	color4: string = 'light';
 	color5: string = 'light';
 	color6: string = 'light';
+	 @ViewChild('SwipedTabsSlider') SwipedTabsSlider: Slides ;
+
+  SwipedTabsIndicator :any= null;
+  tabs:any=[];
+	
+	config: Object = {
+		            slidesPerView: 'auto',
+      centeredSlides: false,
+            direction: 'horizontal',
+            freeMode: true,
+            fade: {
+                crossFade: true,
+            },
+            roundLengths: true,
+            effect: 'slide' //use cube,flip,coverflow or fade
+        }; 
 	
   constructor(
 		public navCtrl: NavController,
