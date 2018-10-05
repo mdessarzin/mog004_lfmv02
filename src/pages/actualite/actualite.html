@@ -68,7 +68,7 @@
 <ion-content >
 	<!-- here is our dynamic line  "indicator"-->
 
-	<ion-refresher (ionRefresh)="update($event)" pullMin="100">
+	<ion-refresher (ionRefresh)="update($event)" pullMin="100" pullMax="1000">
 			<ion-refresher-content
 				pullingIcon="ios-arrow-down-outline"
 				refreshingSpinner="crescent">
