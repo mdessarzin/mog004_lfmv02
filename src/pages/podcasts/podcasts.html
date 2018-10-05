@@ -51,7 +51,7 @@
 
 <ion-content>
 	
-	<ion-refresher (ionRefresh)="update($event)" class="refresh" pullMin="100">
+	<ion-refresher (ionRefresh)="update($event)" pullMin="100" pullMax="1000">
 			<ion-refresher-content
 			  pullingIcon="ios-arrow-down-outline"
 			  
@@ -67,7 +67,7 @@
 							<div style="background-color: #f1f1f1; position: relative;">	
 								<span class="card_categorie" style="display:none; ">{{post.chronique[0]}}</span>
 								<span class="card_icon"><i class="fas fa-play-circle fa-3x"></i></span>
-								<img *ngIf='post.card' data-src="{{post.card}}" />
+								<img src="{{post.card}}" style="background-image: url('./assets/imgs/placeholder.png');" />
 							</div>
 							<ion-card-title [innerHTML]="post.title"></ion-card-title>
 						</ion-card-content>
@@ -106,7 +106,7 @@
 							<div style="background-color: #f1f1f1; position: relative;">	
 								<span class="card_categorie">{{post.chronique[0]}}</span>
 								<span class="card_icon"><i class="fas fa-play-circle fa-3x"></i></span>
-								<img *ngIf='post.card' data-src="{{post.card}}" />
+								<img *ngIf='post.card' src="{{post.card}}" />
 							</div>
 							<ion-card-title [innerHTML]="post.title"></ion-card-title>
 						</ion-card-content>	
