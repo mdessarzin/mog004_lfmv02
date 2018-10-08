@@ -11,6 +11,7 @@ import { DetailsPage } from '../details/details';
 import { PlayerPage } from '../player/player';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
+import { StatusBar } from '@ionic-native/status-bar';
 
 @Component({
   selector: 'page-blog',
@@ -55,10 +56,11 @@ header: string;
 		 public platform: Platform,
 		 private iab: InAppBrowser,
 		 private ga: GoogleAnalytics,
-		 private toastCtrl: ToastController
+		 private toastCtrl: ToastController,
+		 private statusBar: StatusBar
 	){
 		
-			
+		this.statusBar.styleDefault();
 			
 			console.log(this.data);
 		this.loadData();

@@ -13,6 +13,7 @@ import { PlayerpopupPage } from '../playerpopup/playerpopup';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { ChroniquesPage } from '../chroniques/chroniques';
+import { StatusBar } from '@ionic-native/status-bar';
 
 @Component({
   selector: 'page-podcasts',
@@ -61,15 +62,11 @@ pagination: number = 1;
 		private iab: InAppBrowser,
 		private ga: GoogleAnalytics,
 		public alertCtrl: AlertController,
-		private toastCtrl: ToastController
+		private toastCtrl: ToastController,
+		 private statusBar: StatusBar
 	){
-		
 			
-			
-
-
-			
-			
+		this.statusBar.styleDefault();
 			
 		this.filtre='0';
 		this.tabs=["Lausanne","Genève"];

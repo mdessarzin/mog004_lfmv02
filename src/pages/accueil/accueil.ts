@@ -13,6 +13,7 @@ import { PlayerPlaylistPage } from '../player-playlist/player-playlist'
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { SwiperModule } from 'angular2-useful-swiper'; 
+import { StatusBar } from '@ionic-native/status-bar';
 
 //import {Http, Response} from "@angular/http";
 //import {Observable} from 'rxjs/Rx';
@@ -101,9 +102,11 @@ test:any;
 		public plt: Platform,
 		public platform: Platform,
 		private iab: InAppBrowser,
-		private ga: GoogleAnalytics
+		private ga: GoogleAnalytics,
+		 private statusBar: StatusBar
 	){
-				this.tabs=["page1","page2"];
+
+		this.statusBar.backgroundColorByHexString("#833177");
 			
 		this.loadData();	
 		this.test = 2;
