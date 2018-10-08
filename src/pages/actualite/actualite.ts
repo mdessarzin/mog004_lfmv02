@@ -93,6 +93,7 @@ export class ActualitePage {
 			
 this.loadData();
 
+		this.statusBar.styleDefault();
 			
 		this.ga.startTrackerWithId('UA-104904297-2')
 			  .then(() => {
