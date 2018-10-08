@@ -1,21 +1,21 @@
 /*
 Error: Undefined variable: "$background-light-color".
-        on line 82 of /Users/matthieudessarzin/Documents/Projets/MOG003_LFM/src/app/app.scss
+        on line 87 of /Users/matthieudessarzin/Documents/Projets/MOG003_LFM/src/app/app.scss
 
-77: 
-78: 
-79:     // Single option
-80:     // ------------------
-81:     ion-item.item.item-block.option {
-82:         background-color: $background-light-color;
-83:         color: $font-color;
-84: 
-85:         &.active-side-menu-option {
-86:             color: $active-color;
-87:         }
+82: 
+83: 
+84:     // Single option
+85:     // ------------------
+86:     ion-item.item.item-block.option {
+87:         background-color: $background-light-color;
+88:         color: $font-color;
+89: 
+90:         &.active-side-menu-option {
+91:             color: $active-color;
+92:         }
 
 Backtrace:
-/Users/matthieudessarzin/Documents/Projets/MOG003_LFM/src/app/app.scss:82
+/Users/matthieudessarzin/Documents/Projets/MOG003_LFM/src/app/app.scss:87
 /Applications/Adobe Dreamweaver CC 2018/Adobe Dreamweaver CC 2018.app/Contents/Resources/gems/rubygems/gems/sass-3.5.3/lib/sass/script/tree/variable.rb:49:in `_perform'
 /Applications/Adobe Dreamweaver CC 2018/Adobe Dreamweaver CC 2018.app/Contents/Resources/gems/rubygems/gems/sass-3.5.3/lib/sass/script/tree/node.rb:50:in `perform'
 /Applications/Adobe Dreamweaver CC 2018/Adobe Dreamweaver CC 2018.app/Contents/Resources/gems/rubygems/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
@@ -72,4 +72,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$background-light-color\".\A         on line 82 of /Users/matthieudessarzin/Documents/Projets/MOG003_LFM/src/app/app.scss\A \A 77: \A 78: \A 79:     // Single option\A 80:     // ------------------\A 81:     ion-item.item.item-block.option {\A 82:         background-color: $background-light-color;\A 83:         color: $font-color;\A 84: \A 85:         &.active-side-menu-option {\A 86:             color: $active-color;\A 87:         }"; }
+  content: "Error: Undefined variable: \"$background-light-color\".\A         on line 87 of /Users/matthieudessarzin/Documents/Projets/MOG003_LFM/src/app/app.scss\A \A 82: \A 83: \A 84:     // Single option\A 85:     // ------------------\A 86:     ion-item.item.item-block.option {\A 87:         background-color: $background-light-color;\A 88:         color: $font-color;\A 89: \A 90:         &.active-side-menu-option {\A 91:             color: $active-color;\A 92:         }"; }
