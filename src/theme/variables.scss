@@ -35,14 +35,15 @@ $app-direction: ltr;
 
 
 $colors: (
-  primary:    #833177,
-  secondary:  #32db64,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #000000,
-  menulight:  #333333,
-  menudark:   #252525,
-menudarkcontent:   #181818
+	primary:    #833177,
+	secondary:  #32db64,
+	danger:     #f53d3d,
+	light:      #f4f4f4,
+	dark:       #000000,
+	menulight:  #333333,
+	menudark:   #252525,
+	menudarkcontent:   #181818,
+	lightmenu: #ffffff 
 );
 
 $toolbar-ios-background: #833177;

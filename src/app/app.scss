@@ -33,6 +33,13 @@ p {
 	margin-right: 5px;
 }
 
+.no-border .bar-header {
+    border: 0px !important;
+    border-bottom-color: transparent !important;
+    background-image: none !important;
+    border-bottom: none !important;
+}
+
 side-menu-content {
 
 	ion-item.item-ios,
