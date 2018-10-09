@@ -99,7 +99,8 @@ export class MyApp {
 		this.platform.ready().then(() => {
 						
 
-			this.statusBar.styleLightContent();
+			//this.statusBar.styleLightContent();
+			this.statusBar.styleDefault();
 			this.splashScreen.hide();
 		localStorage.setItem("type_player", "live");
 		localStorage.setItem("podcast_url", '');

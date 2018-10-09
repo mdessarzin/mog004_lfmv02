@@ -13,6 +13,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SwiperModule } from 'angular2-useful-swiper'; 
+import { ScrollHideConfig } from '../../directives/scroll-hide';
 
 @Component({
   selector: 'page-actualite',
@@ -54,6 +55,10 @@ export class ActualitePage {
 	color6: string = 'light';
 	 @ViewChild('SwipedTabsSlider') SwipedTabsSlider: Slides ;
 
+  headerScrollConfig: ScrollHideConfig = { cssProperty: 'margin-top', maxValue: 130 };
+
+
+	
   SwipedTabsIndicator :any= null;
   tabs:any=[];
 	
@@ -68,6 +73,7 @@ export class ActualitePage {
             roundLengths: true,
             effect: 'slide' //use cube,flip,coverflow or fade
         }; 
+	
 	
   constructor(
 		public navCtrl: NavController,
@@ -94,7 +100,8 @@ export class ActualitePage {
 this.loadData();
 
 		this.statusBar.styleDefault();
-			
+
+
 		this.ga.startTrackerWithId('UA-104904297-2')
 			  .then(() => {
 				console.log('Google analytics is ready now');

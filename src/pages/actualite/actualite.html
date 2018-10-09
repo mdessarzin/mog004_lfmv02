@@ -1,5 +1,5 @@
-<ion-header no-border>
-  <ion-navbar color="lightmenu">
+<ion-header>
+  <ion-navbar scroll-hide-translate color="lightmenu">
     <button ion-button menuToggle class="ripple">
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -39,7 +39,7 @@
 
   </ion-navbar>
 
-	<swiper [config]="config" class="swiper-container">
+	<swiper [config]="config" class="swiper-container" style="padding-top:5px;padding-bottom:5px;background-color:#fff;">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
 				<button mode="ios" class="t btcat_10" color="light" ion-button round (tap)="selectioncat('10');">Derniers</button>
@@ -63,7 +63,7 @@
 </div>
 	</swiper>
 </ion-header>
-<ion-content >
+<ion-content #pageContent>
 	<!-- here is our dynamic line  "indicator"-->
 
 	<ion-refresher (ionRefresh)="update($event)" pullMin="100" pullMax="1000">

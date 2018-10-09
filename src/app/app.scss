@@ -362,13 +362,13 @@ $max: 35px;
 }
 
 .bar_off {
-  fill: #fff;
+  fill: #000;
   width: 12px;
 	height: 3px !important;
 }
 
 .bar {
-  fill: #fff;
+  fill: #000;
   width: 12px;
   animation: equalize 1.25s steps(25, end) 0s infinite;
 }

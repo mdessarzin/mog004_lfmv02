@@ -14,6 +14,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { SwiperModule } from 'angular2-useful-swiper'; 
 import { StatusBar } from '@ionic-native/status-bar';
+import { ScrollHideConfig } from '../../directives/scroll-hide';
 
 //import {Http, Response} from "@angular/http";
 //import {Observable} from 'rxjs/Rx';
@@ -26,32 +27,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 export class AccueilPage {
 	
-	public cards = [{
-    hasVideo: false,
-    src: 'assets/imgs/poster01.jpg',
-    avatarSrc: 'assets/imgs/avatar01.jpg',
-    name: 'Ian',
-    location: 'Dallas'
-  }, {
-    hasVideo: true,
-    src: 'assets/videos/video01.mp4',
-    avatarSrc: 'assets/imgs/avatar02.jpg',
-    name: 'Sarah',
-    location: 'Huntington Park'
-  }, {
-    hasVideo: false,
-    src: 'assets/imgs/poster02.jpg',
-    avatarSrc: 'assets/imgs/avatar03.jpg',
-    name: 'Marty',
-    location: 'Roslyndale Avenue'
-  }];
-	
 	
 	 @ViewChild('SwipedTabsSlider') SwipedTabsSlider: Slides ;
 
   SwipedTabsIndicator :any= null;
   tabs:any=[];
-	
+	  headerScrollConfig: ScrollHideConfig = { cssProperty: 'margin-top', maxValue: 64 };
+
 	config: Object = {
             pagination: '.swiper-pagination',
             paginationClickable: true,
@@ -106,7 +88,6 @@ test:any;
 		 private statusBar: StatusBar
 	){
 
-		this.statusBar.backgroundColorByHexString("#833177");
 			
 		this.loadData();	
 		this.test = 2;
@@ -124,27 +105,11 @@ test:any;
 
 	
 	ionViewDidEnter() {
-    this.SwipedTabsIndicator = document.getElementById("indicator");
 
 
   }
 
-  selectTab(index) {    
-    this.SwipedTabsIndicator.style.webkitTransform = 'translate3d('+(100*index)+'%,0,0)';
-    this.SwipedTabsSlider.slideTo(index, 500);
-	  
-	  
-  	if( this.SwipedTabsSlider.length()> this.SwipedTabsSlider.getActiveIndex())
-  	{
-  		this.SwipedTabsIndicator.style.webkitTransform = 'translate3d('+(this.SwipedTabsSlider.getActiveIndex() * 100)+'%,0,0)';
-		
-  	}
-    }
 
-  animateIndicator($event) {
-  	if(this.SwipedTabsIndicator)
-   	    this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (($event.progress* (this.SwipedTabsSlider.length()-1))*100) + '%,0,0)';
-  }
 	
 update(refresher) {
     console.log('Begin async operation', refresher);
