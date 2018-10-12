@@ -68,7 +68,7 @@ link: string;
 	
 private loadclose(){
 			setTimeout( () => {
-				this.postsLoading = '1';
+				//this.postsLoading = '1';
 			}, 1000 );
 }	
 	
