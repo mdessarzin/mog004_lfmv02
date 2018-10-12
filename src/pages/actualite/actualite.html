@@ -77,7 +77,7 @@
 				<ion-row no-padding> 
 				 <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 no-padding *ngFor="let post of posts" >
 					 <ion-card no-padding>
-							<button no-padding ion-item (tap)="showDetails(post.id,post.title,post.link)">
+							<button no-padding ion-item (tap)="showDetails(post.id,post.title,post.link_light)">
 								<ion-card-content no-padding class="fadeintransition-" >
 									<div style="background-color: #f1f1f1; position: relative;">	
 										<span class="card_categorie">{{post.chronique[0]}}</span>				
@@ -91,10 +91,10 @@
 								   <p class="date"><i class="fas fa-dot-circle point"></i> {{post.date}}</p>
 							   </ion-col>
 							   <ion-col text-right align-self-start>
-									<button ion-button icon-only clear mode="md" (tap)="share(post.title, post.card, post.link )">
+									<button ion-button icon-only clear mode="md" (tap)="share(post.title, post.card, post.link_light )">
 										<ion-icon name="md-share" style="color:#A9A9A9;"></ion-icon>
 									</button>
-								   <button ion-button clear icon-only mode="md" style="border-left:1px solid #f1f1f1;" (tap)="whatsappShare(post.title, post.card, post.link )">
+								   <button ion-button clear icon-only mode="md" style="border-left:1px solid #f1f1f1;" (tap)="whatsappShare(post.title, post.card, post.link_light )">
 										<ion-icon name="logo-whatsapp" style="color:#A9A9A9;"></ion-icon>
 									</button>					
 							  </ion-col>

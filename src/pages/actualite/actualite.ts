@@ -13,7 +13,6 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SwiperModule } from 'angular2-useful-swiper'; 
-import { ScrollHideConfig } from '../../directives/scroll-hide';
 
 @Component({
   selector: 'page-actualite',
@@ -54,9 +53,6 @@ export class ActualitePage {
 	color5: string = 'light';
 	color6: string = 'light';
 	 @ViewChild('SwipedTabsSlider') SwipedTabsSlider: Slides ;
-
-  headerScrollConfig: ScrollHideConfig = { cssProperty: 'margin-top', maxValue: 130 };
-
 
 	
   SwipedTabsIndicator :any= null;

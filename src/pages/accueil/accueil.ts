@@ -14,7 +14,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { SwiperModule } from 'angular2-useful-swiper'; 
 import { StatusBar } from '@ionic-native/status-bar';
-import { ScrollHideConfig } from '../../directives/scroll-hide';
+
 
 //import {Http, Response} from "@angular/http";
 //import {Observable} from 'rxjs/Rx';
@@ -32,7 +32,6 @@ export class AccueilPage {
 
   SwipedTabsIndicator :any= null;
   tabs:any=[];
-	  headerScrollConfig: ScrollHideConfig = { cssProperty: 'margin-top', maxValue: 64 };
 
 	config: Object = {
             pagination: '.swiper-pagination',
