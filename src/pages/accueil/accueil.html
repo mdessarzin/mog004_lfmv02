@@ -44,7 +44,10 @@
 			<ion-card-content no-padding class="fadeintransition" style="position:relative;">
 				<div style="background-color: #f1f1f1; position: relative;">
 					<img id="coverPlayer" src="./assets/imgs/placeholder.png" style="background-color: #BCBBBB;" />
-					
+					<div class="fadebg" style="display:none;"></div>
+					<ion-card-title style="display:none;color:#fff; position:absolute;bottom:10px;left:0px;right:0px;height:auto;font-size:20px !important;">
+						<span class="card_categorie_home">En ce moment</span><br><span class="titre"></span> <span class="soustitre" style="font-size:14px;"></span>
+					</ion-card-title>
 				</div>
 				<ion-fab center middle>
 					<button ion-fab mode="md" color="danger" class="" (tap)='startAudio()'>

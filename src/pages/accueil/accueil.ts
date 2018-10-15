@@ -124,6 +124,10 @@ export class AccueilPage {
 		$('.titre').html(localStorage.playerTitre);
 		$('.soustitre').html('Avec '+localStorage.playerSoustitre);
 		$('#coverPlayer').attr('src', localStorage.playerCover);
+
+		setTimeout(() => {
+			$('.fab-md-danger').removeClass("pulseplay");
+		}, 6000);
 	}
 
 	ionViewDidLoad() {
