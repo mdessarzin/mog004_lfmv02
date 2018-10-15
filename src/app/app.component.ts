@@ -91,6 +91,7 @@ export class MyApp {
 				localStorage.setItem("playerTitre", data.title);
 				localStorage.setItem("playerSoustitre", data.animators);
 				localStorage.setItem("playerCover", data.picture); //data.picture
+				$('#coverPlayerHome').attr('src', data.picture);
 			});
 
 

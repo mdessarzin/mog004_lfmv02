@@ -127,9 +127,7 @@ export class AccueilPage {
 	}
 
 	ionViewDidLoad() {
-
-
-		$('#coverPlayer').attr('src', localStorage.playerCover);
+		$('#coverPlayerHome').attr('src', localStorage.playerCover);
 		if (localStorage.player == 'play') {
 			this.buttonIcon = 'ios-stop';
 			$('.btPlayerhome').html('<i class="fas fa-pause"></i>');
@@ -191,8 +189,10 @@ export class AccueilPage {
 
 
 	private startAudio() {
-		if (localStorage.player == 'play') {
+		$('.webradio .pause').hide();
+		if (localStorage.player == 'play' && localStorage.player_id == '0') {
 			this._player.pauseProvider();
+			$('.loadingaudio').hide();
 			$('.btPlayerhome').html('<i class="fas fa-play"></i>');
 			$('.fab-md-danger').addClass("pulseplay");
 			$('.playerEtat_2').hide();
@@ -200,8 +200,11 @@ export class AccueilPage {
 			$('.playerEtat_0').show();
 
 		}
-		else {
+		else
+		{
+			this._player.playerconfigProvider('live', '0');4
 			this.buttonIcon = 'ios-stop';
+			$('.loadingaudio').show();
 			this._player.playProvider();
 			$('.btPlayerhome').html('<i class="fas fa-pause"></i>');
 			$('.fab-md-danger').removeClass("pulseplay");
@@ -212,21 +215,22 @@ export class AccueilPage {
 	}
 
 	private startWebradios(idwebradio) {
-		if (localStorage.player == 'play') {
+		$('.webradio .pause').hide();
+		$('.btPlayerhome').html('<i class="fas fa-play"></i>');
+		if(localStorage.player_id == idwebradio && localStorage.player=='play'){
 			this._player.pauseProvider();
-			$('.btPlayerhome').html('<i class="fas fa-play"></i>');
-			$('.fab-md-danger').addClass("pulseplay");
 			$('.playerEtat_2').hide();
 			$('.playerEtat_1').hide();
 			$('.playerEtat_0').show();
-
+			$('.loadingaudio').hide();
 		}
 		else {
 			this.buttonIcon = 'ios-stop';
+			$('.loadingaudio').show();
 			this._player.playerconfigProvider('live', idwebradio);
 			this._player.playProvider();
-			$('.btPlayerhome').html('<i class="fas fa-pause"></i>');
-			$('.fab-md-danger').removeClass("pulseplay");
+			$('.webradio .pause').hide();
+			$('.webradio.id_'+idwebradio+' .pause').show();
 			$('.playerEtat_0').hide();
 			$('.playerEtat_1').hide();
 			$('.playerEtat_2').show();

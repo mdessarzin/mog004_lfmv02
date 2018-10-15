@@ -137,6 +137,7 @@ export class AudioStreamProvider {
 		if(typeStream=='replay'){
 			this.url = media;
 			localStorage.setItem("type_player", "replay");
+			$('.webradio .pause').hide();
 		}
 		else {
 			
@@ -163,9 +164,10 @@ export class AudioStreamProvider {
 			localStorage.setItem("player_url", this.url);
 			localStorage.setItem("player_json", this.urlJson);
 			localStorage.setItem("type_player", "live");
+			localStorage.setItem("player_id", media);
 		}
 
-
+		
 		this.stream = this.media.create(this.url);
 
 		return Observable.of(false);
@@ -174,7 +176,7 @@ export class AudioStreamProvider {
 
 
 	public playProvider(): Observable<boolean> {
-
+		localStorage.setItem("player", "play");
 
 
 
@@ -208,7 +210,7 @@ export class AudioStreamProvider {
 		}, 15000);
 
 
-
+		$('.loadingaudio').show();
 		$('.btPlayer').hide();
 		$('.loadingPlayer').show();
 		$('.playerEtat_0').hide();
@@ -218,21 +220,24 @@ export class AudioStreamProvider {
 		this.stream.play();
 		//this.settingMusicControl($('.songTitle_').html(), $('.songArtist_').html(), $('.songCover_').attr('src'));
 		console.log('play');
-		localStorage.setItem("player", "play");
+		
 
 
 		this.timingloading = setInterval(() => {
 			this.stream.getCurrentPosition().then((curpos) => {
 				console.log('chargement');
 				if (curpos > 0) {
+					$('.loadingaudio').hide();
 					$('.loadingPlayer').hide();
 					$('.btPlayer').show();
 					$('.playerEtat_2').hide();
 					$('.playerEtat_0').hide();
 					$('.playerEtat_1').show();
-					$('.btPlayer').html('<i class="fas fa-pause-circle fa-3x"></i>');
-					$('.btPlayerhome').html('<i class="fas fa-pause"></i>');
-					$('.fab-md-danger').removeClass("pulseplay");
+					if(localStorage.player_id=='0'){
+						$('.btPlayer').html('<i class="fas fa-pause-circle fa-3x"></i>');
+						$('.btPlayerhome').html('<i class="fas fa-pause"></i>');
+						$('.fab-md-danger').removeClass("pulseplay");
+					}
 					clearInterval(this.timingloading);
 				}
 			});
@@ -253,9 +258,12 @@ export class AudioStreamProvider {
 				$('.playerEtat_2').hide();
 				$('.playerEtat_1').hide();
 				$('.playerEtat_0').show();
-				$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
-				$('.btPlayerhome').html('<i class="fas fa-play"></i>');
-				$('.fab-md-danger').addClass("pulseplay");
+				if(localStorage.player_id=='0'){
+					$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
+					$('.btPlayerhome').html('<i class="fas fa-play"></i>');
+					$('.fab-md-danger').addClass("pulseplay");
+					$('.loadingaudio').hide();
+				}
 				if (this.mediaTimer != null) {
 					//clearInterval(this.mediaTimer);    // (*) don t do clearInterval here, or your ionic will not work, see below
 					//TODO here : handle html, remove "playing" message
@@ -273,9 +281,11 @@ export class AudioStreamProvider {
 			$('.playerEtat_2').hide();
 			$('.playerEtat_1').hide();
 			$('.playerEtat_0').show();
-			$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
-			$('.btPlayerhome').html('<i class="fas fa-play"></i>');
-			$('.fab-md-danger').addClass("pulseplay");
+			if(localStorage.player_id=='0'){
+				$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
+				$('.btPlayerhome').html('<i class="fas fa-play"></i>');
+				$('.fab-md-danger').addClass("pulseplay");			
+			}
 			//clearInterval(this.mediaTimer);  (*) don t do clearInterval here, or your ionic will not work, see below
 		});
 
@@ -303,9 +313,12 @@ export class AudioStreamProvider {
 		$('.playerEtat_2').hide();
 		$('.playerEtat_1').hide();
 		$('.playerEtat_0').show();
-		$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
-		$('.btPlayerhome').html('<i class="fas fa-play"></i>');
-		$('.fab-md-danger').addClass("pulseplay");
+		$('.loadingaudio').hide();
+		if(localStorage.player_id=='0'){
+			$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
+			$('.btPlayerhome').html('<i class="fas fa-play"></i>');
+			$('.fab-md-danger').addClass("pulseplay");
+		}
 		return Observable.of(false);
 	}
 

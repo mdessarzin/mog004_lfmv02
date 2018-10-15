@@ -209,6 +209,7 @@ export class PlayerPage {
 	startVideo() {
 		this.checklivestate = '1';
 		if (this.checklivestate == 1) {
+			$('.webradio .pause').hide();
 			this._player.pauseProvider();
 			this.onplaying = '0';
 			localStorage.setItem("player", "stop");
@@ -390,7 +391,7 @@ export class PlayerPage {
 		$('.soustitre').html(localStorage.playerSoustitre);
 		$('#coverPlayer').attr('src', localStorage.playerCover);
 
-		//$('.playerinfos').hide();
+		$('.webradio .pause').hide();
 		$('.player .scroll-content').css('margin-bottom', '80px');
 		$('.btPlayer').hide();
 		$('.loadingPlayer').show();

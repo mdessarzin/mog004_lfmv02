@@ -148,7 +148,7 @@ ion-card {
   color: #333;
   text-transform: uppercase;
 }
-.favoris {
+.btwebradio  {
   background-color: #fff;
   border-radius: 50%;
   padding: 5px;
@@ -156,7 +156,6 @@ ion-card {
   width: 40px;
   font-size: 27px;
   line-height: 33px;
-  color: #dc303e;
   position: absolute;
   top: 5px;
   right: 5px;
@@ -586,3 +585,112 @@ ion-menu[type="3d-scale-back"] {
     width: 100% !important;
   }
 }
+
+
+
+// https://css-tricks.com/html5-progress-element/
+.progress, progress[value] {
+  width:              100%;
+  border:             none;
+  margin:             5px 0;
+  height:             5px;
+  display:            block;
+  appearance:         none;
+  -webkit-appearance: none;
+  &::-webkit-progress-bar {
+    background-color: lighten( map-get($colors, primary), 35% );
+  }
+  &::-webkit-progress-value {
+    background-color: map-get($colors, primary);
+  }
+}
+
+// http://materializecss.com/preloader.html
+// https://github.com/Dogfalo/materialize/blob/master/dist/css/materialize.css
+.progress-materializecss {
+  margin:             0px;
+  position: relative;
+  height: 4px;
+  display: none;
+  width: 100%;
+  background-color:  map-get($colors, loading);
+  border-radius: 2px;
+  
+  overflow: hidden;
+  .indeterminate {
+    background-color: map-get($colors, primary);
+    &:before{
+      content:          '';
+      position:         absolute;
+      background-color: inherit;
+      top:              0;
+      left:             0;
+      bottom:           0;
+      will-change:      left, right;
+      animation:        indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+    }
+    &:after {
+      content:          '';
+      position:         absolute;
+      background-color: inherit;
+      top:              0;
+      left:             0;
+      bottom:           0;
+      will-change:      left, right;
+      animation:        indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+      animation-delay: 1.15s;
+    }
+  }
+}
+
+@keyframes indeterminate {
+  0% {
+    left: -35%;
+    right: 100%;
+  }
+  60% {
+    left: 100%;
+    right: -90%;
+  }
+  100% {
+    left: 100%;
+    right: -90%;
+  }
+}
+
+@keyframes indeterminate-short {
+  0% {
+    left: -200%;
+    right: 100%;
+  }
+  60% {
+    left: 107%;
+    right: -8%;
+  }
+  100% {
+    left: 107%;
+    right: -8%;
+  }
+}
+// http://materializecss.com/preloader.html
+// https://github.com/Dogfalo/materialize/blob/master/dist/css/materialize.css
+
+///////////////////////////
+//  IRRELEVANTS STYLES  //
+html, body {  
+  height:  100vh;
+  margin:  0;
+  padding: 0;
+}
+  
+body {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+}
+  
+.progress-container{
+  width: 75%;
+}
+//  IRRELEVANTS STYLES  //
+/////////////////////////
