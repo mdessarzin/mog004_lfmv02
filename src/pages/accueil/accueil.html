@@ -62,21 +62,17 @@
 	</div>
 	<swiper [config]="config" style="border-bottom: 0px solid #f1f1f1;">
 		<div class="swiper-wrapper">
-			<div class="swiper-slide" style="margin-left:10px;">
+			<div class="swiper-slide" style="margin-left:10px;" (tap)="startWebradios('4')">
 				<img src="./assets/webradios/1.png">
 				<ion-icon style="display:none;" name="ios-heart-outline" class="favoris"></ion-icon>
 			</div>
-			<div class="swiper-slide">
+			<div class="swiper-slide" (tap)="startWebradios('6')">
 				<img src="./assets/webradios/2.png">
 				<ion-icon style="display:none;" name="ios-heart" class="favoris"></ion-icon>
 			</div>
 
-			<div class="swiper-slide">
+			<div class="swiper-slide" (tap)="startWebradios('10')">
 				<img src="./assets/webradios/3.png">
-				<ion-icon style="display:none;" name="ios-heart-outline" class="favoris"></ion-icon>
-			</div>
-			<div class="swiper-slide">
-				<img src="./assets/webradios/2.png">
 				<ion-icon style="display:none;" name="ios-heart-outline" class="favoris"></ion-icon>
 			</div>
 		</div>

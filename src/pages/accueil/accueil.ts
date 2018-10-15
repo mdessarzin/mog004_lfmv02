@@ -211,6 +211,28 @@ export class AccueilPage {
 		}
 	}
 
+	private startWebradios(idwebradio) {
+		if (localStorage.player == 'play') {
+			this._player.pauseProvider();
+			$('.btPlayerhome').html('<i class="fas fa-play"></i>');
+			$('.fab-md-danger').addClass("pulseplay");
+			$('.playerEtat_2').hide();
+			$('.playerEtat_1').hide();
+			$('.playerEtat_0').show();
+
+		}
+		else {
+			this.buttonIcon = 'ios-stop';
+			this._player.playerconfigProvider('live', idwebradio);
+			this._player.playProvider();
+			$('.btPlayerhome').html('<i class="fas fa-pause"></i>');
+			$('.fab-md-danger').removeClass("pulseplay");
+			$('.playerEtat_0').hide();
+			$('.playerEtat_1').hide();
+			$('.playerEtat_2').show();
+		}
+	}
+
 	public whatsapp() {
 		window.open("whatsapp://send?text=Bonjour&phone=+41798421033&abid=+41798421033", '_system', 'location=yes');
 	}

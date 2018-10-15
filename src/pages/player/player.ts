@@ -281,7 +281,7 @@ export class PlayerPage {
 	}
 
 	startAudio() {
-		if (localStorage.player == 'play') {
+		if (localStorage.player == 'play'){
 			this._player.pauseProvider();
 			if (this.timingseek) {
 				clearInterval(this.timingseek);
@@ -314,7 +314,7 @@ export class PlayerPage {
 			this.onplaying = '1';
 			console.log('Play Button clicked');
 			if (localStorage.type_player == 'live') {
-				this._player.playerconfigProvider();
+				this._player.playerconfigProvider('live', '0');
 			}
 			else {
 				//this.durations = this._player.stream.getDuration();  
@@ -334,7 +334,7 @@ export class PlayerPage {
 		if (localStorage.type_player == 'live') {
 
 			if (localStorage.player == 'stop') {//
-				this._player.playerconfigProvider();
+				this._player.playerconfigProvider('live', '0');
 				this._player.settingMusicControl(localStorage.playerTitre, localStorage.playerSoustitre, localStorage.playerCover);
 				this._player.playProvider();
 			}
@@ -395,7 +395,7 @@ export class PlayerPage {
 		$('.btPlayer').hide();
 		$('.loadingPlayer').show();
 		this._player.pauseProvider();
-		this._player.playerconfigProvider();
+		this._player.playerconfigProvider('live', '0');
 		this._player.playProvider();
 		this._player.settingMusicControl(localStorage.playerTitre, localStorage.playerSoustitre, localStorage.playerCover);
 	}
