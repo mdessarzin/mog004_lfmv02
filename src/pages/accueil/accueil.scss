@@ -171,12 +171,12 @@ page-accueil {
 
   .swiper-slide {
     width: 350px;
+    border-bottom: 0px solid #f1f1f1;
     box-shadow: 4px 4px 21px 0px rgba(202, 202, 202, 0.75) !important;
     -webkit-box-shadow: 4px 4px 21px 0px rgba(202, 202, 202, 0.75) !important;
     -moz-box-shadow: 4px 4px 21px 0px rgba(202, 202, 202, 0.75) !important;
-
     margin-bottom: 40px;
-    background-color: #f1f1f1;
+    background-color:#f9f9f9;
   }
   .swiper-slide h3 {
     width: 100%;
@@ -213,7 +213,6 @@ page-accueil {
   .SwipedTabs-tabs ion-segment-button {
     border: none !important;
     color: gray !important;
-    background-color: white !important;
   }
   .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
     color: black !important;

@@ -43,10 +43,8 @@
 		<button no-padding ion-item (tap)='startAudio()'>
 			<ion-card-content no-padding class="fadeintransition" style="position:relative;">
 				<div style="background-color: #f1f1f1; position: relative;">
-					<img src="https://www.lfm.ch/wp-content/uploads/2018/01/laura-560x600.png" style="background-color: #BCBBBB;"/>
-					<div class="fadebg"></div>
-					<ion-card-title style="color:#fff; position:absolute;bottom:10px;left:0px;right:0px;height:auto;font-size:20px !important;">
-						<span class="card_categorie_home">En ce moment</span><br>Les après-midi de Laura</ion-card-title>
+					<img id="coverPlayer" src="./assets/imgs/placeholder.png" style="background-color: #BCBBBB;" />
+					
 				</div>
 				<ion-fab center middle>
 					<button ion-fab mode="md" color="danger" class="" (tap)='startAudio()'>
@@ -57,27 +55,23 @@
 		</button>
 	</ion-card>
 	<h2 style="margin-left:10px;font-size:1.3em;color:#333;font-weight: bolder; margin-top:15px;">Web Radios</h2>
-	<swiper [config]="config" style="backgroud-color:#f6f6f6;border-bottom: 0px solid #f1f1f1;">
-		<div class="swiper-wrapper" style="backgroud-color:#f6f6f6;">
+	<swiper [config]="config" style="border-bottom: 0px solid #f1f1f1;">
+		<div class="swiper-wrapper">
 			<div class="swiper-slide" style="margin-left:10px;">
 				<img src="./assets/webradios/1.png">
 				<ion-icon style="display:none;" name="ios-heart-outline" class="favoris"></ion-icon>
 			</div>
-			<div class="swiper-slide" style="">
+			<div class="swiper-slide">
 				<img src="./assets/webradios/2.png">
 				<ion-icon style="display:none;" name="ios-heart" class="favoris"></ion-icon>
 			</div>
 
-			<div class="swiper-slide" style="">
+			<div class="swiper-slide">
 				<img src="./assets/webradios/3.png">
 				<ion-icon style="display:none;" name="ios-heart-outline" class="favoris"></ion-icon>
 			</div>
-			<div class="swiper-slide" style="">
+			<div class="swiper-slide">
 				<img src="./assets/webradios/2.png">
-				<ion-icon style="display:none;" name="ios-heart-outline" class="favoris"></ion-icon>
-			</div>
-			<div class="swiper-slide" style="margin-left:10px;">
-				<img src="./assets/webradios/1.png">
 				<ion-icon style="display:none;" name="ios-heart-outline" class="favoris"></ion-icon>
 			</div>
 		</div>
@@ -88,7 +82,7 @@
 	<ion-grid *ngIf='posts' no-padding>
 		<ion-row no-padding>
 			<ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 no-padding *ngFor="let post of posts" class="animated fadeIn">
-				<ion-card no-padding style="">
+				<ion-card no-padding>
 					<button no-padding ion-item (click)="showDetails(post.id,post.title,post.link)">
 						<ion-card-content no-padding class="fadeintransition">
 							<div style="background-color: #f1f1f1; position: relative;">

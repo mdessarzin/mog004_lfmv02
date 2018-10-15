@@ -121,6 +121,9 @@ export class AccueilPage {
 	}
 
 	ngAfterViewInit() {
+		$('.titre').html(localStorage.playerTitre);
+		$('.soustitre').html('Avec '+localStorage.playerSoustitre);
+		$('#coverPlayer').attr('src', localStorage.playerCover);
 	}
 
 	ionViewDidLoad() {
