@@ -121,16 +121,15 @@ export class AccueilPage {
 	}
 
 	ngAfterViewInit() {
-		$('.titre').html(localStorage.playerTitre);
-		$('.soustitre').html('Avec '+localStorage.playerSoustitre);
-		$('#coverPlayer').attr('src', localStorage.playerCover);
-
 		setTimeout(() => {
 			$('.fab-md-danger').removeClass("pulseplay");
 		}, 6000);
 	}
 
 	ionViewDidLoad() {
+
+
+		$('#coverPlayer').attr('src', localStorage.playerCover);
 		if (localStorage.player == 'play') {
 			this.buttonIcon = 'ios-stop';
 			$('.btPlayerhome').html('<i class="fas fa-pause"></i>');

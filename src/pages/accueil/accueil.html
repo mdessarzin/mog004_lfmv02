@@ -39,7 +39,7 @@
 	</ion-navbar>
 </ion-header>
 <ion-content no-padding no-bounce id="page6" #pageContent style="background-color:#f9f9f9;">
-	<ion-card no-padding style="margin-bottom:0px; border-bottom: 0px solid #833177; overflow-y:hidden;">
+	<ion-card no-padding style="margin-bottom:0px;border-bottom: 0px solid #833177; overflow-y:hidden;">
 		<button no-padding ion-item (tap)='startAudio()'>
 			<ion-card-content no-padding class="fadeintransition" style="position:relative;">
 				<div style="background-color: #f1f1f1; position: relative;">
@@ -57,7 +57,9 @@
 			</ion-card-content>
 		</button>
 	</ion-card>
-	<h2 style="margin-left:10px;font-size:1.3em;color:#333;font-weight: bolder; margin-top:15px;">Web Radios</h2>
+	<div class="subtitle">
+		Web radios
+	</div>
 	<swiper [config]="config" style="border-bottom: 0px solid #f1f1f1;">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide" style="margin-left:10px;">
@@ -80,8 +82,9 @@
 		</div>
 		<div class="swiper-pagination"></div>
 	</swiper>
-	<h2 style="margin-left:10px;font-size:1.3em;color:#333;font-weight: bolder; margin-top:10px;margin-bottom:0px;">On en
-		parle sur LFM</h2>
+	<div class="subtitle">
+		On en parle sur LFM
+	</div>
 	<ion-grid *ngIf='posts' no-padding>
 		<ion-row no-padding>
 			<ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 no-padding *ngFor="let post of posts" class="animated fadeIn">
