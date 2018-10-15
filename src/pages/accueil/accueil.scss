@@ -1,227 +1,224 @@
 page-accueil {
+  ion-card.ng-enter-stagger {
+    -webkit-animation-delay: 200ms;
+    animation-delay: 200ms;
 
-	
-	ion-card.ng-enter-stagger {
-  -webkit-animation-delay:200ms;
-  animation-delay:200ms;
-
-  /* override to make sure it's not inherited from other styles */
-  -webkit-animation-duration:0;
-  animation-duration:0;
-}
-
-
-	
-.pulseplay {
-  -webkit-animation: pulsebottom 1.5s infinite;
-}
-	
-	.fadebg {
-		position: absolute;height:200px;bottom:0px;left: 0px;right:0px;
-/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.53+100 */
-background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.53) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.53) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.53) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#87000000',GradientType=0 ); /* IE6-9 */
-	}
-	
-	
-.fab-md-danger {
-	
-  color: #fff;
-background: rgba(0,0,0,.4);
-	border: 2px solid #fff;
-	opacity: 1;
-  cursor: pointer;
-	height: 80px;
-	width:80px;
-	margin-left: -15px;
-	margin-top:-15px;
-	box-shadow: 0 0 0 0 rgba(#833177, .5);
-
-}
-
-.fab-md-danger.activated {
-  color: #fff;
-  background-color: #833177;
-}
-.home-live-play-icon {
-position: absolute;
-line-height: 1;
-color: #fff;
-outline: 0;
--moz-transition: all .25s ease-in-out;
--o-transition: all .25s ease-in-out;
-z-index: 0;
-background: rgba(0,0,0,.5);
-text-align: center;
-}
-.home-live-play-icon {
-top: 50%;
-left: 50%;
--webkit-transition: all .25s ease-in-out;
-transition: all .25s ease-in-out;
-border: 2px solid #FFF;
-border-radius: 50%;
-cursor: pointer;
--webkit-animation: pulseicon .7s alternate ease-in-out infinite;
-animation: pulseicon .7s alternate ease-in-out infinite;
-height: 90px;
-width: 90px;
-margin-left: -45px;
-margin-top: -45px;
-}
-	.home-live-play-icon i {
-font-size: 32px;
-color: #FFF;
-text-align: center;
-z-index: 2;
-position: relative;
-margin-top: 28px;
-margin-left: 3px;
-}
-			.pulse {
-  -moz-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
-  border: none;
-  -webkit-box-shadow: 0 0 0 0 #f0f0f0, 0 0 0 0 rgba(155, 89, 182, 0.7);
-          box-shadow: 0 0 0 0 #f0f0f0, 0 0 0 0 rgba(155, 89, 182, 0.7);
-  border-radius: 100%;
-  vertical-align: middle;
-  cursor: pointer;
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-  -webkit-animation: pulse 1.25s infinite cubic-bezier(0.66, 0.33, 0, 1);
-          animation: pulse 1.25s infinite cubic-bezier(0.66, 0.33, 0, 1);
-}
-.vlog-action-menu:hover .pulse {
-  -webkit-animation-play-state: paused;
-          animation-play-state: paused;
-}
-@-webkit-keyframes pulse {
-  to {
-    -webkit-box-shadow: 0 0 0 1px transparent, 0 0 0 7px rgba(155, 89, 182, 0);
-            box-shadow: 0 0 0 1px transparent, 0 0 0 7px rgba(155, 89, 182, 0);
-  }
-}
-@keyframes pulse {
-  to {
-    -webkit-box-shadow: 0 0 0 1px transparent, 0 0 0 7px rgba(155, 89, 182, 0);
-            box-shadow: 0 0 0 1px transparent, 0 0 0 7px rgba(155, 89, 182, 0);
-  }
-}
-@-webkit-keyframes bounceright {
-  from {
-    -webkit-transform: translateX(0);
-  }
-  to {
-    -webkit-transform: translateX(2px);
-  }
-}
-@-webkit-keyframes bounceleft {
-  from {
-    -webkit-transform: translateX(0);
-  }
-  to {
-    -webkit-transform: translateX(-2px);
-  }
-}
-@-webkit-keyframes pulseicon {
-  from {
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    -o-transform: scale(1);
-    transform: scale(1);
-  }
-  to {
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -o-transform: scale(1.1);
-    transform: scale(1.1);
-  }
-}
-@keyframes pulseicon {
-  from {
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    -o-transform: scale(1);
-    transform: scale(1);
-  }
-  to {
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -o-transform: scale(1.1);
-    transform: scale(1.1);
-  }
-}
-
-.swiper-slide {
-	width:350px;
-	box-shadow: 4px 4px 21px 0px rgba(202,202,202,0.75) !important;
--webkit-box-shadow: 4px 4px 21px 0px rgba(202,202,202,0.75) !important;
--moz-box-shadow: 4px 4px 21px 0px rgba(202,202,202,0.75) !important;
-
-	margin-bottom:40px;
-	background-color:#f1f1f1;
-}
-.swiper-slide h3 {
-	width:100%;
-	font-size: 14px;
-	display: block;
-	height: 100px;
-}
-	
-	.swiper-slide img {
-		border-radius: 10px;
-	}
-
-
-@-webkit-keyframes pulsebottom { 
-
-  70% { 
-
-    box-shadow: 0 0 0 50px rgba(#833177, 0);
-
+    /* override to make sure it's not inherited from other styles */
+    -webkit-animation-duration: 0;
+    animation-duration: 0;
   }
 
-  100% { 
-
-    box-shadow: 0 0 0 0 rgba(#833177, 0);
-
+  .pulseplay {
+    -webkit-animation: pulsebottom 1.5s infinite;
   }
 
-}
-	
-	 .SwipedTabs-indicatorSegment
-    {
-        -webkit-transition: 0.3s all;
-        -moz-transition:  0.3s all;
-        -o-transition:  0.3s all;
-        transition:  0.3s all;
-        transform-origin: top 0 left 0;
-        height: 1px;
-	    position: relative;
-	    top: -2px;
-	    background-color: black !important;
+  .fadebg {
+    position: absolute;
+    height: 200px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.53+100 */
+    background: -moz-linear-gradient(
+      top,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.53) 100%
+    ); /* FF3.6-15 */
+    background: -webkit-linear-gradient(
+      top,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.53) 100%
+    ); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.53) 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#87000000',GradientType=0 ); /* IE6-9 */
+  }
+
+  .fab-md-danger {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid #fff;
+    opacity: 1;
+    cursor: pointer;
+    height: 80px;
+    width: 80px;
+    margin-left: -15px;
+    margin-top: -15px;
+    box-shadow: 0 0 0 0 rgba(#833177, 0.5);
+  }
+
+  .fab-md-danger.activated {
+    color: #fff;
+    background-color: #833177;
+  }
+  .home-live-play-icon {
+    position: absolute;
+    line-height: 1;
+    color: #fff;
+    outline: 0;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    z-index: 0;
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+  }
+  .home-live-play-icon {
+    top: 50%;
+    left: 50%;
+    -webkit-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    -webkit-animation: pulseicon 0.7s alternate ease-in-out infinite;
+    animation: pulseicon 0.7s alternate ease-in-out infinite;
+    height: 90px;
+    width: 90px;
+    margin-left: -45px;
+    margin-top: -45px;
+  }
+  .home-live-play-icon i {
+    font-size: 32px;
+    color: #fff;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    margin-top: 28px;
+    margin-left: 3px;
+  }
+  .pulse {
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    border: none;
+    -webkit-box-shadow: 0 0 0 0 #f0f0f0, 0 0 0 0 rgba(155, 89, 182, 0.7);
+    box-shadow: 0 0 0 0 #f0f0f0, 0 0 0 0 rgba(155, 89, 182, 0.7);
+    border-radius: 100%;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-animation: pulse 1.25s infinite cubic-bezier(0.66, 0.33, 0, 1);
+    animation: pulse 1.25s infinite cubic-bezier(0.66, 0.33, 0, 1);
+  }
+  .vlog-action-menu:hover .pulse {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+  }
+  @-webkit-keyframes pulse {
+    to {
+      -webkit-box-shadow: 0 0 0 1px transparent, 0 0 0 7px rgba(155, 89, 182, 0);
+      box-shadow: 0 0 0 1px transparent, 0 0 0 7px rgba(155, 89, 182, 0);
     }
-    .SwipedTabs-tabs ion-segment-button
-    {
-    	border:none !important;
-    	color:gray!important;
-    	background-color:white!important;
+  }
+  @keyframes pulse {
+    to {
+      -webkit-box-shadow: 0 0 0 1px transparent, 0 0 0 7px rgba(155, 89, 182, 0);
+      box-shadow: 0 0 0 1px transparent, 0 0 0 7px rgba(155, 89, 182, 0);
     }
-     .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab
-    {
-        color:black !important;
+  }
+  @-webkit-keyframes bounceright {
+    from {
+      -webkit-transform: translateX(0);
     }
-    .SwipedTabs-tabs
-    {
-    	border-bottom: solid 1px #e6e6e6  !important;
+    to {
+      -webkit-transform: translateX(2px);
     }
-	
+  }
+  @-webkit-keyframes bounceleft {
+    from {
+      -webkit-transform: translateX(0);
+    }
+    to {
+      -webkit-transform: translateX(-2px);
+    }
+  }
+  @-webkit-keyframes pulseicon {
+    from {
+      -webkit-transform: scale(1);
+      -moz-transform: scale(1);
+      -ms-transform: scale(1);
+      -o-transform: scale(1);
+      transform: scale(1);
+    }
+    to {
+      -webkit-transform: scale(1.1);
+      -moz-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      -o-transform: scale(1.1);
+      transform: scale(1.1);
+    }
+  }
+  @keyframes pulseicon {
+    from {
+      -webkit-transform: scale(1);
+      -moz-transform: scale(1);
+      -ms-transform: scale(1);
+      -o-transform: scale(1);
+      transform: scale(1);
+    }
+    to {
+      -webkit-transform: scale(1.1);
+      -moz-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      -o-transform: scale(1.1);
+      transform: scale(1.1);
+    }
+  }
+
+  .swiper-slide {
+    width: 350px;
+    box-shadow: 4px 4px 21px 0px rgba(202, 202, 202, 0.75) !important;
+    -webkit-box-shadow: 4px 4px 21px 0px rgba(202, 202, 202, 0.75) !important;
+    -moz-box-shadow: 4px 4px 21px 0px rgba(202, 202, 202, 0.75) !important;
+
+    margin-bottom: 40px;
+    background-color: #f1f1f1;
+  }
+  .swiper-slide h3 {
+    width: 100%;
+    font-size: 14px;
+    display: block;
+    height: 100px;
+  }
+
+  .swiper-slide img {
+    border-radius: 10px;
+  }
+
+  @-webkit-keyframes pulsebottom {
+    70% {
+      box-shadow: 0 0 0 50px rgba(#833177, 0);
+    }
+
+    100% {
+      box-shadow: 0 0 0 0 rgba(#833177, 0);
+    }
+  }
+
+  .SwipedTabs-indicatorSegment {
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+    -o-transition: 0.3s all;
+    transition: 0.3s all;
+    transform-origin: top 0 left 0;
+    height: 1px;
+    position: relative;
+    top: -2px;
+    background-color: black !important;
+  }
+  .SwipedTabs-tabs ion-segment-button {
+    border: none !important;
+    color: gray !important;
+    background-color: white !important;
+  }
+  .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
+    color: black !important;
+  }
+  .SwipedTabs-tabs {
+    border-bottom: solid 1px #e6e6e6 !important;
+  }
 }

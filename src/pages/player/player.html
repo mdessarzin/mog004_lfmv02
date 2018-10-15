@@ -1,5 +1,5 @@
 <ion-header color="primary" (pan)="dismiss()">
-  <ion-toolbar  (click)="dismiss()">
+  <ion-toolbar (click)="dismiss()">
     <ion-title>
       Lecteur audio
     </ion-title>
@@ -8,85 +8,84 @@
         <ion-icon name="ios-arrow-down" showWhen="android,windows, ios"></ion-icon>
       </button>
     </ion-buttons>
-	  
+
   </ion-toolbar>
-	
-	<ion-segment mode="md" [(ngModel)]="typeplayer" color="primary">
+
+  <ion-segment mode="md" [(ngModel)]="typeplayer" color="primary">
     <ion-segment-button value="audio">
       <span style="color:#833177; font-weight: bold; font-size: 15px;">{{titreplayer}}</span>
     </ion-segment-button>
     <ion-segment-button value="video" (tap)="startVideo()">
       <span style="color: #833177; font-weight: bold; font-size: 15px;">LFM TV</span>
-				<div class="rond flashit" style="display:none;"></div>
+      <div class="rond flashit" style="display:none;"></div>
     </ion-segment-button>
-	</ion-segment>
-	
+  </ion-segment>
+
 </ion-header>
 
-<ion-content no-bounce id="player" class="player noize"  (pan)="dismiss()">
-	
-<div style="" class="playerinfos">
-  <div class="profile-image">
-    <img id="coverPlayer" data-src=""  style="background-color: #BCBBBB;">
+<ion-content no-bounce id="player" class="player noize" (pan)="dismiss()">
+  <div style="" class="playerinfos">
+    <div class="profile-image">
+      <img id="coverPlayer" data-src="" style="background-color: #BCBBBB;">
+    </div>
+    <h3 class="detail player_details">{{detail}}</h3>
+    <h1 class="titre">{{titre}}</h1>
+    <h2 class="soustitre">{{soustitre}}</h2>
   </div>
-	<h3 class="detail player_details">{{detail}}</h3>
-	<h1 class="titre">{{titre}}</h1>
-	<h2 class="soustitre">{{soustitre}}</h2>
-</div>
-
-	 
-
 </ion-content>
 <ion-footer *ngIf="titreplayer == 'Podcast'">
-	   <ion-grid style="">
-      <ion-row style="height:60px;" align-items-center>
- <ion-col>
-   <ion-range min="0" id="seek" max="{{this._player.stream.getDuration()}}" [(ngModel)]="positions" (ionBlur)="slideEnd($event)" (ionFocus)="slideStart($event)"> <!--  [disabled]="is_in_play && is_playing"  -->
-        <ion-label range-left>{{ positions*1000 | date:'mm:ss' }}</ion-label>
-        <ion-label range-right *ngIf="this._player.stream.getDuration() == -1" >--:--</ion-label>
-        <ion-label range-right *ngIf="this._player.stream.getDuration() != -1">{{this._player.stream.getDuration()*1000 | date:'mm:ss' }}</ion-label>
-      </ion-range>
-	 </ion-col>
-	</ion-row>
-      <ion-row align-items-center style="height:60px;">
-        <ion-col  style="text-align: center;">
-			<button ion-button icon-only clear round style="height:50px;width:50px;">
-				<span style="color:#833177;" (click)="seekTo('back')">-15 <i class="fas fa-undo"></i></span>
-			</button>
-        </ion-col>
-		  <ion-col style="max-width: 80px; text-align: center;" justify-content-center> 
-				<ion-spinner class="loadingPlayer" style="display:none;height:80px;width:80x;" name="crescent"></ion-spinner>
-                <span (click)="startAudio()" class="btPlayer" style="color:#833177;"><i class="fas fa-play-circle fa-3x"></i></span>
-        </ion-col>                 
-        <ion-col style="text-align: center;">
-			<button ion-button icon-only clear round style="height:50px;width:50px;">
-				<span style="color:#833177;" (click)="seekTo('forward')"><i class="fas fa-redo"></i> +15</span>
-			</button>
-        </ion-col>
-		  
-      </ion-row>
+  <ion-grid style="">
+    <ion-row style="height:60px;" align-items-center>
+      <ion-col>
+        <ion-range min="0" id="seek" max="{{this._player.stream.getDuration()}}" [(ngModel)]="positions" (ionBlur)="slideEnd($event)"
+          (ionFocus)="slideStart($event)">
+          <!--  [disabled]="is_in_play && is_playing"  -->
+          <ion-label range-left>{{ positions*1000 | date:'mm:ss' }}</ion-label>
+          <ion-label range-right *ngIf="this._player.stream.getDuration() == -1">--:--</ion-label>
+          <ion-label range-right *ngIf="this._player.stream.getDuration() != -1">{{this._player.stream.getDuration()*1000
+            | date:'mm:ss' }}</ion-label>
+        </ion-range>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center style="height:60px;">
+      <ion-col style="text-align: center;">
+        <button ion-button icon-only clear round style="height:50px;width:50px;">
+          <span style="color:#833177;" (click)="seekTo('back')">-15 <i class="fas fa-undo"></i></span>
+        </button>
+      </ion-col>
+      <ion-col style="max-width: 80px; text-align: center;" justify-content-center>
+        <ion-spinner class="loadingPlayer" style="display:none;height:80px;width:80x;" name="crescent"></ion-spinner>
+        <span (click)="startAudio()" class="btPlayer" style="color:#833177;"><i class="fas fa-play-circle fa-3x"></i></span>
+      </ion-col>
+      <ion-col style="text-align: center;">
+        <button ion-button icon-only clear round style="height:50px;width:50px;">
+          <span style="color:#833177;" (click)="seekTo('forward')"><i class="fas fa-redo"></i> +15</span>
+        </button>
+      </ion-col>
 
-    </ion-grid> 
-	<ion-toolbar color="light" no-border style="text-align:center;">
-			 <button ion-button clear (click)="goLive()">
-				Retourner au direct
-			</button>
-  </ion-toolbar>	
+    </ion-row>
+
+  </ion-grid>
+  <ion-toolbar color="light" no-border style="text-align:center;">
+    <button ion-button clear (click)="goLive()">
+      Retourner au direct
+    </button>
+  </ion-toolbar>
 </ion-footer>
 <ion-footer *ngIf="titreplayer != 'Podcast'">
-   <ion-grid style="max-height: 110px;">
-      <ion-row align-items-center>
-        <ion-col col-2 style="max-width: 80px; text-align: center;" justify-content-center> 
-				<ion-spinner class="loadingPlayer" style="display:none;height:40px;width:40x;" name="crescent"></ion-spinner>
-                <span (click)="startAudio()" class="btPlayer btplay" style="display:block;color:#833177;"><i class="fas fa-play-circle fa-3x"></i></span>
-        </ion-col>                 
-        <ion-col col-7>
-            <span style="color:#000;font-family: 'Days One', sans-serif; font-size: 13px; font-weight: bolder;" class="songTitle_">&nbsp;</span><br>
-			<span style="color:#000;font-family: 'Days One', sans-serif; font-size: 12px;" class="songArtist_">&nbsp;</span>
-          </ion-col>
-        <ion-col col-3  style="text-align: right;">
-          <img class="songCover_" src="https://www.lfm.ch/wp-content/themes/mog-child/webradios/0.jpg" style=" max-height: 55px;" />
-        </ion-col>
-      </ion-row>
-    </ion-grid> 
+  <ion-grid style="max-height: 110px;">
+    <ion-row align-items-center>
+      <ion-col col-2 style="max-width: 80px; text-align: center;" justify-content-center>
+        <ion-spinner class="loadingPlayer" style="display:none;height:40px;width:40x;" name="crescent"></ion-spinner>
+        <span (click)="startAudio()" class="btPlayer btplay" style="display:block;color:#833177;"><i class="fas fa-play-circle fa-3x"></i></span>
+      </ion-col>
+      <ion-col col-7>
+        <span style="color:#000;font-family: 'Days One', sans-serif; font-size: 13px; font-weight: bolder;" class="songTitle_">&nbsp;</span><br>
+        <span style="color:#000;font-family: 'Days One', sans-serif; font-size: 12px;" class="songArtist_">&nbsp;</span>
+      </ion-col>
+      <ion-col col-3 style="text-align: right;">
+        <img class="songCover_" src="https://www.lfm.ch/wp-content/themes/mog-child/webradios/0.jpg" style=" max-height: 55px;" />
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-footer>

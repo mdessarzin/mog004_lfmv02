@@ -17,7 +17,6 @@ import { BlogPage } from '../pages/blog/blog';
 import { PlayerpopupPage } from '../pages/playerpopup/playerpopup';
 import { ContenupagePage } from '../pages/contenupage/contenupage';
 import { SwiperModule } from 'angular2-useful-swiper'; 
-import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
 import 'intersection-observer';
 
 import { VideolivePage } from '../pages/videolive/videolive';
@@ -91,7 +90,6 @@ PlayerPlaylistPage,
 	  ContenupagePage,
 	  PlayerpopupPage,
 	  SideMenuContentComponent,
-	  TabsControllerPage,
 	      AboutPage,
     ContactPage,
     HomePage,
@@ -108,7 +106,6 @@ PlayerPlaylistPage,
     IonicModule.forRoot(MyApp, {
         preloadModules: true,
 		backButtonText: '',
-      iconMode: 'ios',
       modalEnter: 'modal-slide-in',
       modalLeave: 'modal-slide-out',
 		activator: 'ripple',
