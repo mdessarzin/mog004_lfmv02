@@ -40,10 +40,10 @@ export class MyApp {
 		//this._player.pauseProvider();
 		localStorage.setItem("build", "1.0.4");
 		this.initializeApp();
-/*
+
 		let opensplash = modalCtrl.create(SplashPage);
 		opensplash.present();
-*/
+
 		let ratio = Math.max(window.devicePixelRatio || 1, 1);
 	}
 
