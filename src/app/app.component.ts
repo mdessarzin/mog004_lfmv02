@@ -96,6 +96,7 @@ export class MyApp {
 
 				let ratio = Math.max(window.devicePixelRatio || 1, 1);
 
+				/*
 				(<any>window).SmartAdServer.setOptions({
 					siteId: 241727,
 					baseUrl: 'http://mobile.smartadserver.com',
@@ -111,7 +112,7 @@ export class MyApp {
 					adId: '947330/29216',
 					autoShow: true
 				});
-
+*/
 				console.log('Platform is ready');
 			}
 

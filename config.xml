@@ -125,9 +125,6 @@
     <allow-navigation href="http://192.168.43.97:8100" />
     <allow-navigation href="http://192.168.1.133:8100" />
     <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
-    <engine name="browser" spec="5.0.3" />
-    <engine name="android" spec="7.0.0" />
-    <engine name="ios" spec="4.5.5" />
     <plugin name="cordova-plugin-ionic" spec="^4.2.0">
         <variable name="APP_ID" value="74b8ab5b" />
         <variable name="CHANNEL_NAME" value="Production" />
@@ -136,4 +133,7 @@
         <variable name="UPDATE_API" value="https://api.ionicjs.com" />
         <variable name="MAX_STORE" value="1" />
     </plugin>
+    <engine name="browser" spec="5.0.3" />
+    <engine name="android" spec="7.0.0" />
+    <engine name="ios" spec="4.5.5" />
 </widget>
