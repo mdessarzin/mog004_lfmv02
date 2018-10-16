@@ -1,7 +1,0 @@
-page-podcasts .scroll-content {
-  margin-bottom: 0px !important; }
-@media (min-width: 992px) {
-  page-podcasts .podcast_tab {
-    display: block !important; }
-  page-podcasts .podcast_mobile {
-    display: none !important; } }

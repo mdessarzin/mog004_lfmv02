@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
-import { AutoplayContentComponent } from './autoplay-content/autoplay-content';
 @NgModule({
-	declarations: [AutoplayContentComponent],
+	declarations: [],
 	imports: [],
-	exports: [AutoplayContentComponent]
+	exports: []
 })
 export class ComponentsModule {}

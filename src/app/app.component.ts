@@ -10,20 +10,13 @@ import { Nav, Platform, MenuController, AlertController } from 'ionic-angular';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { BlogPage } from '../pages/blog/blog';
-import { PodcastsPage } from '../pages/podcasts/podcasts';
-
-
-import { AccueilPage } from '../pages/accueil/accueil';
 
 // Side Menu Component
 import { SideMenuContentComponent } from './../shared/side-menu-content/side-menu-content.component';
 import { SideMenuSettings } from './../shared/side-menu-content/models/side-menu-settings';
 import { MenuOptionModel } from './../shared/side-menu-content/models/menu-option-model';
 import { OneSignal } from '@ionic-native/onesignal';
-import { ImageLoaderConfig } from 'ionic-image-loader';
 import { AudioStreamProvider } from '../providers/audio-stream/audio-stream';
-import { ContenupagePage } from '../pages/contenupage/contenupage';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import * as $ from "jquery";
 import { TabsPage } from '../pages/tabs/tabs';

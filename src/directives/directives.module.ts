@@ -1,12 +1,8 @@
 import { NgModule } from '@angular/core';
-import { AutoplayVideoDirective } from './autoplay-video/autoplay-video';
-import { ScrollHideDirective } from './scroll-hide/scroll-hide';
 
 @NgModule({
-	declarations: [AutoplayVideoDirective,
-    ScrollHideDirective],
+	declarations: [],
 	imports: [],
-	exports: [AutoplayVideoDirective,
-    ScrollHideDirective]
+	exports: []
 })
 export class DirectivesModule {}

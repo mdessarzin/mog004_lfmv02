@@ -90,9 +90,9 @@
       },
       "cordova-plugin-x-socialsharing": {},
       "cordova-plugin-ionic": {
-        "APP_ID": "813edd26",
-        "CHANNEL_NAME": "Release",
-        "UPDATE_METHOD": "background",
+        "APP_ID": "74b8ab5b",
+        "CHANNEL_NAME": "Production",
+        "UPDATE_METHOD": "auto",
         "WARN_DEBUG": "false",
         "UPDATE_API": "https://api.ionicjs.com",
         "MAX_STORE": "1"
@@ -108,8 +108,8 @@
     },
     "platforms": [
       "browser",
-      "ios",
-      "android"
+      "android",
+      "ios"
     ]
   }
 }

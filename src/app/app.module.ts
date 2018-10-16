@@ -98,7 +98,7 @@ PlayerPlaylistPage,
   imports: [
 	  HttpModule,
     BrowserModule,
-	   SwiperModule,
+	  SwiperModule,
 	  BrowserAnimationsModule,
 	  IonAlphaScrollModule,
 	  ComponentsModule,
