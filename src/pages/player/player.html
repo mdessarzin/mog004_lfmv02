@@ -1,7 +1,7 @@
 <ion-header color="primary" (pan)="dismiss()">
   <ion-toolbar (click)="dismiss()">
     <ion-title>
-      Lecteur audio
+      {{titreplayer}}
     </ion-title>
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
@@ -10,17 +10,7 @@
     </ion-buttons>
 
   </ion-toolbar>
-
-  <ion-segment mode="md" [(ngModel)]="typeplayer" color="primary">
-    <ion-segment-button value="audio">
-      <span style="color:#833177; font-weight: bold; font-size: 15px;">{{titreplayer}}</span>
-    </ion-segment-button>
-    <ion-segment-button value="video" (tap)="startVideo()">
-      <span style="color: #833177; font-weight: bold; font-size: 15px;">LFM TV</span>
-      <div class="rond flashit" style="display:none;"></div>
-    </ion-segment-button>
-  </ion-segment>
-	<div class="progress-materializecss loadingaudio" style="margin-top:10px;">
+	<div class="progress-materializecss loadingaudio" style="margin-top:0px;">
 		<div class="indeterminate"></div>
 	</div>
 </ion-header>

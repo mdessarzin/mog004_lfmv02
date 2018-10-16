@@ -20,6 +20,7 @@ import { SwiperModule } from 'angular2-useful-swiper';
 import 'intersection-observer';
 
 import { VideolivePage } from '../pages/videolive/videolive';
+import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media';
 
 import { AudioStreamProvider } from '../providers/audio-stream/audio-stream';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -39,6 +40,7 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { SplashPage } from '../pages/splash/splash';
 
 import { IonAlphaScrollModule } from 'ionic2-alpha-scroll';
 
@@ -93,7 +95,8 @@ PlayerPlaylistPage,
 	      AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    SplashPage
   ],
   imports: [
 	  HttpModule,
@@ -116,6 +119,7 @@ PlayerPlaylistPage,
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    SplashPage,
     AccueilPage,
     ActualitePage,
     ProgrammePage,
@@ -144,7 +148,8 @@ PlayerPlaylistPage,
 	  OneSignal,
 	      Media,
 	  InAppBrowser,
-	  ExtendMenuProvider,
+    ExtendMenuProvider,
+    StreamingMedia,
 	        GoogleAnalytics,
 	  {provide: ErrorHandler, useClass: MyErrorHandler}
   ]

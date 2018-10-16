@@ -9,6 +9,7 @@ import { map } from 'rxjs/operators';
 import { PlayerpopupPage } from '../playerpopup/playerpopup';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { VideolivePage } from '../videolive/videolive';
+import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media';
 
 /**
  * Generated class for the PlayerPage page.
@@ -52,7 +53,8 @@ export class PlayerPage {
 		public plt: Platform,
 		public modalCtrl: ModalController,
 		public alertCtrl: AlertController,
-		private ga: GoogleAnalytics
+		private ga: GoogleAnalytics,
+		private streamingMedia: StreamingMedia
 	) {
 
 
@@ -209,6 +211,16 @@ export class PlayerPage {
 	startVideo() {
 		this.checklivestate = '1';
 		if (this.checklivestate == 1) {
+
+			let options: StreamingVideoOptions = {
+				successCallback: () => { console.log('Video played') },
+				errorCallback: (e) => { console.log('Error streaming') },
+				shouldAutoClose: true,
+				controls: false
+			};
+
+			this.streamingMedia.playVideo('https://livevideo.infomaniak.com/streaming/livecast/lfmmd/playlist.m3u8', options);
+
 			$('.webradio .pause').hide();
 			this._player.pauseProvider();
 			this.onplaying = '0';
@@ -216,8 +228,7 @@ export class PlayerPage {
 			$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
 			//let modal = this.modalCtrl.create(VideolivePage,{url:'https://livevideo.infomaniak.com/streaming/livecast/lfmmd/playlist.m3u8', poster:''});
 
-			let modal = this.modalCtrl.create(PlayerpopupPage, { url: 'https://livevideo.infomaniak.com/streaming/livecast/radiolacmd/playlist.m3u8', poster: '' });
-			modal.present();
+
 
 		}
 		else {
@@ -282,7 +293,7 @@ export class PlayerPage {
 	}
 
 	startAudio() {
-		if (localStorage.player == 'play'){
+		if (localStorage.player == 'play') {
 			this._player.pauseProvider();
 			if (this.timingseek) {
 				clearInterval(this.timingseek);

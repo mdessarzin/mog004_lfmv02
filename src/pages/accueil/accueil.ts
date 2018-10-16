@@ -12,6 +12,7 @@ import { PlayerPlaylistPage } from '../player-playlist/player-playlist'
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { SwiperModule } from 'angular2-useful-swiper';
+import { StreamingMedia, StreamingVideoOptions, StreamingAudioOptions } from '@ionic-native/streaming-media';
 
 @Component({
 	selector: 'page-accueil',
@@ -68,7 +69,8 @@ export class AccueilPage {
 		public plt: Platform,
 		public platform: Platform,
 		private iab: InAppBrowser,
-		private ga: GoogleAnalytics
+		private ga: GoogleAnalytics,
+		private streamingMedia: StreamingMedia
 	) {
 		this.loadData();
 		this.test = 2;
@@ -76,7 +78,7 @@ export class AccueilPage {
 				console.log('Google analytics is ready now');
 				this.ga.trackView('home');
 				this.ga.trackEvent('Navigation', 'Home');
-			}).catch(e => console.log('Error starting GoogleAnalytics', e));
+		}).catch(e => console.log('Error starting GoogleAnalytics', e));
 	}
 
 	ionViewDidEnter(){
@@ -215,6 +217,7 @@ export class AccueilPage {
 	}
 
 	private startWebradios(idwebradio) {
+
 		$('.webradio .pause').hide();
 		$('.btPlayerhome').html('<i class="fas fa-play"></i>');
 		if(localStorage.player_id == idwebradio && localStorage.player=='play'){
@@ -239,6 +242,24 @@ export class AccueilPage {
 
 	public whatsapp() {
 		window.open("whatsapp://send?text=Bonjour&phone=+41798421033&abid=+41798421033", '_system', 'location=yes');
+	}
+
+	private startVideo() {
+
+			let options: StreamingVideoOptions = {
+				successCallback: () => { console.log('Video played') },
+				errorCallback: (e) => { console.log('Error streaming') },
+				shouldAutoClose: true,
+				controls: false
+			};
+
+			this.streamingMedia.playVideo('https://livevideo.infomaniak.com/streaming/livecast/lfmmd/playlist.m3u8', options);
+
+			$('.webradio .pause').hide();
+			this._player.pauseProvider();
+			this.onplaying = '0';
+			localStorage.setItem("player", "stop");
+			$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
 	}
 
 	private openPlayer() {

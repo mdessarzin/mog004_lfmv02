@@ -6,49 +6,25 @@ import { ReplaySubject } from "rxjs/ReplaySubject";
 //import { ArrayObservable } from "rxjs/observable/ArrayObservable";
 
 // Ionic
-import { Nav, Platform, MenuController, AlertController } from 'ionic-angular';
+import { Nav, Platform, MenuController, AlertController, ModalController } from 'ionic-angular';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 // Side Menu Component
-import { SideMenuContentComponent } from './../shared/side-menu-content/side-menu-content.component';
-import { SideMenuSettings } from './../shared/side-menu-content/models/side-menu-settings';
-import { MenuOptionModel } from './../shared/side-menu-content/models/menu-option-model';
 import { OneSignal } from '@ionic-native/onesignal';
 import { AudioStreamProvider } from '../providers/audio-stream/audio-stream';
-import { SocialSharing } from '@ionic-native/social-sharing';
 import * as $ from "jquery";
 import { TabsPage } from '../pages/tabs/tabs';
+import { SplashPage } from '../pages/splash/splash';
 
 
 @Component({
 	templateUrl: 'app.html'
 })
 export class MyApp {
-	@ViewChild(Nav) navCtrl: Nav;
-
-	// Get the instance to call the public methods
-	@ViewChild(SideMenuContentComponent) sideMenu: SideMenuContentComponent;
 
 	rootPage: any = TabsPage;
-
-	// Options to show in the SideMenuComponent
-	public options: Array<MenuOptionModel>;
-
-	// Settings for the SideMenuComponent
-	public sideMenuSettings: SideMenuSettings = {
-		accordionMode: true,
-		showSelectedOption: true,
-		selectedOptionClass: 'active-side-menu-option',
-		subOptionIndentation: {
-			md: '25px',
-			ios: '25px',
-			wp: '25px'
-		}
-	};
-
-	private unreadCountObservable: any = new ReplaySubject<number>(0);
 
 	constructor(private platform: Platform,
 		private statusBar: StatusBar,
@@ -57,21 +33,27 @@ export class MyApp {
 		private menuCtrl: MenuController,
 		private oneSignal: OneSignal,
 		public _player: AudioStreamProvider,
-		private socialSharing: SocialSharing,
+		public modalCtrl: ModalController
 	) {
 		this._player.playerconfigProvider('live', '0');
 		//this._player.playProvider();
 		//this._player.pauseProvider();
 		localStorage.setItem("build", "1.0.4");
 		this.initializeApp();
+/*
+		let opensplash = modalCtrl.create(SplashPage);
+		opensplash.present();
+*/
 		let ratio = Math.max(window.devicePixelRatio || 1, 1);
 	}
 
 	initializeApp() {
 		this.platform.ready().then(() => {
 
+			
+
 			this.statusBar.styleDefault();
-			this.splashScreen.hide();
+			//this.splashScreen.hide();
 			localStorage.setItem("type_player", "live");
 			localStorage.setItem("podcast_url", '');
 			localStorage.setItem("player", "stop");
@@ -91,6 +73,10 @@ export class MyApp {
 			if (this.platform.is('cordova')) {
 				this.handlerNotifications();
 			}
+
+			
+
+	
 
 			if (this.platform.is('cordova')) {
 

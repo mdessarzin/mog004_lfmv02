@@ -6,7 +6,11 @@
 		<ion-title>
 			<img alt="logo" height="35" src="./assets/imgs/logo.svg" style="margin-top:20px;">
 		</ion-title>
-
+		<ion-buttons start>
+			<button ion-button icon-only (tap)='startVideo()'>
+				<ion-icon name="ios-desktop-outline"></ion-icon>
+			</button>
+		</ion-buttons>
 		<ion-buttons end>
 			<button ion-button icon-only (tap)='openPlayer()' class="playerEtat_0 test">
 				<ion-icon name="ios-radio-outline"></ion-icon>

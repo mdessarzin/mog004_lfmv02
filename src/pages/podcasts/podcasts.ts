@@ -14,6 +14,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { ChroniquesPage } from '../chroniques/chroniques';
 import { StatusBar } from '@ionic-native/status-bar';
+import { StreamingMedia, StreamingVideoOptions, StreamingAudioOptions } from '@ionic-native/streaming-media';
 
 @Component({
 	selector: 'page-podcasts',
@@ -49,6 +50,13 @@ export class PodcastsPage {
 	nbPost: number = 0;
 	maximumPages = 10;
 
+	options: StreamingVideoOptions = {
+		successCallback: () => { console.log('Video played') },
+		errorCallback: (e) => { console.log('Error streaming') },
+		shouldAutoClose: true,
+		controls: false
+	};
+
 	constructor(
 		public navCtrl: NavController,
 		public http: Http,
@@ -63,7 +71,9 @@ export class PodcastsPage {
 		private ga: GoogleAnalytics,
 		public alertCtrl: AlertController,
 		private toastCtrl: ToastController,
-		private statusBar: StatusBar
+		private statusBar: StatusBar,
+		private streamingMedia: StreamingMedia
+
 	) {
 
 		this.statusBar.styleDefault();
@@ -256,10 +266,22 @@ export class PodcastsPage {
 	}
 
 	private openPlayerVideo(url, poster) {
+
+		
+		this._player.pauseProvider();
+			$('.loadingaudio').hide();
+			$('.btPlayerhome').html('<i class="fas fa-play"></i>');
+			$('.fab-md-danger').addClass("pulseplay");
+			$('.playerEtat_2').hide();
+			$('.playerEtat_1').hide();
+			$('.playerEtat_0').show();
+			
+		this.streamingMedia.playVideo(url, this.options);
+
 		//console.log(this.login);
 		$('.webradio .pause').hide();
-		let modal = this.modalCtrl.create(PlayerpopupPage, { url: url, poster: poster });
-		modal.present();
+		//let modal = this.modalCtrl.create(PlayerpopupPage, { url: url, poster: poster });
+		//modal.present();
 	}
 
 	private openChroniques() {
