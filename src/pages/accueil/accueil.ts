@@ -10,7 +10,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { SwiperModule } from 'angular2-useful-swiper';
 import { StreamingMedia, StreamingVideoOptions, StreamingAudioOptions } from '@ionic-native/streaming-media';
-import { SplashPage } from '../pages/splash/splash';
+import { SplashPage } from '../splash/splash';
 		
 @Component({
 	selector: 'page-accueil',
