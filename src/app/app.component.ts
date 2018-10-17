@@ -6,7 +6,7 @@ import { ReplaySubject } from "rxjs/ReplaySubject";
 //import { ArrayObservable } from "rxjs/observable/ArrayObservable";
 
 // Ionic
-import { Nav, Platform, MenuController, AlertController, ModalController } from 'ionic-angular';
+import { Platform, MenuController, AlertController, ModalController } from 'ionic-angular';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -16,7 +16,6 @@ import { OneSignal } from '@ionic-native/onesignal';
 import { AudioStreamProvider } from '../providers/audio-stream/audio-stream';
 import * as $ from "jquery";
 import { TabsPage } from '../pages/tabs/tabs';
-import { SplashPage } from '../pages/splash/splash';
 
 
 @Component({
@@ -41,8 +40,7 @@ export class MyApp {
 		localStorage.setItem("build", "1.0.4");
 		this.initializeApp();
 
-		let opensplash = modalCtrl.create(SplashPage);
-		opensplash.present();
+
 
 		let ratio = Math.max(window.devicePixelRatio || 1, 1);
 	}

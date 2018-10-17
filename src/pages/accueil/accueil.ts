@@ -3,17 +3,15 @@ import { IonicPage, NavController, NavParams, Platform, Content, PopoverControll
 import * as $ from "jquery";
 import { AudioStreamProvider } from '../../providers/audio-stream/audio-stream';
 import { Http } from '@angular/http';
-import { Media, MediaObject } from '@ionic-native/media';
-import { map } from 'rxjs/operators';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { DetailsPage } from '../details/details';
 import { PlayerPage } from '../player/player';
-import { PlayerPlaylistPage } from '../player-playlist/player-playlist'
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { SwiperModule } from 'angular2-useful-swiper';
 import { StreamingMedia, StreamingVideoOptions, StreamingAudioOptions } from '@ionic-native/streaming-media';
-
+import { SplashPage } from '../pages/splash/splash';
+		
 @Component({
 	selector: 'page-accueil',
 	templateUrl: 'accueil.html'
@@ -218,6 +216,10 @@ export class AccueilPage {
 
 	private startWebradios(idwebradio) {
 
+
+		let opensplash = modalCtrl.create(SplashPage);
+		opensplash.present();
+		/*
 		$('.webradio .pause').hide();
 		$('.btPlayerhome').html('<i class="fas fa-play"></i>');
 		if(localStorage.player_id == idwebradio && localStorage.player=='play'){
@@ -238,6 +240,7 @@ export class AccueilPage {
 			$('.playerEtat_1').hide();
 			$('.playerEtat_2').show();
 		}
+		*/
 	}
 
 	public whatsapp() {
