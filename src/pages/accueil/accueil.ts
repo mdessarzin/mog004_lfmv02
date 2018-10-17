@@ -217,7 +217,7 @@ export class AccueilPage {
 	private startWebradios(idwebradio) {
 
 
-		let opensplash = modalCtrl.create(SplashPage);
+		let opensplash = this.modalCtrl.create(SplashPage);
 		opensplash.present();
 		/*
 		$('.webradio .pause').hide();
