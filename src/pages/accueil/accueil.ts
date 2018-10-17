@@ -250,7 +250,7 @@ export class AccueilPage {
 				successCallback: () => { console.log('Video played') },
 				errorCallback: (e) => { console.log('Error streaming') },
 				shouldAutoClose: true,
-				controls: false
+				controls: true
 			};
 
 			this.streamingMedia.playVideo('https://livevideo.infomaniak.com/streaming/livecast/lfmmd/playlist.m3u8', options);

@@ -54,7 +54,7 @@ export class PodcastsPage {
 		successCallback: () => { console.log('Video played') },
 		errorCallback: (e) => { console.log('Error streaming') },
 		shouldAutoClose: true,
-		controls: false
+		controls: true
 	};
 
 	constructor(
@@ -275,7 +275,7 @@ export class PodcastsPage {
 			$('.playerEtat_2').hide();
 			$('.playerEtat_1').hide();
 			$('.playerEtat_0').show();
-			
+
 		this.streamingMedia.playVideo(url, this.options);
 
 		//console.log(this.login);
