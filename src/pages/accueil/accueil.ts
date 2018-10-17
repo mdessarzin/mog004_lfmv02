@@ -10,7 +10,6 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { SwiperModule } from 'angular2-useful-swiper';
 import { StreamingMedia, StreamingVideoOptions, StreamingAudioOptions } from '@ionic-native/streaming-media';
-import { SplashPage } from '../splash/splash';
 		
 @Component({
 	selector: 'page-accueil',
@@ -217,9 +216,6 @@ export class AccueilPage {
 	private startWebradios(idwebradio) {
 
 
-		let opensplash = this.modalCtrl.create(SplashPage);
-		opensplash.present();
-		/*
 		$('.webradio .pause').hide();
 		$('.btPlayerhome').html('<i class="fas fa-play"></i>');
 		if(localStorage.player_id == idwebradio && localStorage.player=='play'){
@@ -240,7 +236,6 @@ export class AccueilPage {
 			$('.playerEtat_1').hide();
 			$('.playerEtat_2').show();
 		}
-		*/
 	}
 
 	public whatsapp() {

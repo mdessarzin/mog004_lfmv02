@@ -51,7 +51,7 @@ export class MyApp {
 			
 
 			this.statusBar.styleDefault();
-			//this.splashScreen.hide();
+			this.splashScreen.hide();
 			localStorage.setItem("type_player", "live");
 			localStorage.setItem("podcast_url", '');
 			localStorage.setItem("player", "stop");
