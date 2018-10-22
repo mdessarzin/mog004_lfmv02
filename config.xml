@@ -132,5 +132,5 @@
     <preference name="SplashScreenDelay" value="3000" />
     <engine name="browser" spec="5.0.3" />
     <engine name="ios" spec="4.5.5" />
-    <engine name="android" spec="~7.0.0" />
+    <engine name="android" spec="7.0.0" />
 </widget>

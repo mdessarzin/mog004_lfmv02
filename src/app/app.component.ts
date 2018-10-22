@@ -1,22 +1,12 @@
 // Angular
-import { Component, ViewChild } from '@angular/core';
-
-// RxJS
-import { ReplaySubject } from "rxjs/ReplaySubject";
-//import { ArrayObservable } from "rxjs/observable/ArrayObservable";
-
-// Ionic
-import { Platform, MenuController, AlertController, ModalController } from 'ionic-angular';
-
+import { Component }  from '@angular/core';
+import { Platform, AlertController, ModalController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
-// Side Menu Component
 import { OneSignal } from '@ionic-native/onesignal';
 import { AudioStreamProvider } from '../providers/audio-stream/audio-stream';
 import * as $ from "jquery";
 import { TabsPage } from '../pages/tabs/tabs';
-
 
 @Component({
 	templateUrl: 'app.html'
@@ -29,7 +19,6 @@ export class MyApp {
 		private statusBar: StatusBar,
 		private splashScreen: SplashScreen,
 		private alertCtrl: AlertController,
-		private menuCtrl: MenuController,
 		private oneSignal: OneSignal,
 		public _player: AudioStreamProvider,
 		public modalCtrl: ModalController
@@ -138,16 +127,6 @@ export class MyApp {
 		});
 		alert.present();
 	}
-
-	private infos() {
-		let alert = this.alertCtrl.create({
-			title: 'Informations',
-			message: 'Media One Group - Build v' + localStorage.build,
-			buttons: ['Ok']
-		});
-		alert.present();
-	}
-
 
 	private handlerNotifications() {
 

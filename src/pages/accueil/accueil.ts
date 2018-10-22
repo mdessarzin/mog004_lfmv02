@@ -1,5 +1,5 @@
-import { Component, ViewChild, Injectable } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform, Content, PopoverController, LoadingController, ModalController, ViewController, Slides } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { NavController, Platform, LoadingController, ModalController, ViewController } from 'ionic-angular';
 import * as $ from "jquery";
 import { AudioStreamProvider } from '../../providers/audio-stream/audio-stream';
 import { Http } from '@angular/http';
@@ -8,8 +8,7 @@ import { DetailsPage } from '../details/details';
 import { PlayerPage } from '../player/player';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
-import { SwiperModule } from 'angular2-useful-swiper';
-import { StreamingMedia, StreamingVideoOptions, StreamingAudioOptions } from '@ionic-native/streaming-media';
+import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media';
 		
 @Component({
 	selector: 'page-accueil',
@@ -32,7 +31,6 @@ export class AccueilPage {
 		roundLengths: false,
 		effect: 'slide' //use cube,flip,coverflow or fade
 	};
-	private loadingPopup: any;
 	artist: string;
 	cover: string;
 	track: string;

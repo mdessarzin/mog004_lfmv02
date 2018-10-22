@@ -1,5 +1,5 @@
 import { Pro } from '@ionic/pro';
-import { NgModule, ErrorHandler, Injectable, Injector} from '@angular/core';
+import { NgModule, ErrorHandler, Injectable, Injector } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -9,14 +9,13 @@ import { DetailsPage } from '../pages/details/details';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';// npm install --save @angular/animations
 import { PlayerPage } from '../pages/player/player';
 import { PlayerPlaylistPage } from '../pages/player-playlist/player-playlist';
-import { ProgrammePage } from '../pages/programme/programme';
 import { PodcastsPage } from '../pages/podcasts/podcasts';
 import { ChroniquesPage } from '../pages/chroniques/chroniques';
 import { ContactezNousPage } from '../pages/contactez-nous/contactez-nous';
 import { BlogPage } from '../pages/blog/blog';
 import { PlayerpopupPage } from '../pages/playerpopup/playerpopup';
 import { ContenupagePage } from '../pages/contenupage/contenupage';
-import { SwiperModule } from 'angular2-useful-swiper'; 
+import { SwiperModule } from 'angular2-useful-swiper';
 import 'intersection-observer';
 
 import { VideolivePage } from '../pages/videolive/videolive';
@@ -29,21 +28,16 @@ import { HttpModule } from '@angular/http';
 import { MusicControls } from '@ionic-native/music-controls';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { OneSignal } from '@ionic-native/onesignal';
-import { Observable } from 'rxjs/Rx';
 import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-content.component';
 import { Media, MediaObject } from '@ionic-native/media';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { ExtendMenuProvider } from '../providers/extend-menu/extend-menu';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
-
-import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SplashPage } from '../pages/splash/splash';
-
 import { IonAlphaScrollModule } from 'ionic2-alpha-scroll';
-
 import { ComponentsModule } from './../components/components.module';
 import { DirectivesModule } from './../directives/directives.module';
 
@@ -61,7 +55,7 @@ export class MyErrorHandler implements ErrorHandler {
   constructor(injector: Injector) {
     try {
       this.ionicErrorHandler = injector.get(IonicErrorHandler);
-    } catch(e) {
+    } catch (e) {
       // Unable to get the IonicErrorHandler provider, ensure
       // IonicErrorHandler has been added to the providers list below
     }
@@ -80,41 +74,39 @@ export class MyErrorHandler implements ErrorHandler {
     MyApp,
     AccueilPage,
     ActualitePage,
-    ProgrammePage,
     PodcastsPage,
-	ChroniquesPage,
+    ChroniquesPage,
     ContactezNousPage,
     BlogPage,
-	DetailsPage,
-	  PlayerPage,
-	  VideolivePage,
-PlayerPlaylistPage,
-	  ContenupagePage,
-	  PlayerpopupPage,
-	  SideMenuContentComponent,
-	      AboutPage,
+    DetailsPage,
+    PlayerPage,
+    VideolivePage,
+    PlayerPlaylistPage,
+    ContenupagePage,
+    PlayerpopupPage,
+    SideMenuContentComponent,
     ContactPage,
     HomePage,
     TabsPage,
     SplashPage
   ],
   imports: [
-	  HttpModule,
+    HttpModule,
     BrowserModule,
-	  SwiperModule,
-	  BrowserAnimationsModule,
-	  IonAlphaScrollModule,
-	  ComponentsModule,
+    SwiperModule,
+    BrowserAnimationsModule,
+    IonAlphaScrollModule,
+    ComponentsModule,
     DirectivesModule,
     IonicModule.forRoot(MyApp, {
-        preloadModules: true,
-		backButtonText: '',
+      preloadModules: true,
+      backButtonText: '',
       modalEnter: 'modal-slide-in',
       modalLeave: 'modal-slide-out',
-		activator: 'ripple',
-		menuType: "push",
-		backButtonIcon: "ios-arrow-back"
-	})
+      activator: 'ripple',
+      menuType: "push",
+      backButtonIcon: "ios-arrow-back"
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -122,36 +114,34 @@ PlayerPlaylistPage,
     SplashPage,
     AccueilPage,
     ActualitePage,
-    ProgrammePage,
     PodcastsPage,
     ContactezNousPage,
     BlogPage,
-	  VideolivePage,
-	DetailsPage,
-	  PlayerPage,
-	  PlayerpopupPage,
-PlayerPlaylistPage,
-	ContenupagePage,
-	      AboutPage,
+    VideolivePage,
+    DetailsPage,
+    PlayerPage,
+    PlayerpopupPage,
+    PlayerPlaylistPage,
+    ContenupagePage,
     ContactPage,
     HomePage,
     TabsPage,
-	  ChroniquesPage
+    ChroniquesPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-	   IonicErrorHandler,
-	  AudioStreamProvider,
-	  SocialSharing,
-	  MusicControls,
-	  OneSignal,
-	      Media,
-	  InAppBrowser,
+    IonicErrorHandler,
+    AudioStreamProvider,
+    SocialSharing,
+    MusicControls,
+    OneSignal,
+    Media,
+    InAppBrowser,
     ExtendMenuProvider,
     StreamingMedia,
-	        GoogleAnalytics,
-	  {provide: ErrorHandler, useClass: MyErrorHandler}
+    GoogleAnalytics,
+    { provide: ErrorHandler, useClass: MyErrorHandler }
   ]
 })
-export class AppModule {}
+export class AppModule { }
