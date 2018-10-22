@@ -117,6 +117,9 @@ export class MyApp {
 	}
 
 
+
+
+	
 	public presentAlert(message: string): void {
 		let alert = this.alertCtrl.create({
 			title: 'Information',
