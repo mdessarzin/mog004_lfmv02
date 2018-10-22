@@ -3,7 +3,7 @@
     <name>Radio LFM</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.1.164:8101" />
     <access origin="*" />
     <allow-intent href="http://*/*" launch-external="yes" />
     <allow-intent href="https://*/*" launch-external="yes" />
@@ -122,9 +122,6 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="SplashScreenDelay" value="3000" />
-    <engine name="browser" spec="5.0.3" />
-    <engine name="ios" spec="4.5.5" />
-    <engine name="android" spec="7.0.0" />
     <plugin name="cordova-plugin-ionic" spec="^4.2.0">
         <variable name="APP_ID" value="74b8ab5b" />
         <variable name="CHANNEL_NAME" value="Production" />
@@ -133,4 +130,8 @@
         <variable name="UPDATE_API" value="https://api.ionicjs.com" />
         <variable name="MAX_STORE" value="3" />
     </plugin>
+    <allow-navigation href="http://192.168.1.164:8101" sessionid="5722271f" />
+    <engine name="browser" spec="5.0.3" />
+    <engine name="ios" spec="4.5.5" />
+    <engine name="android" spec="7.0.0" />
 </widget>
