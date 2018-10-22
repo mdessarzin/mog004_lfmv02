@@ -52,6 +52,8 @@ export class ActualitePage {
 	color4: string = 'light';
 	color5: string = 'light';
 	color6: string = 'light';
+	placeholder: string;
+
 	 @ViewChild('SwipedTabsSlider') SwipedTabsSlider: Slides ;
 
 	
@@ -91,7 +93,7 @@ export class ActualitePage {
 	){
 		this.cat = 10;
 		this.title = navParams.get('title');
-		
+		this.placeholder = 'https://lfm.ch/mobile/placeholder.png';
 			
 this.loadData();
 

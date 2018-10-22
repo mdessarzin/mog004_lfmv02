@@ -40,6 +40,8 @@ import { SplashPage } from '../pages/splash/splash';
 import { IonAlphaScrollModule } from 'ionic2-alpha-scroll';
 import { ComponentsModule } from './../components/components.module';
 import { DirectivesModule } from './../directives/directives.module';
+import { MamaStackBlur } from './../mama-stack-blur';
+import { MamaProgressiveImage } from './../mama-progressive-image';
 
 localStorage.setItem("player", "stop");
 localStorage.setItem("firstclickonplayer", "oui");
@@ -88,7 +90,9 @@ export class MyErrorHandler implements ErrorHandler {
     ContactPage,
     HomePage,
     TabsPage,
-    SplashPage
+    SplashPage,
+	MamaStackBlur,
+	MamaProgressiveImage
   ],
   imports: [
     HttpModule,

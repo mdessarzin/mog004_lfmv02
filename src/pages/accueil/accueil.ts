@@ -53,6 +53,7 @@ export class AccueilPage {
 	test: any;
 	liveTitre: string;
 	liveHeures: string;
+	placeholder: any = 'https://lfm.ch/mobile/placeholder.png';
 	constructor(
 		public navCtrl: NavController,
 		public _player: AudioStreamProvider,
@@ -87,7 +88,7 @@ export class AccueilPage {
 	}
 
 	loadData(infiniteScroll?, refresher?) {
-
+		this.placeholder = 'https://lfm.ch/mobile/placeholder.png';
 		if (refresher) {
 			this.pagination = 1;
 		}

@@ -71,18 +71,24 @@
 	</div>
 	<swiper [config]="config" style="border-bottom: 0px solid #f1f1f1;">
 		<div class="swiper-wrapper">
-			<div class="swiper-slide webradio id_4" style="margin-left:10px;" (tap)="startWebradios('4')">
-				<img src="./assets/webradios/1.png">
-				<ion-icon  name="ios-pause" style="display:none;" class="btwebradio pause"></ion-icon>
+			<div class="swiper-slide webradio id_4" style="margin-left:10px;">
+				<item (tap)="startWebradios('4')">
+					<img src="./assets/webradios/1.png">
+					<ion-icon  name="ios-pause" style="display:none;" class="btwebradio pause"></ion-icon>
+				</item>
 			</div>
-			<div class="swiper-slide webradio id_6" (tap)="startWebradios('6')">
-				<img src="./assets/webradios/2.png">
-				<ion-icon  name="ios-pause" style="display:none;" class="btwebradio pause"></ion-icon>
+			<div class="swiper-slide webradio id_6">
+				<item (tap)="startWebradios('6')">
+					<img src="./assets/webradios/2.png">
+					<ion-icon  name="ios-pause" style="display:none;" class="btwebradio pause"></ion-icon>
+				</item>
 			</div>
 
-			<div class="swiper-slide webradio id_10" style="margin-right:20px;" (tap)="startWebradios('10')">
-				<img src="./assets/webradios/3.png">
-				<ion-icon  name="ios-pause" style="display:none;" class="btwebradio pause"></ion-icon>
+			<div class="swiper-slide webradio id_10" style="margin-right:20px;">
+				<item (tap)="startWebradios('10')">
+					<img src="./assets/webradios/3.png">
+					<ion-icon  name="ios-pause" style="display:none;" class="btwebradio pause"></ion-icon>
+				</item>
 			</div>
 		</div>
 		<div class="swiper-pagination"></div>
@@ -98,7 +104,8 @@
 						<ion-card-content no-padding class="fadeintransition">
 							<div style="background-color: #f1f1f1; position: relative;">
 								<span class="card_categorie">{{post.chronique[0]}}</span>
-								<img data-src="{{post.card}}" style="background-color: #BCBBBB;" />
+								<mama-progressive-image [lowUrl]="placeholder" [highUrl]="post.card" [width]="500" [height]="300"></mama-progressive-image>
+								
 							</div>
 							<ion-card-title [innerHTML]="post.title"></ion-card-title>
 						</ion-card-content>

@@ -84,7 +84,7 @@
 								<ion-card-content no-padding class="fadeintransition-" >
 									<div style="background-color: #f1f1f1; position: relative;">	
 										<span class="card_categorie">{{post.chronique[0]}}</span>				
-										<img src="{{post.card}}" style="background-image: url('./assets/imgs/placeholder.png');" />
+										<mama-progressive-image [lowUrl]="placeholder" [highUrl]="post.card" [width]="1000" [height]="600"></mama-progressive-image>
 									</div>
 									<ion-card-title [innerHTML]="post.title"></ion-card-title>
 								</ion-card-content>
