@@ -58,7 +58,7 @@ export class MyApp {
 
 
 			if (this.platform.is('cordova')) {
-				this.handlerNotifications();
+				//this.handlerNotifications();
 			}
 
 			
