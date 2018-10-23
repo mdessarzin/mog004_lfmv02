@@ -93,11 +93,6 @@
         "KEEP_AVAUDIOSESSION_ALWAYS_ACTIVE": "NO"
       },
       "cordova-plugin-x-socialsharing": {},
-      "cordova-plugin-ionic": {
-        "APP_ID": "74b8ab5b",
-        "CHANNEL_NAME": "Production",
-        "UPDATE_METHOD": "auto"
-      },
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-file": {},
       "cordova-plugin-file-transfer": {},
