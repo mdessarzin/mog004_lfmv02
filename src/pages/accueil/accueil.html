@@ -4,7 +4,7 @@
 			<ion-icon name="menu"></ion-icon>
 		</button>
 		<ion-title>
-			<img alt="logo"  src="./assets/imgs/logo.svg" style="max-height: 45px; margin-top:10px;">
+			<img alt="logo"  src="./assets/imgs/logo.svg" class="logo_header">
 		</ion-title>
 		<ion-buttons start>
 			<button ion-button icon-only (tap)='startVideo()'>
@@ -71,24 +71,18 @@
 	</div>
 	<swiper [config]="config" style="border-bottom: 0px solid #f1f1f1;">
 		<div class="swiper-wrapper">
-			<div class="swiper-slide webradio id_4" style="margin-left:10px;">
-				<item (tap)="startWebradios('4')">
-					<img src="./assets/webradios/1.png">
-					<ion-icon  name="ios-pause" style="display:none;" class="btwebradio pause"></ion-icon>
-				</item>
+			<div class="swiper-slide webradio id_4" style="margin-left:10px;" (tap)="startWebradios('4')">
+				<img src="./assets/webradios/1.png">
+				<ion-icon  name="ios-pause" style="display:none;" class="btwebradio pause"></ion-icon>
 			</div>
-			<div class="swiper-slide webradio id_6">
-				<item (tap)="startWebradios('6')">
-					<img src="./assets/webradios/2.png">
-					<ion-icon  name="ios-pause" style="display:none;" class="btwebradio pause"></ion-icon>
-				</item>
+			<div class="swiper-slide webradio id_6"  (tap)="startWebradios('6')">
+				<img src="./assets/webradios/2.png">
+				<ion-icon  name="ios-pause" style="display:none;" class="btwebradio pause"></ion-icon>
 			</div>
 
-			<div class="swiper-slide webradio id_10" style="margin-right:20px;">
-				<item (tap)="startWebradios('10')">
-					<img src="./assets/webradios/3.png">
-					<ion-icon  name="ios-pause" style="display:none;" class="btwebradio pause"></ion-icon>
-				</item>
+			<div class="swiper-slide webradio id_10" style="margin-right:20px;" (tap)="startWebradios('10')">
+				<img src="./assets/webradios/3.png">
+				<ion-icon  name="ios-pause" style="display:none;" class="btwebradio pause"></ion-icon>
 			</div>
 		</div>
 		<div class="swiper-pagination"></div>
@@ -104,8 +98,7 @@
 						<ion-card-content no-padding class="fadeintransition">
 							<div style="background-color: #f1f1f1; position: relative;">
 								<span class="card_categorie">{{post.chronique[0]}}</span>
-								<mama-progressive-image [lowUrl]="placeholder" [highUrl]="post.card" [width]="500" [height]="300"></mama-progressive-image>
-								
+								<img src="{{post.card}}" style="background-image: url('./assets/imgs/placeholder.png');min-height: 200px;" />
 							</div>
 							<ion-card-title [innerHTML]="post.title"></ion-card-title>
 						</ion-card-content>

@@ -1,4 +1,4 @@
-<ion-header color="primary" (pan)="dismiss()">
+<ion-header color="primary" (pandown)="dismiss()">
   <ion-toolbar (click)="dismiss()">
     <ion-title>
       {{titreplayer}}
@@ -15,7 +15,7 @@
 	</div>
 </ion-header>
 
-<ion-content no-bounce id="player" class="player noize" (pan)="dismiss()">
+<ion-content no-bounce id="player" class="player noize" (pandown)="dismiss()">
   <div style="" class="playerinfos">
     <div class="profile-image">
       <img id="coverPlayer" data-src="" style="background-color: #BCBBBB;">

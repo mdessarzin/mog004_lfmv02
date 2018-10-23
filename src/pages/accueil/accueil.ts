@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, Injectable } from '@angular/core';
 import { NavController, Platform, LoadingController, ModalController, ViewController } from 'ionic-angular';
 import * as $ from "jquery";
 import { AudioStreamProvider } from '../../providers/audio-stream/audio-stream';
@@ -9,11 +9,13 @@ import { PlayerPage } from '../player/player';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media';
-		
+import { SwiperModule } from 'angular2-useful-swiper';
+	
 @Component({
 	selector: 'page-accueil',
 	templateUrl: 'accueil.html'
 })
+
 
 export class AccueilPage {
 		config: Object = {
