@@ -150,16 +150,19 @@ export class AudioStreamProvider {
 				this.url = "https://webradio0004.ice.infomaniak.ch/webradio0004-128.mp3";
 				this.urlJson = 'https://www.mediaone-digital.ch/cache/4.json';
 				localStorage.setItem("player_title", 'LFM 80s');
+				localStorage.setItem("player_cover", './assets/webradios/1.png');
 			}
 			else if(media=='6'){
 				this.url = "https://webradio0006.ice.infomaniak.ch/webradio0006-128.mp3";
 				this.urlJson = 'https://www.mediaone-digital.ch/cache/6.json';
 				localStorage.setItem("player_title", 'LFM 90s');
+				localStorage.setItem("player_cover", './assets/webradios/2.png');
 			}
 			else if(media=='10'){
 				this.url = "https://webradio0010.ice.infomaniak.ch/webradio0010-128.mp3";
 				this.urlJson = 'https://www.mediaone-digital.ch/cache/10.json';
 				localStorage.setItem("player_title", 'LFM Love');
+				localStorage.setItem("player_cover", './assets/webradios/3.png');
 			}
 			localStorage.setItem("player_url", this.url);
 			localStorage.setItem("player_json", this.urlJson);

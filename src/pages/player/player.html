@@ -10,15 +10,16 @@
     </ion-buttons>
 
   </ion-toolbar>
-	<div class="progress-materializecss loadingaudio" style="margin-top:0px;">
-		<div class="indeterminate"></div>
-	</div>
+  <div class="progress-materializecss loadingaudio" style="margin-top:0px;">
+    <div class="indeterminate"></div>
+  </div>
 </ion-header>
 
 <ion-content no-bounce id="player" class="player noize" (pandown)="dismiss()">
   <div style="" class="playerinfos">
     <div class="profile-image">
       <img id="coverPlayer" data-src="" style="background-color: #BCBBBB;">
+      <img id="coverPlayerWebRadio" data-src="" style="display:none;background-color: #BCBBBB;">
     </div>
     <h3 class="detail player_details">{{detail}}</h3>
     <h1 class="titre">{{titre}}</h1>

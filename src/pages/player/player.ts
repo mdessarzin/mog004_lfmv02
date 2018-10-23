@@ -8,8 +8,6 @@ import { Media, MediaObject } from '@ionic-native/media';
 import { map } from 'rxjs/operators';
 import { PlayerpopupPage } from '../playerpopup/playerpopup';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
-import { VideolivePage } from '../videolive/videolive';
-import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media';
 
 /**
  * Generated class for the PlayerPage page.
@@ -54,7 +52,6 @@ export class PlayerPage {
 		public modalCtrl: ModalController,
 		public alertCtrl: AlertController,
 		private ga: GoogleAnalytics,
-		private streamingMedia: StreamingMedia
 	) {
 
 
@@ -77,29 +74,22 @@ export class PlayerPage {
 			$('.songArtist_').html(localStorage.songArtist);
 			$('.songTitle_').html(localStorage.songTitle);
 			$('.songCover_').attr('src', localStorage.songCover);
-			this.titreplayer = 'Direct';
-			$('.detail').html(localStorage.playerDetail);
-			$('.titre').html(localStorage.playerTitre);
-			$('.soustitre').html(localStorage.playerSoustitre);
-			$('#coverPlayer').attr('src', localStorage.playerCover);
-
-			setTimeout(() => {
-				fetch('https://www.mediaone-digital.ch/cache/live/www_radiolac_ch.json?hash_id=' + Math.random())
-					.then(response => response.json())
-					.then(data => {
-						console.log('Live:' + data);
-						if (data == '0') {
-							$('.rond').css('display', 'none');
-							this.checklivestate = 0;
-						}
-						else {
-							$('.rond').css('display', 'block');
-							this.checklivestate = 1;
-						}
-
-					});
-			}, 2000);
-
+			
+			if(localStorage.player_id=='0'){
+				this.titreplayer = 'Direct';
+				$('.detail').html(localStorage.playerDetail);
+				$('.titre').html(localStorage.playerTitre);
+				$('.soustitre').html(localStorage.playerSoustitre);
+				$('#coverPlayer').attr('src', localStorage.playerCover);
+			}
+			else {
+				this.titreplayer = 'Web Radio '+localStorage.player_title;
+				$('.detail').hide();
+				$('.titre').hide();
+				$('.soustitre').hide();
+				$('#coverPlayerWebRadio').attr('src', localStorage.player_cover).show();
+			}
+			
 
 		}
 		else {
@@ -163,81 +153,8 @@ export class PlayerPage {
 				let self = this;
 				this.durations = this._player.stream.getDuration();
 
-
-				setTimeout(() => {
-					fetch('https://www.mediaone-digital.ch/cache/live/www_radiolac_ch.json?hash_id=' + Math.random())
-						.then(response => response.json())
-						.then(data => {
-							console.log('Live:' + data);
-							if (data == '0') {
-								$('.rond').css('display', 'none');
-								this.checklivestate = 0;
-							}
-							else {
-								$('.rond').css('display', 'block');
-								this.checklivestate = 1;
-							}
-
-						});
-				}, 5000);
-
-				this.checklive = setInterval(() => {
-
-					setTimeout(() => {
-						fetch('https://www.mediaone-digital.ch/cache/live/www_radiolac_ch.json?hash_id=' + Math.random())
-							.then(response => response.json())
-							.then(data => {
-								console.log('Live:' + data);
-								if (data == '0') {
-									$('.rond').css('display', 'none');
-									this.checklivestate = 0;
-								}
-								else {
-									$('.rond').css('display', 'block');
-									this.checklivestate = 1;
-								}
-
-							});
-					}, 0);
-
-				}, 40000);
-
-
 			}, 600);
 
-		}
-	}
-
-	startVideo() {
-		this.checklivestate = '1';
-		if (this.checklivestate == 1) {
-
-			let options: StreamingVideoOptions = {
-				successCallback: () => { console.log('Video played') },
-				errorCallback: (e) => { console.log('Error streaming') },
-				shouldAutoClose: true,
-				controls: false
-			};
-
-			this.streamingMedia.playVideo('https://livevideo.infomaniak.com/streaming/livecast/lfmmd/playlist.m3u8', options);
-
-			$('.webradio .pause').hide();
-			this._player.pauseProvider();
-			this.onplaying = '0';
-			localStorage.setItem("player", "stop");
-			$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
-			//let modal = this.modalCtrl.create(VideolivePage,{url:'https://livevideo.infomaniak.com/streaming/livecast/lfmmd/playlist.m3u8', poster:''});
-
-
-
-		}
-		else {
-			let alert = this.alertCtrl.create({
-				title: 'Aucun live vidéo',
-				subTitle: "Un point rouge situé à droite du bouton Webcam vous informe lorsqu'un live vidéo est diffusé.",
-				buttons: ['Fermer']
-			});
-			alert.present();
 		}
 	}
 
