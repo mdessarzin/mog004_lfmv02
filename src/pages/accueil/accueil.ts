@@ -179,12 +179,13 @@ export class AccueilPage {
 	private showDetails(id, title, link) {
 		//console.log(this.login);
 
-
-		this.navCtrl.push(DetailsPage, {
+		let modal = this.modalCtrl.create(DetailsPage, {
 			title: title,
 			key: id,
 			link: link
-		});
+		}); //PlayerPage
+		modal.present();
+
 	}
 
 

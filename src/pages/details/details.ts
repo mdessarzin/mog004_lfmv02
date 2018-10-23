@@ -1,5 +1,5 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform,LoadingController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, LoadingController, ViewController} from 'ionic-angular';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import * as $ from "jquery";
@@ -36,7 +36,8 @@ link: string;
 			 	private sanitizer: DomSanitizer,
 				private socialSharing: SocialSharing,
 				public loadingCtrl: LoadingController,
-				private ga: GoogleAnalytics
+				private ga: GoogleAnalytics,
+				public viewCtrl: ViewController
 ) {
 	  
 	   this.title = navParams.get('title');
@@ -85,6 +86,9 @@ private resize(){
 
   }
 	
+	private dismiss() {
+		this.viewCtrl.dismiss();
+	}
 
 	
 	private share(){
