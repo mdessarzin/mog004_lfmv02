@@ -3,7 +3,7 @@
     <name>Radio LFM</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://192.168.1.164:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" launch-external="yes" />
     <allow-intent href="https://*/*" launch-external="yes" />
@@ -54,6 +54,7 @@
     </platform>
     <platform name="ios">
         <allow-navigation href="https://www.lfm.ch/*" />
+        <allow-navigation href="https://www.mediaone-digital.ch/*" />
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
         <allow-intent href="http://*/*" launch-external="yes" />

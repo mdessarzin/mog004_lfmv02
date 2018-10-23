@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavParams} from 'ionic-angular';
 import { AccueilPage } from '../accueil/accueil';
 import { ActualitePage } from '../actualite/actualite';
-import { ProgrammePage } from '../programme/programme';
+import { PlayerPlaylistPage } from '../player-playlist/player-playlist';
 import { PodcastsPage } from '../podcasts/podcasts';
 import { ChroniquesPage } from '../chroniques/chroniques';
 import { BlogPage } from '../blog/blog';
@@ -20,7 +20,7 @@ export class TabsPage {
 	tab1Root = AccueilPage;
 	tab2Root = ActualitePage;
 	tab3Root = PodcastsPage;
-	tab4Root = ChroniquesPage;
+	tab4Root = PlayerPlaylistPage;
 	tab5Root = BlogPage;
 	
 	

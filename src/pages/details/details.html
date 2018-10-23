@@ -1,13 +1,13 @@
 <ion-header>
   <ion-navbar scroll-hide-translate color="lightmenu">
       <ion-buttons start>
-          <button ion-button icon-only (click)="dismiss()">
+          <button ion-button icon-only (tap)="dismiss()">
             <ion-icon name="arrow-back"></ion-icon>
           </button>
         </ion-buttons>
-    <ion-title>{{title}}</ion-title>
+    <ion-title (tap)="dismiss()">{{title}}</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="share()">
+      <button ion-button icon-only (tap)="share()">
         <ion-icon name="share"></ion-icon>
       </button>
     </ion-buttons>

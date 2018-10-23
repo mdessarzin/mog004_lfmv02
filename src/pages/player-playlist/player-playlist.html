@@ -1,39 +1,114 @@
-<!--
-  Generated template for the PlayerPlaylistPage page.
+<ion-header>
+  <ion-navbar scroll-hide-translate color="lightmenu">
+    <button ion-button menuToggle class="ripple">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <img src="./assets/imgs/small_logo.svg" width="30px" class="headericon" height="40px" />
+    <ion-title class="titleicon" style="display:inline-block">Derniers titres</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (tap)='openPlayer()' class="playerEtat_0">
+        <ion-icon name="ios-radio-outline"></ion-icon>
+      </button>
+      <button ion-button icon-only (tap)='openPlayer()' class="playerEtat_1" style="display:none;">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" class="equilizer" viewBox="0 0 128 128">
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
+            <g>
+              <rect class="bar" transform="translate(0,0)" y="15"></rect>
+              <rect class="bar" transform="translate(25,0)" y="15"></rect>
+              <rect class="bar" transform="translate(50,0)" y="15"></rect>
+              <rect class="bar" transform="translate(75,0)" y="15"></rect>
+            </g>
 
+          </svg>
+        </div>
+      </button>
+      <button ion-button icon-only (tap)='openPlayer()' class="playerEtat_2" style="display:none;">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" class="equilizer" viewBox="0 0 128 128">
+            <g>
+              <rect class="bar_off" transform="translate(0,0)" y="15"></rect>
+              <rect class="bar_off" transform="translate(25,0)" y="15"></rect>
+              <rect class="bar_off" transform="translate(50,0)" y="15"></rect>
+              <rect class="bar_off" transform="translate(75,0)" y="15"></rect>
+            </g>
+          </svg>
+        </div>
+      </button>
+    </ion-buttons>
 
+  </ion-navbar>
 
-<ion-toolbar>
-  <ion-segment [(ngModel)]="selectedSegment" (ionChange)="onSegmentChanged($event)">
-    <ion-segment-button value="first">
-      First
-    </ion-segment-button>
-    <ion-segment-button value="second">
-      Second
-    </ion-segment-button>
-    <ion-segment-button value="third">
-      Third
-    </ion-segment-button>
-  </ion-segment>
-</ion-toolbar>
+  <swiper [config]="config" class="swiper-container" style="padding-top:5px;padding-bottom:5px;background-color:#fff;">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <button mode="ios" class="t btcat_lfm" color="light" ion-button round (tap)="selectioncat('lfm');">LFM</button>
+      </div>
+      <div class="swiper-slide">
+        <button mode="ios" class="t btcat_4" ion-button color="light" round (tap)="selectioncat('4')">LFM 80's</button>
+      </div>
+      <div class="swiper-slide">
+        <button mode="ios" class="t btcat_6" ion-button color="light" round (tap)="selectioncat('6')">LFM 90's</button>
+      </div>
+      <div class="swiper-slide">
+        <button mode="ios" class="t btcat_10" ion-button color="light" round (tap)="selectioncat('10')">LFM Love</button>
+      </div>
+    </div>
+  </swiper>
+  <div class="progress-materializecss loadingaudio">
+    <div class="indeterminate"></div>
+  </div>
+</ion-header>
+<ion-content #pageContent>
+  <!-- here is our dynamic line  "indicator"-->
 
-<ion-content padding>
+  <ion-refresher (ionRefresh)="update($event)" pullMin="100" pullMax="1000">
+    <ion-refresher-content pullingIcon="ios-arrow-down-outline" refreshingSpinner="crescent">
+    </ion-refresher-content>
+  </ion-refresher>
 
-  <ion-slides #mySlider ((ionSlideDidChange)="onSlideChanged($event)">
-    <ion-slide *ngFor="let slide of slides">
-      <h1>{{ slide.title }}</h1>
-    </ion-slide>
-  </ion-slides>
+  <ion-grid no-padding>
+    <ion-row no-padding>
+      <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 no-padding *ngFor="let post of posts">
 
+        
+
+          <ion-card no-padding style="margin-bottom:10px; border-bottom: 0px solid #f1f1f1;" class="podcast_mobile">
+              <ion-card-content no-padding class="fadeintransition">
+                  <ion-item style="padding-left: 5px; border-bottom: 0px solid #fff;">
+                    <ion-thumbnail item-start>
+                      <img src="{{post.imageURL}}">
+                    </ion-thumbnail>
+                    <span class="card_categorie_podcast">{{post.interpret}}</span>
+                    <h2 style="font-size:13px;">{{post.title}}</h2>
+                    <p class="date_podcast"><i class="fas fa-dot-circle point"></i> {{post.simpletime}}</p>
+                  </ion-item>
+              </ion-card-content>		
+            </ion-card>
+           <ion-card no-padding style="display:none; margin-bottom:10px !important;" class="podcast_tab" (tap)="configPlayer(post.title, './assets/imgs/podcasts.jpg', post.chronique[0], post.date, post._url_podcast)">
+            <ion-card-content no-padding class="fadeintransition">
+                <div style="background-color: #f1f1f1; position: relative;">	
+                  <span class="card_categorie">{{post.simpletime}}</span>
+                  <span class="card_icon"><i class="fas fa-play-circle fa-3x"></i></span>
+                  <img *ngIf='post.imageURL' src="{{post.imageURL}}" />
+                </div>
+                <ion-card-title [innerHTML]="post.title"></ion-card-title>
+              </ion-card-content>	
+             <ion-row>
+                 <ion-col align-self-start>
+                   <p class="date"><i class="fas fa-dot-circle point"></i> {{post.interpret}}</p>
+                 </ion-col>
+                 <ion-col text-right align-self-start>
+                  <button ion-button clear icon-only mode="md">
+                    <ion-icon name="md-share" style="color:#A9A9A9;"></ion-icon>
+                  </button>
+                   <button ion-button clear icon-only mode="md" style="border-left:1px solid #f1f1f1;" (tap)="whatsappShare(post.title, post.card, post.link )">
+                    <ion-icon name="logo-whatsapp" style="color:#A9A9A9;"></ion-icon>
+                  </button>					
+                </ion-col>
+               </ion-row>
+            </ion-card>	 
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
-
-<style>
-  ion-scroll {
-    width: 100%;
-    height: 100%;
-  }
-</style>
