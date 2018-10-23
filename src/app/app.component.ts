@@ -7,6 +7,8 @@ import { OneSignal } from '@ionic-native/onesignal';
 import { AudioStreamProvider } from '../providers/audio-stream/audio-stream';
 import * as $ from "jquery";
 import { TabsPage } from '../pages/tabs/tabs';
+import { SplashPage } from '../pages/splash/splash';
+
 
 @Component({
 	templateUrl: 'app.html'
@@ -28,9 +30,6 @@ export class MyApp {
 		//this._player.pauseProvider();
 		localStorage.setItem("build", "1.0.4");
 		this.initializeApp();
-
-
-
 		let ratio = Math.max(window.devicePixelRatio || 1, 1);
 	}
 
@@ -60,10 +59,6 @@ export class MyApp {
 			if (this.platform.is('cordova')) {
 				//this.handlerNotifications();
 			}
-
-			
-
-	
 
 			if (this.platform.is('cordova')) {
 
@@ -131,7 +126,7 @@ export class MyApp {
 
 	private handlerNotifications() {
 
-		this.oneSignal.startInit('2bb64197-f783-46fd-9551-24de82fc9f89', '776643205654');
+		this.oneSignal.startInit('7f79900f-f206-4340-8fdc-a57bc809b127', '555413916773');
 		this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.Notification);
 		//this.oneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
 		this.oneSignal.handleNotificationOpened()

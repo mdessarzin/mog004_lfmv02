@@ -33,7 +33,7 @@ export class PlayerPlaylistPage {
 	cover: string;
 	track: string;
 	date: string;
-	cat: any = 10;
+	cat: any = 'lfm';
 	live: string;
 	onplaying: string;
 	animateClass: any;
@@ -165,7 +165,7 @@ export class PlayerPlaylistPage {
 	//Prépation de la fonction de chargement
 	ionViewDidLoad() {
 
-		$('.btcat_10').css('background-color', '#833177').css('color', '#fff');
+		$('.btcat_lfm').css('background-color', '#833177').css('color', '#fff');
 
 		if (localStorage.player == 'play') {
 			// this.buttonIcon = "ios-pause";
