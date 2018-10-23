@@ -18,6 +18,11 @@ import { SwiperModule } from 'angular2-useful-swiper';
 
 
 export class AccueilPage {
+	
+	tabBarElement: any;
+  splash = true;
+	
+	
 		config: Object = {
 		pagination: '.swiper-pagination',
 		paginationClickable: true,
@@ -70,6 +75,8 @@ export class AccueilPage {
 		private ga: GoogleAnalytics,
 		private streamingMedia: StreamingMedia
 	) {
+			    this.tabBarElement = document.querySelector('.tabbar');
+
 		this.loadData();
 		this.test = 2;
 		this.ga.startTrackerWithId('UA-104904297-2').then(() => {
@@ -127,6 +134,14 @@ export class AccueilPage {
 	}
 
 	ionViewDidLoad() {
+		
+		 this.tabBarElement.style.display = 'none';
+    setTimeout(() => {
+      this.splash = false;
+      this.tabBarElement.style.display = 'flex';
+    }, 4000);
+		
+		
 		$('#coverPlayerHome').attr('src', localStorage.playerCover);
 		if (localStorage.player == 'play') {
 			this.buttonIcon = 'ios-stop';
