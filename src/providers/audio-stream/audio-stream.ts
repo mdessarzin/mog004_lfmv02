@@ -209,6 +209,12 @@ export class AudioStreamProvider {
 
 		}, 15000);
 
+		$.getJSON(this.urlJson+'?hash_id=' + Math.random(), function (data) {
+			$('.songArtist_').html(data.live[0].interpret);
+			$('.songTitle_').html(data.live[0].title);
+			$('.songCover_').attr('src', data.live[0].imageURL);
+		});
+
 
 		$('.loadingaudio').show();
 		$('.btPlayer').hide();
