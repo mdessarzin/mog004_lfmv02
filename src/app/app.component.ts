@@ -86,12 +86,13 @@ export class MyApp {
 
 			setInterval(() => {
 				$.ajaxSetup({ cache: false });
+				/*
 				$.getJSON('https://www.mediaone-digital.ch/cache/lfm.json?hash_id=' + Math.random(), function (data) {
 					localStorage.setItem("songArtist", data.live[0].interpret);
 					localStorage.setItem("songTitle", data.live[0].title);
 					localStorage.setItem("songCover", data.live[0].imageURL);
 				});
-
+*/
 				if (localStorage.type_player == 'live') {
 					$.getJSON('https://www.mediaone-digital.ch/cache/live/lfm_live.json?hash_id=' + Math.random(), function (data) {
 						localStorage.setItem("playerDetail", data.start_short + '-' + data.end_short);
