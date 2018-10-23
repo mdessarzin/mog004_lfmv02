@@ -8,6 +8,7 @@ import { AudioStreamProvider } from '../providers/audio-stream/audio-stream';
 import * as $ from "jquery";
 import { TabsPage } from '../pages/tabs/tabs';
 import { SplashPage } from '../pages/splash/splash';
+import { MusicControls } from '@ionic-native/music-controls';
 
 
 @Component({
