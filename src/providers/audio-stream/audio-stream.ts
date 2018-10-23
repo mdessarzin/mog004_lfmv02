@@ -191,15 +191,15 @@ export class AudioStreamProvider {
 					.then(data => {
 						console.log('playlist:' + data);
 						if (this.live == data.live[0].interpret) {
-							//
+							this.settingMusicControl(data.live[0].interpret, data.live[0].title, data.live[0].imageURL);
 						}
 						else {
 							this.live = data.live[0].interpret;
 							if (localStorage.type_player == 'live') {
+								this.settingMusicControl(data.live[0].interpret, data.live[0].title, data.live[0].imageURL);
 								$('.songArtist_').html(data.live[0].interpret);
 								$('.songTitle_').html(data.live[0].title);
 								$('.songCover_').attr('src', data.live[0].imageURL);
-								//this.settingMusicControl($('.songTitle').html(), $('.songArtist').html(), $('.songCover').attr('src'));
 
 							}
 							else {
@@ -219,6 +219,8 @@ export class AudioStreamProvider {
 			$('.songArtist_').html(data.live[0].interpret);
 			$('.songTitle_').html(data.live[0].title);
 			$('.songCover_').attr('src', data.live[0].imageURL);
+			this.settingMusicControl(data.live[0].interpret, data.live[0].title, data.live[0].imageURL);
+
 		});
 
 
@@ -230,10 +232,7 @@ export class AudioStreamProvider {
 		$('.playerEtat_2').show();
 
 		this.stream.play();
-		//this.settingMusicControl($('.songTitle_').html(), $('.songArtist_').html(), $('.songCover_').attr('src'));
 		console.log('play');
-		
-
 
 		this.timingloading = setInterval(() => {
 			this.stream.getCurrentPosition().then((curpos) => {
