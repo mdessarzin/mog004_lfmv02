@@ -210,6 +210,9 @@ export class AudioStreamProvider {
 		}, 15000);
 
 		$.getJSON(this.urlJson+'?hash_id=' + Math.random(), function (data) {
+			localStorage.setItem("playerTitre", data.title);
+			localStorage.setItem("playerSoustitre", data.animators);
+			localStorage.setItem("playerCover", data.picture); 
 			$('.songArtist_').html(data.live[0].interpret);
 			$('.songTitle_').html(data.live[0].title);
 			$('.songCover_').attr('src', data.live[0].imageURL);
