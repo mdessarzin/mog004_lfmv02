@@ -5,7 +5,8 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 import * as $ from "jquery";
 import { Http } from '@angular/http';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
-
+import { File } from '@ionic-native/file';
+import { FileTransfer } from '@ionic-native/file-transfer';
 /**
  * Generated class for the DetailsPage page.
  *
@@ -37,10 +38,18 @@ link: string;
 				private socialSharing: SocialSharing,
 				public loadingCtrl: LoadingController,
 				private ga: GoogleAnalytics,
-				public viewCtrl: ViewController
+				public viewCtrl: ViewController,
+				public http: Http,
+				private file: File,
+				private transfer: FileTransfer,
+				public plt: Platform,
+
 ) {
 	  
-	   this.title = navParams.get('title');
+		 this.title = navParams.get('title');
+		 this.link = navParams.get('link');
+
+
 /*
 	  
 	  setTimeout(() => {
@@ -62,10 +71,43 @@ link: string;
 				});
 			},20);
 	*/  
-	this.link = navParams.get('link');
 	this.trustedPostUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.link);
 
+
+	}
+
+	openLocalPdf() {
+    
   }
+ 
+  downloadAndOpenPdf() {
+    let path = null;
+ 
+    if (this.plt.is('ios')) {
+      path = this.file.documentsDirectory;
+    } else if (this.plt.is('android')) {
+      path = this.file.dataDirectory;
+    }
+ 
+    const transfer = this.transfer.create();
+    transfer.download('https://devdactic.com/html/5-simple-hacks-LBT.pdf', path + 'myfile.pdf').then(entry => {
+      let url = entry.toURL();
+     // this.document.viewDocument(url, 'application/pdf', {});
+    });
+  }
+
+/*
+private downloadAndSavePicture(pictureUrl) {
+    this.http.get(pictureUrl, {responseType: 'blob'})
+    .subscribe((imageBlob: Blob) => {
+        // imageBlob is the binary data of the the image
+        // From here you can manipulate it and store it where you want
+        // For example, to store it in your app dir
+        // The replace true is optional but is just in case you want to overwrite it
+        return this.file.writeFile(this.file.dataDirectory, "my_downloaded_image", imageBlob, {replace: true});
+    }).toPromise();
+}
+*/
 	
 private loadclose(){
 			setTimeout( () => {

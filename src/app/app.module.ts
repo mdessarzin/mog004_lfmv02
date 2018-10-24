@@ -42,6 +42,8 @@ import { ComponentsModule } from './../components/components.module';
 import { DirectivesModule } from './../directives/directives.module';
 import { MamaStackBlur } from './../mama-stack-blur';
 import { MamaProgressiveImage } from './../mama-progressive-image';
+import { File } from '@ionic-native/file';
+import { FileTransfer } from '@ionic-native/file-transfer';
 
 localStorage.setItem("player", "stop");
 localStorage.setItem("firstclickonplayer", "oui");
@@ -145,6 +147,8 @@ export class MyErrorHandler implements ErrorHandler {
     ExtendMenuProvider,
     StreamingMedia,
     GoogleAnalytics,
+    File,
+    FileTransfer,
     { provide: ErrorHandler, useClass: MyErrorHandler }
   ]
 })
