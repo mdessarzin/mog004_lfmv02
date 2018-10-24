@@ -3,7 +3,7 @@
     <name>Radio LFM</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://192.168.43.97:8101" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" launch-external="yes" />
     <allow-intent href="https://*/*" launch-external="yes" />
@@ -125,7 +125,6 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <plugin name="cordova-plugin-file-transfer" spec="^1.7.1" />
-    <allow-navigation href="http://192.168.43.97:8101" sessionid="8a760caa" />
     <engine name="browser" spec="5.0.3" />
     <engine name="android" spec="7.0.0" />
     <engine name="ios" spec="4.5.5" />
