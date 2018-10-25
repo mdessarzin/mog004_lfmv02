@@ -64,7 +64,7 @@ export class MyApp {
 			if (this.platform.is('cordova')) {
 
 				let ratio = Math.max(window.devicePixelRatio || 1, 1);
-
+/*
 				
 				(<any>window).SmartAdServer.setOptions({
 					siteId: 77190,
@@ -81,7 +81,7 @@ export class MyApp {
 					autoShow: true
 				});
 				
-
+*/
 				console.log('Platform is ready');
 			}
 

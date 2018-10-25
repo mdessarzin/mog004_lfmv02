@@ -25,7 +25,7 @@ export class AccueilPage {
 		pagination: '.swiper-pagination',
 		paginationClickable: true,
 		spaceBetween: 10,
-		slidesPerView: 2.3, //use any number 1.8 or 4.2 or 7.3 etc..
+		slidesPerView: 'auto', //use any number 1.8 or 4.2 or 7.3 etc..    2.3
 		direction: 'horizontal',
 		parallax: true,
 		freeMode: true,
@@ -36,6 +36,8 @@ export class AccueilPage {
 		roundLengths: false,
 		effect: 'slide' //use cube,flip,coverflow or fade
 	};
+
+	
 	artist: string;
 	cover: string;
 	track: string;
@@ -158,13 +160,13 @@ export class AccueilPage {
 	}
 
 	ionViewDidLoad() {
-
-		//this.tabBarElement.style.display = 'none';
+/*
+		this.tabBarElement.style.display = 'none';
 		setTimeout(() => {
 			this.splash = false;
-		//this.tabBarElement.style.display = 'flex';
+		this.tabBarElement.style.display = 'flex';
 		}, 4000);
-
+*/
 
 		$('#coverPlayerHome').attr('src', localStorage.playerCover);
 		if (localStorage.player == 'play') {
@@ -192,6 +194,10 @@ export class AccueilPage {
 
 	openads(link) {
 		window.open(link, "_system");
+	}
+
+	private callstudio(phone){
+		window.open("tel:"+phone, "_system");
 	}
 
 	private whatsappShare(title, image, link) {

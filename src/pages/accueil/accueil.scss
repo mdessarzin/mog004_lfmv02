@@ -347,13 +347,22 @@ page-accueil {
   }
 
   .swiper-slide {
-    width: 350px;
+ 
     border-bottom: 0px solid #f1f1f1;
+    margin-bottom: 40px;
+    background-color: transparent;
+  }
+
+  .swiper-slide{
+		float:left;
+		width:auto;
+	}
+
+  .swiper-slide img {
     box-shadow: 4px 4px 21px 0px rgba(202, 202, 202, 0.75) !important;
     -webkit-box-shadow: 4px 4px 21px 0px rgba(202, 202, 202, 0.75) !important;
     -moz-box-shadow: 4px 4px 21px 0px rgba(202, 202, 202, 0.75) !important;
-    margin-bottom: 40px;
-    background-color: transparent;
+    max-height: 180px;
   }
   .swiper-slide h3 {
     width: 100%;
