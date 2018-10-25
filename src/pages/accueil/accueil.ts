@@ -10,20 +10,18 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media';
 import { SwiperModule } from 'angular2-useful-swiper';
-	
+
 @Component({
 	selector: 'page-accueil',
 	templateUrl: 'accueil.html'
 })
 
-
 export class AccueilPage {
-	
+
 	tabBarElement: any;
-  splash = true;
-	
-	
-		config: Object = {
+	splash = true;
+
+	config: Object = {
 		pagination: '.swiper-pagination',
 		paginationClickable: true,
 		spaceBetween: 10,
@@ -47,6 +45,29 @@ export class AccueilPage {
 	animateClass: any;
 	params: any = {};
 	data: any = {};
+	optionsiab: any = {
+		location: 'no',//Or 'no' 
+		hidden: 'no', //Or  'yes'
+		zoom: 'yes',//Android only ,shows browser zoom controls 
+		hardwareback: 'yes',
+		mediaPlaybackRequiresUserAction: 'no',
+		shouldPauseOnSuspend: 'no', //Android only 
+		closebuttoncaption: 'Fermer', //iOS only
+		disallowoverscroll: 'no', //iOS only 
+		toolbar: 'yes', //iOS only 
+		enableViewportScale: 'no', //iOS only 
+		allowInlineMediaPlayback: 'no',//iOS only 
+		presentationstyle: 'fullscreen',//iOS only 
+		fullscreen: 'yes',//Windows only
+		hidenavigationbuttons: 'no',
+		toolbarcolor: '#ffffff',
+		closebuttoncolor: '#000000',
+		toolbarposition: 'top',
+		toolbartranslucent: 'no',
+		transitionstyle: 'crossdissolve',
+		footer: 'yes',
+		footercolor: '#ffffff'
+	}
 	pushPage: any;
 	buttonIcon: string = 'ios-play';
 	fakeUsers: Array<any> = new Array(3);
@@ -75,21 +96,24 @@ export class AccueilPage {
 		private ga: GoogleAnalytics,
 		private streamingMedia: StreamingMedia
 	) {
-			    this.tabBarElement = document.querySelector('.tabbar');
+		this.tabBarElement = document.querySelector('.tabbar');
 
 		this.loadData();
 		this.test = 2;
 		this.ga.startTrackerWithId('UA-104904297-2').then(() => {
-				console.log('Google analytics is ready now');
-				this.ga.trackView('home');
-				this.ga.trackEvent('Navigation', 'Home');
+			console.log('Google analytics is ready now');
+			this.ga.trackView('home');
+			this.ga.trackEvent('Navigation', 'Home');
 		}).catch(e => console.log('Error starting GoogleAnalytics', e));
+
+
+		
 	}
 
-	ionViewDidEnter(){
+	ionViewDidEnter() {
 	}
 
-	update(refresher){
+	update(refresher) {
 		console.log('Begin async operation', refresher);
 		setTimeout(() => {
 			this.loadData(false, refresher);
@@ -134,14 +158,14 @@ export class AccueilPage {
 	}
 
 	ionViewDidLoad() {
-		
-		 this.tabBarElement.style.display = 'none';
-    setTimeout(() => {
-      this.splash = false;
-      this.tabBarElement.style.display = 'flex';
-    }, 4000);
-		
-		
+
+		//this.tabBarElement.style.display = 'none';
+		setTimeout(() => {
+			this.splash = false;
+		//this.tabBarElement.style.display = 'flex';
+		}, 4000);
+
+
 		$('#coverPlayerHome').attr('src', localStorage.playerCover);
 		if (localStorage.player == 'play') {
 			this.buttonIcon = 'ios-stop';
@@ -162,7 +186,7 @@ export class AccueilPage {
 
 	}
 
-	ionViewWillLeave(){
+	ionViewWillLeave() {
 		// 	(<any>window).SmartAdServer.hideBanner();
 	}
 
@@ -192,14 +216,29 @@ export class AccueilPage {
 	}
 
 	private showDetails(id, title, link) {
-		//console.log(this.login);
-
-		let modal = this.modalCtrl.create(DetailsPage, {
-			title: title,
-			key: id,
-			link: link
-		}); //PlayerPage
-		modal.present();
+		this.iab.create(link, '_blank', {
+			location: 'no',//Or 'no' 
+			hidden: 'no', //Or  'yes'
+			zoom: 'yes',//Android only ,shows browser zoom controls 
+			hardwareback: 'yes',
+			mediaPlaybackRequiresUserAction: 'no',
+			shouldPauseOnSuspend: 'no', //Android only 
+			closebuttoncaption: 'Fermer', //iOS only
+			disallowoverscroll: 'no', //iOS only 
+			toolbar: 'yes', //iOS only 
+			enableViewportScale: 'no', //iOS only 
+			allowInlineMediaPlayback: 'no',//iOS only 
+			presentationstyle: 'fullscreen',//iOS only 
+			fullscreen: 'yes',//Windows only
+			hidenavigationbuttons: 'no',
+			toolbarcolor: '#ffffff',
+			closebuttoncolor: '#000000',
+			toolbarposition: 'top',
+			toolbartranslucent: 'no',
+			transitionstyle: 'crossdissolve',
+			footer: 'yes',
+			footercolor: '#ffffff'
+		});
 
 	}
 
@@ -216,9 +255,8 @@ export class AccueilPage {
 			$('.playerEtat_0').show();
 
 		}
-		else
-		{
-			this._player.playerconfigProvider('live', '0');4
+		else {
+			this._player.playerconfigProvider('live', '0'); 4
 			this.buttonIcon = 'ios-stop';
 			$('.loadingaudio').show();
 			this._player.playProvider();
@@ -235,7 +273,7 @@ export class AccueilPage {
 
 		$('.webradio .pause').hide();
 		$('.btPlayerhome').html('<i class="fas fa-play"></i>');
-		if(localStorage.player_id == idwebradio && localStorage.player=='play'){
+		if (localStorage.player_id == idwebradio && localStorage.player == 'play') {
 			this._player.pauseProvider();
 			$('.playerEtat_2').hide();
 			$('.playerEtat_1').hide();
@@ -248,7 +286,7 @@ export class AccueilPage {
 			this._player.playerconfigProvider('live', idwebradio);
 			this._player.playProvider();
 			$('.webradio .pause').hide();
-			$('.webradio.id_'+idwebradio+' .pause').show();
+			$('.webradio.id_' + idwebradio + ' .pause').show();
 			$('.playerEtat_0').hide();
 			$('.playerEtat_1').hide();
 			$('.playerEtat_2').show();
@@ -261,20 +299,20 @@ export class AccueilPage {
 
 	private startVideo() {
 
-			let options: StreamingVideoOptions = {
-				successCallback: () => { console.log('Video played') },
-				errorCallback: (e) => { console.log('Error streaming') },
-				shouldAutoClose: true,
-				controls: true
-			};
+		let options: StreamingVideoOptions = {
+			successCallback: () => { console.log('Video played') },
+			errorCallback: (e) => { console.log('Error streaming') },
+			shouldAutoClose: true,
+			controls: true
+		};
 
-			this.streamingMedia.playVideo('https://livevideo.infomaniak.com/streaming/livecast/lfmmd/playlist.m3u8', options);
+		this.streamingMedia.playVideo('https://livevideo.infomaniak.com/streaming/livecast/lfmmd/playlist.m3u8', options);
 
-			$('.webradio .pause').hide();
-			this._player.pauseProvider();
-			this.onplaying = '0';
-			localStorage.setItem("player", "stop");
-			$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
+		$('.webradio .pause').hide();
+		this._player.pauseProvider();
+		this.onplaying = '0';
+		localStorage.setItem("player", "stop");
+		$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
 	}
 
 	private openPlayer() {

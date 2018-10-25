@@ -1,25 +1,13 @@
-<div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
-  <div class="flb welcome">
-    <div class="Aligner-item Aligner-item--top"></div>
-    <div class="centered"><img src="assets/imgs/logo_white.svg" width="100"  /></div>
-              <span id="splash-overlay" class="splash"></span>
-              <span id="welcome" class="z-depth-4"></span>
-    <div class="Aligner-item Aligner-item--bottom"></div>
-  </div>
-</div>
 <ion-header mode="ios">
-	<ion-navbar scroll-hide-translate color="lightmenu">
-		<button ion-button menuToggle class="ripple">
-			<ion-icon name="menu"></ion-icon>
-		</button>
-		<ion-title>
-			<img alt="logo"  src="./assets/imgs/logo.svg" class="logo_header">
-		</ion-title>
-		<ion-buttons start>
+	<ion-navbar scroll-hide-translate color="lightmenu">		
+		<ion-buttons left>
 			<button ion-button icon-only (tap)='startVideo()'>
 				<ion-icon name="videocam"></ion-icon>
 			</button>
 		</ion-buttons>
+		<ion-title>
+			<img alt="logo"  src="./assets/imgs/logo.svg" style="max-height:40px; margin-bottom:5px; vertical-align:bottom;">
+		</ion-title>
 		<ion-buttons end>
 			<button ion-button icon-only (tap)='openPlayer()' class="playerEtat_0 test">
 				<ion-icon name="ios-radio-outline"></ion-icon>
@@ -56,7 +44,11 @@
 </ion-header>
 
 <ion-content no-padding no-bounce id="page6" #pageContent style="background-color:#f9f9f9;">
-
+		<ion-fab right bottom>
+				<button ion-fab color="primary" class="" (tap)='whatsapp()'>
+					<ion-icon name="logo-whatsapp"></ion-icon>
+				</button>
+			</ion-fab>
 	<ion-card no-padding style="margin-bottom:0px;border-bottom: 0px solid #833177; overflow-y:hidden;">
 		<button no-padding ion-item (tap)='startAudio()'>
 			<ion-card-content no-padding class="fadeintransition" style="position:relative;">
@@ -127,16 +119,11 @@
 					</ion-row>
 				</ion-card>
 				<div *ngIf="post.ads != 0">
-					<a href="#" (tap)="this.iab.create(post.ads_l, '_blank','location=no,clearsessioncache=yes');">
+					<a href="#" (tap)="this.iab.create(post.ads_l, '_blank','location=no,clearsessioncache=yes,hardwareback=yes');">
 						<img src="{{post.ads_i}}" border="0" alt="" />
 					</a>
 				</div>
 			</ion-col>
 		</ion-row>
 	</ion-grid>
-	<ion-fab right bottom>
-		<button ion-fab color="primary" class="" (tap)='whatsapp()'>
-			<ion-icon name="logo-whatsapp"></ion-icon>
-		</button>
-	</ion-fab>
 </ion-content>

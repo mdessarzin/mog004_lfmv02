@@ -60,6 +60,7 @@
     "cordova-plugin-ionic-webview": "^2.2.0",
     "cordova-plugin-media": "^5.0.2",
     "cordova-plugin-music-controls": "^2.1.4",
+    "cordova-plugin-smart-adserver": "1.0.2",
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-statusbar": "^2.4.2",
     "cordova-plugin-streaming-media": "^2.2.0",
@@ -104,7 +105,8 @@
       "cordova-plugin-statusbar": {},
       "cordova-plugin-streaming-media": {},
       "cordova-plugin-ionic-webview": {},
-      "cordova-plugin-music-controls": {}
+      "cordova-plugin-music-controls": {},
+      "cordova-plugin-smart-adserver": {}
     },
     "platforms": [
       "browser",

@@ -45,7 +45,7 @@ export class DetailsPage {
 	) {
 		this.title = navParams.get('title');
 		this.link = navParams.get('link');
-		this.trustedPostUrl = this.sanitizer.bypassSecurityTrustResourceUrl('./assets/html/test.html');
+		this.trustedPostUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.link);
 	}
 
 	/*

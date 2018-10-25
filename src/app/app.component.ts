@@ -65,23 +65,23 @@ export class MyApp {
 
 				let ratio = Math.max(window.devicePixelRatio || 1, 1);
 
-				/*
+				
 				(<any>window).SmartAdServer.setOptions({
-					siteId: 241727,
+					siteId: 77190,
 					baseUrl: 'http://mobile.smartadserver.com',
 					position: (<any>window).SmartAdServer.AD_POSITION.BOTTOM_CENTER,
 					// offsetTopBar: false, // avoid overlapped by status bar, for iOS7+
 					bgColor: 'black', // color name, or '#RRGGBB'
-					isTesting: false, // set to true, to receiving test ad for testing purpose
-					autoShow: true, // auto show interstitial ad when loaded, set to false if prepare/show
-				});
-
-
-				(<any>window).SmartAdServer.prepareInterstitial({
-					adId: '947330/29216',
+					isTesting: true, // set to true, to receiving test ad for testing purpose
+					autoShow: false // auto show interstitial ad when loaded, set to false if prepare/show
+				});	// Page : App_LFM/standard
+				
+				if ((<any>window).SmartAdServer) (<any>window).SmartAdServer.prepareInterstitial({
+					adId: '769947/29216',
 					autoShow: true
 				});
-*/
+				
+
 				console.log('Platform is ready');
 			}
 

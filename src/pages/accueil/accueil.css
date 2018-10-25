@@ -1,5 +1,7 @@
 page-accueil {
   /* moveIn */ }
+  page-accueil ion-fab[bottom] {
+    bottom: 30px; }
   page-accueil #custom-overlay {
     position: fixed;
     top: 0;

@@ -54,6 +54,7 @@ export class ActualitePage {
 	color6: string = 'light';
 	placeholder: string;
 
+
 	@ViewChild('SwipedTabsSlider') SwipedTabsSlider: Slides;
 
 
@@ -125,6 +126,7 @@ export class ActualitePage {
 			message: 'Chargement des articles',
 			position: 'bottom'
 		});
+		//$('.loadingaudio').show();
 		toast.present();
 
 
@@ -139,6 +141,7 @@ export class ActualitePage {
 		this.http.get('https://www.lfm.ch/wp-json/mog/v1/get_data?type=post&taxonomy=category&term_id=' + this.cat + '&per_page=20&page=' + this.pagination + '&hash_id=' + Math.random()).map(res => res.json()).subscribe(data => {
 			//  this.posts = data;
 			console.log(this.posts);
+			
 			if (refresher) {
 				this.posts = [];
 				refresher.complete();
@@ -148,8 +151,9 @@ export class ActualitePage {
 				this.posts.push(i);
 
 			}
-			this.postsLoading = '1';
 			toast.dismiss();
+			this.postsLoading = '1';
+			//$('.loadingaudio').hide();
 			if (infiniteScroll) {
 				infiniteScroll.complete();
 			}
@@ -231,14 +235,30 @@ export class ActualitePage {
 				})
 	}
 
-	private showDetails(id, title, link) {
-		//console.log(this.login);
-		let modal = this.modalCtrl.create(DetailsPage, {
-			title: title,
-			key: id,
-			link: link
-		}); //PlayerPage
-		modal.present();
+	private showDetails(id, title, link) {		
+		this.iab.create(link,'_blank',{
+			location : 'no',//Or 'no' 
+			hidden : 'no', //Or  'yes'
+			zoom : 'yes',//Android only ,shows browser zoom controls 
+			hardwareback : 'yes',
+			mediaPlaybackRequiresUserAction : 'no',
+			shouldPauseOnSuspend : 'no', //Android only 
+			closebuttoncaption : 'Fermer', //iOS only
+			disallowoverscroll : 'no', //iOS only 
+			toolbar : 'yes', //iOS only 
+			enableViewportScale : 'no', //iOS only 
+			allowInlineMediaPlayback : 'no',//iOS only 
+			presentationstyle : 'fullscreen',//iOS only 
+			fullscreen : 'yes',//Windows only
+			hidenavigationbuttons: 'no',
+			toolbarcolor: '#ffffff',
+			closebuttoncolor: '#000000',
+			toolbarposition: 'top',
+			toolbartranslucent: 'no',
+			transitionstyle: 'crossdissolve',
+			footer: 'yes',
+			footercolor: '#ffffff'
+		});
 	}
 
 

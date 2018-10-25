@@ -328,7 +328,9 @@ export class AudioStreamProvider {
 		if(localStorage.player_id=='0'){
 			$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
 			$('.btPlayerhome').html('<i class="fas fa-play"></i>');
-			$('.fab-md-danger').addClass("pulseplay");
+			setTimeout(() => {
+				$('.fab-md-danger').removeClass("pulseplay");
+			}, 4500);
 		}
 		return Observable.of(false);
 	}
