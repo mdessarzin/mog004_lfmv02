@@ -50,7 +50,7 @@ export class AccueilPage {
 	optionsiab: any = {
 		location: 'no',//Or 'no' 
 		hidden: 'no', //Or  'yes'
-		zoom: 'yes',//Android only ,shows browser zoom controls 
+		zoom: 'no',//Android only ,shows browser zoom controls 
 		hardwareback: 'yes',
 		mediaPlaybackRequiresUserAction: 'no',
 		shouldPauseOnSuspend: 'no', //Android only 

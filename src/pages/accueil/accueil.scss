@@ -10,6 +10,13 @@ page-accueil {
   width:100%;
   background-color: #002a3e;
 }
+.toolbar-ios img{
+  margin-bottom:5px !important;
+}
+.toolbar-md img{
+  margin-bottom:0px !important;
+  max-width: 118px;
+}
 
 .flb {
   background-color: #3ebffb;
