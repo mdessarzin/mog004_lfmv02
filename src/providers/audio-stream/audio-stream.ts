@@ -171,11 +171,12 @@ export class AudioStreamProvider {
 		}
 
 
-		this.audio = new Audio("https://lausannefm.ice.infomaniak.ch/lausannefm-high.mp3");
+		//this.audio = new Audio("https://lausannefm.ice.infomaniak.ch/lausannefm-high.mp3");
 		
 
 		if(this.stream)
 			this.stream.release();
+		
 		this.stream = this.media.create(this.url);
 
 		return Observable.of(false);
@@ -236,10 +237,10 @@ export class AudioStreamProvider {
 		$('.playerEtat_1').hide();
 		$('.playerEtat_2').show();
 
-		//this.stream.play();
-		this.audio.play();
+		this.stream.play();
+		//this.audio.play();
 		console.log('play');
-/*
+
 		this.timingloading = setInterval(() => {
 			this.stream.getCurrentPosition().then((curpos) => {
 				console.log('chargement');
@@ -288,7 +289,7 @@ export class AudioStreamProvider {
 			}
 
 		});
-*/
+
 		this.stream.onSuccess.subscribe(() => {
 			console.log(" > onSuccess complete");
 		});
