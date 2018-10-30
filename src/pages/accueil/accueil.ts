@@ -225,7 +225,7 @@ export class AccueilPage {
 		this.iab.create(link, '_blank', {
 			location: 'no',//Or 'no' 
 			hidden: 'no', //Or  'yes'
-			zoom: 'yes',//Android only ,shows browser zoom controls 
+			zoom: 'no',//Android only ,shows browser zoom controls 
 			hardwareback: 'yes',
 			mediaPlaybackRequiresUserAction: 'no',
 			shouldPauseOnSuspend: 'no', //Android only 
@@ -250,18 +250,22 @@ export class AccueilPage {
 
 
 	private startAudio() {
+		this._player.stream.pause();
 		$('.webradio .pause').hide();
 		if (localStorage.player == 'play' && localStorage.player_id == '0') {
 			this._player.pauseProvider();
+			
 			$('.loadingaudio').hide();
 			$('.btPlayerhome').html('<i class="fas fa-play"></i>');
 			$('.fab-md-danger').addClass("pulseplay");
 			$('.playerEtat_2').hide();
 			$('.playerEtat_1').hide();
 			$('.playerEtat_0').show();
+			localStorage.setItem("player", "stop");
 
 		}
 		else {
+			
 			this._player.playerconfigProvider('live', '0'); 4
 			this.buttonIcon = 'ios-stop';
 			$('.loadingaudio').show();
@@ -271,15 +275,17 @@ export class AccueilPage {
 			$('.playerEtat_0').hide();
 			$('.playerEtat_1').hide();
 			$('.playerEtat_2').show();
+			localStorage.setItem("player", "play");
 		}
 	}
 
 	private startWebradios(idwebradio) {
-
-
+		localStorage.setItem("player_id",idwebradio);
+		this._player.stream.pause();
 		$('.webradio .pause').hide();
 		$('.btPlayerhome').html('<i class="fas fa-play"></i>');
 		if (localStorage.player_id == idwebradio && localStorage.player == 'play') {
+			localStorage.setItem("player", "stop");
 			this._player.pauseProvider();
 			$('.playerEtat_2').hide();
 			$('.playerEtat_1').hide();
@@ -288,6 +294,7 @@ export class AccueilPage {
 		}
 		else {
 			this.buttonIcon = 'ios-stop';
+			localStorage.setItem("player", "play");
 			$('.loadingaudio').show();
 			this._player.playerconfigProvider('live', idwebradio);
 			this._player.playProvider();
