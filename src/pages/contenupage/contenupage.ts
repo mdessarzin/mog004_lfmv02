@@ -46,7 +46,7 @@ link: string;
 	this.link = navParams.get('key');
 	this.trustedPostUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.link+'?clean=true');
 	  
-	this.ga.startTrackerWithId('UA-104904297-2')
+	this.ga.startTrackerWithId('UA-4500692-2')
       .then(() => {
         console.log('Google analytics is ready now');
         this.ga.trackView(this.title);

@@ -102,7 +102,7 @@ export class AccueilPage {
 
 		this.loadData();
 		this.test = 2;
-		this.ga.startTrackerWithId('UA-104904297-2').then(() => {
+		this.ga.startTrackerWithId('UA-4500692-2').then(() => {
 			console.log('Google analytics is ready now');
 			this.ga.trackView('home');
 			this.ga.trackEvent('Navigation', 'Home');
@@ -157,6 +157,22 @@ export class AccueilPage {
 		setTimeout(() => {
 			$('.fab-md-danger').removeClass("pulseplay");
 		}, 6000);
+		setTimeout(() => {
+		if (this.platform.is('cordova')) {
+
+			let ratio = Math.max(window.devicePixelRatio || 1, 1);
+
+			
+			
+			if ((<any>window).SmartAdServer) (<any>window).SmartAdServer.prepareInterstitial({
+				adId: '1014628/29216',
+				autoShow: true
+			});				
+
+			console.log('Platform is ready');
+		}
+		}, 10000);
+
 	}
 
 	ionViewDidLoad() {
@@ -248,45 +264,18 @@ export class AccueilPage {
 
 	}
 
-
 	private startAudio() {
-		this._player.stream.pause();
-		$('.webradio .pause').hide();
-		if (localStorage.player == 'play' && localStorage.player_id == '0') {
-			this._player.pauseProvider();
-			
-			$('.loadingaudio').hide();
-			$('.btPlayerhome').html('<i class="fas fa-play"></i>');
-			$('.fab-md-danger').addClass("pulseplay");
-			$('.playerEtat_2').hide();
-			$('.playerEtat_1').hide();
-			$('.playerEtat_0').show();
-			localStorage.setItem("player", "stop");
-
-		}
-		else {
-			
-			this._player.playerconfigProvider('live', '0'); 4
-			this.buttonIcon = 'ios-stop';
-			$('.loadingaudio').show();
-			this._player.playProvider();
-			$('.btPlayerhome').html('<i class="fas fa-pause"></i>');
-			$('.fab-md-danger').removeClass("pulseplay");
-			$('.playerEtat_0').hide();
-			$('.playerEtat_1').hide();
-			$('.playerEtat_2').show();
-			localStorage.setItem("player", "play");
-		}
-	}
-
-	private startWebradios(idwebradio) {
-		localStorage.setItem("player_id",idwebradio);
-		this._player.stream.pause();
+		this._player.playerconfigEtat('0');
+		let idwebradio = 0;
+		//localStorage.setItem("player_id",idwebradio);
+		this._player.stream.stop();
 		$('.webradio .pause').hide();
 		$('.btPlayerhome').html('<i class="fas fa-play"></i>');
 		if (localStorage.player_id == idwebradio && localStorage.player == 'play') {
 			localStorage.setItem("player", "stop");
 			this._player.pauseProvider();
+			$('.btPlayerhome').html('<i class="fas fa-play"></i>');
+			$('.fab-md-danger').addClass("pulseplay");
 			$('.playerEtat_2').hide();
 			$('.playerEtat_1').hide();
 			$('.playerEtat_0').show();
@@ -299,10 +288,46 @@ export class AccueilPage {
 			this._player.playerconfigProvider('live', idwebradio);
 			this._player.playProvider();
 			$('.webradio .pause').hide();
-			$('.webradio.id_' + idwebradio + ' .pause').show();
+			$('.btPlayerhome').html('<i class="fas fa-pause"></i>');
+			$('.fab-md-danger').removeClass("pulseplay");
 			$('.playerEtat_0').hide();
 			$('.playerEtat_1').hide();
 			$('.playerEtat_2').show();
+		}
+	}
+
+	private startWebradios(idwebradio) {
+		this._player.playerconfigEtat('0');
+		//localStorage.setItem("player_id",idwebradio);
+		$('.webradio .pause').hide();
+		$('.btPlayerhome').html('<i class="fas fa-play"></i>');
+		this._player.stream.stop();
+		if (localStorage.player_id == idwebradio && localStorage.player == 'play') {
+			localStorage.setItem("player", "stop");
+			this._player.pauseProvider();
+			$('.playerEtat_2').hide();
+			$('.playerEtat_1').hide();
+			$('.playerEtat_0').show();
+			$('.loadingaudio').hide();
+		}
+		else {
+			//this.buttonIcon = 'ios-stop';
+			localStorage.setItem("player", "play");
+			$('.loadingaudio').show();
+			this._player.playerconfigProvider('live', idwebradio);
+			this._player.playProvider();
+			if(idwebradio=='0'){
+				$('.btPlayerhome').html('<i class="fas fa-pause"></i>');
+				this._player.playerconfigEtat('test');
+			}
+			else {
+				$('.webradio .pause').hide();
+				$('.webradio.id_' + idwebradio + ' .pause').show();
+			}
+			$('.playerEtat_0').hide();
+			$('.playerEtat_1').hide();
+			$('.playerEtat_2').show();
+				
 		}
 	}
 

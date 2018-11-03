@@ -74,7 +74,6 @@ export class AudioStreamProvider {
 					$('.playerEtat_2').hide();
 					$('.playerEtat_1').hide();
 					$('.playerEtat_0').show();
-					$('.webradio .pause').hide();
 					$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
 					$('.btPlayerhome').html('<i class="fas fa-play"></i>');
 					$('.fab-md-danger').addClass("pulseplay");
@@ -92,15 +91,10 @@ export class AudioStreamProvider {
 					$('.playerEtat_2').hide();
 					$('.playerEtat_0').hide();
 					$('.playerEtat_1').show();
-					$('.webradio .pause').hide();
-					if(localStorage.player_id=='0'){
-						$('.btPlayer').html('<i class="fas fa-pause-circle fa-3x"></i>');
-						$('.btPlayerhome').html('<i class="fas fa-pause"></i>');
-						$('.fab-md-danger').removeClass("pulseplay");
-					}
-					else {
-						$('.webradio.id_' + localStorage.player_id + ' .pause').show();
-					}
+					$('.btPlayer').html('<i class="fas fa-pause-circle fa-3x"></i>');
+					$('.btPlayerhome').html('<i class="fas fa-pause"></i>');
+					$('.fab-md-danger').removeClass("pulseplay");
+
 					break;
 				case 'music-controls-destroy':
 					// Do something
@@ -138,12 +132,9 @@ export class AudioStreamProvider {
 	}
 
 
-	public playerconfigEtat(etat){
-		this.etatplayer = etat;
-	}
 
 	public playerconfigProvider(typeStream,media?): Observable<boolean> {
-		
+
 		if(typeStream=='replay'){
 			this.url = media;
 			localStorage.setItem("type_player", "replay");
@@ -184,8 +175,8 @@ export class AudioStreamProvider {
 		//this.audio = new Audio("https://lausannefm.ice.infomaniak.ch/lausannefm-high.mp3");
 		
 
-		//if(this.stream)
-		//	this.stream.release();
+		if(this.stream)
+			this.stream.release();
 		
 		this.stream = this.media.create(this.url);
 
@@ -195,44 +186,41 @@ export class AudioStreamProvider {
 
 
 	public playProvider(): Observable<boolean> {
-	
-		if(localStorage.type_player == 'replay'){
-			//nothings
-		}
-		else 
-		{
-			this.stream.stop();
-		}
-	
-		
+		this.stream.stop();
 		localStorage.setItem("player", "play");
+
 		this.stream.play();
-		this.stream.onStatusUpdate.subscribe(status => {
 
-			console.log(JSON.stringify(status));
+		//this.audio.play();
+		console.log('play');
 
-			this.etatplayer = status.toString();
-
-			if (status.toString() == "2") { //player start
-				$('.loadingPlayer').hide();
-				$('.btPlayer').show();
-				$('.playerEtat_2').hide();
-				$('.playerEtat_0').hide();
-				$('.playerEtat_1').show();
-				$('.loadingaudio').hide();
-				$('.btPlayer').html('<i class="fas fa-pause-circle fa-3x"></i>');
-				if(localStorage.player_id=='0'){
-					$('.btPlayerhome').html('<i class="fas fa-pause"></i>');
-					$('.fab-md-danger').removeClass("pulseplay");	
+		this.timingloading = setInterval(() => {
+			this.stream.getCurrentPosition().then((curpos) => {
+				console.log('chargement');
+				if (curpos > 0) {
+					$('.loadingaudio').hide();
+					$('.loadingPlayer').hide();
+					$('.btPlayer').show();
+					$('.playerEtat_2').hide();
+					$('.playerEtat_0').hide();
+					$('.playerEtat_1').show();
+					if(localStorage.player_id=='0'){
+						$('.btPlayer').html('<i class="fas fa-pause-circle fa-3x"></i>');
+						$('.btPlayerhome').html('<i class="fas fa-pause"></i>');
+						$('.fab-md-danger').removeClass("pulseplay");
+					}
+					clearInterval(this.timingloading);
 				}
-				if(localStorage.type_player == 'replay'){
-					
-				}
-				else {
-					fetch(this.urlJson+'?hash_id=' + Math.random())
+			});
+		}, 100);
+
+		setInterval(() => {
+
+			setTimeout(() => {
+				fetch(this.urlJson+'?hash_id=' + Math.random())
 					.then(response => response.json())
 					.then(data => {
-						console.log('playlist Live (initial):' + this.urlJson);
+						console.log('playlist:' + data);
 						if (this.live == data.live[0].interpret) {
 							this.settingMusicControl(data.live[0].interpret, data.live[0].title, data.live[0].imageURL);
 						}
@@ -243,9 +231,7 @@ export class AudioStreamProvider {
 								$('.songArtist_').html(data.live[0].interpret);
 								$('.songTitle_').html(data.live[0].title);
 								$('.songCover_').attr('src', data.live[0].imageURL);
-								localStorage.setItem("songArtist", data.live[0].interpret);
-								localStorage.setItem("songTitle", data.live[0].title);
-								localStorage.setItem("songCover", data.live[0].imageURL);
+
 							}
 							else {
 								//
@@ -253,44 +239,52 @@ export class AudioStreamProvider {
 						}
 
 					});
-					this.timingloading = setInterval(() => {
+			}, 0);
 
-						setTimeout(() => {
-							fetch(this.urlJson+'?hash_id=' + Math.random())
-								.then(response => response.json())
-								.then(data => {
-									console.log('playlist live:' + this.urlJson);
-									if (this.live == data.live[0].interpret) {
-										this.settingMusicControl(data.live[0].interpret, data.live[0].title, data.live[0].imageURL);
-									}
-									else {
-										this.live = data.live[0].interpret;
-										if (localStorage.type_player == 'live') {
-											this.settingMusicControl(data.live[0].interpret, data.live[0].title, data.live[0].imageURL);
-											$('.songArtist_').html(data.live[0].interpret);
-											$('.songTitle_').html(data.live[0].title);
-											$('.songCover_').attr('src', data.live[0].imageURL);
-			
-										}
-										else {
-											//
-										}
-									}
-			
-								});
-						}, 0);
-			
-					}, 15000);
-				}
+		}, 15000);
+
+		$.getJSON(this.urlJson+'?hash_id=' + Math.random(), function (data) {
+			localStorage.setItem("songArtist", data.live[0].interpret);
+			localStorage.setItem("songTitle", data.live[0].title);
+			localStorage.setItem("songCover", data.live[0].imageURL);
+			$('.songArtist_').html(data.live[0].interpret);
+			$('.songTitle_').html(data.live[0].title);
+			$('.songCover_').attr('src', data.live[0].imageURL);
+			this.settingMusicControl(data.live[0].interpret, data.live[0].title, data.live[0].imageURL);
+
+		});
+
+
+		$('.loadingaudio').show();
+		$('.btPlayer').hide();
+		$('.loadingPlayer').show();
+		$('.playerEtat_0').hide();
+		$('.playerEtat_1').hide();
+		$('.playerEtat_2').show();
+
+
+
+
+		this.stream.onStatusUpdate.subscribe(status => {
+
+			console.log(JSON.stringify(status));
+
+			this.etatplayer = status.toString();
+			if (status.toString() == "2") { //player start
 				
-				console.log('Lancement de la lecture');
+				
 			}
 
 			if (status.toString() == "4") { // player end running
 				$('.playerEtat_2').hide();
 				$('.playerEtat_1').hide();
 				$('.playerEtat_0').show();
-				clearInterval(this.timingloading);
+				if(localStorage.player_id=='0'){
+					$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
+					$('.btPlayerhome').html('<i class="fas fa-play"></i>');
+					$('.fab-md-danger').addClass("pulseplay");
+					$('.loadingaudio').hide();
+				}
 				if (this.mediaTimer != null) {
 					//clearInterval(this.mediaTimer);    // (*) don t do clearInterval here, or your ionic will not work, see below
 					//TODO here : handle html, remove "playing" message
@@ -299,8 +293,26 @@ export class AudioStreamProvider {
 
 		});
 
-		
-	
+		this.stream.onSuccess.subscribe(() => {
+			console.log(" > onSuccess complete");
+		});
+
+		this.stream.onError.subscribe(error => {
+			console.log(" > onError=" + error);
+			$('.playerEtat_2').hide();
+			$('.playerEtat_1').hide();
+			$('.playerEtat_0').show();
+			if(localStorage.player_id=='0'){
+				$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
+				$('.btPlayerhome').html('<i class="fas fa-play"></i>');
+				$('.fab-md-danger').addClass("pulseplay");			
+			}
+			//clearInterval(this.mediaTimer);  (*) don t do clearInterval here, or your ionic will not work, see below
+		});
+
+		//return this.promise;
+
+		//});  
 		return Observable.of(false);
 
 	}
@@ -308,24 +320,17 @@ export class AudioStreamProvider {
 
 	}
 	public pauseProvider(): Observable<boolean> {
-		
-		if(localStorage.type_player == 'replay'){
-			this.stream.pause();
+		//clearInterval(progressbar);
+		if (this.timingloading) {
+			clearInterval(this.timingloading);
 		}
-		else {
-			//clearInterval(progressbar);
-			if (this.timingloading) {
-				clearInterval(this.timingloading);
-			}
 
-			this.stream.stop();
-			//localStorage.setItem("player_id", '');
-			this.musicControls.listen();
-			this.musicControls.updateIsPlaying(false);
-			//this.stream.pause();
-			//return false;
-		}
-		
+		this.stream.stop();
+		localStorage.setItem("player_id", '');
+		this.musicControls.listen();
+		this.musicControls.updateIsPlaying(false);
+		//this.stream.pause();
+		//return false;
 		localStorage.setItem("player", "stop");
 		$('.playerEtat_2').hide();
 		$('.playerEtat_1').hide();

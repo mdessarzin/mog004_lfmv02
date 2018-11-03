@@ -59,7 +59,7 @@
 	</ion-fab>
 
 	<ion-card no-padding style="margin-bottom:0px;border-bottom: 0px solid #833177; overflow-y:hidden; max-width:450px;margin-left:auto;margin-right: auto;">
-		<button no-padding ion-item (tap)='startAudio()'>
+		<button no-padding ion-item (tap)="startWebradios('0')">
 			<ion-card-content no-padding class="fadeintransition" style="position:relative;">
 				<div style="background-color: #f1f1f1; position: relative;">
 					<img id="coverPlayerHome" src="./assets/imgs/placeholder.png" style="background-color: #BCBBBB;" />
@@ -69,7 +69,7 @@
 					</ion-card-title>
 				</div>
 				<ion-fab center middle>
-					<button ion-fab mode="md" color="danger" class="" (tap)='startAudio()'>
+					<button ion-fab mode="md" color="danger" class="">
 						<span class="btPlayerhome"></span>
 					</button>
 				</ion-fab>

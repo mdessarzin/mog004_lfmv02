@@ -56,33 +56,19 @@ export class MyApp {
 				$('#coverPlayerHome').attr('src', data.picture);
 			});
 
-
 			if (this.platform.is('cordova')) {
 				this.handlerNotifications();
-			}
 
-			if (this.platform.is('cordova')) {
-
-				let ratio = Math.max(window.devicePixelRatio || 1, 1);
-/*
-				
 				(<any>window).SmartAdServer.setOptions({
-					siteId: 77190,
+					siteId: 270610,
 					baseUrl: 'http://mobile.smartadserver.com',
 					position: (<any>window).SmartAdServer.AD_POSITION.BOTTOM_CENTER,
 					// offsetTopBar: false, // avoid overlapped by status bar, for iOS7+
 					bgColor: 'black', // color name, or '#RRGGBB'
-					isTesting: true, // set to true, to receiving test ad for testing purpose
+					isTesting: false, // set to true, to receiving test ad for testing purpose
 					autoShow: false // auto show interstitial ad when loaded, set to false if prepare/show
-				});	// Page : App_LFM/standard
+				});	// Page : App_LFM/standard 270610 / 1014628
 				
-				if ((<any>window).SmartAdServer) (<any>window).SmartAdServer.prepareInterstitial({
-					adId: '769947/29216',
-					autoShow: true
-				});
-				
-*/
-				console.log('Platform is ready');
 			}
 
 			setInterval(() => {

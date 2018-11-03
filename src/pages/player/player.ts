@@ -56,7 +56,7 @@ export class PlayerPage {
 
 
 		this.typeplayer = 'audio';
-		this.ga.startTrackerWithId('UA-104904297-2')
+		this.ga.startTrackerWithId('UA-4500692-2')
 			.then(() => {
 				console.log('Google analytics is ready now');
 				this.ga.trackView('Player');
@@ -161,11 +161,11 @@ export class PlayerPage {
 	private dismiss() {
 		if (this.checklive) {
 			clearInterval(this.checklive);
-			if (this.timingseek) {
-				clearInterval(this.timingseek);
-			}
+			
 		}
-
+		if (this.timingseek) {
+			clearInterval(this.timingseek);
+		}
 		this.viewCtrl.dismiss();
 	}
 

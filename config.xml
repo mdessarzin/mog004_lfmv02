@@ -22,6 +22,14 @@
     <preference name="android-minSdkVersion" value="19" />
     <preference name="BackupWebStorage" value="none" />
     <preference name="StatusBarBackgroundColor" value="#833177" />
+    <preference name="SplashMaintainAspectRatio" value="true" />
+    <preference name="FadeSplashScreenDuration" value="0" />
+    <preference name="SplashShowOnlyFirstTime" value="false" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="1000" />
+    <preference name="ShowSplashScreenSpinner" value="true" />
+    <preference name="WKSuspendInBackground" value="false" />
+    <preference name="WKPort" value="8080" />
     <allow-navigation href="http://localhost:8080/*" />
     <platform name="android">
         <allow-intent href="market:*" />
@@ -116,17 +124,12 @@
     <allow-navigation href="http://192.168.43.97:8100" />
     <allow-navigation href="http://192.168.1.133:8100" />
     <plugin name="cordova-plugin-streaming-media" spec="^2.2.0" />
-    <plugin name="cordova-plugin-ionic-webview" spec="^2.2.0" />
-    <preference name="SplashScreenDelay" value="0" />
-    <preference name="ShowSplashScreen" value="false" />
-    <preference name="AutoHideSplashScreen" value="true" />
     <plugin name="cordova-plugin-music-controls" spec="^2.1.4" />
-    <preference name="SplashScreen" value="screen" />
-    <preference name="SplashShowOnlyFirstTime" value="false" />
     <plugin name="cordova-plugin-file-transfer" spec="^1.7.1" />
     <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
     <plugin name="cordova-plugin-smart-adserver" spec="1.0.2" />
     <engine name="browser" spec="5.0.3" />
     <engine name="android" spec="7.0.0" />
-    <engine name="ios" spec="4.5.5" />
+    <plugin name="cordova-plugin-ionic-webview" spec="^2.2.0" />
+    <engine name="ios" spec="~4.5.5" />
 </widget>
