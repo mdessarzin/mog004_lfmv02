@@ -9,6 +9,7 @@ import * as $ from "jquery";
 import { TabsPage } from '../pages/tabs/tabs';
 import { SplashPage } from '../pages/splash/splash';
 import { MusicControls } from '@ionic-native/music-controls';
+import { BackgroundMode } from "@ionic-native/background-mode";
 
 
 @Component({
@@ -24,7 +25,8 @@ export class MyApp {
 		private alertCtrl: AlertController,
 		private oneSignal: OneSignal,
 		public _player: AudioStreamProvider,
-		public modalCtrl: ModalController
+		public modalCtrl: ModalController,
+		private backgroundMode: BackgroundMode
 	) {
 		this._player.playerconfigProvider('live', '0');
 		//this._player.playProvider();
@@ -38,6 +40,7 @@ export class MyApp {
 		this.platform.ready().then(() => {
 
 			
+			this.backgroundMode.enable();
 
 			this.statusBar.styleDefault();
 			this.splashScreen.hide();

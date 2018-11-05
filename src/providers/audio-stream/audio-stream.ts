@@ -206,7 +206,12 @@ export class AudioStreamProvider {
 	
 		
 		localStorage.setItem("player", "play");
+		
+		
+		this.audio = new Audio("https://lausannefm.ice.infomaniak.ch/lausannefm-high.mp3");
+	//	this.audio.play();
 		this.stream.play();
+		
 		this.stream.onStatusUpdate.subscribe(status => {
 
 			console.log(JSON.stringify(status));
@@ -296,6 +301,7 @@ export class AudioStreamProvider {
 					//TODO here : handle html, remove "playing" message
 				}
 			}
+			
 
 		});
 
