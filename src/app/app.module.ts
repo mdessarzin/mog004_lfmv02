@@ -20,7 +20,6 @@ import 'intersection-observer';
 
 import { VideolivePage } from '../pages/videolive/videolive';
 import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media';
-import { BackgroundMode } from "@ionic-native/background-mode";
 
 import { AudioStreamProvider } from '../providers/audio-stream/audio-stream';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -145,7 +144,6 @@ export class MyErrorHandler implements ErrorHandler {
     OneSignal,
     Media,
     InAppBrowser,
-    BackgroundMode,
     ExtendMenuProvider,
     StreamingMedia,
     GoogleAnalytics,

@@ -28,6 +28,7 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="1000" />
     <preference name="ShowSplashScreenSpinner" value="true" />
+    <preference name="AutoHideSplashScreen" value="true" />
     <preference name="CordovaWebViewEngine" value="CDVUIWebViewEngine" />
     <platform name="android">
         <allow-intent href="market:*" />
@@ -131,7 +132,6 @@
         <variable name="CHANNEL_NAME" value="Production" />
         <variable name="UPDATE_METHOD" value="auto" />
     </plugin>
-    <plugin name="cordova-plugin-background-mode" spec="^0.7.2" />
     <engine name="browser" spec="5.0.3" />
     <engine name="android" spec="7.0.0" />
     <engine name="ios" spec="4.5.5" />
