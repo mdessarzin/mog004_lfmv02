@@ -28,9 +28,7 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="1000" />
     <preference name="ShowSplashScreenSpinner" value="true" />
-    <preference name="WKSuspendInBackground" value="false" />
-    <preference name="WKPort" value="8080" />
-    <allow-navigation href="http://localhost:8080/*" />
+    <preference name="CordovaWebViewEngine" value="CDVUIWebViewEngine" />
     <platform name="android">
         <allow-intent href="market:*" />
         <hook src="hooks/patch-android-studio-check.js" type="before_plugin_install" />
@@ -130,6 +128,10 @@
     <plugin name="cordova-plugin-smart-adserver" spec="1.0.2" />
     <engine name="browser" spec="5.0.3" />
     <engine name="android" spec="7.0.0" />
-    <plugin name="cordova-plugin-ionic-webview" spec="^2.2.0" />
+    <plugin name="cordova-plugin-ionic" spec="^4.2.0">
+        <variable name="APP_ID" value="74b8ab5b" />
+        <variable name="CHANNEL_NAME" value="Production" />
+        <variable name="UPDATE_METHOD" value="auto" />
+    </plugin>
     <engine name="ios" spec="~4.5.5" />
 </widget>

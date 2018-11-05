@@ -108,11 +108,49 @@ export class AccueilPage {
 			this.ga.trackEvent('Navigation', 'Home');
 		}).catch(e => console.log('Error starting GoogleAnalytics', e));
 
+		console.log("Retour dans l'applicaiton");
 
+		setTimeout(() => {
+			$('.fab-md-danger').removeClass("pulseplay");
+		}, 6000);
+		setTimeout(() => {
+		if (this.platform.is('cordova')) {
+
+			let ratio = Math.max(window.devicePixelRatio || 1, 1);
+
+			
+			
+			if ((<any>window).SmartAdServer) (<any>window).SmartAdServer.prepareInterstitial({
+				adId: '1014628/29216',
+				autoShow: true
+			});				
+
+		}
+		}, 10000);
+
+		$('#coverPlayerHome').attr('src', localStorage.playerCover);
+		if (localStorage.player == 'play') {
+			this.buttonIcon = 'ios-stop';
+			$('.btPlayerhome').html('<i class="fas fa-pause"></i>');
+			$('.fab-md-danger').removeClass("pulseplay");
+			$('.playerEtat_2').hide();
+			$('.playerEtat_0').hide();
+			$('.playerEtat_1').show();
+		}
+		else {
+			this.buttonIcon = 'ios-play';
+			$('.btPlayerhome').html('<i class="fas fa-play"></i>');
+			$('.fab-md-danger').addClass("pulseplay");
+			$('.playerEtat_2').hide();
+			$('.playerEtat_1').hide();
+			$('.playerEtat_0').show();
+		}
 		
 	}
 
 	ionViewDidEnter() {
+
+		
 	}
 
 	update(refresher) {
@@ -153,54 +191,11 @@ export class AccueilPage {
 		}
 	}
 
-	ngAfterViewInit() {
-		setTimeout(() => {
-			$('.fab-md-danger').removeClass("pulseplay");
-		}, 6000);
-		setTimeout(() => {
-		if (this.platform.is('cordova')) {
 
-			let ratio = Math.max(window.devicePixelRatio || 1, 1);
-
-			
-			
-			if ((<any>window).SmartAdServer) (<any>window).SmartAdServer.prepareInterstitial({
-				adId: '1014628/29216',
-				autoShow: true
-			});				
-
-			console.log('Platform is ready');
-		}
-		}, 10000);
-
-	}
 
 	ionViewDidLoad() {
-/*
-		this.tabBarElement.style.display = 'none';
-		setTimeout(() => {
-			this.splash = false;
-		this.tabBarElement.style.display = 'flex';
-		}, 4000);
-*/
 
-		$('#coverPlayerHome').attr('src', localStorage.playerCover);
-		if (localStorage.player == 'play') {
-			this.buttonIcon = 'ios-stop';
-			$('.btPlayerhome').html('<i class="fas fa-pause"></i>');
-			$('.fab-md-danger').removeClass("pulseplay");
-			$('.playerEtat_2').hide();
-			$('.playerEtat_0').hide();
-			$('.playerEtat_1').show();
-		}
-		else {
-			this.buttonIcon = 'ios-play';
-			$('.btPlayerhome').html('<i class="fas fa-play"></i>');
-			$('.fab-md-danger').addClass("pulseplay");
-			$('.playerEtat_2').hide();
-			$('.playerEtat_1').hide();
-			$('.playerEtat_0').show();
-		}
+		
 
 	}
 
