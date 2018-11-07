@@ -113,20 +113,7 @@ export class AccueilPage {
 		setTimeout(() => {
 			$('.fab-md-danger').removeClass("pulseplay");
 		}, 6000);
-		setTimeout(() => {
-		if (this.platform.is('cordova')) {
-
-			let ratio = Math.max(window.devicePixelRatio || 1, 1);
-
-			
-			
-			if ((<any>window).SmartAdServer) (<any>window).SmartAdServer.prepareInterstitial({
-				adId: '1014628/29216',
-				autoShow: true
-			});				
-
-		}
-		}, 10000);
+		
 
 		$('#coverPlayerHome').attr('src', localStorage.playerCover);
 		if (localStorage.player == 'play') {
