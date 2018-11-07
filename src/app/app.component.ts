@@ -32,6 +32,7 @@ export class MyApp {
 		localStorage.setItem("build", "1.0.4");
 		this.initializeApp();
 		let ratio = Math.max(window.devicePixelRatio || 1, 1);
+		this.splashScreen.hide();
 	}
 
 	initializeApp() {
