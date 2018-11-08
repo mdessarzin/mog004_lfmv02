@@ -1,7 +1,7 @@
 {
   "name": "Ionic",
   "short_name": "Ionic",
-  "start_url": "index.html",
+  "start_url": "https://www.lfm.ch/mobile/application/index.html",
   "display": "standalone",
   "icons": [{
     "src": "assets/imgs/logo.png",

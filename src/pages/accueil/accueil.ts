@@ -4,12 +4,11 @@ import * as $ from "jquery";
 import { AudioStreamProvider } from '../../providers/audio-stream/audio-stream';
 import { Http } from '@angular/http';
 import { SocialSharing } from '@ionic-native/social-sharing';
-import { DetailsPage } from '../details/details';
 import { PlayerPage } from '../player/player';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media';
-import { SwiperModule } from 'angular2-useful-swiper';
+import { MusicControls } from '@ionic-native/music-controls';
 
 @Component({
 	selector: 'page-accueil',
@@ -37,7 +36,7 @@ export class AccueilPage {
 		effect: 'slide' //use cube,flip,coverflow or fade
 	};
 
-	
+
 	artist: string;
 	cover: string;
 	track: string;
@@ -96,10 +95,11 @@ export class AccueilPage {
 		public platform: Platform,
 		private iab: InAppBrowser,
 		private ga: GoogleAnalytics,
-		private streamingMedia: StreamingMedia
+		private streamingMedia: StreamingMedia,
+		private musicControls: MusicControls
 	) {
 		this.tabBarElement = document.querySelector('.tabbar');
-
+		$('.btPlayerhome').html('<i class="fas fa-play"></i>');
 		this.loadData();
 		this.test = 2;
 		this.ga.startTrackerWithId('UA-4500692-2').then(() => {
@@ -113,7 +113,7 @@ export class AccueilPage {
 		setTimeout(() => {
 			$('.fab-md-danger').removeClass("pulseplay");
 		}, 6000);
-		
+
 
 		$('#coverPlayerHome').attr('src', localStorage.playerCover);
 		if (localStorage.player == 'play') {
@@ -132,12 +132,12 @@ export class AccueilPage {
 			$('.playerEtat_1').hide();
 			$('.playerEtat_0').show();
 		}
-		
+
 	}
 
 	ionViewDidEnter() {
 
-		
+
 	}
 
 	update(refresher) {
@@ -182,7 +182,7 @@ export class AccueilPage {
 
 	ionViewDidLoad() {
 
-		
+
 
 	}
 
@@ -194,8 +194,8 @@ export class AccueilPage {
 		window.open(link, "_system");
 	}
 
-	private callstudio(phone){
-		window.open("tel:"+phone, "_system");
+	private callstudio(phone) {
+		window.open("tel:" + phone, "_system");
 	}
 
 	private whatsappShare(title, image, link) {
@@ -279,65 +279,70 @@ export class AccueilPage {
 	}
 
 	private startWebradios(idwebradio) {
-		this._player.playerconfigEtat('0');
+		//this._player.playerconfigEtat('0');
 		//localStorage.setItem("player_id",idwebradio);
 		$('.webradio .pause').hide();
 		$('.btPlayerhome').html('<i class="fas fa-play"></i>');
-		this._player.stream.stop();
-		if (localStorage.player_id == idwebradio && localStorage.player == 'play') {
-			localStorage.setItem("player", "stop");
-			this._player.pauseProvider();
-			$('.playerEtat_2').hide();
-			$('.playerEtat_1').hide();
-			$('.playerEtat_0').show();
-			$('.loadingaudio').hide();
-		}
-		else {
-			//this.buttonIcon = 'ios-stop';
-			localStorage.setItem("player", "play");
-			$('.loadingaudio').show();
-			this._player.playerconfigProvider('live', idwebradio);
-			this._player.playProvider();
-			if(idwebradio=='0'){
-				$('.btPlayerhome').html('<i class="fas fa-pause"></i>');
-				this._player.playerconfigEtat('test');
+		console.log("play ByID");
+		
+		//this._player.stream.stop();
+		//this._player.pauseProvider();
+
+			if (localStorage.player_id == idwebradio && localStorage.player == 'play') {
+				localStorage.setItem("player", "stop");
+				this._player.pauseProvider();
+				$('.playerEtat_2').hide();
+				$('.playerEtat_1').hide();
+				$('.playerEtat_0').show();
+				$('.loadingaudio').hide();
 			}
 			else {
-				$('.webradio .pause').hide();
-				$('.webradio.id_' + idwebradio + ' .pause').show();
+				//this.buttonIcon = 'ios-stop';
+				localStorage.setItem("player", "play");
+				$('.loadingaudio').show();
+				this._player.playerconfigProvider('live', idwebradio);
+				this._player.playProvider();
+				if(idwebradio=='0'){
+					$('.btPlayerhome').html('<i class="fas fa-pause"></i>');
+					this._player.playerconfigEtat('test');
+				}
+				else {
+					$('.webradio .pause').hide();
+					$('.webradio.id_' + idwebradio + ' .pause').show();
+				}
+				$('.playerEtat_0').hide();
+				$('.playerEtat_1').hide();
+				$('.playerEtat_2').show();
+					
 			}
-			$('.playerEtat_0').hide();
-			$('.playerEtat_1').hide();
-			$('.playerEtat_2').show();
-				
+		
 		}
-	}
 
 	public whatsapp() {
-		window.open("whatsapp://send?text=Bonjour&phone=+41798421033&abid=+41798421033", '_system', 'location=yes');
-	}
+				window.open("whatsapp://send?text=Bonjour&phone=+41798421033&abid=+41798421033", '_system', 'location=yes');
+			}
 
 	private startVideo() {
 
-		let options: StreamingVideoOptions = {
-			successCallback: () => { console.log('Video played') },
-			errorCallback: (e) => { console.log('Error streaming') },
-			shouldAutoClose: true,
-			controls: true
-		};
+				let options: StreamingVideoOptions = {
+					successCallback: () => { console.log('Video played') },
+					errorCallback: (e) => { console.log('Error streaming') },
+					shouldAutoClose: true,
+					controls: true
+				};
 
-		this.streamingMedia.playVideo('https://livevideo.infomaniak.com/streaming/livecast/lfmmd/playlist.m3u8', options);
+				this.streamingMedia.playVideo('https://livevideo.infomaniak.com/streaming/livecast/lfmmd/playlist.m3u8', options);
 
-		$('.webradio .pause').hide();
+				$('.webradio .pause').hide();
 		this._player.pauseProvider();
-		this.onplaying = '0';
-		localStorage.setItem("player", "stop");
-		$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
-	}
+				this.onplaying = '0';
+				localStorage.setItem("player", "stop");
+				$('.btPlayer').html('<i class="fas fa-play-circle fa-3x"></i>');
+			}
 
 	private openPlayer() {
-		//console.log(this.login);
-		let modal = this.modalCtrl.create(PlayerPage); //PlayerPage
-		modal.present();
-	}
+				//console.log(this.login);
+				let modal = this.modalCtrl.create(PlayerPage); //PlayerPage
+				modal.present();
+			}
 }

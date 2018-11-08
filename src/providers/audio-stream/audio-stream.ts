@@ -24,6 +24,8 @@ export class AudioStreamProvider {
 	audio: any;
 	etatplayer: string;
 	constructor(private _loadingCtrl: LoadingController, public musicControls: MusicControls, public media: Media) {
+
+		this.audio = new Audio("https://lausannefm.ice.infomaniak.ch/lausannefm-high.mp3");
 	}
 
 	ngOnInit() {
@@ -181,13 +183,16 @@ export class AudioStreamProvider {
 		}
 
 
-		//this.audio = new Audio("https://lausannefm.ice.infomaniak.ch/lausannefm-high.mp3");
+		
 		
 
 		//if(this.stream)
 		//	this.stream.release();
-		
-		this.stream = this.media.create(this.url);
+		this.audio.src = this.url;
+		this.audio.preload = 'metadata';
+		this.audio.title = 'Radio LFM';
+		this.audio.load();
+		//this.stream = this.media.create(this.url);
 
 		return Observable.of(false);
 
@@ -201,17 +206,42 @@ export class AudioStreamProvider {
 		}
 		else 
 		{
-			this.stream.stop();
+			//this.stream.stop();
 		}
 	
 		
 		localStorage.setItem("player", "play");
 		
 		
-		this.audio = new Audio("https://lausannefm.ice.infomaniak.ch/lausannefm-high.mp3");
-	//	this.audio.play();
-		this.stream.play();
-		
+		//this.audio = new Audio("https://lausannefm.ice.infomaniak.ch/lausannefm-high.mp3");
+		this.audio.play();
+		//this.stream.play();
+		this.audio.addEventListener("onwaiting", function() {
+			console.log('Mise en tempon');
+
+		}, true);
+		this.audio.addEventListener("playing", function() {
+			console.log('lecture');
+			$('.loadingPlayer').hide();
+			$('.btPlayer').show();
+			$('.playerEtat_2').hide();
+			$('.playerEtat_0').hide();
+			$('.playerEtat_1').show();
+			$('.loadingaudio').hide();
+			$('.btPlayer').html('<i class="fas fa-pause-circle fa-3x"></i>');
+			if(localStorage.player_id=='0'){
+				$('.btPlayerhome').html('<i class="fas fa-pause"></i>');
+				$('.fab-md-danger').removeClass("pulseplay");	
+			}
+
+			this.settingMusicControl('test','test2', 'https://images.8tracks.com/cover/i/002/724/613/Coldplay___Ghost_Stories_Live_2014-2485.jpg?rect=0,0,512,512&q=98&fm=jpg&fit=max');
+			this.audio.pause();
+			this.audio.play();
+		});
+
+
+
+		/*
 		this.stream.onStatusUpdate.subscribe(status => {
 
 			console.log(JSON.stringify(status));
@@ -304,7 +334,7 @@ export class AudioStreamProvider {
 			
 
 		});
-
+*/
 		
 	
 		return Observable.of(false);
@@ -315,8 +345,11 @@ export class AudioStreamProvider {
 	}
 	public pauseProvider(): Observable<boolean> {
 		
+
+		this.audio.pause();
+		
 		if(localStorage.type_player == 'replay'){
-			this.stream.pause();
+			//this.stream.pause();
 		}
 		else {
 			//clearInterval(progressbar);
@@ -324,7 +357,7 @@ export class AudioStreamProvider {
 				clearInterval(this.timingloading);
 			}
 
-			this.stream.stop();
+			//this.stream.stop();
 			//localStorage.setItem("player_id", '');
 			this.musicControls.listen();
 			this.musicControls.updateIsPlaying(false);
