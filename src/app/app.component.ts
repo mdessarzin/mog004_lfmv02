@@ -32,6 +32,7 @@ export class MyApp {
 		//let ratio = Math.max(window.devicePixelRatio || 1, 1);
 		//this.splashScreen.hide();
 		this.platform.ready().then(() => {
+			console.log('démarrage ok');
 			this.splashScreen.hide();
 		});
 	}
