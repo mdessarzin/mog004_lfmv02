@@ -2,9 +2,6 @@ import { NgModule, ErrorHandler, Injectable, Injector } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { Pro } from '@ionic/pro';
-import { IonicErrorHandler } from 'ionic-angular';
-
-
 import { MyApp } from './app.component';
 import { AccueilPage } from '../pages/accueil/accueil';
 import { ActualitePage } from '../pages/actualite/actualite';
