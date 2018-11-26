@@ -28,79 +28,15 @@ export class MyApp {
 		//this._player.playProvider();
 		//this._player.pauseProvider();
 		localStorage.setItem("build", "1.0.4");
-		this.initializeApp();
-		let ratio = Math.max(window.devicePixelRatio || 1, 1);
-		this.splashScreen.hide();
-	}
-
-	initializeApp() {
+		//this.initializeApp();
+		//let ratio = Math.max(window.devicePixelRatio || 1, 1);
+		//this.splashScreen.hide();
 		this.platform.ready().then(() => {
-
-			
-			
-
-			this.statusBar.styleDefault();
-
-			localStorage.setItem("type_player", "live");
-			localStorage.setItem("podcast_url", '');
-			localStorage.setItem("player", "stop");
-			localStorage.setItem("player_url", 'https://lausannefm.ice.infomaniak.ch/lausannefm-high.mp3');
-			localStorage.setItem("player_title", 'Direct');
-			localStorage.setItem("player_json", 'https://www.lfm.ch/cache/onair.json');
-
-			$.getJSON('https://www.lfm.ch/cache/lfm_live.json', function (data) {
-				localStorage.setItem("playerDetail", data.start_short + '-' + data.end_short);
-				localStorage.setItem("playerTitre", data.title);
-				localStorage.setItem("playerSoustitre", data.animators);
-				localStorage.setItem("playerCover", data.picture); //data.picture
-				$('#coverPlayerHome').attr('src', data.picture);
-			});
-
-			if (this.platform.is('cordova')) {
-				this.handlerNotifications();
-				this.splashScreen.hide();
-/*
-				(<any>window).SmartAdServer.setOptions({
-					siteId: 270610,
-					baseUrl: 'http://mobile.smartadserver.com',
-					position: (<any>window).SmartAdServer.AD_POSITION.BOTTOM_CENTER,
-					// offsetTopBar: false, // avoid overlapped by status bar, for iOS7+
-					bgColor: 'black', // color name, or '#RRGGBB'
-					isTesting: false, // set to true, to receiving test ad for testing purpose
-					autoShow: false // auto show interstitial ad when loaded, set to false if prepare/show
-				});	// Page : App_LFM/standard 270610 / 1014628
-*/
-				
-			}
-
-			setInterval(() => {
-				$.ajaxSetup({ cache: false });
-				/*
-				$.getJSON('https://www.mediaone-digital.ch/cache/lfm.json?hash_id=' + Math.random(), function (data) {
-					localStorage.setItem("songArtist", data.live[0].interpret);
-					localStorage.setItem("songTitle", data.live[0].title);
-					localStorage.setItem("songCover", data.live[0].imageURL);
-				});
-*/
-				if (localStorage.type_player == 'live') {
-					$.getJSON('https://www.lfm.ch/cache/lfm_live.json?hash_id=' + Math.random(), function (data) {
-						localStorage.setItem("playerDetail", data.start_short + '-' + data.end_short);
-						localStorage.setItem("playerTitre", data.title);
-						localStorage.setItem("playerSoustitre", data.animators);
-						localStorage.setItem("playerCover", data.picture); //data.picture
-						$('.songArtist').html(data.start_short + '-' + data.end_short);
-						$('.songTitle').html(data.title);
-						$('.songCover').attr('src', data.picture);
-					});
-				}
-
-			}, 30000);
-
-
-
+			this.splashScreen.hide();
 		});
 	}
 
+	
 
 
 
