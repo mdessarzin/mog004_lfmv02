@@ -4,7 +4,6 @@ import { AccueilPage } from '../accueil/accueil';
 import { ActualitePage } from '../actualite/actualite';
 import { PlayerPlaylistPage } from '../player-playlist/player-playlist';
 import { PodcastsPage } from '../podcasts/podcasts';
-import { ChroniquesPage } from '../chroniques/chroniques';
 import { BlogPage } from '../blog/blog';
 
 @Component({
