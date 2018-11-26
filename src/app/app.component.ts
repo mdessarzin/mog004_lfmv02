@@ -3,7 +3,6 @@ import { Component }  from '@angular/core';
 import { Platform, AlertController, ModalController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { OneSignal } from '@ionic-native/onesignal';
 import { AudioStreamProvider } from '../providers/audio-stream/audio-stream';
 import * as $ from "jquery";
 import { TabsPage } from '../pages/tabs/tabs';
@@ -22,7 +21,6 @@ export class MyApp {
 		private statusBar: StatusBar,
 		private splashScreen: SplashScreen,
 		private alertCtrl: AlertController,
-		private oneSignal: OneSignal,
 		public _player: AudioStreamProvider,
 		public modalCtrl: ModalController
 	) {
