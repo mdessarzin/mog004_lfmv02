@@ -24,10 +24,10 @@ export class MyApp {
 		public _player: AudioStreamProvider,
 		public modalCtrl: ModalController
 	) {
-		this._player.playerconfigProvider('live', '0');
+		//this._player.playerconfigProvider('live', '0');
 		//this._player.playProvider();
 		//this._player.pauseProvider();
-		localStorage.setItem("build", "1.0.4");
+		//localStorage.setItem("build", "1.0.4");
 		//this.initializeApp();
 		//let ratio = Math.max(window.devicePixelRatio || 1, 1);
 		//this.splashScreen.hide();
