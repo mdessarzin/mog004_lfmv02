@@ -132,12 +132,10 @@ export class AccueilPage {
 			$('.playerEtat_1').hide();
 			$('.playerEtat_0').show();
 		}
-
-	}
-
-	ionViewDidEnter() {
-
-
+		$('.btPlayerhome').html('<i class="fas fa-play"></i>');
+		$.getJSON('https://www.lfm.ch/cache/lfm_live.json', function (data) {
+			$('#coverPlayerHome').attr('src', data.picture);
+		});
 	}
 
 	update(refresher) {
@@ -176,18 +174,6 @@ export class AccueilPage {
 		if (this.pagination === this.maximumPages) {
 			infiniteScroll.enable(false);
 		}
-	}
-
-
-
-	ionViewDidLoad() {
-
-
-
-	}
-
-	ionViewWillLeave() {
-		// 	(<any>window).SmartAdServer.hideBanner();
 	}
 
 	openads(link) {

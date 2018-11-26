@@ -48,9 +48,9 @@ export class MyApp {
 			localStorage.setItem("player", "stop");
 			localStorage.setItem("player_url", 'https://lausannefm.ice.infomaniak.ch/lausannefm-high.mp3');
 			localStorage.setItem("player_title", 'Direct');
-			localStorage.setItem("player_json", 'https://www.mediaone-digital.ch/cache/lfm.json');
+			localStorage.setItem("player_json", 'https://www.lfm.ch/cache/onair.json');
 
-			$.getJSON('https://www.mediaone-digital.ch/cache/live/lfm_live.json', function (data) {
+			$.getJSON('https://www.lfm.ch/cache/lfm_live.json', function (data) {
 				localStorage.setItem("playerDetail", data.start_short + '-' + data.end_short);
 				localStorage.setItem("playerTitre", data.title);
 				localStorage.setItem("playerSoustitre", data.animators);
@@ -84,7 +84,7 @@ export class MyApp {
 				});
 */
 				if (localStorage.type_player == 'live') {
-					$.getJSON('https://www.mediaone-digital.ch/cache/live/lfm_live.json?hash_id=' + Math.random(), function (data) {
+					$.getJSON('https://www.lfm.ch/cache/lfm_live.json?hash_id=' + Math.random(), function (data) {
 						localStorage.setItem("playerDetail", data.start_short + '-' + data.end_short);
 						localStorage.setItem("playerTitre", data.title);
 						localStorage.setItem("playerSoustitre", data.animators);
@@ -116,7 +116,7 @@ export class MyApp {
 	}
 
 	private handlerNotifications() {
-
+/*
 		this.oneSignal.startInit('7f79900f-f206-4340-8fdc-a57bc809b127', '555413916773');
 		this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.Notification);
 		//this.oneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
@@ -131,6 +131,7 @@ export class MyApp {
 				console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
 			});
 		this.oneSignal.endInit();
+		*/
 	}
 
 }
