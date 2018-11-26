@@ -61,7 +61,7 @@ export class MyApp {
 			if (this.platform.is('cordova')) {
 				this.handlerNotifications();
 				this.splashScreen.hide();
-
+/*
 				(<any>window).SmartAdServer.setOptions({
 					siteId: 270610,
 					baseUrl: 'http://mobile.smartadserver.com',
@@ -71,6 +71,7 @@ export class MyApp {
 					isTesting: false, // set to true, to receiving test ad for testing purpose
 					autoShow: false // auto show interstitial ad when loaded, set to false if prepare/show
 				});	// Page : App_LFM/standard 270610 / 1014628
+*/
 				
 			}
 
